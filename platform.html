@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GCMA — NCLEX-RN Training Platform</title>
-  <meta name="description" content="GCMA NCLEX-RN Training: Introduction, Syllabus, Study Materials, Question Bank, and Exam Practice." />
+  <title>GCMA — NCLEX-RN Training</title>
+  <meta name="description" content="GCMA NCLEX-RN Training Platform: Introduction, Syllabus, Study Material, Question Bank and Exam Practice." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/platform.css" />
@@ -12,11 +12,11 @@
 <body>
 
 <!-- ══════════════════════════════════════
-     TOP NAVIGATION
+     TOP NAV
 ══════════════════════════════════════ -->
-<header class="topbar" role="banner">
-  <div class="topbar-logo" onclick="navigate('introduction')" role="button" tabindex="0" aria-label="GCMA Home">
-    <div class="logo-cap" aria-hidden="true">🎓</div>
+<header class="topbar">
+  <div class="topbar-logo" onclick="navigate('introduction')" role="button" tabindex="0" aria-label="Go to Introduction">
+    <div class="logo-cap">🎓</div>
     <div class="logo-text">
       <span class="logo-name">GCMA</span>
       <span class="logo-sub">NCLEX-RN TRAINING</span>
@@ -24,47 +24,51 @@
   </div>
 
   <nav class="topbar-nav" role="navigation" aria-label="Platform navigation">
-    <button class="nav-tab active" id="tab-introduction" onclick="navigate('introduction')" aria-current="page">
-      <span class="nav-icon" aria-hidden="true">⌂</span> Introduction
+    <button class="nav-tab active" id="tab-introduction" onclick="navigate('introduction')">
+      <span class="nav-icon">⌂</span> Introduction
     </button>
     <button class="nav-tab" id="tab-syllabus" onclick="navigate('syllabus')">
-      <span class="nav-icon" aria-hidden="true">📖</span> Syllabus
+      <span class="nav-icon">📖</span> Syllabus
     </button>
     <button class="nav-tab" id="tab-study" onclick="navigate('study')">
-      <span class="nav-icon" aria-hidden="true">📄</span> Study Material
+      <span class="nav-icon">📄</span> Study Material
     </button>
     <button class="nav-tab" id="tab-qbank" onclick="navigate('qbank')">
-      <span class="nav-icon" aria-hidden="true">❓</span> Question Bank
+      <span class="nav-icon">❓</span> Question Bank
     </button>
     <button class="nav-tab" id="tab-exam" onclick="navigate('exam')">
-      <span class="nav-icon" aria-hidden="true">📋</span> Exam Practice
+      <span class="nav-icon">📋</span> Exam Practice
     </button>
   </nav>
 
-  <button class="logout-btn" onclick="handleLogout()" aria-label="Logout">
-    <span aria-hidden="true">→|</span> Logout
+  <button class="logout-btn" onclick="handleLogout()">
+    <span>→|</span> Logout
   </button>
 </header>
 
-<!-- ══════════════════════════════════════
-     SCREENS
-══════════════════════════════════════ -->
-<main class="platform-main" role="main">
+<main class="platform-main">
 
-  <!-- ── INTRODUCTION ── -->
-  <section class="screen active" id="screen-introduction" aria-labelledby="intro-heading">
+  <!-- ══════════════════════════════════════
+       INTRODUCTION
+  ══════════════════════════════════════ -->
+  <section class="screen active" id="screen-introduction">
 
-    <!-- Logo block -->
     <div class="intro-logo-wrap">
-      <img src="img/gcma_logo.png" alt="GCMA — Global Council for Migration Awareness and Social Welfare" class="intro-logo-img" />
+      <img src="img/gcma_logo.png" alt="GCMA Logo" class="intro-logo-img"
+           onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'" />
+      <div id="logo-fallback" class="logo-fallback" style="display:none">
+        <div class="lf-icon">🎓</div>
+        <div class="lf-name">GCMA</div>
+        <div class="lf-sub">GLOBAL COUNCIL FOR MIGRATION AWARENESS AND SOCIAL WELFARE</div>
+      </div>
     </div>
 
-    <div class="diamond-sep" aria-hidden="true">◆</div>
+    <div class="diamond-sep">◆</div>
 
     <!-- About Us -->
-    <div class="content-card" role="region" aria-labelledby="about-heading">
+    <div class="content-card">
       <div class="card-eyebrow">— ABOUT US —</div>
-      <h2 id="about-heading" class="card-heading">
+      <h2 class="card-heading">
         Empowering Migrants with <em class="gold-italic">Clarity, Honesty &amp; Trust</em>
       </h2>
       <p class="card-body">
@@ -75,15 +79,15 @@
       </p>
     </div>
 
-    <!-- Instructor Card -->
-    <div class="content-card instructor-card" role="region" aria-labelledby="instructor-heading">
+    <!-- Instructor -->
+    <div class="content-card instructor-card">
       <div class="instructor-inner">
-        <div class="instructor-photo-wrap" aria-hidden="true">
+        <div class="instructor-photo-wrap">
           <div class="instructor-photo">JJ</div>
         </div>
         <div class="instructor-info">
           <div class="instructor-name-row">
-            <h3 id="instructor-heading" class="instructor-name">Juhy P Jose</h3>
+            <h3 class="instructor-name">Juhy P Jose</h3>
             <span class="instructor-cred"> — <em>RN, ENC</em></span>
           </div>
           <div class="instructor-role">NURSING MIGRATION WELFARE SPECIALIST • GCMA</div>
@@ -100,15 +104,12 @@
     </div>
 
     <!-- Path to Licensure -->
-    <div class="content-card" role="region" aria-labelledby="path-heading">
+    <div class="content-card">
       <div class="card-eyebrow">— NCLEX-RN PREPARATION —</div>
-      <h2 id="path-heading" class="card-heading">
-        Your Path to Licensure <em class="gold-italic">Starts Here</em>
-      </h2>
+      <h2 class="card-heading">Your Path to Licensure <em class="gold-italic">Starts Here</em></h2>
       <p class="card-body">
         At GCMA, we offer structured <strong>NCLEX-RN training</strong> designed to prepare nurses for success — lesson by lesson, with the latest exam-style questions and practical clinical insight.
       </p>
-
       <div class="feat-grid-3">
         <div class="feat-tile" onclick="navigate('syllabus')" role="button" tabindex="0">
           <div class="feat-tile-icon">🎬</div>
@@ -129,9 +130,9 @@
     </div>
 
     <!-- Mission -->
-    <div class="content-card" role="region" aria-labelledby="mission-heading">
+    <div class="content-card">
       <div class="card-eyebrow">— OUR MISSION —</div>
-      <h2 id="mission-heading" class="card-heading">What We Stand For</h2>
+      <h2 class="card-heading">What We Stand For</h2>
       <div class="feat-grid-3">
         <div class="feat-tile mission-tile">
           <div class="feat-tile-icon mission-icon">🛡️</div>
@@ -153,400 +154,336 @@
 
   </section>
 
-  <!-- ── SYLLABUS ── -->
-  <section class="screen" id="screen-syllabus" aria-labelledby="syllabus-heading">
+  <!-- ══════════════════════════════════════
+       SYLLABUS
+  ══════════════════════════════════════ -->
+  <section class="screen" id="screen-syllabus">
     <div class="page-header">
       <div class="page-eyebrow">— COMPLETE SYLLABUS —</div>
-      <h1 id="syllabus-heading" class="page-title">NCLEX-RN Syllabus</h1>
-      <p class="page-sub">Explore the full syllabus organised by Client Needs categories. Click on each topic to access video classes.</p>
+      <h1 class="page-title">NCLEX-RN Syllabus</h1>
+      <p class="page-sub">Explore the full syllabus organised by Client Needs categories. Click each topic to expand.</p>
     </div>
-    <div class="diamond-sep" aria-hidden="true">◆</div>
+    <div class="diamond-sep">◆</div>
 
-    <div class="accordion-list" id="syllabus-accordion" role="list">
+    <div class="accordion-list">
 
-      <div class="acc-item" role="listitem">
-        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-          <div class="acc-left">
-            <span class="acc-num">1</span>
-            <div>
-              <div class="acc-title">Management of Care</div>
-              <div class="acc-count">5 topics</div>
-            </div>
-          </div>
-          <span class="acc-chevron" aria-hidden="true">›</span>
+      <div class="acc-item">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-num">1</span><div><div class="acc-title">Management of Care</div><div class="acc-count">5 topics</div></div></div>
+          <span class="acc-chevron">›</span>
         </button>
-        <div class="acc-body">
-          <ul class="topic-list">
-            <li><span class="topic-icon">▶</span> Advance Directives / Self-Determination / Life Planning</li>
-            <li><span class="topic-icon">▶</span> Case Management &amp; Care Coordination</li>
-            <li><span class="topic-icon">▶</span> Client Rights and Advocacy</li>
-            <li><span class="topic-icon">▶</span> Delegation and Supervision</li>
-            <li><span class="topic-icon">▶</span> Ethical Practice and Legal Responsibilities</li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="topic-list">
+          <li><span class="topic-icon">▶</span>Advance Directives / Self-Determination / Life Planning</li>
+          <li><span class="topic-icon">▶</span>Case Management &amp; Care Coordination</li>
+          <li><span class="topic-icon">▶</span>Client Rights and Advocacy</li>
+          <li><span class="topic-icon">▶</span>Delegation and Supervision</li>
+          <li><span class="topic-icon">▶</span>Ethical Practice and Legal Responsibilities</li>
+        </ul></div>
       </div>
 
-      <div class="acc-item" role="listitem">
-        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-          <div class="acc-left">
-            <span class="acc-num">2</span>
-            <div>
-              <div class="acc-title">Safety and Infection Control</div>
-              <div class="acc-count">4 topics</div>
-            </div>
-          </div>
-          <span class="acc-chevron" aria-hidden="true">›</span>
+      <div class="acc-item">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-num">2</span><div><div class="acc-title">Safety and Infection Control</div><div class="acc-count">4 topics</div></div></div>
+          <span class="acc-chevron">›</span>
         </button>
-        <div class="acc-body">
-          <ul class="topic-list">
-            <li><span class="topic-icon">▶</span> Accident / Error / Injury Prevention</li>
-            <li><span class="topic-icon">▶</span> Emergency Response Planning</li>
-            <li><span class="topic-icon">▶</span> Home Safety &amp; Ergonomics</li>
-            <li><span class="topic-icon">▶</span> Standard &amp; Transmission-Based Precautions</li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="topic-list">
+          <li><span class="topic-icon">▶</span>Accident / Error / Injury Prevention</li>
+          <li><span class="topic-icon">▶</span>Emergency Response Planning</li>
+          <li><span class="topic-icon">▶</span>Home Safety &amp; Ergonomics</li>
+          <li><span class="topic-icon">▶</span>Standard &amp; Transmission-Based Precautions</li>
+        </ul></div>
       </div>
 
-      <div class="acc-item" role="listitem">
-        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-          <div class="acc-left">
-            <span class="acc-num">3</span>
-            <div>
-              <div class="acc-title">Health Promotion and Maintenance</div>
-              <div class="acc-count">3 topics</div>
-            </div>
-          </div>
-          <span class="acc-chevron" aria-hidden="true">›</span>
+      <div class="acc-item">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-num">3</span><div><div class="acc-title">Health Promotion and Maintenance</div><div class="acc-count">3 topics</div></div></div>
+          <span class="acc-chevron">›</span>
         </button>
-        <div class="acc-body">
-          <ul class="topic-list">
-            <li><span class="topic-icon">▶</span> Aging Process &amp; Developmental Stages</li>
-            <li><span class="topic-icon">▶</span> Disease Prevention &amp; Health Screening</li>
-            <li><span class="topic-icon">▶</span> Lifestyle Choices &amp; Community Health</li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="topic-list">
+          <li><span class="topic-icon">▶</span>Aging Process &amp; Developmental Stages</li>
+          <li><span class="topic-icon">▶</span>Disease Prevention &amp; Health Screening</li>
+          <li><span class="topic-icon">▶</span>Lifestyle Choices &amp; Community Health</li>
+        </ul></div>
       </div>
 
-      <div class="acc-item" role="listitem">
-        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-          <div class="acc-left">
-            <span class="acc-num">4</span>
-            <div>
-              <div class="acc-title">Psychosocial Integrity</div>
-              <div class="acc-count">3 topics</div>
-            </div>
-          </div>
-          <span class="acc-chevron" aria-hidden="true">›</span>
+      <div class="acc-item">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-num">4</span><div><div class="acc-title">Psychosocial Integrity</div><div class="acc-count">3 topics</div></div></div>
+          <span class="acc-chevron">›</span>
         </button>
-        <div class="acc-body">
-          <ul class="topic-list">
-            <li><span class="topic-icon">▶</span> Behavioural Interventions &amp; Mental Health</li>
-            <li><span class="topic-icon">▶</span> Coping Mechanisms &amp; Support Systems</li>
-            <li><span class="topic-icon">▶</span> Grief, Loss, and Crisis Intervention</li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="topic-list">
+          <li><span class="topic-icon">▶</span>Behavioural Interventions &amp; Mental Health</li>
+          <li><span class="topic-icon">▶</span>Coping Mechanisms &amp; Support Systems</li>
+          <li><span class="topic-icon">▶</span>Grief, Loss, and Crisis Intervention</li>
+        </ul></div>
       </div>
 
-      <div class="acc-item" role="listitem">
-        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-          <div class="acc-left">
-            <span class="acc-num">5</span>
-            <div>
-              <div class="acc-title">Basic Care and Comfort</div>
-              <div class="acc-count">3 topics</div>
-            </div>
-          </div>
-          <span class="acc-chevron" aria-hidden="true">›</span>
+      <div class="acc-item">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-num">5</span><div><div class="acc-title">Basic Care and Comfort</div><div class="acc-count">3 topics</div></div></div>
+          <span class="acc-chevron">›</span>
         </button>
-        <div class="acc-body">
-          <ul class="topic-list">
-            <li><span class="topic-icon">▶</span> Assistive Devices &amp; Mobility</li>
-            <li><span class="topic-icon">▶</span> Nutrition &amp; Oral Hydration</li>
-            <li><span class="topic-icon">▶</span> Rest, Sleep &amp; Non-Pharmacological Comfort</li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="topic-list">
+          <li><span class="topic-icon">▶</span>Assistive Devices &amp; Mobility</li>
+          <li><span class="topic-icon">▶</span>Nutrition &amp; Oral Hydration</li>
+          <li><span class="topic-icon">▶</span>Rest, Sleep &amp; Non-Pharmacological Comfort</li>
+        </ul></div>
       </div>
 
-      <div class="acc-item" role="listitem">
-        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-          <div class="acc-left">
-            <span class="acc-num">6</span>
-            <div>
-              <div class="acc-title">Pharmacological and Parenteral Therapies</div>
-              <div class="acc-count">4 topics</div>
-            </div>
-          </div>
-          <span class="acc-chevron" aria-hidden="true">›</span>
+      <div class="acc-item">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-num">6</span><div><div class="acc-title">Pharmacological and Parenteral Therapies</div><div class="acc-count">4 topics</div></div></div>
+          <span class="acc-chevron">›</span>
         </button>
-        <div class="acc-body">
-          <ul class="topic-list">
-            <li><span class="topic-icon">▶</span> Adverse Drug Effects &amp; Contraindications</li>
-            <li><span class="topic-icon">▶</span> Blood &amp; Blood Products Administration</li>
-            <li><span class="topic-icon">▶</span> Medication Administration &amp; Calculation</li>
-            <li><span class="topic-icon">▶</span> Pharmacokinetics &amp; Drug Interactions</li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="topic-list">
+          <li><span class="topic-icon">▶</span>Adverse Drug Effects &amp; Contraindications</li>
+          <li><span class="topic-icon">▶</span>Blood &amp; Blood Products Administration</li>
+          <li><span class="topic-icon">▶</span>Medication Administration &amp; Calculation</li>
+          <li><span class="topic-icon">▶</span>Pharmacokinetics &amp; Drug Interactions</li>
+        </ul></div>
       </div>
 
-      <div class="acc-item" role="listitem">
-        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-          <div class="acc-left">
-            <span class="acc-num">7</span>
-            <div>
-              <div class="acc-title">Reduction of Risk Potential</div>
-              <div class="acc-count">4 topics</div>
-            </div>
-          </div>
-          <span class="acc-chevron" aria-hidden="true">›</span>
+      <div class="acc-item">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-num">7</span><div><div class="acc-title">Reduction of Risk Potential</div><div class="acc-count">4 topics</div></div></div>
+          <span class="acc-chevron">›</span>
         </button>
-        <div class="acc-body">
-          <ul class="topic-list">
-            <li><span class="topic-icon">▶</span> Changes / Abnormal Diagnostics</li>
-            <li><span class="topic-icon">▶</span> Lab Values &amp; Interpretation</li>
-            <li><span class="topic-icon">▶</span> Monitoring Post-Procedure</li>
-            <li><span class="topic-icon">▶</span> Therapeutic Procedures &amp; Complications</li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="topic-list">
+          <li><span class="topic-icon">▶</span>Changes / Abnormal Diagnostics</li>
+          <li><span class="topic-icon">▶</span>Lab Values &amp; Interpretation</li>
+          <li><span class="topic-icon">▶</span>Monitoring Post-Procedure</li>
+          <li><span class="topic-icon">▶</span>Therapeutic Procedures &amp; Complications</li>
+        </ul></div>
       </div>
 
-      <div class="acc-item" role="listitem">
-        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
-          <div class="acc-left">
-            <span class="acc-num">8</span>
-            <div>
-              <div class="acc-title">Physiological Adaptation</div>
-              <div class="acc-count">3 topics</div>
-            </div>
-          </div>
-          <span class="acc-chevron" aria-hidden="true">›</span>
+      <div class="acc-item">
+        <button class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-left"><span class="acc-num">8</span><div><div class="acc-title">Physiological Adaptation</div><div class="acc-count">3 topics</div></div></div>
+          <span class="acc-chevron">›</span>
         </button>
-        <div class="acc-body">
-          <ul class="topic-list">
-            <li><span class="topic-icon">▶</span> Alterations in Body Systems</li>
-            <li><span class="topic-icon">▶</span> Fluid &amp; Electrolyte Imbalances</li>
-            <li><span class="topic-icon">▶</span> Medical Emergencies &amp; Hemodynamics</li>
-          </ul>
-        </div>
+        <div class="acc-body"><ul class="topic-list">
+          <li><span class="topic-icon">▶</span>Alterations in Body Systems</li>
+          <li><span class="topic-icon">▶</span>Fluid &amp; Electrolyte Imbalances</li>
+          <li><span class="topic-icon">▶</span>Medical Emergencies &amp; Hemodynamics</li>
+        </ul></div>
       </div>
 
     </div>
   </section>
 
-  <!-- ── STUDY MATERIAL ── -->
-  <section class="screen" id="screen-study" aria-labelledby="study-heading">
+  <!-- ══════════════════════════════════════
+       STUDY MATERIAL
+  ══════════════════════════════════════ -->
+  <section class="screen" id="screen-study">
     <div class="page-header">
       <div class="page-eyebrow">— STUDY RESOURCES —</div>
-      <h1 id="study-heading" class="page-title">Study Materials</h1>
+      <h1 class="page-title">Study Materials</h1>
       <p class="page-sub">Chapter-wise notes and resources to help you prepare for the NCLEX-RN exam.</p>
     </div>
-    <div class="diamond-sep" aria-hidden="true">◆</div>
+    <div class="diamond-sep">◆</div>
 
     <div class="study-grid">
-      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('management')">
-        <div class="study-icon" aria-hidden="true">📖</div>
-        <div class="study-info">
-          <div class="study-name">Management of Care</div>
-          <div class="study-count">2 chapters</div>
-        </div>
-      </div>
-      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('safety')">
-        <div class="study-icon" aria-hidden="true">📖</div>
-        <div class="study-info">
-          <div class="study-name">Safety and Infection Control</div>
-          <div class="study-count">1 chapter</div>
-        </div>
-      </div>
-      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('health')">
-        <div class="study-icon" aria-hidden="true">📖</div>
-        <div class="study-info">
-          <div class="study-name">Health Promotion and Maintenance</div>
-          <div class="study-count">0 chapters</div>
-        </div>
-      </div>
-      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('psychosocial')">
-        <div class="study-icon" aria-hidden="true">📖</div>
-        <div class="study-info">
-          <div class="study-name">Psychosocial Integrity</div>
-          <div class="study-count">1 chapter</div>
-        </div>
-      </div>
-      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('basic')">
-        <div class="study-icon" aria-hidden="true">📖</div>
-        <div class="study-info">
-          <div class="study-name">Basic Care and Comfort</div>
-          <div class="study-count">0 chapters</div>
-        </div>
-      </div>
-      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('pharma')">
-        <div class="study-icon" aria-hidden="true">📖</div>
-        <div class="study-info">
-          <div class="study-name">Pharmacological and Parenteral Therapies</div>
-          <div class="study-count">1 chapter</div>
-        </div>
-      </div>
-      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('reduction')">
-        <div class="study-icon" aria-hidden="true">📖</div>
-        <div class="study-info">
-          <div class="study-name">Reduction of Risk Potential</div>
-          <div class="study-count">0 chapters</div>
-        </div>
-      </div>
-      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('physio')">
-        <div class="study-icon" aria-hidden="true">📖</div>
-        <div class="study-info">
-          <div class="study-name">Physiological Adaptation</div>
-          <div class="study-count">1 chapter</div>
-        </div>
-      </div>
+      <div class="study-card" onclick="openStudy('management')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Management of Care</div><div class="study-count">2 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('safety')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Safety and Infection Control</div><div class="study-count">1 chapter</div></div></div>
+      <div class="study-card" onclick="openStudy('health')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Health Promotion and Maintenance</div><div class="study-count">0 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('psychosocial')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Psychosocial Integrity</div><div class="study-count">1 chapter</div></div></div>
+      <div class="study-card" onclick="openStudy('basic')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Basic Care and Comfort</div><div class="study-count">0 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('pharma')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Pharmacological and Parenteral Therapies</div><div class="study-count">1 chapter</div></div></div>
+      <div class="study-card" onclick="openStudy('reduction')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Reduction of Risk Potential</div><div class="study-count">0 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('physio')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Physiological Adaptation</div><div class="study-count">1 chapter</div></div></div>
     </div>
 
-    <!-- Study modal -->
-    <div class="study-modal-bg" id="study-modal-bg" onclick="closeStudyModal()" aria-hidden="true"></div>
-    <div class="study-modal" id="study-modal" role="dialog" aria-modal="true" aria-labelledby="study-modal-title">
+    <!-- Modal -->
+    <div class="modal-bg" id="modal-bg" onclick="closeModal()"></div>
+    <div class="study-modal" id="study-modal" role="dialog" aria-modal="true">
       <div class="study-modal-header">
-        <h3 id="study-modal-title">Chapter</h3>
-        <button onclick="closeStudyModal()" class="modal-close-btn" aria-label="Close">✕</button>
+        <h3 id="modal-title">Chapters</h3>
+        <button onclick="closeModal()" class="modal-close-btn">✕</button>
       </div>
-      <div class="study-modal-body" id="study-modal-body">
-        <p class="empty-state">📂 No chapters uploaded yet. Check back soon — materials will be added shortly.</p>
-      </div>
+      <div id="modal-body" class="study-modal-body"></div>
     </div>
   </section>
 
-  <!-- ── QUESTION BANK ── -->
-  <section class="screen" id="screen-qbank" aria-labelledby="qbank-heading">
-    <div class="page-header">
-      <div class="page-eyebrow">— PRACTICE QUESTIONS —</div>
-      <h1 id="qbank-heading" class="page-title">Question Bank</h1>
-      <p class="page-sub">Browse and practise NCLEX-RN questions by category and format. Select a topic to begin.</p>
-    </div>
-    <div class="diamond-sep" aria-hidden="true">◆</div>
+  <!-- ══════════════════════════════════════
+       QUESTION BANK  (inline quiz engine)
+  ══════════════════════════════════════ -->
+  <section class="screen" id="screen-qbank">
 
-    <div class="qbank-filters content-card" role="region" aria-label="Question filters">
-      <div class="qf-row">
-        <div class="qf-group">
-          <label class="qf-label" for="qf-category">Category</label>
-          <select id="qf-category" class="qf-select" aria-label="Filter by category">
-            <option value="all">All Categories</option>
-            <option>Management of Care</option>
-            <option>Safety and Infection Control</option>
-            <option>Health Promotion and Maintenance</option>
-            <option>Psychosocial Integrity</option>
-            <option>Basic Care and Comfort</option>
-            <option>Pharmacological and Parenteral Therapies</option>
-            <option>Reduction of Risk Potential</option>
-            <option>Physiological Adaptation</option>
-          </select>
-        </div>
-        <div class="qf-group">
-          <label class="qf-label" for="qf-format">Format</label>
-          <select id="qf-format" class="qf-select" aria-label="Filter by format">
-            <option value="all">All Formats</option>
-            <option>Multiple Choice</option>
-            <option>SATA</option>
-            <option>Prioritization</option>
-            <option>NGN Case Study</option>
-          </select>
-        </div>
-        <div class="qf-group">
-          <label class="qf-label" for="qf-difficulty">Difficulty</label>
-          <select id="qf-difficulty" class="qf-select" aria-label="Filter by difficulty">
-            <option value="all">All Levels</option>
-            <option>Foundational</option>
-            <option>Application</option>
-            <option>Analysis</option>
-          </select>
-        </div>
-        <div class="qf-group">
-          <label class="qf-label" for="qf-count">Questions</label>
-          <select id="qf-count" class="qf-select" aria-label="Number of questions">
-            <option value="5">5 Questions</option>
-            <option value="10" selected>10 Questions</option>
-            <option value="20">20 Questions</option>
-            <option value="all">All Available</option>
-          </select>
-        </div>
+    <!-- SETUP view -->
+    <div id="qbank-setup">
+      <div class="page-header">
+        <div class="page-eyebrow">— PRACTICE QUESTIONS —</div>
+        <h1 class="page-title">Question Bank</h1>
+        <p class="page-sub">Select filters and start a practice session. Detailed rationales after every question.</p>
       </div>
-      <button class="start-btn" onclick="launchQuiz()" id="qbank-start-btn">
-        Start Practice Session →
-      </button>
-    </div>
+      <div class="diamond-sep">◆</div>
 
-    <div class="qbank-stats-row" role="region" aria-label="Your question bank statistics">
-      <div class="qstat-card">
-        <div class="qstat-val" id="qs-answered">0</div>
-        <div class="qstat-lbl">Questions Answered</div>
+      <div class="content-card qbank-filters">
+        <div class="qf-row">
+          <div class="qf-group">
+            <label class="qf-label" for="qf-category">Category</label>
+            <select id="qf-category" class="qf-select">
+              <option value="ALL">All Categories</option>
+              <option value="Management of Care">Management of Care</option>
+              <option value="Safety &amp; Infection Control">Safety &amp; Infection Control</option>
+              <option value="Health Promotion">Health Promotion</option>
+              <option value="Psychosocial Integrity">Psychosocial Integrity</option>
+              <option value="Basic Care &amp; Comfort">Basic Care &amp; Comfort</option>
+              <option value="Pharmacological Therapies">Pharmacological Therapies</option>
+              <option value="Reduction of Risk Potential">Reduction of Risk Potential</option>
+              <option value="Physiological Adaptation">Physiological Adaptation</option>
+            </select>
+          </div>
+          <div class="qf-group">
+            <label class="qf-label" for="qf-format">Format</label>
+            <select id="qf-format" class="qf-select">
+              <option value="ALL">All Formats</option>
+              <option value="Multiple Choice">Multiple Choice</option>
+              <option value="SATA">SATA</option>
+              <option value="Prioritization">Prioritization</option>
+              <option value="NGN Case Study">NGN Case Study</option>
+            </select>
+          </div>
+          <div class="qf-group">
+            <label class="qf-label" for="qf-difficulty">Difficulty</label>
+            <select id="qf-difficulty" class="qf-select">
+              <option value="ALL">All Levels</option>
+              <option value="Foundational">Foundational</option>
+              <option value="Application">Application</option>
+              <option value="Analysis">Analysis</option>
+            </select>
+          </div>
+          <div class="qf-group">
+            <label class="qf-label" for="qf-count">Questions</label>
+            <select id="qf-count" class="qf-select">
+              <option value="5">5 Questions</option>
+              <option value="10" selected>10 Questions</option>
+              <option value="20">20 Questions</option>
+              <option value="50">50 Questions</option>
+            </select>
+          </div>
+        </div>
+        <button class="start-btn" id="qbank-start-btn" onclick="startQuiz('practice')">
+          Start Practice Session →
+        </button>
       </div>
-      <div class="qstat-card">
-        <div class="qstat-val gold" id="qs-correct">0%</div>
-        <div class="qstat-lbl">Correct Rate</div>
-      </div>
-      <div class="qstat-card">
-        <div class="qstat-val" id="qs-streak">0</div>
-        <div class="qstat-lbl">Day Streak</div>
-      </div>
-      <div class="qstat-card">
-        <div class="qstat-val" id="qs-time">0 min</div>
-        <div class="qstat-lbl">Time Studied</div>
+
+      <div class="qbank-stats-row">
+        <div class="qstat-card"><div class="qstat-val" id="qs-answered">0</div><div class="qstat-lbl">Answered</div></div>
+        <div class="qstat-card"><div class="qstat-val gold" id="qs-correct">—</div><div class="qstat-lbl">Correct Rate</div></div>
+        <div class="qstat-card"><div class="qstat-val" id="qs-streak">0</div><div class="qstat-lbl">Day Streak</div></div>
+        <div class="qstat-card"><div class="qstat-val" id="qs-time">0 min</div><div class="qstat-lbl">Time Studied</div></div>
       </div>
     </div>
 
-    <!-- Category progress -->
-    <div class="content-card" role="region" aria-labelledby="cat-progress-heading">
-      <h3 id="cat-progress-heading" style="margin-bottom:20px;font-size:1.05rem">Performance by Category</h3>
-      <div class="cat-progress-list">
-        <div class="cat-row"><span>Management of Care</span><div class="cat-bar-wrap"><div class="cat-bar" style="width:72%"></div></div><span class="cat-pct">72%</span></div>
-        <div class="cat-row"><span>Pharmacology</span><div class="cat-bar-wrap"><div class="cat-bar" style="width:65%"></div></div><span class="cat-pct">65%</span></div>
-        <div class="cat-row"><span>Safety &amp; Infection Control</span><div class="cat-bar-wrap"><div class="cat-bar" style="width:80%"></div></div><span class="cat-pct">80%</span></div>
-        <div class="cat-row"><span>Physiological Adaptation</span><div class="cat-bar-wrap"><div class="cat-bar" style="width:58%"></div></div><span class="cat-pct warn">58%</span></div>
-        <div class="cat-row"><span>Psychosocial Integrity</span><div class="cat-bar-wrap"><div class="cat-bar gold-bar" style="width:44%"></div></div><span class="cat-pct warn">44%</span></div>
+    <!-- QUIZ view (hidden initially) -->
+    <div id="qbank-quiz" style="display:none">
+      <!-- Progress bar -->
+      <div class="quiz-topbar">
+        <button class="quiz-exit-btn" onclick="exitQuiz()">← Exit</button>
+        <div class="quiz-progress-wrap">
+          <div class="quiz-progress-bar" id="quiz-progress-bar" style="width:0%"></div>
+        </div>
+        <div class="quiz-meta">
+          <span id="quiz-q-num">1/10</span>
+          <span class="quiz-timer" id="quiz-timer">00:00</span>
+        </div>
+      </div>
+
+      <!-- Score banner -->
+      <div class="quiz-score-banner">
+        <span>Score: <strong id="quiz-score-display">0</strong> / <strong id="quiz-total-display">0</strong></span>
+        <span id="quiz-format-badge" class="quiz-badge"></span>
+        <span id="quiz-cat-badge" class="quiz-badge"></span>
+      </div>
+
+      <!-- Question card -->
+      <div class="content-card quiz-q-card" id="quiz-q-card">
+        <!-- NGN scenario (shown for NGN questions) -->
+        <div id="ngn-scenario-block" style="display:none">
+          <div class="ngn-case-title" id="ngn-case-title"></div>
+          <div class="ngn-scenario-text" id="ngn-scenario-text"></div>
+          <div class="ngn-vitals-grid" id="ngn-vitals-grid"></div>
+        </div>
+
+        <p class="quiz-stem" id="quiz-stem"></p>
+        <div class="quiz-sata-hint" id="quiz-sata-hint" style="display:none">Select all that apply. There may be more than one correct answer.</div>
+
+        <div class="quiz-options" id="quiz-options" role="group" aria-label="Answer choices"></div>
+
+        <div class="quiz-rationale" id="quiz-rationale" style="display:none">
+          <div class="rat-tabs">
+            <button class="rat-tab active" onclick="showRat('concept',this)">Concept</button>
+            <button class="rat-tab" onclick="showRat('right',this)">Correct Answer</button>
+            <button class="rat-tab" onclick="showRat('wrong',this)">Why Others Wrong</button>
+            <button class="rat-tab" onclick="showRat('obj',this)">Objective</button>
+          </div>
+          <div class="rat-body" id="rat-concept"></div>
+          <div class="rat-body" id="rat-right" style="display:none"></div>
+          <div class="rat-body" id="rat-wrong" style="display:none"></div>
+          <div class="rat-body" id="rat-obj" style="display:none"></div>
+        </div>
+
+        <div class="quiz-btn-row">
+          <button class="quiz-submit-btn" id="quiz-submit-btn" onclick="submitAnswer()">Submit Answer</button>
+          <button class="quiz-next-btn" id="quiz-next-btn" style="display:none" onclick="nextQuestion()">Next Question →</button>
+          <button class="quiz-finish-btn" id="quiz-finish-btn" style="display:none" onclick="finishQuiz()">Finish Session →</button>
+        </div>
       </div>
     </div>
+
+    <!-- RESULTS view (hidden initially) -->
+    <div id="qbank-results" style="display:none">
+      <div class="content-card results-card">
+        <div class="results-verdict" id="results-verdict"></div>
+        <div class="results-stats-grid">
+          <div class="rs-item"><div class="rs-val" id="rs-score"></div><div class="rs-lbl">Score</div></div>
+          <div class="rs-item"><div class="rs-val" id="rs-pct"></div><div class="rs-lbl">Percentage</div></div>
+          <div class="rs-item"><div class="rs-val" id="rs-correct"></div><div class="rs-lbl">Correct</div></div>
+          <div class="rs-item"><div class="rs-val" id="rs-time"></div><div class="rs-lbl">Time Taken</div></div>
+        </div>
+        <div class="results-pass-bar" id="results-pass-bar"></div>
+        <div class="results-actions">
+          <button class="start-btn" onclick="startQuiz('practice')" style="max-width:220px">Try Again</button>
+          <button class="quiz-exit-btn" onclick="exitQuiz()" style="padding:12px 20px">Back to Setup</button>
+        </div>
+      </div>
+
+      <!-- Review list -->
+      <div class="content-card" style="margin-top:16px">
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)">Answer Review</h3>
+        <div id="review-list"></div>
+      </div>
+    </div>
+
   </section>
 
-  <!-- ── EXAM PRACTICE ── -->
-  <section class="screen" id="screen-exam" aria-labelledby="exam-heading">
+  <!-- ══════════════════════════════════════
+       EXAM PRACTICE
+  ══════════════════════════════════════ -->
+  <section class="screen" id="screen-exam">
     <div class="page-header">
       <div class="page-eyebrow">— FULL PRACTICE TEST —</div>
-      <h1 id="exam-heading" class="page-title">Exam Practice</h1>
+      <h1 class="page-title">Exam Practice</h1>
       <p class="page-sub">Simulate the real NCLEX-RN exam experience with timed questions, calculator, and scoring.</p>
     </div>
-    <div class="diamond-sep" aria-hidden="true">◆</div>
+    <div class="diamond-sep">◆</div>
 
     <div class="exam-layout">
+      <div class="exam-details-card content-card">
+        <h3 class="exam-card-title">Exam Details</h3>
+        <div class="exam-detail-row"><span>Total Questions</span><strong>20</strong></div>
+        <div class="exam-detail-row"><span>Time Limit</span><strong>35:00</strong></div>
+        <div class="exam-detail-row"><span>Passing Score</span><strong>65%</strong></div>
+        <div class="exam-detail-row"><span>Calculator</span><strong class="available">Available</strong></div>
+        <div class="exam-detail-row"><span>Format</span><strong>Mixed (MCQ, SATA, NGN)</strong></div>
+        <button class="start-btn" onclick="startExamMode()">Start Exam</button>
 
-      <div class="exam-details-card content-card" role="region" aria-labelledby="exam-details-heading">
-        <h3 id="exam-details-heading" class="exam-card-title">Exam Details</h3>
-        <div class="exam-detail-row">
-          <span>Total Questions</span>
-          <strong id="exam-q-count">20</strong>
-        </div>
-        <div class="exam-detail-row">
-          <span>Time Limit</span>
-          <strong id="exam-time-limit">35:00</strong>
-        </div>
-        <div class="exam-detail-row">
-          <span>Passing Score</span>
-          <strong>65%</strong>
-        </div>
-        <div class="exam-detail-row">
-          <span>Calculator</span>
-          <strong class="available">Available</strong>
-        </div>
-        <div class="exam-detail-row">
-          <span>Question Format</span>
-          <strong>Mixed (MCQ, SATA, NGN)</strong>
-        </div>
-        <button class="start-btn" id="exam-start-btn" onclick="launchExam()">Start Exam</button>
-
-        <!-- Calculator widget -->
         <div class="calc-toggle-row">
-          <button class="calc-toggle-btn" onclick="toggleCalc()" id="calc-toggle-btn" aria-expanded="false" aria-controls="calc-panel">
-            🧮 Open Calculator
-          </button>
+          <button class="calc-toggle-btn" onclick="toggleCalc()" id="calc-toggle-btn">🧮 Open Calculator</button>
         </div>
-        <div class="calc-panel" id="calc-panel" aria-hidden="true">
-          <div class="calc-display" id="calc-display" role="status" aria-live="polite">0</div>
+        <div class="calc-panel" id="calc-panel">
+          <div class="calc-display" id="calc-display">0</div>
           <div class="calc-grid">
             <button class="calc-btn wide2 op" onclick="calcClear()">C</button>
             <button class="calc-btn op" onclick="calcInput('/')">÷</button>
@@ -562,7 +499,7 @@
             <button class="calc-btn" onclick="calcInput('1')">1</button>
             <button class="calc-btn" onclick="calcInput('2')">2</button>
             <button class="calc-btn" onclick="calcInput('3')">3</button>
-            <button class="calc-btn eq" onclick="calcEquals()" rowspan="2">=</button>
+            <button class="calc-btn eq" onclick="calcEquals()">=</button>
             <button class="calc-btn wide2" onclick="calcInput('0')">0</button>
             <button class="calc-btn" onclick="calcInput('.')">.</button>
           </div>
@@ -570,211 +507,592 @@
       </div>
 
       <div class="exam-right">
-        <div class="content-card recent-attempts-card" role="region" aria-labelledby="attempts-heading">
-          <h3 id="attempts-heading" class="exam-card-title">Recent Attempts</h3>
-          <div id="attempts-list">
-            <p class="empty-state">No exam attempts yet. Start your first practice exam!</p>
-          </div>
+        <div class="content-card recent-attempts-card">
+          <h3 class="exam-card-title">Recent Attempts</h3>
+          <div id="attempts-list"><p class="empty-state">No exam attempts yet. Start your first practice exam above!</p></div>
         </div>
-
-        <div class="content-card" role="region" aria-labelledby="tips-heading">
-          <h3 id="tips-heading" class="exam-card-title">Exam Tips</h3>
+        <div class="content-card">
+          <h3 class="exam-card-title">Exam Tips</h3>
           <ul class="tips-list">
-            <li>Read each question carefully — look for keywords like "first", "priority", and "most important"</li>
+            <li>Read carefully — look for keywords like "first", "priority", "most important"</li>
             <li>For SATA, treat each option independently — it's either right or wrong on its own</li>
-            <li>Use the calculator for dosage questions; never calculate in your head under pressure</li>
+            <li>Use the calculator for dosage questions — never calculate under pressure</li>
             <li>Eliminate obviously wrong options first, then choose from what remains</li>
             <li>Apply ABC (Airway, Breathing, Circulation) and Maslow's hierarchy for prioritisation</li>
           </ul>
         </div>
       </div>
-
     </div>
   </section>
 
 </main>
 
-<!-- Toast -->
-<div class="toast-zone" id="toast-zone" role="status" aria-live="polite"></div>
+<div class="toast-zone" id="toast-zone"></div>
 
 <!-- ══════════════════════════════════════
      SCRIPTS
 ══════════════════════════════════════ -->
 <script src="js/auth.js"></script>
 <script src="js/questions.js"></script>
+<script src="js/quiz.js"></script>
 <script>
 
 // ── Auth guard ──
-const currentUser = Auth.requireAuth('login.html');
-if (currentUser) {
-  // Load stats
-  const s = currentUser.stats;
-  if (s) {
-    const el = (id, val) => { const e = document.getElementById(id); if (e) e.textContent = val; };
-    el('qs-answered', s.answered || 0);
-    el('qs-correct',  s.answered > 0 ? Math.round((s.correct / s.answered) * 100) + '%' : '0%');
-    el('qs-streak',   s.streak || 0);
-    el('qs-time',     (s.timeMin || 0) + ' min');
-  }
-  // Load past attempts
-  loadAttempts();
-}
+(function() {
+  const user = Auth.getUser();
+  if (!user) { window.location.href = 'login.html'; return; }
+  // Load user stats into QBank dashboard
+  const s = user.stats || {};
+  set('qs-answered', s.answered || 0);
+  set('qs-correct',  s.answered > 0 ? Math.round((s.correct/s.answered)*100)+'%' : '—');
+  set('qs-streak',   s.streak || 0);
+  set('qs-time',     (s.timeMin||0)+' min');
+})();
+
+function set(id, val) { const e=document.getElementById(id); if(e) e.textContent=val; }
 
 // ── Navigation ──
-const SCREENS = ['introduction','syllabus','study','qbank','exam'];
-
+const TABS = ['introduction','syllabus','study','qbank','exam'];
 function navigate(id) {
-  SCREENS.forEach(s => {
-    document.getElementById('screen-' + s)?.classList.remove('active');
-    document.getElementById('tab-' + s)?.classList.remove('active');
-    document.getElementById('tab-' + s)?.removeAttribute('aria-current');
+  TABS.forEach(t => {
+    document.getElementById('screen-'+t)?.classList.remove('active');
+    const btn = document.getElementById('tab-'+t);
+    if(btn) { btn.classList.remove('active'); btn.removeAttribute('aria-current'); }
   });
-  document.getElementById('screen-' + id)?.classList.add('active');
-  const tab = document.getElementById('tab-' + id);
-  if (tab) { tab.classList.add('active'); tab.setAttribute('aria-current', 'page'); }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('screen-'+id)?.classList.add('active');
+  const active = document.getElementById('tab-'+id);
+  if(active) { active.classList.add('active'); active.setAttribute('aria-current','page'); }
+  window.scrollTo({top:0,behavior:'smooth'});
+  // Reset quiz if navigating away
+  if(id !== 'qbank') resetQuizView();
 }
 
 // ── Accordion ──
 function toggleAcc(btn) {
   const item = btn.closest('.acc-item');
-  const open = item.classList.contains('open');
-  // close all
-  document.querySelectorAll('.acc-item.open').forEach(i => {
-    i.classList.remove('open');
-    i.querySelector('.acc-header').setAttribute('aria-expanded', 'false');
-  });
-  if (!open) {
-    item.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-  }
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.acc-item.open').forEach(i => i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
 }
 
-// ── Study modal ──
+// ── Study Modal ──
 const STUDY_DATA = {
-  management: { title: 'Management of Care', chapters: ['Chapter 1: Advance Directives & Legal Frameworks', 'Chapter 2: Delegation Principles — RN vs LPN vs UAP'] },
-  safety:     { title: 'Safety and Infection Control', chapters: ['Chapter 1: Standard Precautions & PPE Guide'] },
-  health:     { title: 'Health Promotion and Maintenance', chapters: [] },
-  psychosocial:{ title: 'Psychosocial Integrity', chapters: ['Chapter 1: Therapeutic Communication Techniques'] },
-  basic:      { title: 'Basic Care and Comfort', chapters: [] },
-  pharma:     { title: 'Pharmacological and Parenteral Therapies', chapters: ['Chapter 1: High-Alert Medications & Safe Administration'] },
-  reduction:  { title: 'Reduction of Risk Potential', chapters: [] },
-  physio:     { title: 'Physiological Adaptation', chapters: ['Chapter 1: ABG Interpretation & Acid-Base Balance'] },
+  management:   { title:'Management of Care', chapters:['Advance Directives & Legal Frameworks','Delegation Principles — RN vs LPN vs UAP'] },
+  safety:       { title:'Safety and Infection Control', chapters:['Standard Precautions & PPE Guide'] },
+  health:       { title:'Health Promotion and Maintenance', chapters:[] },
+  psychosocial: { title:'Psychosocial Integrity', chapters:['Therapeutic Communication Techniques'] },
+  basic:        { title:'Basic Care and Comfort', chapters:[] },
+  pharma:       { title:'Pharmacological and Parenteral Therapies', chapters:['High-Alert Medications & Safe Administration'] },
+  reduction:    { title:'Reduction of Risk Potential', chapters:[] },
+  physio:       { title:'Physiological Adaptation', chapters:['ABG Interpretation & Acid-Base Balance'] },
 };
-
-function openStudyCategory(key) {
-  const data = STUDY_DATA[key];
-  if (!data) return;
-  document.getElementById('study-modal-title').textContent = data.title;
-  const body = document.getElementById('study-modal-body');
-  if (data.chapters.length === 0) {
-    body.innerHTML = '<p class="empty-state">📂 No chapters uploaded yet. Materials will be added shortly.</p>';
+function openStudy(key) {
+  const d = STUDY_DATA[key]; if(!d) return;
+  document.getElementById('modal-title').textContent = d.title;
+  const body = document.getElementById('modal-body');
+  if(!d.chapters.length) {
+    body.innerHTML = '<p class="empty-state">📂 No chapters uploaded yet — materials coming soon!</p>';
   } else {
-    body.innerHTML = data.chapters.map((c, i) => `
+    body.innerHTML = d.chapters.map((c,i) => `
       <div class="chapter-row">
-        <div class="chapter-num">${i + 1}</div>
+        <div class="chapter-num">${i+1}</div>
         <div class="chapter-name">${c}</div>
-        <button class="chapter-btn" onclick="showToast('Study materials coming soon!', 'info')">View →</button>
+        <button class="chapter-btn" onclick="toast('Study material uploading soon!','info')">View →</button>
       </div>`).join('');
   }
-  document.getElementById('study-modal-bg').classList.add('open');
+  document.getElementById('modal-bg').classList.add('open');
   document.getElementById('study-modal').classList.add('open');
-  document.getElementById('study-modal').setAttribute('aria-hidden', 'false');
 }
-function closeStudyModal() {
-  document.getElementById('study-modal-bg').classList.remove('open');
+function closeModal() {
+  document.getElementById('modal-bg').classList.remove('open');
   document.getElementById('study-modal').classList.remove('open');
-  document.getElementById('study-modal').setAttribute('aria-hidden', 'true');
 }
 
-// ── Quiz launch ──
-function launchQuiz() {
-  sessionStorage.setItem('np_quiz_mode', JSON.stringify({
-    category: document.getElementById('qf-category').value,
-    format:   document.getElementById('qf-format').value,
-    difficulty: document.getElementById('qf-difficulty').value,
-    count:    document.getElementById('qf-count').value,
-    mode: 'practice'
-  }));
-  window.open('quiz.html', '_blank');
+// ══════════════════════════════════════
+// INLINE QUIZ ENGINE
+// ══════════════════════════════════════
+let qEngine = null;
+let currentResult = null;
+let selectedOptions = new Set();
+let answered = false;
+
+function startQuiz(mode) {
+  const count = parseInt(document.getElementById('qf-count')?.value || '10');
+  const cat   = document.getElementById('qf-category')?.value || 'ALL';
+  const fmt   = document.getElementById('qf-format')?.value || 'ALL';
+  const diff  = document.getElementById('qf-difficulty')?.value || 'ALL';
+
+  qEngine = new QuizEngine();
+  qEngine.setFilters({ examType:'RN', format:fmt, category:cat, difficulty:diff });
+  const built = qEngine.buildSession(count);
+
+  if(built === 0) {
+    toast('No questions match your filters. Try different settings.', 'error');
+    return;
+  }
+
+  document.getElementById('qbank-setup').style.display = 'none';
+  document.getElementById('qbank-results').style.display = 'none';
+  document.getElementById('qbank-quiz').style.display = 'block';
+
+  set('quiz-total-display', built);
+  qEngine.startTimer(s => set('quiz-timer', qEngine.formatTime(s)));
+  renderQuestion();
 }
 
-function launchExam() {
-  sessionStorage.setItem('np_quiz_mode', JSON.stringify({
-    category: 'all', format: 'all', difficulty: 'all',
-    count: '20', mode: 'exam'
-  }));
-  window.open('quiz.html', '_blank');
+function startExamMode() {
+  navigate('qbank');
+  setTimeout(() => {
+    if(document.getElementById('qf-count')) document.getElementById('qf-count').value = '20';
+    startQuiz('exam');
+  }, 80);
+}
+
+function renderQuestion() {
+  const q = qEngine.getCurrentQuestion();
+  if(!q) return;
+  selectedOptions.clear();
+  answered = false;
+
+  const prog = qEngine.getProgress();
+  const barPct = ((prog.current - 1) / prog.total) * 100;
+  document.getElementById('quiz-progress-bar').style.width = barPct + '%';
+  set('quiz-q-num', prog.current + '/' + prog.total);
+  set('quiz-score-display', qEngine.score);
+  set('quiz-format-badge', q.format);
+  set('quiz-cat-badge', q.category);
+
+  // NGN scenario
+  const ngnBlock = document.getElementById('ngn-scenario-block');
+  if(q.scenario) {
+    ngnBlock.style.display = 'block';
+    set('ngn-case-title', '📋 Case Study: ' + (q.caseTitle||''));
+    set('ngn-scenario-text', q.scenario);
+    const vg = document.getElementById('ngn-vitals-grid');
+    if(q.clientData) {
+      vg.innerHTML = q.clientData.map(d =>
+        `<div class="vital-item ${d.alert?'vital-alert':''}"><span class="vital-lbl">${d.label}</span><span class="vital-val">${d.value}</span></div>`
+      ).join('');
+    }
+  } else {
+    ngnBlock.style.display = 'none';
+  }
+
+  // Stem
+  set('quiz-stem', q.stem);
+
+  // SATA hint
+  document.getElementById('quiz-sata-hint').style.display = q.format === 'SATA' ? 'block' : 'none';
+
+  // Options
+  const isSATA = q.format === 'SATA';
+  const optContainer = document.getElementById('quiz-options');
+  optContainer.innerHTML = q.options.map(opt => `
+    <button class="quiz-opt" id="opt-${opt.id}" onclick="toggleOpt('${opt.id}',${isSATA})"
+            role="${isSATA?'checkbox':'radio'}" aria-checked="false">
+      <span class="opt-letter">${opt.id}</span>
+      <span class="opt-text">${opt.text}</span>
+    </button>`).join('');
+
+  // Hide rationale
+  document.getElementById('quiz-rationale').style.display = 'none';
+  document.getElementById('quiz-submit-btn').style.display = 'inline-flex';
+  document.getElementById('quiz-next-btn').style.display   = 'none';
+  document.getElementById('quiz-finish-btn').style.display = 'none';
+}
+
+function toggleOpt(id, multi) {
+  if(answered) return;
+  if(!multi) selectedOptions.clear();
+  if(selectedOptions.has(id)) selectedOptions.delete(id);
+  else selectedOptions.add(id);
+
+  document.querySelectorAll('.quiz-opt').forEach(btn => {
+    const letter = btn.querySelector('.opt-letter').textContent;
+    const sel = selectedOptions.has(letter);
+    btn.classList.toggle('selected', sel);
+    btn.setAttribute('aria-checked', sel);
+  });
+}
+
+function submitAnswer() {
+  if(selectedOptions.size === 0) { toast('Please select an answer first.','error'); return; }
+  answered = true;
+
+  const selected = [...selectedOptions];
+  currentResult = qEngine.submitAnswer(selected);
+  const q = currentResult.question;
+
+  // Show correct / wrong on options
+  document.querySelectorAll('.quiz-opt').forEach(btn => {
+    const letter = btn.querySelector('.opt-letter').textContent;
+    const isCorrect = currentResult.correctIds.includes(letter);
+    const wasSelected = selected.includes(letter);
+    btn.classList.remove('selected');
+    if(isCorrect) btn.classList.add('correct');
+    else if(wasSelected) btn.classList.add('incorrect');
+    btn.style.pointerEvents = 'none';
+  });
+
+  // Render rationale
+  const rat = q.rationale;
+  const rat_concept = document.getElementById('rat-concept');
+  rat_concept.innerHTML = '<p>' + (rat.concept||'—') + '</p>';
+
+  const rat_right = document.getElementById('rat-right');
+  rat_right.innerHTML = '<p>' + (rat.right||'—') + '</p>';
+
+  const rat_wrong = document.getElementById('rat-wrong');
+  if(Array.isArray(rat.wrong)) {
+    rat_wrong.innerHTML = rat.wrong.map(w =>
+      `<div class="wrong-item"><strong>Option ${w.option}:</strong> ${w.text}</div>`
+    ).join('');
+  } else {
+    rat_wrong.innerHTML = '<p>' + (rat.wrong||'—') + '</p>';
+  }
+
+  const rat_obj = document.getElementById('rat-obj');
+  rat_obj.innerHTML = '<p class="objective-text">🎯 ' + (rat.objective||'—') + '</p>';
+
+  // Reset tabs to Concept
+  document.querySelectorAll('.rat-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector('.rat-tab').classList.add('active');
+  ['rat-right','rat-wrong','rat-obj'].forEach(id => document.getElementById(id).style.display='none');
+  document.getElementById('rat-concept').style.display = 'block';
+
+  document.getElementById('quiz-rationale').style.display = 'block';
+  document.getElementById('quiz-submit-btn').style.display = 'none';
+  set('quiz-score-display', qEngine.score);
+
+  // Next / Finish
+  if(qEngine.isLastQuestion()) {
+    document.getElementById('quiz-finish-btn').style.display = 'inline-flex';
+  } else {
+    document.getElementById('quiz-next-btn').style.display = 'inline-flex';
+  }
+
+  // Result toast
+  if(currentResult.isCorrect) toast('✓ Correct!', 'success');
+  else toast('✗ Incorrect. Check the rationale.', 'error');
+}
+
+function nextQuestion() {
+  qEngine.nextQuestion();
+  renderQuestion();
+  document.getElementById('quiz-q-card').scrollIntoView({behavior:'smooth'});
+}
+
+function finishQuiz() {
+  qEngine.stopTimer();
+  const res = qEngine.getResults();
+  const verdict = qEngine.getVerdictMessage(res.pct);
+
+  // Save attempt
+  const attempts = JSON.parse(localStorage.getItem('np_attempts')||'[]');
+  attempts.push({ date:Date.now(), total:res.total, correct:res.correct,
+    pct:res.pct, time:qEngine.formatTime(res.elapsed) });
+  localStorage.setItem('np_attempts', JSON.stringify(attempts));
+  loadAttempts();
+
+  // Show results
+  document.getElementById('qbank-quiz').style.display = 'none';
+  document.getElementById('qbank-results').style.display = 'block';
+
+  document.getElementById('results-verdict').innerHTML =
+    `<div class="verdict-title">${verdict.title}</div><div class="verdict-sub">${verdict.sub}</div>`;
+  set('rs-score', res.correct + '/' + res.total);
+  set('rs-pct', res.pct + '%');
+  set('rs-correct', res.correct);
+  set('rs-time', qEngine.formatTime(res.elapsed));
+
+  const passBar = document.getElementById('results-pass-bar');
+  passBar.innerHTML = `
+    <div class="pass-bar-label">
+      <span>${res.pct}% achieved</span>
+      <span class="${res.pct>=65?'pass':'fail'}">${res.pct>=65?'✓ PASS':'✗ BELOW PASSING (65%)'}</span>
+    </div>
+    <div class="pass-bar-track">
+      <div class="pass-bar-fill ${res.pct>=65?'pass':''}" style="width:${Math.min(res.pct,100)}%"></div>
+      <div class="pass-threshold"></div>
+    </div>`;
+
+  // Review list
+  const rl = document.getElementById('review-list');
+  rl.innerHTML = res.answers.map((a,i) => a ? `
+    <div class="review-row ${a.isCorrect?'correct':'incorrect'}">
+      <div class="review-num">Q${i+1}</div>
+      <div class="review-stem">${a.question.stem.substring(0,80)}…</div>
+      <div class="review-verdict">${a.isCorrect?'✓ Correct':'✗ Incorrect'}</div>
+    </div>` : '').join('');
+}
+
+function exitQuiz() {
+  qEngine?.stopTimer();
+  resetQuizView();
+}
+
+function resetQuizView() {
+  document.getElementById('qbank-setup').style.display = 'block';
+  document.getElementById('qbank-quiz').style.display   = 'none';
+  document.getElementById('qbank-results').style.display= 'none';
+}
+
+function showRat(tab, btn) {
+  ['concept','right','wrong','obj'].forEach(t => {
+    document.getElementById('rat-'+t).style.display = t===tab?'block':'none';
+  });
+  document.querySelectorAll('.rat-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
 // ── Attempts ──
 function loadAttempts() {
-  const raw = localStorage.getItem('np_attempts');
-  const list = document.getElementById('attempts-list');
-  if (!list) return;
-  let attempts = [];
-  try { attempts = JSON.parse(raw) || []; } catch {}
-  if (attempts.length === 0) {
-    list.innerHTML = '<p class="empty-state">No exam attempts yet. Start your first practice exam!</p>';
+  const list = document.getElementById('attempts-list'); if(!list) return;
+  let data = [];
+  try { data = JSON.parse(localStorage.getItem('np_attempts')||'[]'); } catch {}
+  if(!data.length) {
+    list.innerHTML = '<p class="empty-state">No exam attempts yet. Start your first practice exam above!</p>';
     return;
   }
-  list.innerHTML = attempts.slice(-5).reverse().map(a => `
+  list.innerHTML = data.slice(-5).reverse().map(a => `
     <div class="attempt-row">
       <div class="attempt-info">
-        <div class="attempt-date">${new Date(a.date).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'})}</div>
+        <div class="attempt-date">${new Date(a.date).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})}</div>
         <div class="attempt-details">${a.total} questions · ${a.time}</div>
       </div>
-      <div class="attempt-score ${a.pct >= 65 ? 'pass' : 'fail'}">${a.pct}%</div>
+      <div class="attempt-score ${a.pct>=65?'pass':'fail'}">${a.pct}%</div>
     </div>`).join('');
 }
+loadAttempts();
 
 // ── Calculator ──
 let calcExpr = '';
-function calcInput(v) {
-  if (calcExpr === '0' && v !== '.') calcExpr = '';
-  calcExpr += v;
-  document.getElementById('calc-display').textContent = calcExpr;
-}
-function calcClear() { calcExpr = ''; document.getElementById('calc-display').textContent = '0'; }
+function calcInput(v) { if(calcExpr==='0'&&v!=='.') calcExpr=''; calcExpr+=v; set('calc-display',calcExpr); }
+function calcClear()  { calcExpr=''; set('calc-display','0'); }
 function calcEquals() {
-  try {
-    const result = Function('"use strict"; return (' + calcExpr + ')')();
-    calcExpr = String(parseFloat(result.toFixed(8)));
-    document.getElementById('calc-display').textContent = calcExpr;
-  } catch { calcClear(); }
+  try { const r = Function('"use strict";return('+calcExpr+')')(); calcExpr=String(parseFloat(r.toFixed(8))); set('calc-display',calcExpr); }
+  catch { calcClear(); }
 }
 function toggleCalc() {
-  const panel = document.getElementById('calc-panel');
-  const btn   = document.getElementById('calc-toggle-btn');
-  const open  = panel.classList.toggle('open');
-  btn.setAttribute('aria-expanded', open);
-  panel.setAttribute('aria-hidden', !open);
-  btn.textContent = open ? '🧮 Close Calculator' : '🧮 Open Calculator';
+  const p = document.getElementById('calc-panel');
+  const open = p.classList.toggle('open');
+  document.getElementById('calc-toggle-btn').textContent = open ? '🧮 Close Calculator' : '🧮 Open Calculator';
 }
 
 // ── Logout ──
-function handleLogout() {
-  Auth.logout();
-  window.location.href = 'login.html';
-}
+function handleLogout() { Auth.logout(); window.location.href = 'login.html'; }
 
 // ── Toast ──
-function showToast(msg, type = 'info') {
+function toast(msg, type='info') {
   const z = document.getElementById('toast-zone');
   const t = document.createElement('div');
   t.className = 'toast ' + type;
   t.textContent = msg;
   z.appendChild(t);
-  setTimeout(() => t.remove(), 3500);
+  setTimeout(()=>t.remove(), 3500);
 }
 
-// ── Keyboard nav for role=button elements ──
-document.querySelectorAll('[role="button"]').forEach(el => {
-  el.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
-  });
+// ── Keyboard for role=button ──
+document.addEventListener('keydown', e => {
+  if((e.key==='Enter'||e.key===' ') && e.target.getAttribute('role')==='button') {
+    e.preventDefault(); e.target.click();
+  }
 });
 
 </script>
+
+<style>
+/* Quiz inline styles */
+.quiz-topbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0 16px; margin-bottom: 12px;
+}
+.quiz-exit-btn {
+  padding: 7px 14px; border-radius: 8px;
+  background: var(--cream-2); border: 1px solid var(--border);
+  font-size: 0.82rem; font-weight: 600; color: var(--text-2); cursor: pointer;
+  transition: all .18s ease; white-space: nowrap; flex-shrink: 0;
+}
+.quiz-exit-btn:hover { border-color: var(--danger); color: var(--danger); }
+.quiz-progress-wrap {
+  flex: 1; height: 6px; background: var(--cream-2);
+  border-radius: 99px; overflow: hidden;
+}
+.quiz-progress-bar {
+  height: 100%; background: var(--gold);
+  border-radius: 99px; transition: width .4s ease;
+}
+.quiz-meta {
+  display: flex; gap: 10px; align-items: center; flex-shrink: 0;
+  font-size: 0.82rem; font-weight: 700; color: var(--text-2);
+}
+.quiz-timer { color: var(--gold); font-family: monospace; }
+
+.quiz-score-banner {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; margin-bottom: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); font-size: 0.88rem; color: var(--text-2);
+  font-weight: 600; flex-wrap: wrap;
+}
+.quiz-badge {
+  padding: 3px 9px; border-radius: 99px;
+  background: var(--gold-light); border: 1px solid var(--gold-border);
+  font-size: 0.7rem; font-weight: 700; color: var(--gold);
+  letter-spacing: .04em;
+}
+
+.quiz-q-card { animation: fadeUp .25s ease both; }
+
+/* NGN */
+.ngn-case-title {
+  font-family: var(--font-ui); font-size: 0.78rem; font-weight: 700;
+  color: var(--gold); text-transform: uppercase; letter-spacing: .06em;
+  margin-bottom: 8px;
+}
+.ngn-scenario-text {
+  font-size: 0.9rem; line-height: 1.75; color: var(--text-2);
+  padding: 14px 16px; background: #fdfaf3;
+  border: 1px solid var(--gold-border); border-radius: var(--r-md);
+  margin-bottom: 14px;
+}
+.ngn-vitals-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  margin-bottom: 18px;
+}
+.vital-item {
+  padding: 8px 10px; border-radius: var(--r-sm);
+  background: var(--cream); border: 1px solid var(--border);
+  font-size: 0.79rem;
+}
+.vital-item.vital-alert { background: #fdf0ee; border-color: #e8a09a; }
+.vital-lbl { font-weight: 700; color: var(--text-3); display: block; font-size: 0.68rem; }
+.vital-val { color: var(--text); font-weight: 600; }
+
+.quiz-stem {
+  font-size: 1rem; line-height: 1.75; color: var(--text);
+  margin-bottom: 16px; font-weight: 500;
+}
+.quiz-sata-hint {
+  font-size: 0.78rem; font-style: italic;
+  color: var(--gold); margin-bottom: 12px;
+  padding: 6px 12px; background: var(--gold-light);
+  border-radius: var(--r-sm); border: 1px solid var(--gold-border);
+}
+.quiz-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.quiz-opt {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 16px; border-radius: var(--r-md);
+  background: var(--surface); border: 1px solid var(--border);
+  text-align: left; cursor: pointer; transition: all .15s ease;
+  font-size: 0.9rem; line-height: 1.55; color: var(--text-2);
+  font-family: var(--font-body);
+}
+.quiz-opt:hover { border-color: var(--gold-border); background: var(--gold-light); }
+.quiz-opt.selected { border-color: var(--green); background: var(--green-light); color: var(--green); }
+.quiz-opt.correct  { border-color: #2a7a4a; background: #eaf4ef; color: #2a7a4a; }
+.quiz-opt.incorrect{ border-color: #b83028; background: #fdf0ee; color: #b83028; }
+.opt-letter {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--cream-2); border: 1px solid var(--border);
+  font-weight: 800; font-size: 0.78rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all .15s ease;
+}
+.quiz-opt.selected .opt-letter { background: var(--green); color: #fff; border-color: var(--green); }
+.quiz-opt.correct .opt-letter  { background: #2a7a4a; color: #fff; border-color: #2a7a4a; }
+.quiz-opt.incorrect .opt-letter{ background: #b83028; color: #fff; border-color: #b83028; }
+
+/* Rationale */
+.quiz-rationale {
+  background: var(--cream); border: 1px solid var(--border);
+  border-radius: var(--r-md); overflow: hidden; margin-bottom: 16px;
+}
+.rat-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--cream-2); }
+.rat-tab {
+  flex: 1; padding: 10px 8px; font-size: 0.78rem; font-weight: 600;
+  background: none; border: none; border-right: 1px solid var(--border);
+  color: var(--text-3); cursor: pointer; transition: all .15s ease;
+}
+.rat-tab:last-child { border-right: none; }
+.rat-tab:hover { background: var(--cream); color: var(--text); }
+.rat-tab.active { background: var(--gold); color: #fff; }
+.rat-body { padding: 16px 18px; font-size: 0.875rem; line-height: 1.75; color: var(--text-2); }
+.rat-body p { margin: 0; }
+.wrong-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.wrong-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.wrong-item strong { color: var(--danger); }
+.objective-text { font-weight: 600; color: var(--green); }
+
+/* Quiz buttons */
+.quiz-btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.quiz-submit-btn, .quiz-next-btn, .quiz-finish-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 11px 24px; border-radius: var(--r-md);
+  font-family: var(--font-body); font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; border: none; transition: all .18s ease;
+}
+.quiz-submit-btn { background: var(--green); color: #fff; }
+.quiz-submit-btn:hover { background: var(--green-mid); }
+.quiz-next-btn   { background: var(--gold); color: #fff; }
+.quiz-next-btn:hover { background: #a07e0a; }
+.quiz-finish-btn { background: var(--green); color: #fff; }
+.quiz-finish-btn:hover { background: var(--green-mid); }
+
+/* Results */
+.results-card { text-align: center; }
+.results-verdict { margin-bottom: 24px; }
+.verdict-title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; }
+.verdict-sub { color: var(--text-3); font-size: 0.92rem; }
+.results-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 20px; }
+@media(max-width:550px){.results-stats-grid{grid-template-columns:1fr 1fr;}}
+.rs-item { padding: 14px; background: var(--cream); border-radius: var(--r-md); border: 1px solid var(--border); }
+.rs-val { font-family: var(--font-head); font-size: 1.8rem; font-weight: 900; color: var(--green); }
+.rs-lbl { font-size: 0.72rem; color: var(--text-3); text-transform: uppercase; letter-spacing:.04em; margin-top:2px; }
+.results-pass-bar { margin-bottom: 22px; }
+.pass-bar-label { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; color: var(--text-2); }
+.pass-bar-label .pass { color: var(--success); }
+.pass-bar-label .fail { color: var(--danger); }
+.pass-bar-track { position: relative; height: 10px; background: var(--cream-2); border-radius: 99px; overflow: visible; }
+.pass-bar-fill { height: 100%; background: var(--danger); border-radius: 99px; transition: width .6s ease; }
+.pass-bar-fill.pass { background: var(--success); }
+.pass-threshold {
+  position: absolute; left: 65%; top: -4px;
+  width: 2px; height: 18px; background: var(--gold); border-radius: 1px;
+}
+.results-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Review list */
+.review-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--cream-2); font-size: 0.85rem; }
+.review-row:last-child { border-bottom: none; }
+.review-num { font-weight: 800; color: var(--text-3); width: 28px; flex-shrink: 0; }
+.review-stem { flex: 1; color: var(--text-2); }
+.review-verdict { font-weight: 700; flex-shrink: 0; font-size: 0.8rem; }
+.review-row.correct .review-verdict { color: var(--success); }
+.review-row.incorrect .review-verdict { color: var(--danger); }
+
+/* Logo fallback */
+.logo-fallback {
+  width: 300px; height: 300px; border-radius: 20px;
+  background: var(--green);
+  flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 24px;
+  box-shadow: var(--sh-lg);
+}
+.lf-icon { font-size: 3rem; margin-bottom: 10px; }
+.lf-name { font-family: var(--font-head); font-size: 2.5rem; font-weight: 900; color: var(--gold); margin-bottom: 8px; }
+.lf-sub { font-size: 0.65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+/* Toast */
+.toast.success { background: #eaf4ef; border-color: #a8d5b8; color: #2a7a4a; }
+.toast.error   { background: #fdf0ee; border-color: #e8a09a; color: #b83028; }
+.toast.info    { background: var(--gold-light); border-color: var(--gold-border); color: var(--gold); }
+
+@media(max-width:500px){
+  .ngn-vitals-grid{grid-template-columns:1fr 1fr;}
+  .rat-tab{font-size:0.68rem;padding:8px 4px;}
+}
+</style>
+
 </body>
 </html>

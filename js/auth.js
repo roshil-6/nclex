@@ -30,7 +30,7 @@ const Auth = {
     return this.getUser();
   },
 
-  redirectIfAuthed(redirectTo = 'dashboard.html') {
+  redirectIfAuthed(redirectTo = 'platform.html') {
     if (this.getUser()) { window.location.href = redirectTo; }
   },
 };

@@ -23,8 +23,8 @@
         <a href="index.html"     class="topnav-link active">Home</a>
         <a href="index.html#about"    class="topnav-link">About</a>
         <a href="index.html#features" class="topnav-link">Features</a>
-        <a href="classes.html"   class="topnav-link">Classes</a>
-        <a href="dashboard.html" class="topnav-link">Dashboard</a>
+        <a href="platform.html"   class="topnav-link">Classes</a>
+        <a href="platform.html" class="topnav-link">Dashboard</a>
       </div>
       <div class="topnav-right">
         <a href="login.html" class="btn btn-outline btn-sm" id="nav-login-btn">Sign In</a>
@@ -228,7 +228,7 @@
             <div class="feat-icon">📹</div>
             <h3>Expert Video Classes</h3>
             <p>Structured lecture videos covering all NCLEX test plan categories — from Pharmacology to Management of Care — taught by experienced nurse educators.</p>
-            <a href="classes.html" class="feat-link">Browse Classes →</a>
+            <a href="platform.html" class="feat-link">Browse Classes →</a>
           </div>
 
           <div class="feat-card">
@@ -236,7 +236,7 @@
             <div class="feat-icon">📝</div>
             <h3>Practice Question Bank</h3>
             <p>500+ high-fidelity questions across MCQ, SATA, Prioritization, Delegation, and Next-Gen NCLEX case studies with instant expert rationales.</p>
-            <a href="dashboard.html" class="feat-link">Start Practising →</a>
+            <a href="platform.html" class="feat-link">Start Practising →</a>
           </div>
 
           <div class="feat-card">
@@ -244,7 +244,7 @@
             <div class="feat-icon">🧠</div>
             <h3>Next-Gen NCLEX (NGN) Ready</h3>
             <p>Clinical judgment case studies mirroring the new NGN format — client data, vital signs tables, and multi-part decision questions.</p>
-            <a href="dashboard.html" class="feat-link">Try NGN Questions →</a>
+            <a href="platform.html" class="feat-link">Try NGN Questions →</a>
           </div>
 
           <div class="feat-card">
@@ -252,7 +252,7 @@
             <div class="feat-icon">📊</div>
             <h3>Performance Analytics</h3>
             <p>Your personal dashboard tracks correct %, category strengths, study streaks, and time spent — so you always know exactly where to focus.</p>
-            <a href="dashboard.html" class="feat-link">View Dashboard →</a>
+            <a href="platform.html" class="feat-link">View Dashboard →</a>
           </div>
 
           <div class="feat-card">
@@ -260,7 +260,7 @@
             <div class="feat-icon">💡</div>
             <h3>Comprehensive Rationales</h3>
             <p>Every question comes with Core Concept, Right Answer Analysis, Wrong Answer Breakdown, and a one-sentence Educational Objective.</p>
-            <a href="dashboard.html" class="feat-link">See an Example →</a>
+            <a href="platform.html" class="feat-link">See an Example →</a>
           </div>
 
           <div class="feat-card">
@@ -268,7 +268,7 @@
             <div class="feat-icon">🗂️</div>
             <h3>Customisable Quiz Sessions</h3>
             <p>Filter by exam type (RN or PN), question format, difficulty level, and clinical category to build targeted practice sessions.</p>
-            <a href="dashboard.html" class="feat-link">Customise a Quiz →</a>
+            <a href="platform.html" class="feat-link">Customise a Quiz →</a>
           </div>
 
         </div>
@@ -284,7 +284,7 @@
             <h2 id="classes-heading">Learn from Expert Nurse Educators</h2>
             <p>Structured video lessons launching soon. Enrol now to get notified.</p>
           </div>
-          <a href="classes.html" class="btn btn-outline">View All Classes</a>
+          <a href="platform.html" class="btn btn-outline">View All Classes</a>
         </div>
         <div class="classes-preview-grid">
           <div class="cp-card cp-card--locked">
@@ -360,9 +360,9 @@
           </div>
           <div class="footer-col">
             <h5>Platform</h5>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="classes.html">Video Classes</a>
-            <a href="dashboard.html">Practice Quiz</a>
+            <a href="platform.html">Dashboard</a>
+            <a href="platform.html">Video Classes</a>
+            <a href="platform.html">Practice Quiz</a>
             <a href="review.html">Review Sessions</a>
           </div>
           <div class="footer-col">
@@ -376,7 +376,7 @@
             <h5>Account</h5>
             <a href="login.html">Sign In</a>
             <a href="login.html">Register</a>
-            <a href="dashboard.html">My Performance</a>
+            <a href="platform.html">My Performance</a>
           </div>
         </div>
         <div class="footer-bottom">
@@ -396,9 +396,9 @@
     const user = Auth.getUser();
     if (user) {
       document.getElementById('nav-login-btn').textContent = 'Dashboard';
-      document.getElementById('nav-login-btn').href = 'dashboard.html';
+      document.getElementById('nav-login-btn').href = 'platform.html';
       document.getElementById('nav-cta-btn').textContent = user.name.split(' ')[0];
-      document.getElementById('nav-cta-btn').href = 'dashboard.html';
+      document.getElementById('nav-cta-btn').href = 'platform.html';
     }
 
     // Hamburger
