@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Review — NursePrep Pro</title>
+  <meta name="description" content="Step-by-step quiz review with answer matrix, rationale blocks, score tracking, and navigation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/review.css" />
+</head>
+<body>
+  <!-- Background canvas (inherited from main app) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ══════════════════════════════════════
+       FIXED TOP BAR
+  ══════════════════════════════════════ -->
+  <header class="rv-topbar" id="rv-topbar" role="banner">
+    <a href="index.html" class="rv-logo" aria-label="Back to dashboard">
+      <span class="rv-logo-icon">🏥</span>
+      <span class="text-gradient">NursePrep Pro</span>
+    </a>
+
+    <div class="rv-topbar-center" aria-label="Review progress">
+      <span class="rv-progress-label" id="rv-progress-label">Q 1 / —</span>
+      <div class="rv-progress-track" role="progressbar" aria-label="Question progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="rv-progress-fill" id="rv-progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="rv-topbar-right">
+      <!-- Score pill -->
+      <div class="rv-score-pill" id="rv-score-pill" aria-label="Current score">
+        <span class="rv-score-icon">🏆</span>
+        <span id="rv-score-text">Score: —/—</span>
+      </div>
+      <!-- Timer -->
+      <div class="rv-timer-pill" id="rv-timer-pill" aria-label="Time spent in review">
+        <span class="rv-timer-icon">⏱</span>
+        <span id="rv-timer-text">00:00</span>
+      </div>
+      <!-- Utility menu trigger -->
+      <button class="rv-util-btn" id="rv-util-btn" aria-label="More options" aria-haspopup="dialog" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="5" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="19" r="1.2"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       MAIN REVIEW AREA
+  ══════════════════════════════════════ -->
+  <main class="rv-main" id="rv-main" role="main">
+    <div class="rv-content" id="rv-content">
+      <!-- Injected by review.js -->
+      <div class="rv-loading" id="rv-loading" aria-live="polite">
+        <div class="rv-spinner" aria-hidden="true"></div>
+        <p>Loading your review session…</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════
+       FIXED FOOTER NAV
+  ══════════════════════════════════════ -->
+  <footer class="rv-footer" id="rv-footer" role="navigation" aria-label="Question navigation">
+    <button class="rv-nav-btn rv-nav-prev" id="rv-prev-btn" aria-label="Previous question" disabled>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      Prev
+    </button>
+
+    <div class="rv-footer-dots" id="rv-dots" aria-label="Question index" role="list">
+      <!-- Dot indicators injected by JS -->
+    </div>
+
+    <button class="rv-nav-btn rv-nav-next" id="rv-next-btn" aria-label="Next question">
+      Next
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       UTILITY OVERLAY / MODAL
+  ══════════════════════════════════════ -->
+  <div class="rv-overlay-backdrop" id="rv-overlay-backdrop" aria-hidden="true"></div>
+  <div class="rv-overlay" id="rv-overlay" role="dialog" aria-modal="true" aria-label="Review utilities" aria-hidden="true">
+    <div class="rv-overlay-header">
+      <h3>Session Utilities</h3>
+      <button class="rv-overlay-close" id="rv-overlay-close" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="rv-overlay-body">
+      <button class="rv-util-action" id="rv-action-download" aria-label="Download review as PDF">
+        <span class="rv-util-action-icon">⬇</span>
+        <div class="rv-util-action-info">
+          <strong>Download</strong>
+          <span>Save this review session as a PDF</span>
+        </div>
+        <svg class="rv-util-action-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <button class="rv-util-action" id="rv-action-share" aria-label="Share review session">
+        <span class="rv-util-action-icon">🔗</span>
+        <div class="rv-util-action-info">
+          <strong>Share</strong>
+          <span>Copy shareable link to clipboard</span>
+        </div>
+        <svg class="rv-util-action-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <button class="rv-util-action" id="rv-action-print" aria-label="Print review">
+        <span class="rv-util-action-icon">🖨</span>
+        <div class="rv-util-action-info">
+          <strong>Print</strong>
+          <span>Send to printer or save as PDF</span>
+        </div>
+        <svg class="rv-util-action-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="rv-overlay-footer">
+      <p class="rv-overlay-note">⚠ These actions will not reset or alter your active review session.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       COMPLETION MODAL
+  ══════════════════════════════════════ -->
+  <div class="rv-complete-backdrop" id="rv-complete-backdrop" aria-hidden="true"></div>
+  <div class="rv-complete-modal" id="rv-complete-modal" role="dialog" aria-modal="true" aria-label="Review complete" aria-hidden="true">
+    <div class="rv-complete-inner">
+      <div class="rv-complete-icon" aria-hidden="true">🎓</div>
+      <h2>Review Complete!</h2>
+      <p>You've reviewed all questions in this session.</p>
+      <div class="rv-complete-stats" id="rv-complete-stats"></div>
+      <div class="rv-complete-actions">
+        <button class="btn btn-primary btn-lg" id="rv-complete-dashboard">📊 Go to Dashboard</button>
+        <button class="btn btn-secondary" id="rv-complete-restart">🔁 Restart Review</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/review.js"></script>
+</body>
+</html>
