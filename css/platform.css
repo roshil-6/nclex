@@ -649,3 +649,8 @@ button { cursor: pointer; font-family: var(--font-body); }
 @media(max-width:380px) {
   .nav-tab { padding: 5px 7px; font-size: 0.72rem; }
 }
+
+@media(max-width:500px) {
+  .ngn-vitals-grid { grid-template-columns: 1fr 1fr; }
+  .rat-tab { font-size: 0.68rem; padding: 8px 4px; }
+}
