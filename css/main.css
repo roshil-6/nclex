@@ -1,67 +1,71 @@
-/* =========================================
-   NursePrep Pro — Shared Design System
-   Light theme: warm white, deep green, gold
-   ========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 /* ---- Tokens ---- */
 :root {
   /* Backgrounds */
-  --bg:          #f7f5f0;
-  --bg-alt:      #efecea;
-  --surface:     #ffffff;
-  --surface-2:   #f3f1ec;
+  --bg:          #f0f4f8; /* slate */
+  --bg-alt:      #e4eaf2; /* slate-2 */
+  --surface:     #ffffff; /* surface */
+  --surface-2:   #f0f4f8; /* slate */
 
   /* Brand */
-  --green:       #1b3f2d;
-  --green-mid:   #2a5e42;
-  --green-light: #e8f0eb;
-  --gold:        #b8960c;
-  --gold-light:  #fdf6dc;
-  --gold-border: #e2c84a;
+  --navy:        #0d1f2d;
+  --navy-2:      #162635;
+  --navy-3:      #1e3347;
+  --amber:       #e8930a;
+  --amber-2:     #f5a623;
+  --amber-soft:  #fef3dc;
+  --amber-border:#f0c06a;
+
+  /* Legacy aliases for code compatibility */
+  --green:       #0d1f2d; /* navy */
+  --green-mid:   #162635; /* navy-2 */
+  --green-light: #e4eaf2; /* slate-2 */
+  --gold:        #e8930a; /* amber */
+  --gold-light:  #fef3dc; /* amber-soft */
+  --gold-border: #f0c06a; /* amber-border */
 
   /* Text */
-  --text:        #1a1a18;
-  --text-2:      #4a5a4a;
-  --text-3:      #7a8a7a;
+  --text:        #0d1f2d; /* navy */
+  --text-2:      #3d5166; /* slate text */
+  --text-3:      #8399b0;
   --text-inv:    #ffffff;
 
   /* Semantic */
-  --success:     #2e7d52;
-  --success-bg:  #eaf4ef;
-  --success-bd:  #a8d5b8;
+  --success:     #1a7a5e;
+  --success-bg:  #e8f5f1;
+  --success-bd:  #9fd4c4;
   --danger:      #c0392b;
   --danger-bg:   #fdf0ee;
-  --danger-bd:   #e8a09a;
-  --warning:     #b8700c;
-  --warning-bg:  #fef8ee;
-  --warning-bd:  #f0cc80;
-  --info:        #1a3a2a;
-  --info-bg:     #eaf2ee;
-  --info-bd:     #a0c8b0;
+  --danger-bd:   #e0a09a;
+  --warning:     #e8930a;
+  --warning-bg:  #fef3dc;
+  --warning-bd:  #f0c06a;
+  --info:        #0d1f2d;
+  --info-bg:     #e4eaf2;
+  --info-bd:     #c4d2e0;
 
   /* Borders */
-  --border:      #ddd8d0;
-  --border-2:    #c8c2b8;
+  --border:      #dce6f0;
+  --border-2:    #c4d2e0;
 
   /* Typography */
-  --font-head: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-head:   'Sora', sans-serif;
+  --font-body:   'DM Sans', sans-serif;
 
   /* Radius */
   --r-sm:   6px;
   --r-md:   10px;
-  --r-lg:   16px;
-  --r-xl:   22px;
+  --r-lg:   14px;
+  --r-xl:   18px;
   --r-pill: 9999px;
 
   /* Shadow */
-  --sh-sm:  0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-  --sh-md:  0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
-  --sh-lg:  0 8px 24px rgba(0,0,0,0.10), 0 3px 8px rgba(0,0,0,0.06);
+  --sh-sm:  0 1px 3px rgba(13,31,45,.07), 0 1px 2px rgba(13,31,45,.05);
+  --sh-md:  0 4px 12px rgba(13,31,45,.09), 0 2px 4px rgba(13,31,45,.05);
+  --sh-lg:  0 10px 32px rgba(13,31,45,.12), 0 3px 8px rgba(13,31,45,.06);
 
-  --transition: 0.18s ease;
+  --transition: 0.16s ease;
 }
 
 /* ---- Reset ---- */
@@ -251,7 +255,7 @@ a:hover { text-decoration: underline; }
 .btn-primary:hover { background: var(--green-mid); border-color: var(--green-mid); }
 
 .btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); font-weight: 700; }
-.btn-gold:hover { background: #a07e0a; border-color: #a07e0a; }
+.btn-gold:hover { background: var(--amber-2); border-color: var(--amber-2); }
 
 .btn-outline { background: transparent; color: var(--green); border-color: var(--green); }
 .btn-outline:hover { background: var(--green-light); }

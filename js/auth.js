@@ -1,9 +1,9 @@
 /* auth.js — localStorage-based auth (no backend) */
 
 const DEMO_USERS = [
-  { id: 'u1', name: 'Demo Student', email: 'student@nurseprep.com', password: 'demo1234',
+  { id: 'u1', name: 'Demo Student', email: 'student@gcma.com', password: 'demo1234',
     stats: { answered: 47, correct: 36, streak: 5, timeMin: 140 } },
-  { id: 'u2', name: 'Test User',   email: 'test@nurseprep.com',    password: 'test1234',
+  { id: 'u2', name: 'Test User',   email: 'test@gcma.com',    password: 'test1234',
     stats: { answered: 12, correct: 9,  streak: 2, timeMin: 42  } },
 ];
 

@@ -62,10 +62,9 @@ function loadSession() {
 function showNoData() {
   document.getElementById('rv-content').innerHTML = `
     <div class="rv-loading" style="text-align:center">
-      <div style="font-size:3rem;margin-bottom:16px">📭</div>
       <h3 style="color:var(--text-primary);margin-bottom:8px">No review session found</h3>
       <p style="color:var(--text-muted);margin-bottom:24px">Complete a quiz first, then launch the detailed review.</p>
-      <a href="index.html" class="btn btn-primary">🏠 Back to Dashboard</a>
+      <a href="index.html" class="btn btn-primary">Back to Dashboard</a>
     </div>`;
   document.getElementById('rv-score-text').textContent = 'No session';
 }
@@ -175,7 +174,7 @@ function buildCardHTML(ans, q, isSATA, isNGN, idx) {
         <div class="rv-q-badges">
           ${buildBadge(q.format)}
           ${buildBadge(q.difficulty, q.difficulty === 'Analysis' ? 'badge-danger' : q.difficulty === 'Application' ? 'badge-warning' : 'badge-teal')}
-          <span class="badge badge-blue" style="font-size:.68rem">📚 ${q.category}</span>
+          <span class="badge badge-blue" style="font-size:.68rem">${q.category}</span>
         </div>
       </div>
 
@@ -193,7 +192,7 @@ function buildCardHTML(ans, q, isSATA, isNGN, idx) {
       <!-- ── Body ── -->
       <div class="rv-q-body">
         ${isNGN ? buildNGNBlock(q) : ''}
-        ${isSATA ? `<div class="sata-instruction" style="margin-bottom:16px">⚠️ <strong>Select All That Apply</strong> — all correct options must be chosen.</div>` : ''}
+        ${isSATA ? `<div class="sata-instruction" style="margin-bottom:16px"><strong>Select All That Apply</strong> — all correct options must be chosen.</div>` : ''}
         <p class="rv-q-stem">${q.stem}</p>
       </div>
 
@@ -220,12 +219,12 @@ function buildNGNBlock(q) {
   return `
     <div style="margin-bottom:18px">
       <h3 style="color:var(--accent-teal);font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px">
-        📋 ${q.caseTitle || 'Clinical Case'}
+        ${q.caseTitle || 'Clinical Case'}
       </h3>
       <div class="rv-scenario">${q.scenario}</div>
       ${q.clientData ? `
         <div class="rv-client-table" role="table" aria-label="Client data">
-          <div class="rv-client-table-title" role="rowheader">📊 Client Data</div>
+          <div class="rv-client-table-title" role="rowheader">Client Data</div>
           ${q.clientData.map(d => `
             <div class="rv-client-row" role="row">
               <span role="cell">${d.label}</span>
@@ -245,9 +244,9 @@ function buildAnswerMatrix(ans, q) {
     let tag = '';
     let statusIcon = '';
 
-    if (isSelected && isCorrect)  { rowClass = 'rv-row-correct';   tag = `<span class="rv-row-tag rv-tag-correct">✓ Correct</span>`;   statusIcon = '✅'; }
-    else if (isSelected && !isCorrect) { rowClass = 'rv-row-incorrect'; tag = `<span class="rv-row-tag rv-tag-incorrect">✗ Wrong</span>`;    statusIcon = '❌'; }
-    else if (!isSelected && isCorrect) { rowClass = 'rv-row-missed';    tag = `<span class="rv-row-tag rv-tag-missed">↑ Missed</span>`;    statusIcon = '⚠'; }
+    if (isSelected && isCorrect)  { rowClass = 'rv-row-correct';   tag = `<span class="rv-row-tag rv-tag-correct">✓ Correct</span>`;   statusIcon = 'Correct'; }
+    else if (isSelected && !isCorrect) { rowClass = 'rv-row-incorrect'; tag = `<span class="rv-row-tag rv-tag-incorrect">✗ Wrong</span>`;    statusIcon = 'Incorrect'; }
+    else if (!isSelected && isCorrect) { rowClass = 'rv-row-missed';    tag = `<span class="rv-row-tag rv-tag-missed">↑ Missed</span>`;    statusIcon = 'Missed'; }
     else { tag = `<span class="rv-row-tag rv-tag-neutral">–</span>`; }
 
     return `
@@ -279,10 +278,10 @@ function buildRationaleBlock(r) {
   return `
     <div class="rv-rationale" role="region" aria-label="Rationale">
       <div class="rv-rationale-tabs" role="tablist" aria-label="Rationale sections">
-        <button class="rv-tab active" id="tab-concept"   role="tab" aria-selected="true"  aria-controls="panel-concept"   onclick="activateTab('tab-concept')">🧠 Core Concept</button>
-        <button class="rv-tab"        id="tab-correct"   role="tab" aria-selected="false" aria-controls="panel-correct"   onclick="activateTab('tab-correct')">✅ Right Answer</button>
-        ${hasWrong ? `<button class="rv-tab" id="tab-wrong" role="tab" aria-selected="false" aria-controls="panel-wrong" onclick="activateTab('tab-wrong')">❌ Why Wrong</button>` : ''}
-        <button class="rv-tab"        id="tab-objective" role="tab" aria-selected="false" aria-controls="panel-objective" onclick="activateTab('tab-objective')">🎯 Objective</button>
+        <button class="rv-tab active" id="tab-concept"   role="tab" aria-selected="true"  aria-controls="panel-concept"   onclick="activateTab('tab-concept')">Core Concept</button>
+        <button class="rv-tab"        id="tab-correct"   role="tab" aria-selected="false" aria-controls="panel-correct"   onclick="activateTab('tab-correct')">Correct Answer</button>
+        ${hasWrong ? `<button class="rv-tab" id="tab-wrong" role="tab" aria-selected="false" aria-controls="panel-wrong" onclick="activateTab('tab-wrong')">Incorrect Options</button>` : ''}
+        <button class="rv-tab"        id="tab-objective" role="tab" aria-selected="false" aria-controls="panel-objective" onclick="activateTab('tab-objective')">Objective</button>
       </div>
       <div class="rv-tab-panels">
         <div id="panel-concept"   class="rv-tab-panel active" role="tabpanel" aria-labelledby="tab-concept">
@@ -420,7 +419,7 @@ function bindUtilityMenu() {
 
 function handleDownload() {
   // Generate a downloadable text summary without resetting state
-  const lines = ['NursePrep Pro — Quiz Review Summary', '='.repeat(44), ''];
+  const lines = ['GCMA NCLEX — Quiz Review Summary', '='.repeat(44), ''];
   ReviewState.answers.forEach((ans, i) => {
     if (!ans) return;
     const q = ans.question;
@@ -449,14 +448,14 @@ function handleShare() {
   const score  = ReviewState.correctCount;
   const total  = ReviewState.totalQ;
   const pct    = Math.round(score / total * 100);
-  const text   = `I just scored ${score}/${total} (${pct}%) on NursePrep Pro's NCLEX practice quiz! 🏥`;
+  const text   = `I just scored ${score}/${total} (${pct}%) on GCMA's NCLEX practice quiz!`;
   const url    = window.location.origin + '/index.html';
 
   if (navigator.share) {
-    navigator.share({ title: 'NursePrep Pro Score', text, url }).catch(() => {});
+    navigator.share({ title: 'GCMA Score', text, url }).catch(() => {});
   } else if (navigator.clipboard) {
     navigator.clipboard.writeText(`${text}\n${url}`)
-      .then(() => showToast('🔗 Link copied to clipboard!', 'success'))
+      .then(() => showToast('Link copied to clipboard!', 'success'))
       .catch(() => showToast('Unable to copy. Please copy the URL manually.', 'error'));
   } else {
     showToast('Share not supported in this browser.', 'info');
