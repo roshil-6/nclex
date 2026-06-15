@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GCMA — NCLEX-RN Training Platform</title>
+  <meta name="description" content="GCMA NCLEX-RN Training: Introduction, Syllabus, Study Materials, Question Bank, and Exam Practice." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/platform.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     TOP NAVIGATION
+══════════════════════════════════════ -->
+<header class="topbar" role="banner">
+  <div class="topbar-logo" onclick="navigate('introduction')" role="button" tabindex="0" aria-label="GCMA Home">
+    <div class="logo-cap" aria-hidden="true">🎓</div>
+    <div class="logo-text">
+      <span class="logo-name">GCMA</span>
+      <span class="logo-sub">NCLEX-RN TRAINING</span>
+    </div>
+  </div>
+
+  <nav class="topbar-nav" role="navigation" aria-label="Platform navigation">
+    <button class="nav-tab active" id="tab-introduction" onclick="navigate('introduction')" aria-current="page">
+      <span class="nav-icon" aria-hidden="true">⌂</span> Introduction
+    </button>
+    <button class="nav-tab" id="tab-syllabus" onclick="navigate('syllabus')">
+      <span class="nav-icon" aria-hidden="true">📖</span> Syllabus
+    </button>
+    <button class="nav-tab" id="tab-study" onclick="navigate('study')">
+      <span class="nav-icon" aria-hidden="true">📄</span> Study Material
+    </button>
+    <button class="nav-tab" id="tab-qbank" onclick="navigate('qbank')">
+      <span class="nav-icon" aria-hidden="true">❓</span> Question Bank
+    </button>
+    <button class="nav-tab" id="tab-exam" onclick="navigate('exam')">
+      <span class="nav-icon" aria-hidden="true">📋</span> Exam Practice
+    </button>
+  </nav>
+
+  <button class="logout-btn" onclick="handleLogout()" aria-label="Logout">
+    <span aria-hidden="true">→|</span> Logout
+  </button>
+</header>
+
+<!-- ══════════════════════════════════════
+     SCREENS
+══════════════════════════════════════ -->
+<main class="platform-main" role="main">
+
+  <!-- ── INTRODUCTION ── -->
+  <section class="screen active" id="screen-introduction" aria-labelledby="intro-heading">
+
+    <!-- Logo block -->
+    <div class="intro-logo-wrap">
+      <img src="img/gcma_logo.png" alt="GCMA — Global Council for Migration Awareness and Social Welfare" class="intro-logo-img" />
+    </div>
+
+    <div class="diamond-sep" aria-hidden="true">◆</div>
+
+    <!-- About Us -->
+    <div class="content-card" role="region" aria-labelledby="about-heading">
+      <div class="card-eyebrow">— ABOUT US —</div>
+      <h2 id="about-heading" class="card-heading">
+        Empowering Migrants with <em class="gold-italic">Clarity, Honesty &amp; Trust</em>
+      </h2>
+      <p class="card-body">
+        The <strong>Global Council for Migration Awareness and Social Welfare (GCMA)</strong> is a dedicated organisation committed to safeguarding the rights, dignity, and well-being of migrants worldwide. We stand at the frontlines of migration advocacy — educating communities, exposing fraudulent practices, and championing ethical migration processes.
+      </p>
+      <p class="card-body">
+        GCMA believes that every individual's journey — whether crossing borders for work, education, or a better life — deserves to be guided by accurate information, transparent procedures, and unwavering integrity.
+      </p>
+    </div>
+
+    <!-- Instructor Card -->
+    <div class="content-card instructor-card" role="region" aria-labelledby="instructor-heading">
+      <div class="instructor-inner">
+        <div class="instructor-photo-wrap" aria-hidden="true">
+          <div class="instructor-photo">JJ</div>
+        </div>
+        <div class="instructor-info">
+          <div class="instructor-name-row">
+            <h3 id="instructor-heading" class="instructor-name">Juhy P Jose</h3>
+            <span class="instructor-cred"> — <em>RN, ENC</em></span>
+          </div>
+          <div class="instructor-role">NURSING MIGRATION WELFARE SPECIALIST • GCMA</div>
+          <div class="instructor-badges">
+            <span class="inst-badge">🏅 REGISTERED NURSE</span>
+            <span class="inst-badge">🚑 EMERGENCY NURSE CERTIFIED</span>
+            <span class="inst-badge">📋 MIGRATION WELFARE SPECIALIST</span>
+          </div>
+          <p class="instructor-bio">
+            Hello! I'm <strong>Juhy P Jose</strong> — a <strong>Registered Nurse</strong> and <strong>Emergency Nurse</strong> with certified expertise in NCLEX-RN preparation. With hands-on clinical experience and a deep passion for nursing education, I guide internationally educated nurses through every step of their licensure journey — with clarity, confidence, and zero compromise on ethics.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Path to Licensure -->
+    <div class="content-card" role="region" aria-labelledby="path-heading">
+      <div class="card-eyebrow">— NCLEX-RN PREPARATION —</div>
+      <h2 id="path-heading" class="card-heading">
+        Your Path to Licensure <em class="gold-italic">Starts Here</em>
+      </h2>
+      <p class="card-body">
+        At GCMA, we offer structured <strong>NCLEX-RN training</strong> designed to prepare nurses for success — lesson by lesson, with the latest exam-style questions and practical clinical insight.
+      </p>
+
+      <div class="feat-grid-3">
+        <div class="feat-tile" onclick="navigate('syllabus')" role="button" tabindex="0">
+          <div class="feat-tile-icon">🎬</div>
+          <div class="feat-tile-label">VIDEO CLASSES</div>
+          <p>Comprehensive video sessions covering every topic — watch at your own pace, anytime.</p>
+        </div>
+        <div class="feat-tile" onclick="navigate('study')" role="button" tabindex="0">
+          <div class="feat-tile-icon">📚</div>
+          <div class="feat-tile-label">LESSON BY LESSON</div>
+          <p>Step-by-step structured lessons that build your knowledge systematically from basics to advanced.</p>
+        </div>
+        <div class="feat-tile" onclick="navigate('exam')" role="button" tabindex="0">
+          <div class="feat-tile-icon">✅</div>
+          <div class="feat-tile-label">EXAM PRACTICE</div>
+          <p>Latest NCLEX-style practice questions with detailed rationales to sharpen your critical thinking.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission -->
+    <div class="content-card" role="region" aria-labelledby="mission-heading">
+      <div class="card-eyebrow">— OUR MISSION —</div>
+      <h2 id="mission-heading" class="card-heading">What We Stand For</h2>
+      <div class="feat-grid-3">
+        <div class="feat-tile mission-tile">
+          <div class="feat-tile-icon mission-icon">🛡️</div>
+          <div class="feat-tile-label">PROTECTION</div>
+          <p>Shielding migrants from scams, fraud, and exploitation at every step of their journey.</p>
+        </div>
+        <div class="feat-tile mission-tile">
+          <div class="feat-tile-icon mission-icon">📢</div>
+          <div class="feat-tile-label">AWARENESS</div>
+          <p>Raising community awareness about safe, legal, and ethical migration pathways.</p>
+        </div>
+        <div class="feat-tile mission-tile">
+          <div class="feat-tile-icon mission-icon">🤝</div>
+          <div class="feat-tile-label">WELFARE</div>
+          <p>Promoting social welfare and human rights for migrants across the globe.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── SYLLABUS ── -->
+  <section class="screen" id="screen-syllabus" aria-labelledby="syllabus-heading">
+    <div class="page-header">
+      <div class="page-eyebrow">— COMPLETE SYLLABUS —</div>
+      <h1 id="syllabus-heading" class="page-title">NCLEX-RN Syllabus</h1>
+      <p class="page-sub">Explore the full syllabus organised by Client Needs categories. Click on each topic to access video classes.</p>
+    </div>
+    <div class="diamond-sep" aria-hidden="true">◆</div>
+
+    <div class="accordion-list" id="syllabus-accordion" role="list">
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-left">
+            <span class="acc-num">1</span>
+            <div>
+              <div class="acc-title">Management of Care</div>
+              <div class="acc-count">5 topics</div>
+            </div>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="acc-body">
+          <ul class="topic-list">
+            <li><span class="topic-icon">▶</span> Advance Directives / Self-Determination / Life Planning</li>
+            <li><span class="topic-icon">▶</span> Case Management &amp; Care Coordination</li>
+            <li><span class="topic-icon">▶</span> Client Rights and Advocacy</li>
+            <li><span class="topic-icon">▶</span> Delegation and Supervision</li>
+            <li><span class="topic-icon">▶</span> Ethical Practice and Legal Responsibilities</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-left">
+            <span class="acc-num">2</span>
+            <div>
+              <div class="acc-title">Safety and Infection Control</div>
+              <div class="acc-count">4 topics</div>
+            </div>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="acc-body">
+          <ul class="topic-list">
+            <li><span class="topic-icon">▶</span> Accident / Error / Injury Prevention</li>
+            <li><span class="topic-icon">▶</span> Emergency Response Planning</li>
+            <li><span class="topic-icon">▶</span> Home Safety &amp; Ergonomics</li>
+            <li><span class="topic-icon">▶</span> Standard &amp; Transmission-Based Precautions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-left">
+            <span class="acc-num">3</span>
+            <div>
+              <div class="acc-title">Health Promotion and Maintenance</div>
+              <div class="acc-count">3 topics</div>
+            </div>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="acc-body">
+          <ul class="topic-list">
+            <li><span class="topic-icon">▶</span> Aging Process &amp; Developmental Stages</li>
+            <li><span class="topic-icon">▶</span> Disease Prevention &amp; Health Screening</li>
+            <li><span class="topic-icon">▶</span> Lifestyle Choices &amp; Community Health</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-left">
+            <span class="acc-num">4</span>
+            <div>
+              <div class="acc-title">Psychosocial Integrity</div>
+              <div class="acc-count">3 topics</div>
+            </div>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="acc-body">
+          <ul class="topic-list">
+            <li><span class="topic-icon">▶</span> Behavioural Interventions &amp; Mental Health</li>
+            <li><span class="topic-icon">▶</span> Coping Mechanisms &amp; Support Systems</li>
+            <li><span class="topic-icon">▶</span> Grief, Loss, and Crisis Intervention</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-left">
+            <span class="acc-num">5</span>
+            <div>
+              <div class="acc-title">Basic Care and Comfort</div>
+              <div class="acc-count">3 topics</div>
+            </div>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="acc-body">
+          <ul class="topic-list">
+            <li><span class="topic-icon">▶</span> Assistive Devices &amp; Mobility</li>
+            <li><span class="topic-icon">▶</span> Nutrition &amp; Oral Hydration</li>
+            <li><span class="topic-icon">▶</span> Rest, Sleep &amp; Non-Pharmacological Comfort</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-left">
+            <span class="acc-num">6</span>
+            <div>
+              <div class="acc-title">Pharmacological and Parenteral Therapies</div>
+              <div class="acc-count">4 topics</div>
+            </div>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="acc-body">
+          <ul class="topic-list">
+            <li><span class="topic-icon">▶</span> Adverse Drug Effects &amp; Contraindications</li>
+            <li><span class="topic-icon">▶</span> Blood &amp; Blood Products Administration</li>
+            <li><span class="topic-icon">▶</span> Medication Administration &amp; Calculation</li>
+            <li><span class="topic-icon">▶</span> Pharmacokinetics &amp; Drug Interactions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-left">
+            <span class="acc-num">7</span>
+            <div>
+              <div class="acc-title">Reduction of Risk Potential</div>
+              <div class="acc-count">4 topics</div>
+            </div>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="acc-body">
+          <ul class="topic-list">
+            <li><span class="topic-icon">▶</span> Changes / Abnormal Diagnostics</li>
+            <li><span class="topic-icon">▶</span> Lab Values &amp; Interpretation</li>
+            <li><span class="topic-icon">▶</span> Monitoring Post-Procedure</li>
+            <li><span class="topic-icon">▶</span> Therapeutic Procedures &amp; Complications</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="acc-item" role="listitem">
+        <button class="acc-header" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-left">
+            <span class="acc-num">8</span>
+            <div>
+              <div class="acc-title">Physiological Adaptation</div>
+              <div class="acc-count">3 topics</div>
+            </div>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">›</span>
+        </button>
+        <div class="acc-body">
+          <ul class="topic-list">
+            <li><span class="topic-icon">▶</span> Alterations in Body Systems</li>
+            <li><span class="topic-icon">▶</span> Fluid &amp; Electrolyte Imbalances</li>
+            <li><span class="topic-icon">▶</span> Medical Emergencies &amp; Hemodynamics</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── STUDY MATERIAL ── -->
+  <section class="screen" id="screen-study" aria-labelledby="study-heading">
+    <div class="page-header">
+      <div class="page-eyebrow">— STUDY RESOURCES —</div>
+      <h1 id="study-heading" class="page-title">Study Materials</h1>
+      <p class="page-sub">Chapter-wise notes and resources to help you prepare for the NCLEX-RN exam.</p>
+    </div>
+    <div class="diamond-sep" aria-hidden="true">◆</div>
+
+    <div class="study-grid">
+      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('management')">
+        <div class="study-icon" aria-hidden="true">📖</div>
+        <div class="study-info">
+          <div class="study-name">Management of Care</div>
+          <div class="study-count">2 chapters</div>
+        </div>
+      </div>
+      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('safety')">
+        <div class="study-icon" aria-hidden="true">📖</div>
+        <div class="study-info">
+          <div class="study-name">Safety and Infection Control</div>
+          <div class="study-count">1 chapter</div>
+        </div>
+      </div>
+      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('health')">
+        <div class="study-icon" aria-hidden="true">📖</div>
+        <div class="study-info">
+          <div class="study-name">Health Promotion and Maintenance</div>
+          <div class="study-count">0 chapters</div>
+        </div>
+      </div>
+      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('psychosocial')">
+        <div class="study-icon" aria-hidden="true">📖</div>
+        <div class="study-info">
+          <div class="study-name">Psychosocial Integrity</div>
+          <div class="study-count">1 chapter</div>
+        </div>
+      </div>
+      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('basic')">
+        <div class="study-icon" aria-hidden="true">📖</div>
+        <div class="study-info">
+          <div class="study-name">Basic Care and Comfort</div>
+          <div class="study-count">0 chapters</div>
+        </div>
+      </div>
+      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('pharma')">
+        <div class="study-icon" aria-hidden="true">📖</div>
+        <div class="study-info">
+          <div class="study-name">Pharmacological and Parenteral Therapies</div>
+          <div class="study-count">1 chapter</div>
+        </div>
+      </div>
+      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('reduction')">
+        <div class="study-icon" aria-hidden="true">📖</div>
+        <div class="study-info">
+          <div class="study-name">Reduction of Risk Potential</div>
+          <div class="study-count">0 chapters</div>
+        </div>
+      </div>
+      <div class="study-card" role="button" tabindex="0" onclick="openStudyCategory('physio')">
+        <div class="study-icon" aria-hidden="true">📖</div>
+        <div class="study-info">
+          <div class="study-name">Physiological Adaptation</div>
+          <div class="study-count">1 chapter</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Study modal -->
+    <div class="study-modal-bg" id="study-modal-bg" onclick="closeStudyModal()" aria-hidden="true"></div>
+    <div class="study-modal" id="study-modal" role="dialog" aria-modal="true" aria-labelledby="study-modal-title">
+      <div class="study-modal-header">
+        <h3 id="study-modal-title">Chapter</h3>
+        <button onclick="closeStudyModal()" class="modal-close-btn" aria-label="Close">✕</button>
+      </div>
+      <div class="study-modal-body" id="study-modal-body">
+        <p class="empty-state">📂 No chapters uploaded yet. Check back soon — materials will be added shortly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUESTION BANK ── -->
+  <section class="screen" id="screen-qbank" aria-labelledby="qbank-heading">
+    <div class="page-header">
+      <div class="page-eyebrow">— PRACTICE QUESTIONS —</div>
+      <h1 id="qbank-heading" class="page-title">Question Bank</h1>
+      <p class="page-sub">Browse and practise NCLEX-RN questions by category and format. Select a topic to begin.</p>
+    </div>
+    <div class="diamond-sep" aria-hidden="true">◆</div>
+
+    <div class="qbank-filters content-card" role="region" aria-label="Question filters">
+      <div class="qf-row">
+        <div class="qf-group">
+          <label class="qf-label" for="qf-category">Category</label>
+          <select id="qf-category" class="qf-select" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option>Management of Care</option>
+            <option>Safety and Infection Control</option>
+            <option>Health Promotion and Maintenance</option>
+            <option>Psychosocial Integrity</option>
+            <option>Basic Care and Comfort</option>
+            <option>Pharmacological and Parenteral Therapies</option>
+            <option>Reduction of Risk Potential</option>
+            <option>Physiological Adaptation</option>
+          </select>
+        </div>
+        <div class="qf-group">
+          <label class="qf-label" for="qf-format">Format</label>
+          <select id="qf-format" class="qf-select" aria-label="Filter by format">
+            <option value="all">All Formats</option>
+            <option>Multiple Choice</option>
+            <option>SATA</option>
+            <option>Prioritization</option>
+            <option>NGN Case Study</option>
+          </select>
+        </div>
+        <div class="qf-group">
+          <label class="qf-label" for="qf-difficulty">Difficulty</label>
+          <select id="qf-difficulty" class="qf-select" aria-label="Filter by difficulty">
+            <option value="all">All Levels</option>
+            <option>Foundational</option>
+            <option>Application</option>
+            <option>Analysis</option>
+          </select>
+        </div>
+        <div class="qf-group">
+          <label class="qf-label" for="qf-count">Questions</label>
+          <select id="qf-count" class="qf-select" aria-label="Number of questions">
+            <option value="5">5 Questions</option>
+            <option value="10" selected>10 Questions</option>
+            <option value="20">20 Questions</option>
+            <option value="all">All Available</option>
+          </select>
+        </div>
+      </div>
+      <button class="start-btn" onclick="launchQuiz()" id="qbank-start-btn">
+        Start Practice Session →
+      </button>
+    </div>
+
+    <div class="qbank-stats-row" role="region" aria-label="Your question bank statistics">
+      <div class="qstat-card">
+        <div class="qstat-val" id="qs-answered">0</div>
+        <div class="qstat-lbl">Questions Answered</div>
+      </div>
+      <div class="qstat-card">
+        <div class="qstat-val gold" id="qs-correct">0%</div>
+        <div class="qstat-lbl">Correct Rate</div>
+      </div>
+      <div class="qstat-card">
+        <div class="qstat-val" id="qs-streak">0</div>
+        <div class="qstat-lbl">Day Streak</div>
+      </div>
+      <div class="qstat-card">
+        <div class="qstat-val" id="qs-time">0 min</div>
+        <div class="qstat-lbl">Time Studied</div>
+      </div>
+    </div>
+
+    <!-- Category progress -->
+    <div class="content-card" role="region" aria-labelledby="cat-progress-heading">
+      <h3 id="cat-progress-heading" style="margin-bottom:20px;font-size:1.05rem">Performance by Category</h3>
+      <div class="cat-progress-list">
+        <div class="cat-row"><span>Management of Care</span><div class="cat-bar-wrap"><div class="cat-bar" style="width:72%"></div></div><span class="cat-pct">72%</span></div>
+        <div class="cat-row"><span>Pharmacology</span><div class="cat-bar-wrap"><div class="cat-bar" style="width:65%"></div></div><span class="cat-pct">65%</span></div>
+        <div class="cat-row"><span>Safety &amp; Infection Control</span><div class="cat-bar-wrap"><div class="cat-bar" style="width:80%"></div></div><span class="cat-pct">80%</span></div>
+        <div class="cat-row"><span>Physiological Adaptation</span><div class="cat-bar-wrap"><div class="cat-bar" style="width:58%"></div></div><span class="cat-pct warn">58%</span></div>
+        <div class="cat-row"><span>Psychosocial Integrity</span><div class="cat-bar-wrap"><div class="cat-bar gold-bar" style="width:44%"></div></div><span class="cat-pct warn">44%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXAM PRACTICE ── -->
+  <section class="screen" id="screen-exam" aria-labelledby="exam-heading">
+    <div class="page-header">
+      <div class="page-eyebrow">— FULL PRACTICE TEST —</div>
+      <h1 id="exam-heading" class="page-title">Exam Practice</h1>
+      <p class="page-sub">Simulate the real NCLEX-RN exam experience with timed questions, calculator, and scoring.</p>
+    </div>
+    <div class="diamond-sep" aria-hidden="true">◆</div>
+
+    <div class="exam-layout">
+
+      <div class="exam-details-card content-card" role="region" aria-labelledby="exam-details-heading">
+        <h3 id="exam-details-heading" class="exam-card-title">Exam Details</h3>
+        <div class="exam-detail-row">
+          <span>Total Questions</span>
+          <strong id="exam-q-count">20</strong>
+        </div>
+        <div class="exam-detail-row">
+          <span>Time Limit</span>
+          <strong id="exam-time-limit">35:00</strong>
+        </div>
+        <div class="exam-detail-row">
+          <span>Passing Score</span>
+          <strong>65%</strong>
+        </div>
+        <div class="exam-detail-row">
+          <span>Calculator</span>
+          <strong class="available">Available</strong>
+        </div>
+        <div class="exam-detail-row">
+          <span>Question Format</span>
+          <strong>Mixed (MCQ, SATA, NGN)</strong>
+        </div>
+        <button class="start-btn" id="exam-start-btn" onclick="launchExam()">Start Exam</button>
+
+        <!-- Calculator widget -->
+        <div class="calc-toggle-row">
+          <button class="calc-toggle-btn" onclick="toggleCalc()" id="calc-toggle-btn" aria-expanded="false" aria-controls="calc-panel">
+            🧮 Open Calculator
+          </button>
+        </div>
+        <div class="calc-panel" id="calc-panel" aria-hidden="true">
+          <div class="calc-display" id="calc-display" role="status" aria-live="polite">0</div>
+          <div class="calc-grid">
+            <button class="calc-btn wide2 op" onclick="calcClear()">C</button>
+            <button class="calc-btn op" onclick="calcInput('/')">÷</button>
+            <button class="calc-btn op" onclick="calcInput('*')">×</button>
+            <button class="calc-btn" onclick="calcInput('7')">7</button>
+            <button class="calc-btn" onclick="calcInput('8')">8</button>
+            <button class="calc-btn" onclick="calcInput('9')">9</button>
+            <button class="calc-btn op" onclick="calcInput('-')">−</button>
+            <button class="calc-btn" onclick="calcInput('4')">4</button>
+            <button class="calc-btn" onclick="calcInput('5')">5</button>
+            <button class="calc-btn" onclick="calcInput('6')">6</button>
+            <button class="calc-btn op" onclick="calcInput('+')">+</button>
+            <button class="calc-btn" onclick="calcInput('1')">1</button>
+            <button class="calc-btn" onclick="calcInput('2')">2</button>
+            <button class="calc-btn" onclick="calcInput('3')">3</button>
+            <button class="calc-btn eq" onclick="calcEquals()" rowspan="2">=</button>
+            <button class="calc-btn wide2" onclick="calcInput('0')">0</button>
+            <button class="calc-btn" onclick="calcInput('.')">.</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-right">
+        <div class="content-card recent-attempts-card" role="region" aria-labelledby="attempts-heading">
+          <h3 id="attempts-heading" class="exam-card-title">Recent Attempts</h3>
+          <div id="attempts-list">
+            <p class="empty-state">No exam attempts yet. Start your first practice exam!</p>
+          </div>
+        </div>
+
+        <div class="content-card" role="region" aria-labelledby="tips-heading">
+          <h3 id="tips-heading" class="exam-card-title">Exam Tips</h3>
+          <ul class="tips-list">
+            <li>Read each question carefully — look for keywords like "first", "priority", and "most important"</li>
+            <li>For SATA, treat each option independently — it's either right or wrong on its own</li>
+            <li>Use the calculator for dosage questions; never calculate in your head under pressure</li>
+            <li>Eliminate obviously wrong options first, then choose from what remains</li>
+            <li>Apply ABC (Airway, Breathing, Circulation) and Maslow's hierarchy for prioritisation</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- Toast -->
+<div class="toast-zone" id="toast-zone" role="status" aria-live="polite"></div>
+
+<!-- ══════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════ -->
+<script src="js/auth.js"></script>
+<script src="js/questions.js"></script>
+<script>
+
+// ── Auth guard ──
+const currentUser = Auth.requireAuth('login.html');
+if (currentUser) {
+  // Load stats
+  const s = currentUser.stats;
+  if (s) {
+    const el = (id, val) => { const e = document.getElementById(id); if (e) e.textContent = val; };
+    el('qs-answered', s.answered || 0);
+    el('qs-correct',  s.answered > 0 ? Math.round((s.correct / s.answered) * 100) + '%' : '0%');
+    el('qs-streak',   s.streak || 0);
+    el('qs-time',     (s.timeMin || 0) + ' min');
+  }
+  // Load past attempts
+  loadAttempts();
+}
+
+// ── Navigation ──
+const SCREENS = ['introduction','syllabus','study','qbank','exam'];
+
+function navigate(id) {
+  SCREENS.forEach(s => {
+    document.getElementById('screen-' + s)?.classList.remove('active');
+    document.getElementById('tab-' + s)?.classList.remove('active');
+    document.getElementById('tab-' + s)?.removeAttribute('aria-current');
+  });
+  document.getElementById('screen-' + id)?.classList.add('active');
+  const tab = document.getElementById('tab-' + id);
+  if (tab) { tab.classList.add('active'); tab.setAttribute('aria-current', 'page'); }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Accordion ──
+function toggleAcc(btn) {
+  const item = btn.closest('.acc-item');
+  const open = item.classList.contains('open');
+  // close all
+  document.querySelectorAll('.acc-item.open').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.acc-header').setAttribute('aria-expanded', 'false');
+  });
+  if (!open) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// ── Study modal ──
+const STUDY_DATA = {
+  management: { title: 'Management of Care', chapters: ['Chapter 1: Advance Directives & Legal Frameworks', 'Chapter 2: Delegation Principles — RN vs LPN vs UAP'] },
+  safety:     { title: 'Safety and Infection Control', chapters: ['Chapter 1: Standard Precautions & PPE Guide'] },
+  health:     { title: 'Health Promotion and Maintenance', chapters: [] },
+  psychosocial:{ title: 'Psychosocial Integrity', chapters: ['Chapter 1: Therapeutic Communication Techniques'] },
+  basic:      { title: 'Basic Care and Comfort', chapters: [] },
+  pharma:     { title: 'Pharmacological and Parenteral Therapies', chapters: ['Chapter 1: High-Alert Medications & Safe Administration'] },
+  reduction:  { title: 'Reduction of Risk Potential', chapters: [] },
+  physio:     { title: 'Physiological Adaptation', chapters: ['Chapter 1: ABG Interpretation & Acid-Base Balance'] },
+};
+
+function openStudyCategory(key) {
+  const data = STUDY_DATA[key];
+  if (!data) return;
+  document.getElementById('study-modal-title').textContent = data.title;
+  const body = document.getElementById('study-modal-body');
+  if (data.chapters.length === 0) {
+    body.innerHTML = '<p class="empty-state">📂 No chapters uploaded yet. Materials will be added shortly.</p>';
+  } else {
+    body.innerHTML = data.chapters.map((c, i) => `
+      <div class="chapter-row">
+        <div class="chapter-num">${i + 1}</div>
+        <div class="chapter-name">${c}</div>
+        <button class="chapter-btn" onclick="showToast('Study materials coming soon!', 'info')">View →</button>
+      </div>`).join('');
+  }
+  document.getElementById('study-modal-bg').classList.add('open');
+  document.getElementById('study-modal').classList.add('open');
+  document.getElementById('study-modal').setAttribute('aria-hidden', 'false');
+}
+function closeStudyModal() {
+  document.getElementById('study-modal-bg').classList.remove('open');
+  document.getElementById('study-modal').classList.remove('open');
+  document.getElementById('study-modal').setAttribute('aria-hidden', 'true');
+}
+
+// ── Quiz launch ──
+function launchQuiz() {
+  sessionStorage.setItem('np_quiz_mode', JSON.stringify({
+    category: document.getElementById('qf-category').value,
+    format:   document.getElementById('qf-format').value,
+    difficulty: document.getElementById('qf-difficulty').value,
+    count:    document.getElementById('qf-count').value,
+    mode: 'practice'
+  }));
+  window.open('quiz.html', '_blank');
+}
+
+function launchExam() {
+  sessionStorage.setItem('np_quiz_mode', JSON.stringify({
+    category: 'all', format: 'all', difficulty: 'all',
+    count: '20', mode: 'exam'
+  }));
+  window.open('quiz.html', '_blank');
+}
+
+// ── Attempts ──
+function loadAttempts() {
+  const raw = localStorage.getItem('np_attempts');
+  const list = document.getElementById('attempts-list');
+  if (!list) return;
+  let attempts = [];
+  try { attempts = JSON.parse(raw) || []; } catch {}
+  if (attempts.length === 0) {
+    list.innerHTML = '<p class="empty-state">No exam attempts yet. Start your first practice exam!</p>';
+    return;
+  }
+  list.innerHTML = attempts.slice(-5).reverse().map(a => `
+    <div class="attempt-row">
+      <div class="attempt-info">
+        <div class="attempt-date">${new Date(a.date).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'})}</div>
+        <div class="attempt-details">${a.total} questions · ${a.time}</div>
+      </div>
+      <div class="attempt-score ${a.pct >= 65 ? 'pass' : 'fail'}">${a.pct}%</div>
+    </div>`).join('');
+}
+
+// ── Calculator ──
+let calcExpr = '';
+function calcInput(v) {
+  if (calcExpr === '0' && v !== '.') calcExpr = '';
+  calcExpr += v;
+  document.getElementById('calc-display').textContent = calcExpr;
+}
+function calcClear() { calcExpr = ''; document.getElementById('calc-display').textContent = '0'; }
+function calcEquals() {
+  try {
+    const result = Function('"use strict"; return (' + calcExpr + ')')();
+    calcExpr = String(parseFloat(result.toFixed(8)));
+    document.getElementById('calc-display').textContent = calcExpr;
+  } catch { calcClear(); }
+}
+function toggleCalc() {
+  const panel = document.getElementById('calc-panel');
+  const btn   = document.getElementById('calc-toggle-btn');
+  const open  = panel.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  panel.setAttribute('aria-hidden', !open);
+  btn.textContent = open ? '🧮 Close Calculator' : '🧮 Open Calculator';
+}
+
+// ── Logout ──
+function handleLogout() {
+  Auth.logout();
+  window.location.href = 'login.html';
+}
+
+// ── Toast ──
+function showToast(msg, type = 'info') {
+  const z = document.getElementById('toast-zone');
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  z.appendChild(t);
+  setTimeout(() => t.remove(), 3500);
+}
+
+// ── Keyboard nav for role=button elements ──
+document.querySelectorAll('[role="button"]').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+  });
+});
+
+</script>
+</body>
+</html>

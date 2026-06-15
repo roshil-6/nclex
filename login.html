@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — NursePrep Pro</title>
+  <meta name="description" content="Sign in to your NursePrep Pro account to access NCLEX practice questions, video classes, and your performance dashboard." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body class="auth-body">
+
+  <!-- Back link -->
+  <a href="index.html" class="auth-back" aria-label="Back to home">
+    ← Back to Home
+  </a>
+
+  <div class="auth-page">
+
+    <!-- LEFT PANEL — Branding -->
+    <div class="auth-left" aria-hidden="true">
+      <div class="auth-left-inner">
+        <div class="auth-brand">
+          <div class="topnav-logo-icon" style="width:44px;height:44px;font-size:1.3rem;margin-bottom:16px">🏥</div>
+          <h2 class="auth-brand-name">NursePrep Pro</h2>
+          <p>Your complete NCLEX-RN &amp; NCLEX-PN preparation platform</p>
+        </div>
+        <div class="auth-features">
+          <div class="auth-feat">
+            <div class="af-icon">📝</div>
+            <div>
+              <strong>500+ Practice Questions</strong>
+              <p>MCQ, SATA, NGN Case Studies</p>
+            </div>
+          </div>
+          <div class="auth-feat">
+            <div class="af-icon">📹</div>
+            <div>
+              <strong>Expert Video Classes</strong>
+              <p>All NCLEX test plan categories</p>
+            </div>
+          </div>
+          <div class="auth-feat">
+            <div class="af-icon">📊</div>
+            <div>
+              <strong>Performance Analytics</strong>
+              <p>Track your progress in real time</p>
+            </div>
+          </div>
+          <div class="auth-feat">
+            <div class="af-icon">💡</div>
+            <div>
+              <strong>Expert Rationales</strong>
+              <p>Detailed explanations for every answer</p>
+            </div>
+          </div>
+        </div>
+        <div class="auth-testimonial">
+          <div class="auth-test-text">"NursePrep Pro helped me pass the NCLEX-RN on my first attempt. The rationales are incredibly detailed!"</div>
+          <div class="auth-test-author">— Anjali R., RN (Passed 2025)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL — Login Form -->
+    <div class="auth-right">
+      <div class="auth-card" role="main">
+        <div class="auth-card-header">
+          <h1>Welcome Back</h1>
+          <p>Sign in to continue your NCLEX preparation</p>
+        </div>
+
+        <!-- Demo credentials hint -->
+        <div class="demo-hint" role="note">
+          <strong>Demo Account:</strong>
+          student@nurseprep.com / demo1234
+        </div>
+
+        <form id="login-form" novalidate aria-label="Sign in form">
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input
+              type="email" id="email" name="email"
+              class="form-input" placeholder="your@email.com"
+              autocomplete="email" required
+              aria-required="true" aria-describedby="email-error"
+            />
+            <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <label class="form-label" for="password">Password</label>
+              <a href="#" class="text-sm" style="color:var(--green-mid)">Forgot password?</a>
+            </div>
+            <div class="input-wrap">
+              <input
+                type="password" id="password" name="password"
+                class="form-input" placeholder="Enter your password"
+                autocomplete="current-password" required
+                aria-required="true" aria-describedby="pass-error"
+              />
+              <button type="button" class="pw-toggle" id="pw-toggle" aria-label="Toggle password visibility">
+                👁
+              </button>
+            </div>
+            <span class="form-error" id="pass-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:22px">
+            <input type="checkbox" id="remember" style="accent-color:var(--green);width:16px;height:16px" />
+            <label for="remember" class="text-sm" style="color:var(--text-2);cursor:pointer">Remember me</label>
+          </div>
+
+          <div id="login-error" class="login-error-banner" role="alert" aria-live="polite" style="display:none"></div>
+
+          <button type="submit" class="btn btn-primary btn-full btn-lg" id="login-btn">
+            Sign In to My Account
+          </button>
+        </form>
+
+        <div class="auth-divider"><span>or</span></div>
+
+        <div class="auth-register-prompt">
+          Don't have an account?
+          <a href="#" onclick="showRegisterToast()">Create a free account</a>
+        </div>
+
+        <div class="auth-footer-note">
+          By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="toast-zone" id="toast-zone"></div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Already logged in → go to platform
+    Auth.redirectIfAuthed('platform.html');
+
+    const form    = document.getElementById('login-form');
+    const emailEl = document.getElementById('email');
+    const passEl  = document.getElementById('password');
+    const errBan  = document.getElementById('login-error');
+    const loginBtn= document.getElementById('login-btn');
+
+    // Password toggle
+    document.getElementById('pw-toggle').addEventListener('click', () => {
+      const t = passEl.type === 'password' ? 'text' : 'password';
+      passEl.type = t;
+    });
+
+    function showError(msg) {
+      errBan.textContent = msg;
+      errBan.style.display = 'flex';
+    }
+    function clearError() { errBan.style.display = 'none'; }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      clearError();
+      document.getElementById('email-error').textContent = '';
+      document.getElementById('pass-error').textContent  = '';
+
+      const email = emailEl.value.trim();
+      const pass  = passEl.value;
+      let valid   = true;
+
+      if (!email) {
+        document.getElementById('email-error').textContent = 'Email is required.';
+        valid = false;
+      }
+      if (!pass) {
+        document.getElementById('pass-error').textContent = 'Password is required.';
+        valid = false;
+      }
+      if (!valid) return;
+
+      // Loading state
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Signing in…';
+
+      setTimeout(() => {
+        const result = Auth.login(email, pass);
+        if (result.ok) {
+          loginBtn.textContent = '✓ Redirecting…';
+          window.location.href = 'platform.html';
+        } else {
+          showError('⚠ ' + result.error);
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Sign In to My Account';
+        }
+      }, 600);
+    });
+
+    function showRegisterToast() {
+      const z = document.getElementById('toast-zone');
+      const t = document.createElement('div');
+      t.className = 'toast info';
+      t.textContent = 'Registration coming soon! Use the demo account for now.';
+      z.appendChild(t);
+      setTimeout(() => t.remove(), 4000);
+    }
+  </script>
+</body>
+</html>

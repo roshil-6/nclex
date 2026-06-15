@@ -3,22 +3,420 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NursePrep Pro — NCLEX-RN & NCLEX-PN Exam Simulator</title>
-  <meta name="description" content="High-fidelity NCLEX-RN and NCLEX-PN practice questions with instant rationales, SATA, prioritization, and Next-Gen case study formats. Ace your boards with NursePrep Pro." />
+  <title>NursePrep Pro — NCLEX-RN & PN Exam Preparation</title>
+  <meta name="description" content="India's most trusted NCLEX-RN and NCLEX-PN exam prep platform. Expert classes, practice questions, live rationales, and performance tracking." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/landing.css" />
 </head>
 <body>
-  <div id="app">
-    <!-- Rendered by app.js -->
-  </div>
 
-  <!-- Particle canvas -->
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <!-- ══════════ TOP NAV ══════════ -->
+  <nav class="topnav" role="navigation" aria-label="Main navigation">
+    <div class="topnav-inner">
+      <a href="index.html" class="topnav-logo" aria-label="NursePrep Pro home">
+        <div class="topnav-logo-icon" aria-hidden="true">🏥</div>
+        NursePrep Pro
+      </a>
+      <div class="topnav-links" id="nav-links">
+        <a href="index.html"     class="topnav-link active">Home</a>
+        <a href="index.html#about"    class="topnav-link">About</a>
+        <a href="index.html#features" class="topnav-link">Features</a>
+        <a href="classes.html"   class="topnav-link">Classes</a>
+        <a href="dashboard.html" class="topnav-link">Dashboard</a>
+      </div>
+      <div class="topnav-right">
+        <a href="login.html" class="btn btn-outline btn-sm" id="nav-login-btn">Sign In</a>
+        <a href="login.html" class="btn btn-primary btn-sm" id="nav-cta-btn">Get Started</a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-  <script src="js/questions.js"></script>
-  <script src="js/quiz.js"></script>
-  <script src="js/app.js"></script>
+  <div class="page-body">
+
+    <!-- ══════════ HERO ══════════ -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <span class="hero-eyebrow">⚕️ Trusted by 1,000+ Nursing Students</span>
+            <h1 id="hero-heading">
+              Your Complete<br>
+              <span class="text-green">NCLEX-RN</span> &amp;
+              <span class="text-gold">NCLEX-PN</span><br>
+              Preparation Hub
+            </h1>
+            <p class="hero-sub">
+              Expert-led video classes, 500+ high-fidelity practice questions, NGN case studies, and real-time performance tracking — everything you need to pass your boards.
+            </p>
+            <div class="hero-actions">
+              <a href="login.html" class="btn btn-primary btn-xl">Start Learning Free →</a>
+              <a href="index.html#features" class="btn btn-ghost btn-lg">See What's Included</a>
+            </div>
+            <div class="hero-social-proof">
+              <div class="proof-avatars" aria-hidden="true">
+                <div class="proof-av" style="background:#2e7d52">R</div>
+                <div class="proof-av" style="background:#1b5e3c">A</div>
+                <div class="proof-av" style="background:#b8960c">S</div>
+                <div class="proof-av" style="background:#1a3a2a">N</div>
+              </div>
+              <span class="proof-text">Join 1,000+ students already preparing</span>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-card-stack">
+              <div class="hcard hcard-1">
+                <div class="hcard-icon">📊</div>
+                <div>
+                  <div class="hcard-title">Your Score</div>
+                  <div class="hcard-val">84%</div>
+                </div>
+                <span class="badge badge-green">↑ Improving</span>
+              </div>
+              <div class="hcard hcard-2">
+                <div class="hcard-icon">🎯</div>
+                <div>
+                  <div class="hcard-title">Questions Answered</div>
+                  <div class="hcard-val">247</div>
+                </div>
+              </div>
+              <div class="hcard hcard-3">
+                <div class="hcard-icon">🏆</div>
+                <div>
+                  <div class="hcard-title">Current Streak</div>
+                  <div class="hcard-val">7 days</div>
+                </div>
+              </div>
+              <div class="hcard hcard-main">
+                <div class="hcard-q-label">Practice Question</div>
+                <p class="hcard-q-text">A client's SpO₂ drops to 88%. Which is the nurse's FIRST action?</p>
+                <div class="hcard-options">
+                  <div class="hcard-opt hcard-opt--correct">A. Assess airway and apply O₂ ✓</div>
+                  <div class="hcard-opt">B. Notify the provider</div>
+                  <div class="hcard-opt">C. Obtain ABG values</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ STATS BAND ══════════ -->
+    <section class="stats-band" aria-label="Platform statistics">
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-lbl">Practice Questions</div>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <div class="stat-num">8</div>
+            <div class="stat-lbl">Clinical Categories</div>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <div class="stat-num">NGN</div>
+            <div class="stat-lbl">Case Studies Included</div>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <div class="stat-num">1,000+</div>
+            <div class="stat-lbl">Students Enrolled</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ ABOUT ══════════ -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <div class="section-head">
+              <span class="eyebrow">What is NursePrep Pro?</span>
+              <h2 id="about-heading">Built by Nurses, <br>Designed to Get You <span class="text-green">Licensed</span></h2>
+              <p>NursePrep Pro is a comprehensive NCLEX exam preparation platform created specifically for nursing students and graduates preparing for the NCLEX-RN and NCLEX-PN licensure examinations.</p>
+            </div>
+            <p style="margin-bottom:20px">We combine expert-recorded video lectures, thousands of practice questions aligned to the NCLEX Clinical Judgment Measurement Model (CJMM), and AI-powered performance analytics — all in one clean, focused platform.</p>
+            <div class="about-highlights">
+              <div class="ah-item">
+                <div class="ah-icon">✅</div>
+                <div>
+                  <strong>NCLEX 2024 Next-Gen Format Ready</strong>
+                  <p class="text-sm">Questions aligned to the latest NGN item types and CJMM framework.</p>
+                </div>
+              </div>
+              <div class="ah-item">
+                <div class="ah-icon">📹</div>
+                <div>
+                  <strong>Expert Video Classes</strong>
+                  <p class="text-sm">Recorded lectures covering all 8 NCLEX test plan categories.</p>
+                </div>
+              </div>
+              <div class="ah-item">
+                <div class="ah-icon">📈</div>
+                <div>
+                  <strong>Personal Performance Dashboard</strong>
+                  <p class="text-sm">Track your progress, identify weak areas, and measure growth over time.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image-col" aria-hidden="true">
+            <div class="about-img-card">
+              <div class="aimg-header">
+                <div class="aimg-dot r"></div>
+                <div class="aimg-dot y"></div>
+                <div class="aimg-dot g"></div>
+                <span>Performance Overview</span>
+              </div>
+              <div class="aimg-body">
+                <div class="aimg-chart-row">
+                  <span>Pharmacology</span>
+                  <div class="aimg-bar-wrap"><div class="aimg-bar" style="width:82%"></div></div>
+                  <span class="aimg-pct">82%</span>
+                </div>
+                <div class="aimg-chart-row">
+                  <span>Management of Care</span>
+                  <div class="aimg-bar-wrap"><div class="aimg-bar" style="width:76%"></div></div>
+                  <span class="aimg-pct">76%</span>
+                </div>
+                <div class="aimg-chart-row">
+                  <span>Physiological Adaptation</span>
+                  <div class="aimg-bar-wrap"><div class="aimg-bar" style="width:68%"></div></div>
+                  <span class="aimg-pct">68%</span>
+                </div>
+                <div class="aimg-chart-row">
+                  <span>Safety & Infection Control</span>
+                  <div class="aimg-bar-wrap"><div class="aimg-bar" style="width:91%"></div></div>
+                  <span class="aimg-pct">91%</span>
+                </div>
+                <div class="aimg-chart-row">
+                  <span>Psychosocial Integrity</span>
+                  <div class="aimg-bar-wrap"><div class="aimg-bar gold" style="width:55%"></div></div>
+                  <span class="aimg-pct warn">55%</span>
+                </div>
+              </div>
+              <div class="aimg-footer">
+                <span class="badge badge-green">Overall: 77%</span>
+                <span class="text-xs text-muted">Last updated today</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ FEATURES ══════════ -->
+    <section class="section features-bg" id="features" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-head text-center" style="align-items:center;display:flex;flex-direction:column">
+          <span class="eyebrow">What We Provide</span>
+          <h2 id="features-heading">Everything Designed to Help You Pass</h2>
+          <p>All the tools nursing students need — organised, focused, and clinically rigorous.</p>
+        </div>
+        <div class="features-grid">
+
+          <div class="feat-card feat-card--primary">
+            <div class="feat-num">01</div>
+            <div class="feat-icon">📹</div>
+            <h3>Expert Video Classes</h3>
+            <p>Structured lecture videos covering all NCLEX test plan categories — from Pharmacology to Management of Care — taught by experienced nurse educators.</p>
+            <a href="classes.html" class="feat-link">Browse Classes →</a>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-num">02</div>
+            <div class="feat-icon">📝</div>
+            <h3>Practice Question Bank</h3>
+            <p>500+ high-fidelity questions across MCQ, SATA, Prioritization, Delegation, and Next-Gen NCLEX case studies with instant expert rationales.</p>
+            <a href="dashboard.html" class="feat-link">Start Practising →</a>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-num">03</div>
+            <div class="feat-icon">🧠</div>
+            <h3>Next-Gen NCLEX (NGN) Ready</h3>
+            <p>Clinical judgment case studies mirroring the new NGN format — client data, vital signs tables, and multi-part decision questions.</p>
+            <a href="dashboard.html" class="feat-link">Try NGN Questions →</a>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-num">04</div>
+            <div class="feat-icon">📊</div>
+            <h3>Performance Analytics</h3>
+            <p>Your personal dashboard tracks correct %, category strengths, study streaks, and time spent — so you always know exactly where to focus.</p>
+            <a href="dashboard.html" class="feat-link">View Dashboard →</a>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-num">05</div>
+            <div class="feat-icon">💡</div>
+            <h3>Comprehensive Rationales</h3>
+            <p>Every question comes with Core Concept, Right Answer Analysis, Wrong Answer Breakdown, and a one-sentence Educational Objective.</p>
+            <a href="dashboard.html" class="feat-link">See an Example →</a>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-num">06</div>
+            <div class="feat-icon">🗂️</div>
+            <h3>Customisable Quiz Sessions</h3>
+            <p>Filter by exam type (RN or PN), question format, difficulty level, and clinical category to build targeted practice sessions.</p>
+            <a href="dashboard.html" class="feat-link">Customise a Quiz →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CLASSES PREVIEW ══════════ -->
+    <section class="section" id="classes-preview" aria-labelledby="classes-heading">
+      <div class="container">
+        <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+          <div>
+            <span class="eyebrow">Video Classes</span>
+            <h2 id="classes-heading">Learn from Expert Nurse Educators</h2>
+            <p>Structured video lessons launching soon. Enrol now to get notified.</p>
+          </div>
+          <a href="classes.html" class="btn btn-outline">View All Classes</a>
+        </div>
+        <div class="classes-preview-grid">
+          <div class="cp-card cp-card--locked">
+            <div class="cp-thumb"><span>💊</span></div>
+            <div class="cp-info">
+              <span class="badge badge-warning">Coming Soon</span>
+              <h4>Pharmacology Essentials</h4>
+              <p class="text-sm text-muted">High-yield drug classes, mechanisms, and NCLEX nursing implications.</p>
+              <div class="cp-meta"><span>12 lessons</span><span>·</span><span>4.5 hrs</span></div>
+            </div>
+            <div class="cp-lock-overlay">🔒 Videos uploading tonight</div>
+          </div>
+          <div class="cp-card cp-card--locked">
+            <div class="cp-thumb"><span>🫀</span></div>
+            <div class="cp-info">
+              <span class="badge badge-warning">Coming Soon</span>
+              <h4>Cardiac & Respiratory</h4>
+              <p class="text-sm text-muted">Heart failure, MI, COPD, ABGs, and ventilator management.</p>
+              <div class="cp-meta"><span>10 lessons</span><span>·</span><span>3.8 hrs</span></div>
+            </div>
+            <div class="cp-lock-overlay">🔒 Videos uploading tonight</div>
+          </div>
+          <div class="cp-card cp-card--locked">
+            <div class="cp-thumb"><span>🧠</span></div>
+            <div class="cp-info">
+              <span class="badge badge-warning">Coming Soon</span>
+              <h4>Neurological Nursing</h4>
+              <p class="text-sm text-muted">Stroke, ICP, neuro assessment, and seizure management.</p>
+              <div class="cp-meta"><span>8 lessons</span><span>·</span><span>3.2 hrs</span></div>
+            </div>
+            <div class="cp-lock-overlay">🔒 Videos uploading tonight</div>
+          </div>
+          <div class="cp-card cp-card--locked">
+            <div class="cp-thumb"><span>👶</span></div>
+            <div class="cp-info">
+              <span class="badge badge-warning">Coming Soon</span>
+              <h4>Maternal &amp; Child Health</h4>
+              <p class="text-sm text-muted">OB complications, newborn care, and paediatric nursing priorities.</p>
+              <div class="cp-meta"><span>14 lessons</span><span>·</span><span>5.2 hrs</span></div>
+            </div>
+            <div class="cp-lock-overlay">🔒 Videos uploading tonight</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CTA BAND ══════════ -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-inner">
+          <div>
+            <h2>Ready to Pass Your NCLEX?</h2>
+            <p>Join thousands of nursing students who trust NursePrep Pro to get licensed.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="login.html" class="btn btn-gold btn-xl">Create Free Account</a>
+            <a href="login.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="topnav-logo" style="margin-bottom:12px">
+              <div class="topnav-logo-icon">🏥</div>
+              NursePrep Pro
+            </div>
+            <p class="text-sm">India's trusted NCLEX preparation platform for nursing students and graduates.</p>
+          </div>
+          <div class="footer-col">
+            <h5>Platform</h5>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="classes.html">Video Classes</a>
+            <a href="dashboard.html">Practice Quiz</a>
+            <a href="review.html">Review Sessions</a>
+          </div>
+          <div class="footer-col">
+            <h5>Exam Prep</h5>
+            <a href="#">NCLEX-RN Prep</a>
+            <a href="#">NCLEX-PN Prep</a>
+            <a href="#">NGN Case Studies</a>
+            <a href="#">SATA Questions</a>
+          </div>
+          <div class="footer-col">
+            <h5>Account</h5>
+            <a href="login.html">Sign In</a>
+            <a href="login.html">Register</a>
+            <a href="dashboard.html">My Performance</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 NursePrep Pro. All rights reserved.</span>
+          <span>Built for nursing students preparing to change lives.</span>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- end page-body -->
+
+  <div class="toast-zone" id="toast-zone"></div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Redirect if already logged in
+    const user = Auth.getUser();
+    if (user) {
+      document.getElementById('nav-login-btn').textContent = 'Dashboard';
+      document.getElementById('nav-login-btn').href = 'dashboard.html';
+      document.getElementById('nav-cta-btn').textContent = user.name.split(' ')[0];
+      document.getElementById('nav-cta-btn').href = 'dashboard.html';
+    }
+
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    ham.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('mobile-open');
+      ham.setAttribute('aria-expanded', open);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="index.html#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').split('#')[1];
+        const el = document.getElementById(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
 </body>
 </html>
