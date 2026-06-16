@@ -1,7 +1,63 @@
 /* =========================================
-   NursePrep Pro — Review Interface
+   GCMA — Review Interface
    Solid, clinical aesthetic. No glassmorphism.
    ========================================= */
+
+:root {
+  --bg-primary:    #f0f4f8; /* slate */
+  --bg-secondary:  #ffffff; /* surface */
+  --bg-card:       #ffffff; /* surface */
+  --bg-card-alt:   #f0f4f8; /* slate */
+  --bg-input:      #ffffff;
+  --border:        #dce6f0; /* border */
+  --border-strong: #c4d2e0; /* border-2 */
+  --border-subtle: #e4eaf2; /* slate-2 */
+
+  --gold:          #e8930a; /* amber */
+  --gold-dim:      #f5a623; /* amber-2 */
+  --gold-bg:       #fef3dc; /* amber-soft */
+  --green:         #1a7a5e; /* green */
+  --green-dim:     #9fd4c4; /* green-bd */
+  --green-bg:      #e8f5f1; /* green-bg */
+
+  --success:       #1a7a5e;
+  --success-bg:    #e8f5f1;
+  --success-border:#9fd4c4;
+  --danger:        #c0392b;
+  --danger-bg:     #fdf0ee;
+  --danger-border: #e0a09a;
+  --warning:       #e8930a;
+  --warning-bg:    #fef3dc;
+  --warning-border:#f0c06a;
+
+  --text-primary:  #0d1f2d; /* navy / text */
+  --text-secondary:#3d5166; /* text-2 */
+  --text-muted:    #8399b0; /* text-3 */
+  --text-gold:     #e8930a;
+
+  --font-heading:  'Sora', sans-serif;
+  --font-body:     'DM Sans', sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  18px;
+  --radius-pill:9999px;
+
+  --shadow-sm: 0 1px 3px rgba(13,31,45,.07), 0 1px 2px rgba(13,31,45,.05);
+  --shadow-md: 0 4px 12px rgba(13,31,45,.09), 0 2px 4px rgba(13,31,45,.05);
+  --shadow-lg: 0 10px 32px rgba(13,31,45,.12), 0 3px 8px rgba(13,31,45,.06);
+
+  --transition: 0.16s ease;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
 
 /* ──────────────────────────────────────────
    TOPBAR

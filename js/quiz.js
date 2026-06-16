@@ -119,10 +119,10 @@ class QuizEngine {
   }
 
   getVerdictMessage(pct) {
-    if (pct >= 90) return { title: '🏆 Exceptional Performance!', sub: 'You\'re ready to ace the NCLEX.' };
-    if (pct >= 75) return { title: '✅ Passing Standard Met!', sub: 'Solid performance — keep practicing weak areas.' };
-    if (pct >= 60) return { title: '📈 Making Progress!', sub: 'Below passing — review your rationales carefully.' };
-    return { title: '📚 Keep Studying!', sub: 'Focus on understanding the "why" behind each answer.' };
+    if (pct >= 90) return { title: 'Exceptional Performance!', sub: 'You\'re ready to ace the NCLEX.' };
+    if (pct >= 75) return { title: 'Passing Standard Met!', sub: 'Solid performance — keep practicing weak areas.' };
+    if (pct >= 60) return { title: 'Making Progress!', sub: 'Below passing — review your rationales carefully.' };
+    return { title: 'Keep Studying!', sub: 'Focus on understanding the "why" behind each answer.' };
   }
 
   formatTime(seconds) {

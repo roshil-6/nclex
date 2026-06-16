@@ -16,7 +16,9 @@
 ══════════════════════════════════════ -->
 <header class="topbar">
   <div class="topbar-logo" onclick="navigate('introduction')" role="button" tabindex="0" aria-label="Go to Introduction">
-    <div class="logo-cap">🎓</div>
+    <div class="logo-mark" style="width: 28px; height: 28px; background: var(--amber); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 8px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" style="width: 14px; height: 14px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+    </div>
     <div class="logo-text">
       <span class="logo-name">GCMA</span>
       <span class="logo-sub">NCLEX-RN TRAINING</span>
@@ -25,24 +27,24 @@
 
   <nav class="topbar-nav" role="navigation" aria-label="Platform navigation">
     <button class="nav-tab active" id="tab-introduction" onclick="navigate('introduction')">
-      <span class="nav-icon">⌂</span> Introduction
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Introduction
     </button>
     <button class="nav-tab" id="tab-syllabus" onclick="navigate('syllabus')">
-      <span class="nav-icon">📖</span> Syllabus
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg> Syllabus
     </button>
     <button class="nav-tab" id="tab-study" onclick="navigate('study')">
-      <span class="nav-icon">📄</span> Study Material
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg> Study Material
     </button>
     <button class="nav-tab" id="tab-qbank" onclick="navigate('qbank')">
-      <span class="nav-icon">❓</span> Question Bank
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Question Bank
     </button>
     <button class="nav-tab" id="tab-exam" onclick="navigate('exam')">
-      <span class="nav-icon">📋</span> Exam Practice
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Exam Practice
     </button>
   </nav>
 
   <button class="logout-btn" onclick="handleLogout()">
-    <span>→|</span> Logout
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;margin-right:4px"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout
   </button>
 </header>
 
@@ -54,22 +56,26 @@
   <section class="screen active" id="screen-introduction">
 
     <div class="intro-logo-wrap">
-      <img src="img/gcma_logo.png" alt="GCMA Logo" class="intro-logo-img"
+      <img src="img/gcma_logo.jpg" alt="GCMA Logo" class="intro-logo-img"
            onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'" />
       <div id="logo-fallback" class="logo-fallback" style="display:none">
-        <div class="lf-icon">🎓</div>
+        <div class="logo-mark" style="width: 60px; height: 60px; background: var(--amber); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" style="width: 32px; height: 32px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+        </div>
         <div class="lf-name">GCMA</div>
         <div class="lf-sub">GLOBAL COUNCIL FOR MIGRATION AWARENESS AND SOCIAL WELFARE</div>
       </div>
     </div>
 
-    <div class="diamond-sep">◆</div>
+    <div class="diamond-sep">
+      <div class="diamond-sep-inner"></div>
+    </div>
 
     <!-- About Us -->
     <div class="content-card">
-      <div class="card-eyebrow">— ABOUT US —</div>
+      <div class="card-eyebrow">ABOUT US</div>
       <h2 class="card-heading">
-        Empowering Migrants with <em class="gold-italic">Clarity, Honesty &amp; Trust</em>
+        Empowering Migrants with <span class="amber-italic">Clarity, Honesty &amp; Trust</span>
       </h2>
       <p class="card-body">
         The <strong>Global Council for Migration Awareness and Social Welfare (GCMA)</strong> is a dedicated organisation committed to safeguarding the rights, dignity, and well-being of migrants worldwide. We stand at the frontlines of migration advocacy — educating communities, exposing fraudulent practices, and championing ethical migration processes.
@@ -92,9 +98,9 @@
           </div>
           <div class="instructor-role">NURSING MIGRATION WELFARE SPECIALIST • GCMA</div>
           <div class="instructor-badges">
-            <span class="inst-badge">🏅 REGISTERED NURSE</span>
-            <span class="inst-badge">🚑 EMERGENCY NURSE CERTIFIED</span>
-            <span class="inst-badge">📋 MIGRATION WELFARE SPECIALIST</span>
+            <span class="inst-badge">REGISTERED NURSE</span>
+            <span class="inst-badge">EMERGENCY NURSE CERTIFIED</span>
+            <span class="inst-badge">MIGRATION WELFARE SPECIALIST</span>
           </div>
           <p class="instructor-bio">
             Hello! I'm <strong>Juhy P Jose</strong> — a <strong>Registered Nurse</strong> and <strong>Emergency Nurse</strong> with certified expertise in NCLEX-RN preparation. With hands-on clinical experience and a deep passion for nursing education, I guide internationally educated nurses through every step of their licensure journey — with clarity, confidence, and zero compromise on ethics.
@@ -105,24 +111,30 @@
 
     <!-- Path to Licensure -->
     <div class="content-card">
-      <div class="card-eyebrow">— NCLEX-RN PREPARATION —</div>
-      <h2 class="card-heading">Your Path to Licensure <em class="gold-italic">Starts Here</em></h2>
+      <div class="card-eyebrow">NCLEX-RN PREPARATION</div>
+      <h2 class="card-heading">Your Path to Licensure <span class="amber-italic">Starts Here</span></h2>
       <p class="card-body">
         At GCMA, we offer structured <strong>NCLEX-RN training</strong> designed to prepare nurses for success — lesson by lesson, with the latest exam-style questions and practical clinical insight.
       </p>
       <div class="feat-grid-3">
         <div class="feat-tile" onclick="navigate('syllabus')" role="button" tabindex="0">
-          <div class="feat-tile-icon">🎬</div>
+          <div class="feat-tile-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
           <div class="feat-tile-label">VIDEO CLASSES</div>
           <p>Comprehensive video sessions covering every topic — watch at your own pace, anytime.</p>
         </div>
         <div class="feat-tile" onclick="navigate('study')" role="button" tabindex="0">
-          <div class="feat-tile-icon">📚</div>
+          <div class="feat-tile-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+          </div>
           <div class="feat-tile-label">LESSON BY LESSON</div>
           <p>Step-by-step structured lessons that build your knowledge systematically from basics to advanced.</p>
         </div>
         <div class="feat-tile" onclick="navigate('exam')" role="button" tabindex="0">
-          <div class="feat-tile-icon">✅</div>
+          <div class="feat-tile-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
           <div class="feat-tile-label">EXAM PRACTICE</div>
           <p>Latest NCLEX-style practice questions with detailed rationales to sharpen your critical thinking.</p>
         </div>
@@ -131,21 +143,27 @@
 
     <!-- Mission -->
     <div class="content-card">
-      <div class="card-eyebrow">— OUR MISSION —</div>
+      <div class="card-eyebrow">OUR MISSION</div>
       <h2 class="card-heading">What We Stand For</h2>
       <div class="feat-grid-3">
         <div class="feat-tile mission-tile">
-          <div class="feat-tile-icon mission-icon">🛡️</div>
+          <div class="feat-tile-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <div class="feat-tile-label">PROTECTION</div>
           <p>Shielding migrants from scams, fraud, and exploitation at every step of their journey.</p>
         </div>
         <div class="feat-tile mission-tile">
-          <div class="feat-tile-icon mission-icon">📢</div>
+          <div class="feat-tile-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
           <div class="feat-tile-label">AWARENESS</div>
           <p>Raising community awareness about safe, legal, and ethical migration pathways.</p>
         </div>
         <div class="feat-tile mission-tile">
-          <div class="feat-tile-icon mission-icon">🤝</div>
+          <div class="feat-tile-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <div class="feat-tile-label">WELFARE</div>
           <p>Promoting social welfare and human rights for migrants across the globe.</p>
         </div>
@@ -159,112 +177,130 @@
   ══════════════════════════════════════ -->
   <section class="screen" id="screen-syllabus">
     <div class="page-header">
-      <div class="page-eyebrow">— COMPLETE SYLLABUS —</div>
+      <div class="page-eyebrow">COMPLETE SYLLABUS</div>
       <h1 class="page-title">NCLEX-RN Syllabus</h1>
       <p class="page-sub">Explore the full syllabus organised by Client Needs categories. Click each topic to expand.</p>
     </div>
-    <div class="diamond-sep">◆</div>
+    <div class="diamond-sep">
+      <div class="diamond-sep-inner"></div>
+    </div>
 
     <div class="accordion-list">
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">1</span><div><div class="acc-title">Management of Care</div><div class="acc-count">5 topics</div></div></div>
-          <span class="acc-chevron">›</span>
+          <span class="acc-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
         </button>
         <div class="acc-body"><ul class="topic-list">
-          <li><span class="topic-icon">▶</span>Advance Directives / Self-Determination / Life Planning</li>
-          <li><span class="topic-icon">▶</span>Case Management &amp; Care Coordination</li>
-          <li><span class="topic-icon">▶</span>Client Rights and Advocacy</li>
-          <li><span class="topic-icon">▶</span>Delegation and Supervision</li>
-          <li><span class="topic-icon">▶</span>Ethical Practice and Legal Responsibilities</li>
+          <li><span class="topic-dot"></span>Advance Directives / Self-Determination / Life Planning</li>
+          <li><span class="topic-dot"></span>Case Management &amp; Care Coordination</li>
+          <li><span class="topic-dot"></span>Client Rights and Advocacy</li>
+          <li><span class="topic-dot"></span>Delegation and Supervision</li>
+          <li><span class="topic-dot"></span>Ethical Practice and Legal Responsibilities</li>
         </ul></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">2</span><div><div class="acc-title">Safety and Infection Control</div><div class="acc-count">4 topics</div></div></div>
-          <span class="acc-chevron">›</span>
+          <span class="acc-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
         </button>
         <div class="acc-body"><ul class="topic-list">
-          <li><span class="topic-icon">▶</span>Accident / Error / Injury Prevention</li>
-          <li><span class="topic-icon">▶</span>Emergency Response Planning</li>
-          <li><span class="topic-icon">▶</span>Home Safety &amp; Ergonomics</li>
-          <li><span class="topic-icon">▶</span>Standard &amp; Transmission-Based Precautions</li>
+          <li><span class="topic-dot"></span>Accident / Error / Injury Prevention</li>
+          <li><span class="topic-dot"></span>Emergency Response Planning</li>
+          <li><span class="topic-dot"></span>Home Safety &amp; Ergonomics</li>
+          <li><span class="topic-dot"></span>Standard &amp; Transmission-Based Precautions</li>
         </ul></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">3</span><div><div class="acc-title">Health Promotion and Maintenance</div><div class="acc-count">3 topics</div></div></div>
-          <span class="acc-chevron">›</span>
+          <span class="acc-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
         </button>
         <div class="acc-body"><ul class="topic-list">
-          <li><span class="topic-icon">▶</span>Aging Process &amp; Developmental Stages</li>
-          <li><span class="topic-icon">▶</span>Disease Prevention &amp; Health Screening</li>
-          <li><span class="topic-icon">▶</span>Lifestyle Choices &amp; Community Health</li>
+          <li><span class="topic-dot"></span>Aging Process &amp; Developmental Stages</li>
+          <li><span class="topic-dot"></span>Disease Prevention &amp; Health Screening</li>
+          <li><span class="topic-dot"></span>Lifestyle Choices &amp; Community Health</li>
         </ul></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">4</span><div><div class="acc-title">Psychosocial Integrity</div><div class="acc-count">3 topics</div></div></div>
-          <span class="acc-chevron">›</span>
+          <span class="acc-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
         </button>
         <div class="acc-body"><ul class="topic-list">
-          <li><span class="topic-icon">▶</span>Behavioural Interventions &amp; Mental Health</li>
-          <li><span class="topic-icon">▶</span>Coping Mechanisms &amp; Support Systems</li>
-          <li><span class="topic-icon">▶</span>Grief, Loss, and Crisis Intervention</li>
+          <li><span class="topic-dot"></span>Behavioural Interventions &amp; Mental Health</li>
+          <li><span class="topic-dot"></span>Coping Mechanisms &amp; Support Systems</li>
+          <li><span class="topic-dot"></span>Grief, Loss, and Crisis Intervention</li>
         </ul></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">5</span><div><div class="acc-title">Basic Care and Comfort</div><div class="acc-count">3 topics</div></div></div>
-          <span class="acc-chevron">›</span>
+          <span class="acc-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
         </button>
         <div class="acc-body"><ul class="topic-list">
-          <li><span class="topic-icon">▶</span>Assistive Devices &amp; Mobility</li>
-          <li><span class="topic-icon">▶</span>Nutrition &amp; Oral Hydration</li>
-          <li><span class="topic-icon">▶</span>Rest, Sleep &amp; Non-Pharmacological Comfort</li>
+          <li><span class="topic-dot"></span>Assistive Devices &amp; Mobility</li>
+          <li><span class="topic-dot"></span>Nutrition &amp; Oral Hydration</li>
+          <li><span class="topic-dot"></span>Rest, Sleep &amp; Non-Pharmacological Comfort</li>
         </ul></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">6</span><div><div class="acc-title">Pharmacological and Parenteral Therapies</div><div class="acc-count">4 topics</div></div></div>
-          <span class="acc-chevron">›</span>
+          <span class="acc-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
         </button>
         <div class="acc-body"><ul class="topic-list">
-          <li><span class="topic-icon">▶</span>Adverse Drug Effects &amp; Contraindications</li>
-          <li><span class="topic-icon">▶</span>Blood &amp; Blood Products Administration</li>
-          <li><span class="topic-icon">▶</span>Medication Administration &amp; Calculation</li>
-          <li><span class="topic-icon">▶</span>Pharmacokinetics &amp; Drug Interactions</li>
+          <li><span class="topic-dot"></span>Adverse Drug Effects &amp; Contraindications</li>
+          <li><span class="topic-dot"></span>Blood &amp; Blood Products Administration</li>
+          <li><span class="topic-dot"></span>Medication Administration &amp; Calculation</li>
+          <li><span class="topic-dot"></span>Pharmacokinetics &amp; Drug Interactions</li>
         </ul></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">7</span><div><div class="acc-title">Reduction of Risk Potential</div><div class="acc-count">4 topics</div></div></div>
-          <span class="acc-chevron">›</span>
+          <span class="acc-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
         </button>
         <div class="acc-body"><ul class="topic-list">
-          <li><span class="topic-icon">▶</span>Changes / Abnormal Diagnostics</li>
-          <li><span class="topic-icon">▶</span>Lab Values &amp; Interpretation</li>
-          <li><span class="topic-icon">▶</span>Monitoring Post-Procedure</li>
-          <li><span class="topic-icon">▶</span>Therapeutic Procedures &amp; Complications</li>
+          <li><span class="topic-dot"></span>Changes / Abnormal Diagnostics</li>
+          <li><span class="topic-dot"></span>Lab Values &amp; Interpretation</li>
+          <li><span class="topic-dot"></span>Monitoring Post-Procedure</li>
+          <li><span class="topic-dot"></span>Therapeutic Procedures &amp; Complications</li>
         </ul></div>
       </div>
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">8</span><div><div class="acc-title">Physiological Adaptation</div><div class="acc-count">3 topics</div></div></div>
-          <span class="acc-chevron">›</span>
+          <span class="acc-chevron">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
         </button>
         <div class="acc-body"><ul class="topic-list">
-          <li><span class="topic-icon">▶</span>Alterations in Body Systems</li>
-          <li><span class="topic-icon">▶</span>Fluid &amp; Electrolyte Imbalances</li>
-          <li><span class="topic-icon">▶</span>Medical Emergencies &amp; Hemodynamics</li>
+          <li><span class="topic-dot"></span>Alterations in Body Systems</li>
+          <li><span class="topic-dot"></span>Fluid &amp; Electrolyte Imbalances</li>
+          <li><span class="topic-dot"></span>Medical Emergencies &amp; Hemodynamics</li>
         </ul></div>
       </div>
 
@@ -276,21 +312,23 @@
   ══════════════════════════════════════ -->
   <section class="screen" id="screen-study">
     <div class="page-header">
-      <div class="page-eyebrow">— STUDY RESOURCES —</div>
+      <div class="page-eyebrow">STUDY RESOURCES</div>
       <h1 class="page-title">Study Materials</h1>
       <p class="page-sub">Chapter-wise notes and resources to help you prepare for the NCLEX-RN exam.</p>
     </div>
-    <div class="diamond-sep">◆</div>
+    <div class="diamond-sep">
+      <div class="diamond-sep-inner"></div>
+    </div>
 
     <div class="study-grid">
-      <div class="study-card" onclick="openStudy('management')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Management of Care</div><div class="study-count">2 chapters</div></div></div>
-      <div class="study-card" onclick="openStudy('safety')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Safety and Infection Control</div><div class="study-count">1 chapter</div></div></div>
-      <div class="study-card" onclick="openStudy('health')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Health Promotion and Maintenance</div><div class="study-count">0 chapters</div></div></div>
-      <div class="study-card" onclick="openStudy('psychosocial')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Psychosocial Integrity</div><div class="study-count">1 chapter</div></div></div>
-      <div class="study-card" onclick="openStudy('basic')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Basic Care and Comfort</div><div class="study-count">0 chapters</div></div></div>
-      <div class="study-card" onclick="openStudy('pharma')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Pharmacological and Parenteral Therapies</div><div class="study-count">1 chapter</div></div></div>
-      <div class="study-card" onclick="openStudy('reduction')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Reduction of Risk Potential</div><div class="study-count">0 chapters</div></div></div>
-      <div class="study-card" onclick="openStudy('physio')" role="button" tabindex="0"><div class="study-icon">📖</div><div class="study-info"><div class="study-name">Physiological Adaptation</div><div class="study-count">1 chapter</div></div></div>
+      <div class="study-card" onclick="openStudy('management')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Management of Care</div><div class="study-count">2 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('safety')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Safety and Infection Control</div><div class="study-count">1 chapter</div></div></div>
+      <div class="study-card" onclick="openStudy('health')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Health Promotion and Maintenance</div><div class="study-count">0 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('psychosocial')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Psychosocial Integrity</div><div class="study-count">1 chapter</div></div></div>
+      <div class="study-card" onclick="openStudy('basic')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Basic Care and Comfort</div><div class="study-count">0 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('pharma')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Pharmacological and Parenteral Therapies</div><div class="study-count">1 chapter</div></div></div>
+      <div class="study-card" onclick="openStudy('reduction')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Reduction of Risk Potential</div><div class="study-count">0 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('physio')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Physiological Adaptation</div><div class="study-count">1 chapter</div></div></div>
     </div>
 
     <!-- Modal -->
@@ -480,7 +518,7 @@
         <button class="start-btn" onclick="startExamMode()">Start Exam</button>
 
         <div class="calc-toggle-row">
-          <button class="calc-toggle-btn" onclick="toggleCalc()" id="calc-toggle-btn">🧮 Open Calculator</button>
+          <button class="calc-toggle-btn" onclick="toggleCalc()" id="calc-toggle-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:6px"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg> Open Calculator</button>
         </div>
         <div class="calc-panel" id="calc-panel">
           <div class="calc-display" id="calc-display">0</div>
@@ -591,7 +629,7 @@ function openStudy(key) {
   document.getElementById('modal-title').textContent = d.title;
   const body = document.getElementById('modal-body');
   if(!d.chapters.length) {
-    body.innerHTML = '<p class="empty-state">📂 No chapters uploaded yet — materials coming soon!</p>';
+    body.innerHTML = '<p class="empty-state">No chapters uploaded yet — materials coming soon!</p>';
   } else {
     body.innerHTML = d.chapters.map((c,i) => `
       <div class="chapter-row">
@@ -666,7 +704,7 @@ function renderQuestion() {
   const ngnBlock = document.getElementById('ngn-scenario-block');
   if(q.scenario) {
     ngnBlock.style.display = 'block';
-    set('ngn-case-title', '📋 Case Study: ' + (q.caseTitle||''));
+    set('ngn-case-title', 'Case Study: ' + (q.caseTitle||''));
     set('ngn-scenario-text', q.scenario);
     const vg = document.getElementById('ngn-vitals-grid');
     if(q.clientData) {
@@ -876,7 +914,10 @@ function calcEquals() {
 function toggleCalc() {
   const p = document.getElementById('calc-panel');
   const open = p.classList.toggle('open');
-  document.getElementById('calc-toggle-btn').textContent = open ? '🧮 Close Calculator' : '🧮 Open Calculator';
+  const btn = document.getElementById('calc-toggle-btn');
+  btn.innerHTML = open 
+    ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:6px"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg> Close Calculator`
+    : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:6px"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg> Open Calculator`;
 }
 
 // ── Logout ──
@@ -909,24 +950,24 @@ document.addEventListener('keydown', e => {
 }
 .quiz-exit-btn {
   padding: 7px 14px; border-radius: 8px;
-  background: var(--cream-2); border: 1px solid var(--border);
+  background: var(--slate-2); border: 1px solid var(--border);
   font-size: 0.82rem; font-weight: 600; color: var(--text-2); cursor: pointer;
   transition: all .18s ease; white-space: nowrap; flex-shrink: 0;
 }
-.quiz-exit-btn:hover { border-color: var(--danger); color: var(--danger); }
+.quiz-exit-btn:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
 .quiz-progress-wrap {
-  flex: 1; height: 6px; background: var(--cream-2);
+  flex: 1; height: 6px; background: var(--slate-3);
   border-radius: 99px; overflow: hidden;
 }
 .quiz-progress-bar {
-  height: 100%; background: var(--gold);
+  height: 100%; background: var(--amber);
   border-radius: 99px; transition: width .4s ease;
 }
 .quiz-meta {
   display: flex; gap: 10px; align-items: center; flex-shrink: 0;
   font-size: 0.82rem; font-weight: 700; color: var(--text-2);
 }
-.quiz-timer { color: var(--gold); font-family: monospace; }
+.quiz-timer { color: var(--amber); font-family: monospace; font-size: 0.86rem; background: var(--amber-soft); padding: 2px 6px; border-radius: var(--r-xs); }
 
 .quiz-score-banner {
   display: flex; align-items: center; gap: 10px;
@@ -937,8 +978,8 @@ document.addEventListener('keydown', e => {
 }
 .quiz-badge {
   padding: 3px 9px; border-radius: 99px;
-  background: var(--gold-light); border: 1px solid var(--gold-border);
-  font-size: 0.7rem; font-weight: 700; color: var(--gold);
+  background: var(--navy); border: 1px solid var(--navy);
+  font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.8);
   letter-spacing: .04em;
 }
 
@@ -946,14 +987,14 @@ document.addEventListener('keydown', e => {
 
 /* NGN */
 .ngn-case-title {
-  font-family: var(--font-ui); font-size: 0.78rem; font-weight: 700;
-  color: var(--gold); text-transform: uppercase; letter-spacing: .06em;
+  font-family: var(--font-head); font-size: 0.78rem; font-weight: 700;
+  color: var(--amber); text-transform: uppercase; letter-spacing: .06em;
   margin-bottom: 8px;
 }
 .ngn-scenario-text {
   font-size: 0.9rem; line-height: 1.75; color: var(--text-2);
-  padding: 14px 16px; background: #fdfaf3;
-  border: 1px solid var(--gold-border); border-radius: var(--r-md);
+  padding: 14px 16px; background: var(--amber-soft);
+  border: 1px solid var(--amber-border); border-radius: var(--r-md);
   margin-bottom: 14px;
 }
 .ngn-vitals-grid {
@@ -962,10 +1003,10 @@ document.addEventListener('keydown', e => {
 }
 .vital-item {
   padding: 8px 10px; border-radius: var(--r-sm);
-  background: var(--cream); border: 1px solid var(--border);
+  background: var(--slate); border: 1px solid var(--border);
   font-size: 0.79rem;
 }
-.vital-item.vital-alert { background: #fdf0ee; border-color: #e8a09a; }
+.vital-item.vital-alert { background: var(--red-bg); border-color: var(--red-bd); }
 .vital-lbl { font-weight: 700; color: var(--text-3); display: block; font-size: 0.68rem; }
 .vital-val { color: var(--text); font-weight: 600; }
 
@@ -975,9 +1016,9 @@ document.addEventListener('keydown', e => {
 }
 .quiz-sata-hint {
   font-size: 0.78rem; font-style: italic;
-  color: var(--gold); margin-bottom: 12px;
-  padding: 6px 12px; background: var(--gold-light);
-  border-radius: var(--r-sm); border: 1px solid var(--gold-border);
+  color: var(--amber); margin-bottom: 12px;
+  padding: 6px 12px; background: var(--amber-soft);
+  border-radius: var(--r-sm); border: 1px solid var(--amber-border);
 }
 .quiz-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
 .quiz-opt {
@@ -988,40 +1029,40 @@ document.addEventListener('keydown', e => {
   font-size: 0.9rem; line-height: 1.55; color: var(--text-2);
   font-family: var(--font-body);
 }
-.quiz-opt:hover { border-color: var(--gold-border); background: var(--gold-light); }
-.quiz-opt.selected { border-color: var(--green); background: var(--green-light); color: var(--green); }
-.quiz-opt.correct  { border-color: #2a7a4a; background: #eaf4ef; color: #2a7a4a; }
-.quiz-opt.incorrect{ border-color: #b83028; background: #fdf0ee; color: #b83028; }
+.quiz-opt:hover { border-color: var(--amber); background: var(--amber-soft); }
+.quiz-opt.selected { border-color: var(--navy); background: #edf3fa; color: var(--navy); }
+.quiz-opt.correct  { border-color: var(--green); background: var(--green-bg); color: var(--green); }
+.quiz-opt.incorrect{ border-color: var(--red); background: var(--red-bg); color: var(--red); }
 .opt-letter {
   width: 26px; height: 26px; border-radius: 50%;
-  background: var(--cream-2); border: 1px solid var(--border);
+  background: var(--slate-2); border: 1px solid var(--border);
   font-weight: 800; font-size: 0.78rem;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; transition: all .15s ease;
 }
-.quiz-opt.selected .opt-letter { background: var(--green); color: #fff; border-color: var(--green); }
-.quiz-opt.correct .opt-letter  { background: #2a7a4a; color: #fff; border-color: #2a7a4a; }
-.quiz-opt.incorrect .opt-letter{ background: #b83028; color: #fff; border-color: #b83028; }
+.quiz-opt.selected .opt-letter { background: var(--navy); color: #fff; border-color: var(--navy); }
+.quiz-opt.correct .opt-letter  { background: var(--green); color: #fff; border-color: var(--green); }
+.quiz-opt.incorrect .opt-letter{ background: var(--red); color: #fff; border-color: var(--red); }
 
 /* Rationale */
 .quiz-rationale {
-  background: var(--cream); border: 1px solid var(--border);
+  background: var(--slate); border: 1px solid var(--border);
   border-radius: var(--r-md); overflow: hidden; margin-bottom: 16px;
 }
-.rat-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--cream-2); }
+.rat-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--slate-2); }
 .rat-tab {
   flex: 1; padding: 10px 8px; font-size: 0.78rem; font-weight: 600;
   background: none; border: none; border-right: 1px solid var(--border);
   color: var(--text-3); cursor: pointer; transition: all .15s ease;
 }
 .rat-tab:last-child { border-right: none; }
-.rat-tab:hover { background: var(--cream); color: var(--text); }
-.rat-tab.active { background: var(--gold); color: #fff; }
+.rat-tab:hover { background: var(--slate); color: var(--text); }
+.rat-tab.active { background: var(--navy); color: #fff; }
 .rat-body { padding: 16px 18px; font-size: 0.875rem; line-height: 1.75; color: var(--text-2); }
 .rat-body p { margin: 0; }
 .wrong-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 .wrong-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.wrong-item strong { color: var(--danger); }
+.wrong-item strong { color: var(--red); }
 .objective-text { font-weight: 600; color: var(--green); }
 
 /* Quiz buttons */
@@ -1032,12 +1073,12 @@ document.addEventListener('keydown', e => {
   font-family: var(--font-body); font-size: 0.9rem; font-weight: 700;
   cursor: pointer; border: none; transition: all .18s ease;
 }
-.quiz-submit-btn { background: var(--green); color: #fff; }
-.quiz-submit-btn:hover { background: var(--green-mid); }
-.quiz-next-btn   { background: var(--gold); color: #fff; }
-.quiz-next-btn:hover { background: #a07e0a; }
-.quiz-finish-btn { background: var(--green); color: #fff; }
-.quiz-finish-btn:hover { background: var(--green-mid); }
+.quiz-submit-btn { background: var(--navy); color: #fff; }
+.quiz-submit-btn:hover { background: var(--navy-2); }
+.quiz-next-btn   { background: var(--amber); color: var(--navy); }
+.quiz-next-btn:hover { background: var(--amber-2); }
+.quiz-finish-btn { background: var(--navy); color: #fff; }
+.quiz-finish-btn:hover { background: var(--navy-2); }
 
 /* Results */
 .results-card { text-align: center; }
@@ -1046,47 +1087,47 @@ document.addEventListener('keydown', e => {
 .verdict-sub { color: var(--text-3); font-size: 0.92rem; }
 .results-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 20px; }
 @media(max-width:550px){.results-stats-grid{grid-template-columns:1fr 1fr;}}
-.rs-item { padding: 14px; background: var(--cream); border-radius: var(--r-md); border: 1px solid var(--border); }
-.rs-val { font-family: var(--font-head); font-size: 1.8rem; font-weight: 900; color: var(--green); }
+.rs-item { padding: 14px; background: var(--slate); border-radius: var(--r-md); border: 1px solid var(--border); }
+.rs-val { font-family: var(--font-head); font-size: 1.8rem; font-weight: 900; color: var(--navy); }
 .rs-lbl { font-size: 0.72rem; color: var(--text-3); text-transform: uppercase; letter-spacing:.04em; margin-top:2px; }
 .results-pass-bar { margin-bottom: 22px; }
 .pass-bar-label { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; color: var(--text-2); }
-.pass-bar-label .pass { color: var(--success); }
-.pass-bar-label .fail { color: var(--danger); }
-.pass-bar-track { position: relative; height: 10px; background: var(--cream-2); border-radius: 99px; overflow: visible; }
-.pass-bar-fill { height: 100%; background: var(--danger); border-radius: 99px; transition: width .6s ease; }
-.pass-bar-fill.pass { background: var(--success); }
+.pass-bar-label .pass { color: var(--green); }
+.pass-bar-label .fail { color: var(--red); }
+.pass-bar-track { position: relative; height: 10px; background: var(--slate-2); border-radius: 99px; overflow: visible; }
+.pass-bar-fill { height: 100%; background: var(--red); border-radius: 99px; transition: width .6s ease; }
+.pass-bar-fill.pass { background: var(--green); }
 .pass-threshold {
   position: absolute; left: 65%; top: -4px;
-  width: 2px; height: 18px; background: var(--gold); border-radius: 1px;
+  width: 2px; height: 18px; background: var(--amber); border-radius: 1px;
 }
 .results-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* Review list */
-.review-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--cream-2); font-size: 0.85rem; }
+.review-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--slate-2); font-size: 0.85rem; }
 .review-row:last-child { border-bottom: none; }
 .review-num { font-weight: 800; color: var(--text-3); width: 28px; flex-shrink: 0; }
 .review-stem { flex: 1; color: var(--text-2); }
 .review-verdict { font-weight: 700; flex-shrink: 0; font-size: 0.8rem; }
-.review-row.correct .review-verdict { color: var(--success); }
-.review-row.incorrect .review-verdict { color: var(--danger); }
+.review-row.correct .review-verdict { color: var(--green); }
+.review-row.incorrect .review-verdict { color: var(--red); }
 
 /* Logo fallback */
 .logo-fallback {
   width: 300px; height: 300px; border-radius: 20px;
-  background: var(--green);
+  background: var(--navy);
   flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 24px;
   box-shadow: var(--sh-lg);
 }
 .lf-icon { font-size: 3rem; margin-bottom: 10px; }
-.lf-name { font-family: var(--font-head); font-size: 2.5rem; font-weight: 900; color: var(--gold); margin-bottom: 8px; }
+.lf-name { font-family: var(--font-head); font-size: 2.5rem; font-weight: 900; color: var(--amber); margin-bottom: 8px; }
 .lf-sub { font-size: 0.65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.7); line-height: 1.6; }
 
 /* Toast */
-.toast.success { background: #eaf4ef; border-color: #a8d5b8; color: #2a7a4a; }
-.toast.error   { background: #fdf0ee; border-color: #e8a09a; color: #b83028; }
-.toast.info    { background: var(--gold-light); border-color: var(--gold-border); color: var(--gold); }
+.toast.success { background: var(--green-bg); border-color: var(--green-bd); color: var(--green); }
+.toast.error   { background: var(--red-bg); border-color: var(--red-bd); color: var(--red); }
+.toast.info    { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); }
 
 @media(max-width:500px){
   .ngn-vitals-grid{grid-template-columns:1fr 1fr;}
