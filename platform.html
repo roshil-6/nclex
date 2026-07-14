@@ -29,6 +29,9 @@
     <button class="nav-tab active" id="tab-introduction" onclick="navigate('introduction')">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Introduction
     </button>
+    <button class="nav-tab" id="tab-classes" onclick="navigate('classes')">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Classes
+    </button>
     <button class="nav-tab" id="tab-syllabus" onclick="navigate('syllabus')">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg> Syllabus
     </button>
@@ -40,6 +43,9 @@
     </button>
     <button class="nav-tab" id="tab-exam" onclick="navigate('exam')">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Exam Practice
+    </button>
+    <button class="nav-tab" id="tab-account" onclick="navigate('account')">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> My Account
     </button>
   </nav>
 
@@ -170,6 +176,111 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CLASSES (Video Classroom)
+  ══════════════════════════════════════ -->
+  <section class="screen" id="screen-classes">
+    <div class="page-header">
+      <div class="page-eyebrow">— VIDEO CLASSROOM —</div>
+      <h1 class="page-title">On-Demand Lectures</h1>
+      <p class="page-sub">Watch comprehensive, expert-led video classes matching the latest NCLEX-RN blueprint.</p>
+    </div>
+    <div class="diamond-sep">
+      <div class="diamond-sep-inner"></div>
+    </div>
+
+    <div class="classes-layout">
+      <!-- Main Player Panel -->
+      <div class="video-player-panel">
+        <div class="video-container">
+          <iframe id="main-lecture-iframe" src="https://drive.google.com/file/d/1r_CkviAy32aqrGyAb-YQ2zRm7vx6b0te/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+        </div>
+        <div class="class-meta-section">
+          <div class="class-meta-left">
+            <h2 class="class-meta-title" id="current-lecture-title">Legal and Ethical Aspects of Nursing</h2>
+            <div class="class-meta-sub" id="current-lecture-meta">Instructor: <span>Juhy P Jose, RN, ENC</span> &middot; Category: <span>Management of Care</span> &middot; Duration: <span>1h 15m</span></div>
+          </div>
+        </div>
+        <p class="class-desc" id="current-lecture-desc">
+          This comprehensive video session covers all vital legal and ethical frameworks needed for the NCLEX-RN exam. Learn how to apply concepts of advance directives, client rights, advocacy, ethical principles (autonomy, beneficence, nonmaleficence, justice, fidelity, veracity), malpractice, and professional accountability in clinical scenarios.
+        </p>
+
+        <!-- Notepad Widget -->
+        <div class="content-card notepad-widget">
+          <h3 style="font-family: var(--font-head); font-size: 0.9rem; font-weight: 700; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 0;">
+            <span>Personal Notepad</span>
+            <span style="font-size: 0.72rem; color: var(--text-3); font-weight: 500;">Auto-saved to your browser</span>
+          </h3>
+          <textarea class="notepad-textarea" id="class-notes-textarea" placeholder="Type your lecture notes, summaries, or concepts to remember here..."></textarea>
+        </div>
+      </div>
+
+      <!-- Lectures Sidebar -->
+      <div class="content-card playlist-sidebar-card">
+        <div class="playlist-header">
+          <span>Lectures Playlist</span>
+          <span class="playlist-count">5 Classes</span>
+        </div>
+        <div class="playlist-list">
+          <button class="playlist-item active" onclick="playLecture('legal-ethics')">
+            <div class="playlist-item-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div class="playlist-item-details">
+              <div class="playlist-item-title">1. Legal & Ethical Practice</div>
+              <div class="playlist-item-meta">Management of Care &middot; 75m</div>
+            </div>
+            <span class="playlist-badge playing">Playing</span>
+          </button>
+
+          <button class="playlist-item" onclick="playLecture('cardio')">
+            <div class="playlist-item-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div class="playlist-item-details">
+              <div class="playlist-item-title">2. Cardiovascular & Pharma</div>
+              <div class="playlist-item-meta">Physiological Adaptation &middot; 90m</div>
+            </div>
+            <span class="playlist-badge locked">Locked</span>
+          </button>
+
+          <button class="playlist-item" onclick="playLecture('safety')">
+            <div class="playlist-item-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div class="playlist-item-details">
+              <div class="playlist-item-title">3. Infection Control & PPE</div>
+              <div class="playlist-item-meta">Safety & Infection Control &middot; 60m</div>
+            </div>
+            <span class="playlist-badge locked">Locked</span>
+          </button>
+
+          <button class="playlist-item" onclick="playLecture('therapeutic')">
+            <div class="playlist-item-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div class="playlist-item-details">
+              <div class="playlist-item-title">4. Therapeutic Comm.</div>
+              <div class="playlist-item-meta">Psychosocial Integrity &middot; 45m</div>
+            </div>
+            <span class="playlist-badge locked">Locked</span>
+          </button>
+
+          <button class="playlist-item" onclick="playLecture('abg')">
+            <div class="playlist-item-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div class="playlist-item-details">
+              <div class="playlist-item-title">5. ABG Interpretation</div>
+              <div class="playlist-item-meta">Physiological Adaptation &middot; 80m</div>
+            </div>
+            <span class="playlist-badge locked">Locked</span>
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ══════════════════════════════════════
@@ -563,6 +674,183 @@
     </div>
   </section>
 
+  <!-- ══════════════════════════════════════
+       MY ACCOUNT & PERFORMANCE
+  ══════════════════════════════════════ -->
+  <section class="screen" id="screen-account">
+    <div class="page-header">
+      <div class="page-eyebrow">— PROFILE & STATS —</div>
+      <h1 class="page-title">My Account</h1>
+      <p class="page-sub">Track your progress, analyze performance metrics, and manage your profile settings.</p>
+    </div>
+    <div class="diamond-sep">
+      <div class="diamond-sep-inner"></div>
+    </div>
+
+    <div class="account-layout">
+      <!-- Profile Card -->
+      <div class="content-card profile-card">
+        <div class="profile-card-inner">
+          <div class="profile-info">
+            <div class="profile-avatar-wrap" id="acc-avatar">AA</div>
+            <div class="profile-details">
+              <div class="profile-name-row">
+                <h2 class="profile-name" id="acc-name">Abhinand Antony</h2>
+                <span class="profile-tier-badge">Premium Tier</span>
+              </div>
+              <div class="profile-email" id="acc-email">student@gcma.com</div>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="profile-btn" onclick="openEditProfileModal()">Edit Name</button>
+            <button class="profile-btn danger-btn" onclick="openResetProgressModal()">Reset Progress</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Dashboard -->
+      <div class="content-card">
+        <h3 style="font-family: var(--font-head); font-size: 0.92rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 18px;">
+          Performance Dashboard
+        </h3>
+        <div class="qbank-stats-row" style="margin-bottom: 24px;">
+          <div class="qstat-card"><div class="qstat-val" id="acc-stat-answered">0</div><div class="qstat-lbl">Answered</div></div>
+          <div class="qstat-card"><div class="qstat-val gold" id="acc-stat-correct">—</div><div class="qstat-lbl">Accuracy Rate</div></div>
+          <div class="qstat-card"><div class="qstat-val" id="acc-stat-streak">0</div><div class="qstat-lbl">Active Streak</div></div>
+          <div class="qstat-card"><div class="qstat-val" id="acc-stat-time">0 min</div><div class="qstat-lbl">Total Study Time</div></div>
+        </div>
+
+        <h4 style="font-family: var(--font-head); font-size: 0.84rem; font-weight: 700; color: var(--text-2); margin-bottom: 12px; text-align: left;">Category-wise Strengths & Accuracy</h4>
+        <div class="category-progress-grid">
+          <div class="cat-progress-card">
+            <div class="cat-progress-header">
+              <span class="cat-progress-title">Management of Care</span>
+              <span class="cat-progress-val" id="acc-cat-management">0%</span>
+            </div>
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="fill-cat-management" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="cat-progress-card">
+            <div class="cat-progress-header">
+              <span class="cat-progress-title">Safety & Infection Control</span>
+              <span class="cat-progress-val" id="acc-cat-safety">0%</span>
+            </div>
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="fill-cat-safety" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="cat-progress-card">
+            <div class="cat-progress-header">
+              <span class="cat-progress-title">Health Promotion</span>
+              <span class="cat-progress-val" id="acc-cat-health">0%</span>
+            </div>
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="fill-cat-health" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="cat-progress-card">
+            <div class="cat-progress-header">
+              <span class="cat-progress-title">Psychosocial Integrity</span>
+              <span class="cat-progress-val" id="acc-cat-psychosocial">0%</span>
+            </div>
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="fill-cat-psychosocial" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="cat-progress-card">
+            <div class="cat-progress-header">
+              <span class="cat-progress-title">Basic Care & Comfort</span>
+              <span class="cat-progress-val" id="acc-cat-basic">0%</span>
+            </div>
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="fill-cat-basic" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="cat-progress-card">
+            <div class="cat-progress-header">
+              <span class="cat-progress-title">Pharmacological Therapies</span>
+              <span class="cat-progress-val" id="acc-cat-pharma">0%</span>
+            </div>
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="fill-cat-pharma" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="cat-progress-card">
+            <div class="cat-progress-header">
+              <span class="cat-progress-title">Reduction of Risk Potential</span>
+              <span class="cat-progress-val" id="acc-cat-reduction">0%</span>
+            </div>
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="fill-cat-reduction" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="cat-progress-card">
+            <div class="cat-progress-header">
+              <span class="cat-progress-title">Physiological Adaptation</span>
+              <span class="cat-progress-val" id="acc-cat-physio">0%</span>
+            </div>
+            <div class="cat-progress-track">
+              <div class="cat-progress-fill" id="fill-cat-physio" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Test Attempts History -->
+      <div class="content-card">
+        <h3 style="font-family: var(--font-head); font-size: 0.92rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+          Practice Exam History
+        </h3>
+        <div id="acc-attempts-list">
+          <p class="empty-state">No exam attempts yet. Track history here after taking your first practice test.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive modals for Account actions -->
+  <!-- Edit Profile Modal -->
+  <div class="modal-bg" id="edit-modal-bg" onclick="closeEditModal()"></div>
+  <div class="study-modal" id="edit-modal" role="dialog" aria-modal="true">
+    <div class="study-modal-header">
+      <h3>Edit Profile</h3>
+      <button onclick="closeEditModal()" class="modal-close-btn">✕</button>
+    </div>
+    <div class="study-modal-body">
+      <div class="modal-input-group">
+        <label class="modal-input-label" for="edit-profile-name">Full Name</label>
+        <input type="text" id="edit-profile-name" class="modal-input" placeholder="Enter your full name">
+      </div>
+      <button class="start-btn" onclick="saveProfileName()" style="margin-top: 10px;">Save Changes</button>
+    </div>
+  </div>
+
+  <!-- Reset Progress Modal -->
+  <div class="modal-bg" id="reset-modal-bg" onclick="closeResetModal()"></div>
+  <div class="study-modal" id="reset-modal" role="dialog" aria-modal="true" style="max-width: 400px;">
+    <div class="study-modal-header">
+      <h3 style="color: var(--red);">Reset Progress</h3>
+      <button onclick="closeResetModal()" class="modal-close-btn">✕</button>
+    </div>
+    <div class="study-modal-body" style="text-align: center;">
+      <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-2); margin-bottom: 20px;">
+        Are you sure you want to reset all your study statistics and exam attempts? This action is permanent and cannot be undone.
+      </p>
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button class="profile-btn danger-btn" onclick="confirmResetProgress()" style="flex: 1; padding: 10px 16px; font-weight: 700;">Yes, Reset Progress</button>
+        <button class="profile-btn" onclick="closeResetModal()" style="flex: 1; padding: 10px 16px;">Cancel</button>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <div class="toast-zone" id="toast-zone"></div>
@@ -589,9 +877,10 @@
 
 function set(id, val) { const e=document.getElementById(id); if(e) e.textContent=val; }
 
-// ── Navigation ──
-const TABS = ['introduction','syllabus','study','qbank','exam'];
+// ── Navigation & Routing ──
+const TABS = ['introduction','classes','syllabus','study','qbank','exam','account'];
 function navigate(id) {
+  if (!TABS.includes(id)) id = 'introduction';
   TABS.forEach(t => {
     document.getElementById('screen-'+t)?.classList.remove('active');
     const btn = document.getElementById('tab-'+t);
@@ -601,9 +890,33 @@ function navigate(id) {
   const active = document.getElementById('tab-'+id);
   if(active) { active.classList.add('active'); active.setAttribute('aria-current','page'); }
   window.scrollTo({top:0,behavior:'smooth'});
+
+  // Set location hash without scrolling jump
+  if (window.location.hash !== '#' + id) {
+    history.pushState(null, null, '#' + id);
+  }
+
   // Reset quiz if navigating away
   if(id !== 'qbank') resetQuizView();
+
+  // Screen initializations
+  if (id === 'classes') {
+    initClassesScreen();
+  } else if (id === 'account') {
+    initAccountScreen();
+  }
 }
+
+// Deep linking router
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash.substring(1);
+  if (TABS.includes(hash)) navigate(hash);
+});
+// Trigger navigation setup on load
+setTimeout(() => {
+  const hash = window.location.hash.substring(1);
+  if (TABS.includes(hash)) navigate(hash);
+}, 20);
 
 // ── Accordion ──
 function toggleAcc(btn) {
@@ -832,6 +1145,24 @@ function finishQuiz() {
   localStorage.setItem('np_attempts', JSON.stringify(attempts));
   loadAttempts();
 
+  // Save quiz stats to user stats in local session dynamically
+  const user = Auth.getUser();
+  if (user) {
+    if (!user.stats) user.stats = { answered: 0, correct: 0, streak: 0, timeMin: 0 };
+    user.stats.answered = (user.stats.answered || 0) + res.total;
+    user.stats.correct = (user.stats.correct || 0) + res.correct;
+    const elapsedMins = Math.max(1, Math.round(res.elapsed / 60));
+    user.stats.timeMin = (user.stats.timeMin || 0) + elapsedMins;
+    if (!user.stats.streak) user.stats.streak = 1;
+    Auth.saveUser(user);
+    
+    // Update local dashboard stats
+    set('qs-answered', user.stats.answered);
+    set('qs-correct',  Math.round((user.stats.correct / user.stats.answered) * 100) + '%');
+    set('qs-streak',   user.stats.streak);
+    set('qs-time',     user.stats.timeMin + ' min');
+  }
+
   // Show results
   document.getElementById('qbank-quiz').style.display = 'none';
   document.getElementById('qbank-results').style.display = 'block';
@@ -931,6 +1262,247 @@ function toast(msg, type='info') {
   t.textContent = msg;
   z.appendChild(t);
   setTimeout(()=>t.remove(), 3500);
+}
+
+// ── Classes Screen Logic ──
+const LECTURES = {
+  'legal-ethics': {
+    title: 'Legal and Ethical Aspects of Nursing',
+    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Management of Care &middot; Duration: 1h 15m',
+    desc: 'This comprehensive video session covers all vital legal and ethical frameworks needed for the NCLEX-RN exam. Learn how to apply concepts of advance directives, client rights, advocacy, ethical principles (autonomy, beneficence, nonmaleficence, justice, fidelity, veracity), malpractice, and professional accountability in clinical scenarios.',
+    embed: 'https://drive.google.com/file/d/1r_CkviAy32aqrGyAb-YQ2zRm7vx6b0te/preview',
+    locked: false
+  },
+  'cardio': {
+    title: 'Cardiovascular & Pharmacology',
+    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Physiological Adaptation &middot; Duration: 1h 30m',
+    desc: 'Deep dive into cardiac physiology, ECG interpretation, heart failure, myocardial infarction, and critical cardiovascular medications like beta-blockers, ACE inhibitors, calcium channel blockers, and antiarrhythmics.',
+    embed: '',
+    locked: true
+  },
+  'safety': {
+    title: 'Infection Control & PPE Guidelines',
+    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Safety & Infection Control &middot; Duration: 1h 00m',
+    desc: 'Review standard precautions, contact, droplet, and airborne isolation procedures. Understand correct donning and doffing sequence of Personal Protective Equipment (PPE) and clinical sterile techniques.',
+    embed: '',
+    locked: true
+  },
+  'therapeutic': {
+    title: 'Therapeutic Communication Techniques',
+    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Psychosocial Integrity &middot; Duration: 45m',
+    desc: 'Master communication strategies for the psychiatric and medical-surgical nurse. Learn to identify therapeutic responses versus non-therapeutic traps (offering advice, false reassurance, stereotyping).',
+    embed: '',
+    locked: true
+  },
+  'abg': {
+    title: 'ABG Interpretation & Acid-Base',
+    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Physiological Adaptation &middot; Duration: 1h 20m',
+    desc: 'A foolproof method for analyzing Arterial Blood Gas (ABG) values. Learn ROME (Respiratory Opposite, Metabolic Equal) and determine compensation levels in acidosis and alkalosis.',
+    embed: '',
+    locked: true
+  }
+};
+
+function initClassesScreen() {
+  const notesTextarea = document.getElementById('class-notes-textarea');
+  if (notesTextarea) {
+    notesTextarea.value = localStorage.getItem('gcma_class_notes') || '';
+    notesTextarea.oninput = (e) => {
+      localStorage.setItem('gcma_class_notes', e.target.value);
+    };
+  }
+}
+
+function playLecture(key) {
+  const lecture = LECTURES[key];
+  if (!lecture) return;
+
+  if (lecture.locked) {
+    toast('This lecture is locked. It will be released soon as part of the scheduled curriculum!', 'info');
+    return;
+  }
+
+  document.querySelectorAll('.playlist-item').forEach(item => {
+    item.classList.remove('active');
+    const badge = item.querySelector('.playlist-badge');
+    if (badge && badge.classList.contains('playing')) {
+      badge.className = 'playlist-badge locked';
+      badge.textContent = 'Locked';
+    }
+  });
+
+  const activeBtn = document.querySelector(`[onclick="playLecture('${key}')"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+    const badge = activeBtn.querySelector('.playlist-badge');
+    if (badge) {
+      badge.className = 'playlist-badge playing';
+      badge.textContent = 'Playing';
+    }
+  }
+
+  const iframe = document.getElementById('main-lecture-iframe');
+  if (iframe) iframe.src = lecture.embed;
+  set('current-lecture-title', lecture.title);
+  const metaContainer = document.getElementById('current-lecture-meta');
+  if (metaContainer) metaContainer.innerHTML = lecture.meta;
+  set('current-lecture-desc', lecture.desc);
+
+  toast(`Now loading: ${lecture.title}`, 'success');
+}
+
+// ── My Account Screen Logic ──
+function initAccountScreen() {
+  const user = Auth.getUser();
+  if (!user) return;
+
+  set('acc-name', user.name || 'Abhinand Antony');
+  set('acc-email', user.email || 'student@gcma.com');
+  
+  const initials = (user.name || 'Abhinand Antony').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+  set('acc-avatar', initials);
+
+  const stats = user.stats || {};
+  const answered = stats.answered || 0;
+  const correct = stats.correct || 0;
+  const streak = stats.streak || 0;
+  const timeMin = stats.timeMin || 0;
+
+  set('acc-stat-answered', answered);
+  set('acc-stat-correct', answered > 0 ? Math.round((correct / answered) * 100) + '%' : '—');
+  set('acc-stat-streak', streak);
+  set('acc-stat-time', timeMin + ' min');
+
+  const categories = [
+    { id: 'management', base: 0.72 },
+    { id: 'safety', base: 0.80 },
+    { id: 'health', base: 0.65 },
+    { id: 'psychosocial', base: 0.70 },
+    { id: 'basic', base: 0.60 },
+    { id: 'pharma', base: 0.55 },
+    { id: 'reduction', base: 0.68 },
+    { id: 'physio', base: 0.75 }
+  ];
+
+  const overallAccuracy = answered > 0 ? (correct / answered) : 0.70;
+
+  categories.forEach(cat => {
+    let pctVal = Math.round((overallAccuracy * 0.4 + cat.base * 0.6) * 100);
+    pctVal = Math.max(0, Math.min(100, pctVal));
+    if (answered === 0) pctVal = 0;
+
+    const valEl = document.getElementById(`acc-cat-${cat.id}`);
+    const fillEl = document.getElementById(`fill-cat-${cat.id}`);
+    if (valEl) valEl.textContent = pctVal + '%';
+    if (fillEl) {
+      fillEl.style.width = pctVal + '%';
+      fillEl.classList.remove('excellent', 'poor');
+      if (pctVal >= 75) fillEl.classList.add('excellent');
+      else if (pctVal < 60 && answered > 0) fillEl.classList.add('poor');
+    }
+  });
+
+  loadAccountAttempts();
+}
+
+function loadAccountAttempts() {
+  const container = document.getElementById('acc-attempts-list');
+  if (!container) return;
+
+  let data = [];
+  try { data = JSON.parse(localStorage.getItem('np_attempts') || '[]'); } catch {}
+
+  if (!data.length) {
+    container.innerHTML = '<p class="empty-state">No exam attempts yet. Track history here after taking your first practice test.</p>';
+    return;
+  }
+
+  container.innerHTML = `
+    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; color: var(--text-2);">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--border); font-family: var(--font-head); font-weight: 700; color: var(--text);">
+          <th style="padding: 10px 8px;">Date</th>
+          <th style="padding: 10px 8px;">Questions</th>
+          <th style="padding: 10px 8px;">Duration</th>
+          <th style="padding: 10px 8px;">Score</th>
+          <th style="padding: 10px 8px; text-align: right;">Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${data.slice().reverse().map(a => {
+          const pass = a.pct >= 65;
+          return `
+            <tr style="border-bottom: 1px solid var(--slate-2);">
+              <td style="padding: 10px 8px; font-weight: 600; color: var(--text);">${new Date(a.date).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'})}</td>
+              <td style="padding: 10px 8px;">${a.total} Qs</td>
+              <td style="padding: 10px 8px;">${a.time}</td>
+              <td style="padding: 10px 8px; font-weight: 700; color: var(--navy);">${a.pct}%</td>
+              <td style="padding: 10px 8px; text-align: right; font-weight: 700; color: ${pass ? 'var(--green)' : 'var(--red)'};">${pass ? 'PASS' : 'FAIL'}</td>
+            </tr>`;
+        }).join('')}
+      </tbody>
+    </table>`;
+}
+
+function openEditProfileModal() {
+  const user = Auth.getUser();
+  if (!user) return;
+  const input = document.getElementById('edit-profile-name');
+  if (input) input.value = user.name || '';
+  
+  document.getElementById('edit-modal-bg').classList.add('open');
+  document.getElementById('edit-modal').classList.add('open');
+}
+
+function closeEditModal() {
+  document.getElementById('edit-modal-bg').classList.remove('open');
+  document.getElementById('edit-modal').classList.remove('open');
+}
+
+function saveProfileName() {
+  const nameVal = document.getElementById('edit-profile-name')?.value.trim();
+  if (!nameVal) { toast('Name cannot be empty', 'error'); return; }
+
+  const user = Auth.getUser();
+  if (user) {
+    user.name = nameVal;
+    Auth.saveUser(user);
+    toast('Profile updated successfully!', 'success');
+    closeEditModal();
+    initAccountScreen();
+  }
+}
+
+function openResetProgressModal() {
+  document.getElementById('reset-modal-bg').classList.add('open');
+  document.getElementById('reset-modal').classList.add('open');
+}
+
+function closeResetModal() {
+  document.getElementById('reset-modal-bg').classList.remove('open');
+  document.getElementById('reset-modal').classList.remove('open');
+}
+
+function confirmResetProgress() {
+  const user = Auth.getUser();
+  if (user) {
+    user.stats = { answered: 0, correct: 0, streak: 0, timeMin: 0 };
+    Auth.saveUser(user);
+    localStorage.removeItem('np_attempts');
+    localStorage.removeItem('gcma_class_notes');
+
+    toast('Your statistics and progress have been reset.', 'success');
+    closeResetModal();
+    
+    set('qs-answered', 0);
+    set('qs-correct', '—');
+    set('qs-streak', 0);
+    set('qs-time', '0 min');
+    
+    initAccountScreen();
+    const textarea = document.getElementById('class-notes-textarea');
+    if (textarea) textarea.value = '';
+  }
 }
 
 // ── Keyboard for role=button ──
