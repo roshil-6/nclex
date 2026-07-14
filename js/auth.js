@@ -25,6 +25,10 @@ const Auth = {
     catch { return null; }
   },
 
+  saveUser(user) {
+    localStorage.setItem('np_session', JSON.stringify(user));
+  },
+
   requireAuth(redirectTo = 'login.html') {
     if (!this.getUser()) { window.location.href = redirectTo; return null; }
     return this.getUser();
