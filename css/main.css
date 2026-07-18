@@ -430,3 +430,92 @@ hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
    PAGE OFFSET (for fixed nav)
    ========================================= */
 .page-body { padding-top: 64px; }
+
+/* =========================================
+   DARK THEME OVERRIDES
+   ========================================= */
+.dark-theme {
+  --bg:          #050b14;
+  --bg-alt:      #0b1321;
+  --surface:     #0d1726;
+  --surface-2:   #131e31;
+  
+  --navy:        #050b14;
+  --navy-2:      #0b1321;
+  --navy-3:      #1c2d42;
+  
+  --text:        #f8fafc;
+  --text-2:      #cbd5e1;
+  --text-3:      #94a3b8;
+  
+  --border:      rgba(255, 255, 255, 0.08);
+  --border-2:    rgba(255, 255, 255, 0.15);
+  
+  --green:       #050b14;
+  --green-mid:   #0b1321;
+  --green-light: #162235;
+}
+
+/* Specific elements that need colors tweaked in dark theme */
+.dark-theme body {
+  background: var(--bg);
+  color: var(--text);
+}
+.dark-theme .topnav {
+  background: var(--surface);
+  border-bottom-color: var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.dark-theme .topnav-logo {
+  color: var(--text);
+}
+.dark-theme .topnav-link {
+  color: var(--text-2);
+}
+.dark-theme .topnav-link:hover {
+  color: #fff;
+  background: var(--bg-alt);
+}
+.dark-theme .topnav-link.active {
+  color: var(--amber-2);
+}
+.dark-theme .feat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.dark-theme .feat-card--primary {
+  background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy-3) 100%);
+  border-color: var(--amber);
+}
+.dark-theme .feat-link {
+  color: var(--amber-2);
+}
+.dark-theme .hero-section {
+  background: radial-gradient(circle at top, var(--navy-2) 0%, var(--bg) 100%);
+}
+.dark-theme .stats-band {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.dark-theme .faq-item {
+  border-bottom-color: var(--border);
+}
+.dark-theme footer {
+  background: #03070e;
+  border-top-color: var(--border);
+}
+.dark-theme .btn-outline {
+  border-color: var(--border-2);
+  color: var(--text-2);
+}
+.dark-theme .btn-outline:hover {
+  background: var(--bg-alt);
+  color: #fff;
+}
+.dark-theme input, .dark-theme textarea, .dark-theme select {
+  background: var(--bg-alt) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}

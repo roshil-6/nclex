@@ -1133,3 +1133,173 @@ button { cursor: pointer; font-family: var(--font-body); }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* =========================================
+   DARK THEME OVERRIDES
+   ========================================= */
+.dark-theme {
+  --bg:          #050b14;
+  --bg-alt:      #0f172a;
+  --surface:     #0f172a;
+  --surface-2:   #1e293b;
+  
+  --navy:        #050b14;
+  --navy-2:      #0b1321;
+  --navy-3:      #1e293b;
+  
+  --text:        #f8fafc;
+  --text-2:      #cbd5e1;
+  --text-3:      #94a3b8;
+  
+  --border:      rgba(255, 255, 255, 0.08);
+  --border-2:    rgba(255, 255, 255, 0.15);
+  
+  --slate:        #050b14;
+  --slate-2:      #0f172a;
+  --slate-3:      #1e293b;
+  
+  --green:       #10b981;
+  --green-bg:    #064e3b;
+  --green-bd:    #047857;
+  --red:          #ef4444;
+  --red-bg:       #7f1d1d;
+  --red-bd:       #b91c1c;
+}
+
+/* Base Body Adjustment */
+.dark-theme body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Translucent Glass nav bar */
+.dark-theme .topbar {
+  background: rgba(13, 23, 38, 0.85) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--amber);
+}
+
+/* Cards customization */
+.dark-theme .content-card,
+.dark-theme .qstat-card,
+.dark-theme .vital-card,
+.dark-theme .playlist-sidebar-card,
+.dark-theme .cat-progress-card {
+  background: linear-gradient(135deg, var(--surface) 0%, #0c1524 100%) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+.dark-theme .vital-card:hover,
+.dark-theme .qstat-card:hover {
+  border-color: var(--amber-border) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35) !important;
+}
+
+.dark-theme .vital-value,
+.dark-theme .qstat-val {
+  background: linear-gradient(135deg, #ffffff 0%, var(--text-2) 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* UI Elements Tweaks */
+.dark-theme .playlist-item {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+.dark-theme .playlist-item:hover {
+  background: rgba(217, 119, 6, 0.08) !important;
+  border-color: var(--amber-border) !important;
+}
+.dark-theme .playlist-item.active {
+  background: rgba(217, 119, 6, 0.12) !important;
+  border-color: var(--amber) !important;
+}
+
+.dark-theme .cat-progress-track {
+  background: var(--slate-3) !important;
+}
+.dark-theme .cat-progress-fill {
+  background: var(--amber) !important;
+}
+.dark-theme .cat-progress-fill.excellent {
+  background: var(--green) !important;
+}
+.dark-theme .cat-progress-fill.poor {
+  background: var(--red) !important;
+}
+
+.dark-theme .class-desc {
+  background: var(--bg-alt) !important;
+  color: var(--text-2) !important;
+}
+
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme select,
+.dark-theme .notepad-textarea,
+.dark-theme .modal-input {
+  background: var(--bg-alt) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+.dark-theme input:focus,
+.dark-theme textarea:focus,
+.dark-theme select:focus {
+  border-color: var(--amber) !important;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.25) !important;
+}
+
+/* Modals background */
+.dark-theme .modal-content {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.dark-theme .playlist-filter-row select {
+  background: var(--bg-alt) !important;
+  color: var(--text) !important;
+}
+
+.dark-theme .qbank-side select,
+.dark-theme .qbank-side input {
+  background: var(--bg-alt) !important;
+  color: var(--text) !important;
+}
+
+.dark-theme .qbank-vitals-box {
+  background: var(--bg-alt) !important;
+  border-color: var(--border) !important;
+}
+.dark-theme .vital-item {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+.dark-theme .vital-lbl {
+  color: var(--text-3) !important;
+}
+.dark-theme .vital-val {
+  color: var(--text) !important;
+}
+
+.dark-theme .quiz-explanation {
+  background: var(--bg-alt) !important;
+  border-left-color: var(--amber) !important;
+}
+
+.dark-theme .modal-title {
+  color: var(--text) !important;
+}
+
+.dark-theme .modal-input-label {
+  color: var(--text-2) !important;
+}
+
+.dark-theme .toast {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}

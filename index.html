@@ -26,7 +26,9 @@
         <a href="platform.html#classes"   class="topnav-link">Classes</a>
         <a href="platform.html#introduction" class="topnav-link">Dashboard</a>
       </div>
-      <div class="topnav-right">
+      <div class="topnav-right" style="display: flex; align-items: center; gap: 8px;">
+        <button id="theme-toggle-btn" onclick="Theme.toggle()" class="btn btn-outline" style="padding: 8px; display: flex; align-items: center; justify-content: center; height: 34px; width: 34px; border-radius: var(--r-md); cursor: pointer; border-color: var(--border-2); background: transparent;" aria-label="Toggle dark mode">
+        </button>
         <a href="login.html" class="btn btn-outline btn-sm" id="nav-login-btn">Sign In</a>
         <a href="login.html" class="btn btn-primary btn-sm" id="nav-cta-btn">Get Started</a>
         <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
