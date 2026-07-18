@@ -195,16 +195,16 @@
       <!-- Main Player Panel -->
       <div class="video-player-panel">
         <div class="video-container">
-          <iframe id="main-lecture-iframe" src="https://drive.google.com/file/d/1r_CkviAy32aqrGyAb-YQ2zRm7vx6b0te/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+          <iframe id="main-lecture-iframe" src="https://drive.google.com/file/d/1Dz9EM-gE2RsdpwdxSlvuWgQnreE44ndV/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
         </div>
         <div class="class-meta-section">
           <div class="class-meta-left">
-            <h2 class="class-meta-title" id="current-lecture-title">Legal and Ethical Aspects of Nursing</h2>
-            <div class="class-meta-sub" id="current-lecture-meta">Instructor: <span>Juhy P Jose, RN, ENC</span> &middot; Category: <span>Management of Care</span> &middot; Duration: <span>1h 15m</span></div>
+            <h2 class="class-meta-title" id="current-lecture-title">Legal and Ethical Aspects of Nursing (Final)</h2>
+            <div class="class-meta-sub" id="current-lecture-meta">Instructor: <span>Juhy P Jose, RN, ENC</span> &middot; Category: <span>Management of Care</span> &middot; Duration: <span>1h 12m</span></div>
           </div>
         </div>
         <p class="class-desc" id="current-lecture-desc">
-          This comprehensive video session covers all vital legal and ethical frameworks needed for the NCLEX-RN exam. Learn how to apply concepts of advance directives, client rights, advocacy, ethical principles (autonomy, beneficence, nonmaleficence, justice, fidelity, veracity), malpractice, and professional accountability in clinical scenarios.
+          Detailed final review of legal and ethical frameworks in nursing practice, covering Client Rights, Informed Consent, Malpractice, Advance Directives, and ethical principles for NCLEX-RN.
         </p>
 
         <!-- Notepad Widget -->
@@ -221,63 +221,20 @@
       <div class="content-card playlist-sidebar-card">
         <div class="playlist-header">
           <span>Lectures Playlist</span>
-          <span class="playlist-count">5 Classes</span>
+          <span class="playlist-count" id="classes-playlist-count">18 Classes</span>
         </div>
-        <div class="playlist-list">
-          <button class="playlist-item active" onclick="playLecture('legal-ethics')">
-            <div class="playlist-item-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <div class="playlist-item-details">
-              <div class="playlist-item-title">1. Legal & Ethical Practice</div>
-              <div class="playlist-item-meta">Management of Care &middot; 75m</div>
-            </div>
-            <span class="playlist-badge playing">Playing</span>
-          </button>
-
-          <button class="playlist-item" onclick="playLecture('cardio')">
-            <div class="playlist-item-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <div class="playlist-item-details">
-              <div class="playlist-item-title">2. Cardiovascular & Pharma</div>
-              <div class="playlist-item-meta">Physiological Adaptation &middot; 90m</div>
-            </div>
-            <span class="playlist-badge locked">Locked</span>
-          </button>
-
-          <button class="playlist-item" onclick="playLecture('safety')">
-            <div class="playlist-item-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <div class="playlist-item-details">
-              <div class="playlist-item-title">3. Infection Control & PPE</div>
-              <div class="playlist-item-meta">Safety & Infection Control &middot; 60m</div>
-            </div>
-            <span class="playlist-badge locked">Locked</span>
-          </button>
-
-          <button class="playlist-item" onclick="playLecture('therapeutic')">
-            <div class="playlist-item-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <div class="playlist-item-details">
-              <div class="playlist-item-title">4. Therapeutic Comm.</div>
-              <div class="playlist-item-meta">Psychosocial Integrity &middot; 45m</div>
-            </div>
-            <span class="playlist-badge locked">Locked</span>
-          </button>
-
-          <button class="playlist-item" onclick="playLecture('abg')">
-            <div class="playlist-item-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <div class="playlist-item-details">
-              <div class="playlist-item-title">5. ABG Interpretation</div>
-              <div class="playlist-item-meta">Physiological Adaptation &middot; 80m</div>
-            </div>
-            <span class="playlist-badge locked">Locked</span>
-          </button>
+        <div class="playlist-filter-row" style="margin-bottom: 12px;">
+          <select id="playlist-cat-select" onchange="filterPlaylist(this.value)" style="width: 100%; padding: 8px 10px; border-radius: var(--r-md); border: 1px solid var(--border); font-family: var(--font-body); font-size: 0.82rem; color: var(--text-2); background: #fff; cursor: pointer; transition: all var(--t);">
+            <option value="ALL">All Categories</option>
+            <option value="Management of Care">Management of Care</option>
+            <option value="Safety & Infection Control">Safety & Infection Control</option>
+            <option value="Health Promotion">Health Promotion</option>
+            <option value="Basic Care & Fundamentals">Basic & Fundamentals</option>
+            <option value="Reduction of Risk Potential">Reduction of Risk Potential</option>
+          </select>
+        </div>
+        <div class="playlist-list" id="classes-playlist-list" style="max-height: 480px; overflow-y: auto; padding-right: 2px;">
+          <!-- Dynamically populated -->
         </div>
       </div>
     </div>
@@ -1267,41 +1224,153 @@ function toast(msg, type='info') {
 // ── Classes Screen Logic ──
 const LECTURES = {
   'legal-ethics': {
-    title: 'Legal and Ethical Aspects of Nursing',
-    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Management of Care &middot; Duration: 1h 15m',
-    desc: 'This comprehensive video session covers all vital legal and ethical frameworks needed for the NCLEX-RN exam. Learn how to apply concepts of advance directives, client rights, advocacy, ethical principles (autonomy, beneficence, nonmaleficence, justice, fidelity, veracity), malpractice, and professional accountability in clinical scenarios.',
-    embed: 'https://drive.google.com/file/d/1r_CkviAy32aqrGyAb-YQ2zRm7vx6b0te/preview',
+    title: 'Legal and Ethical Aspects of Nursing (Final)',
+    category: 'Management of Care',
+    duration: '1h 12m',
+    desc: 'Detailed final review of legal and ethical frameworks in nursing practice, covering Client Rights, Informed Consent, Malpractice, Advance Directives, and ethical principles for NCLEX-RN.',
+    embed: 'https://drive.google.com/file/d/1Dz9EM-gE2RsdpwdxSlvuWgQnreE44ndV/preview',
     locked: false
   },
-  'cardio': {
-    title: 'Cardiovascular & Pharmacology',
-    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Physiological Adaptation &middot; Duration: 1h 30m',
-    desc: 'Deep dive into cardiac physiology, ECG interpretation, heart failure, myocardial infarction, and critical cardiovascular medications like beta-blockers, ACE inhibitors, calcium channel blockers, and antiarrhythmics.',
-    embed: '',
-    locked: true
+  'infection-control-final': {
+    title: 'Infection Control (Final)',
+    category: 'Safety & Infection Control',
+    duration: '1h 05m',
+    desc: 'The complete review of transmission-based precautions, airborne/droplet/contact isolation protocols, hand hygiene, and nursing management of infectious precautions.',
+    embed: 'https://drive.google.com/file/d/1-LXH0DKyjmKvs3fr0fa0z3IbKljyX5EQ/preview',
+    locked: false
   },
-  'safety': {
-    title: 'Infection Control & PPE Guidelines',
-    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Safety & Infection Control &middot; Duration: 1h 00m',
-    desc: 'Review standard precautions, contact, droplet, and airborne isolation procedures. Understand correct donning and doffing sequence of Personal Protective Equipment (PPE) and clinical sterile techniques.',
-    embed: '',
-    locked: true
+  'infection-control': {
+    title: 'Infection Control Overview',
+    category: 'Safety & Infection Control',
+    duration: '55m',
+    desc: 'Core concepts of standard precautions, clean versus sterile fields, and infection prevention strategies in acute care settings.',
+    embed: 'https://drive.google.com/file/d/1q8_U7ddlH3GVEBi0cUYsEzZgEffOamRN/preview',
+    locked: false
   },
-  'therapeutic': {
-    title: 'Therapeutic Communication Techniques',
-    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Psychosocial Integrity &middot; Duration: 45m',
-    desc: 'Master communication strategies for the psychiatric and medical-surgical nurse. Learn to identify therapeutic responses versus non-therapeutic traps (offering advice, false reassurance, stereotyping).',
-    embed: '',
-    locked: true
+  'infectious-disease-1': {
+    title: 'Infectious Diseases - Part 1',
+    category: 'Safety & Infection Control',
+    duration: '1h 10m',
+    desc: 'Pathophysiology, transmission pathways, and nursing interventions for common viral, bacterial, and fungal pathogens.',
+    embed: 'https://drive.google.com/file/d/1lwhRuandv6Tk3JwS4Es6K04Qy-dM2IYR/preview',
+    locked: false
   },
-  'abg': {
-    title: 'ABG Interpretation & Acid-Base',
-    meta: 'Instructor: Juhy P Jose, RN, ENC &middot; Category: Physiological Adaptation &middot; Duration: 1h 20m',
-    desc: 'A foolproof method for analyzing Arterial Blood Gas (ABG) values. Learn ROME (Respiratory Opposite, Metabolic Equal) and determine compensation levels in acidosis and alkalosis.',
-    embed: '',
-    locked: true
+  'infectious-disease-2': {
+    title: 'Infectious Diseases - Part 2',
+    category: 'Safety & Infection Control',
+    duration: '1h 05m',
+    desc: 'Continuation of infectious diseases review, focusing on multidrug-resistant organisms (MDROs) such as MRSA, VRE, and C. Difficile.',
+    embed: 'https://drive.google.com/file/d/1fsA3t5vMOofXsbAZ7ZX76IoP5F0HFU-F/preview',
+    locked: false
+  },
+  'infectious-disease-3': {
+    title: 'Infectious Diseases - Part 3',
+    category: 'Safety & Infection Control',
+    duration: '50m',
+    desc: 'Special considerations for pandemic response, tuberculosis management, and pharmacological therapies for infectious conditions.',
+    embed: 'https://drive.google.com/file/d/1WDEYqdYVAZkS1rUICTQPsyyw8paxta7I/preview',
+    locked: false
+  },
+  'community-health': {
+    title: 'Community Health Promotion',
+    category: 'Health Promotion',
+    duration: '1h 15m',
+    desc: 'Nursing principles for community health assessment, primary/secondary/tertiary preventions, immunization schedules, and epidemiological concepts.',
+    embed: 'https://drive.google.com/file/d/1-odUBHvF3fyLsMQzkLPjTSlAgfW7x7qz/preview',
+    locked: false
+  },
+  'metabolic-childhood': {
+    title: 'Metabolic Syndrome & Childhood Obesity',
+    category: 'Health Promotion',
+    duration: '1h 20m',
+    desc: 'Etiology, clinical markers, and family-centered nursing management for metabolic syndrome, childhood obesity, diabetes mellitus, and lifestyle modifications.',
+    embed: 'https://drive.google.com/file/d/1oXImZp_6dXVot1x3WZ6htQnbsxAdshoF/preview',
+    locked: false
+  },
+  'fundamentals-final': {
+    title: 'Fundamentals of Nursing (Final)',
+    category: 'Basic Care & Fundamentals',
+    duration: '1h 25m',
+    desc: 'A comprehensive final review of core nursing fundamentals, covering physical assessment, hygiene, vital signs, and standard patient care protocols.',
+    embed: 'https://drive.google.com/file/d/11IH96lzxdc1E77RjUr9zhkshwa4fkL48/preview',
+    locked: false
+  },
+  'fundamentals-1': {
+    title: 'Fundamentals in NCLEX',
+    category: 'Basic Care & Fundamentals',
+    duration: '1h 15m',
+    desc: 'Essential foundational nursing concepts frequently tested on the NCLEX exam, including documentation, positioning, and safety guidelines.',
+    embed: 'https://drive.google.com/file/d/16_EcChwL0ioaM_hEkUTVlurD9M4IjmZ3/preview',
+    locked: false
+  },
+  'fundamentals-2': {
+    title: 'Fundamentals Part 2',
+    category: 'Basic Care & Fundamentals',
+    duration: '1h 00m',
+    desc: 'Core physical skills, wound care, pressure injury staging, and basic comfort interventions for immobilized patients.',
+    embed: 'https://drive.google.com/file/d/1ccoREhnGuK_YT3g3HiQNOKj3uU-niBXT/preview',
+    locked: false
+  },
+  'diagnostic-final': {
+    title: 'Diagnostic Tests (Final)',
+    category: 'Reduction of Risk Potential',
+    duration: '1h 18m',
+    desc: 'Comprehensive review of common laboratory and imaging diagnostics, normal/abnormal ranges, and critical pre- and post-procedure nursing care.',
+    embed: 'https://drive.google.com/file/d/1XaLFR4fvMdRItjkomG_d6Sl3NjH3qwqg/preview',
+    locked: false
+  },
+  'diagnostic-studies': {
+    title: 'Diagnostic Studies Continued',
+    category: 'Reduction of Risk Potential',
+    duration: '55m',
+    desc: 'Deep dive into special diagnostic investigations, cardiac catheterization, lumbar puncture, and biopsies.',
+    embed: 'https://drive.google.com/file/d/1Lc7MC52kbEz9I1WykbQa_pWoj_vNdP5R/preview',
+    locked: false
+  },
+  'gi-test': {
+    title: 'Gastrointestinal Tests & Procedures',
+    category: 'Reduction of Risk Potential',
+    duration: '1h 05m',
+    desc: 'Specific review of GI diagnostics (endoscopy, colonoscopy, barium swallows), post-procedure monitoring, and emergency signs like bowel perforation.',
+    embed: 'https://drive.google.com/file/d/1RxJbNtlTbEvjNx6dsknRrPHpC13vw3Gj/preview',
+    locked: false
+  },
+  'surgical-care-final': {
+    title: 'Surgical Care (Final)',
+    category: 'Reduction of Risk Potential',
+    duration: '1h 22m',
+    desc: 'Complete perioperative nursing care covering preoperative checklists, intraoperative safety, and post-anesthesia care unit (PACU) recovery protocols.',
+    embed: 'https://drive.google.com/file/d/1wySCB3XTNfETP1LEEWefjPpaWsNwlBMf/preview',
+    locked: false
+  },
+  'surgical-care-1': {
+    title: 'Surgical Care Basics',
+    category: 'Reduction of Risk Potential',
+    duration: '1h 00m',
+    desc: 'Foundational aspects of surgical nursing, wound healing stages, and management of early postoperative complications.',
+    embed: 'https://drive.google.com/file/d/1DeZ5sDhflVMUaP9W-D4DO49uUmz9LpZD/preview',
+    locked: false
+  },
+  'surgical-tubes-1': {
+    title: 'Surgical Tubes & Drains - Part 1',
+    category: 'Reduction of Risk Potential',
+    duration: '1h 10m',
+    desc: 'Nursing assessment, maintenance, and trouble-shooting for common surgical lines, Jackson-Pratt (JP) drains, Hemovacs, and Penrose drains.',
+    embed: 'https://drive.google.com/file/d/1M1nuYhGeTTbPkbyaV2HnrrYpKQZcNP5G/preview',
+    locked: false
+  },
+  'surgical-tubes-2': {
+    title: 'Surgical Tubes & Drains - Part 2',
+    category: 'Reduction of Risk Potential',
+    duration: '55m',
+    desc: 'Management of chest tubes, nasogastric (NG) tubes, Foley catheters, and related nursing responsibilities for output tracking and removal.',
+    embed: 'https://drive.google.com/file/d/14ycuJhbYKMhslavGEmhj9xSLa9Fivu4u/preview',
+    locked: false
   }
 };
+
+let activeLectureKey = 'legal-ethics';
+let currentCategoryFilter = 'ALL';
 
 function initClassesScreen() {
   const notesTextarea = document.getElementById('class-notes-textarea');
@@ -1311,6 +1380,53 @@ function initClassesScreen() {
       localStorage.setItem('gcma_class_notes', e.target.value);
     };
   }
+  renderPlaylist();
+}
+
+function renderPlaylist() {
+  const container = document.getElementById('classes-playlist-list');
+  if (!container) return;
+
+  const keys = Object.keys(LECTURES);
+  let filteredKeys = keys;
+  if (currentCategoryFilter !== 'ALL') {
+    filteredKeys = keys.filter(k => LECTURES[k].category === currentCategoryFilter);
+  }
+
+  const counter = document.getElementById('classes-playlist-count');
+  if (counter) counter.textContent = `${filteredKeys.length} Class${filteredKeys.length !== 1 ? 'es' : ''}`;
+
+  container.innerHTML = filteredKeys.map((key) => {
+    const lecture = LECTURES[key];
+    const isActive = key === activeLectureKey;
+    
+    let iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+    
+    let badgeClass = 'locked';
+    let badgeText = 'Unlocked';
+    if (isActive) {
+      badgeClass = 'playing';
+      badgeText = 'Playing';
+    }
+
+    return `
+      <button class="playlist-item ${isActive ? 'active' : ''}" onclick="playLecture('${key}')">
+        <div class="playlist-item-icon">
+          ${iconSvg}
+        </div>
+        <div class="playlist-item-details">
+          <div class="playlist-item-title">${lecture.title}</div>
+          <div class="playlist-item-meta">${lecture.category} &middot; ${lecture.duration}</div>
+        </div>
+        <span class="playlist-badge ${badgeClass}">${badgeText}</span>
+      </button>
+    `;
+  }).join('');
+}
+
+function filterPlaylist(cat) {
+  currentCategoryFilter = cat;
+  renderPlaylist();
 }
 
 function playLecture(key) {
@@ -1322,30 +1438,17 @@ function playLecture(key) {
     return;
   }
 
-  document.querySelectorAll('.playlist-item').forEach(item => {
-    item.classList.remove('active');
-    const badge = item.querySelector('.playlist-badge');
-    if (badge && badge.classList.contains('playing')) {
-      badge.className = 'playlist-badge locked';
-      badge.textContent = 'Locked';
-    }
-  });
-
-  const activeBtn = document.querySelector(`[onclick="playLecture('${key}')"]`);
-  if (activeBtn) {
-    activeBtn.classList.add('active');
-    const badge = activeBtn.querySelector('.playlist-badge');
-    if (badge) {
-      badge.className = 'playlist-badge playing';
-      badge.textContent = 'Playing';
-    }
-  }
+  activeLectureKey = key;
+  renderPlaylist();
 
   const iframe = document.getElementById('main-lecture-iframe');
   if (iframe) iframe.src = lecture.embed;
   set('current-lecture-title', lecture.title);
+  
   const metaContainer = document.getElementById('current-lecture-meta');
-  if (metaContainer) metaContainer.innerHTML = lecture.meta;
+  if (metaContainer) {
+    metaContainer.innerHTML = `Instructor: <span>Juhy P Jose, RN, ENC</span> &middot; Category: <span>${lecture.category}</span> &middot; Duration: <span>${lecture.duration}</span>`;
+  }
   set('current-lecture-desc', lecture.desc);
 
   toast(`Now loading: ${lecture.title}`, 'success');
