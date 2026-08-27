@@ -956,14 +956,59 @@
           Below are the published materials in the classroom. Any items added will immediately embed and update in the student playlist.
         </p>
 
-        <div id="admin-active-list" style="display: flex; flex-direction: column; gap: 10px; max-height: 420px; overflow-y: auto; padding-right: 4px;">
+        <div id="admin-active-list" style="display: flex; flex-direction: column; gap: 10px; max-height: 420px; overflow-y: auto; padding-right: 4px; margin-bottom: 20px;">
           <!-- Dynamically populated classes log -->
+        </div>
+
+        <h3 style="font-family: var(--font-head); font-size: 1.0rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 24px; margin-bottom: 16px;">
+          Publish New Study Material (Notes / PDFs)
+        </h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="modal-input-group" style="margin-bottom:0;">
+            <label class="modal-input-label" for="admin-material-title">Material Name</label>
+            <input type="text" id="admin-material-title" class="modal-input" placeholder="e.g., Maternity 1 Overview Lecture Notes">
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px;">
+            <div class="modal-input-group" style="margin-bottom:0;">
+              <label class="modal-input-label" for="admin-material-link">Google Drive Link</label>
+              <input type="text" id="admin-material-link" class="modal-input" placeholder="https://drive.google.com/file/d/.../view">
+            </div>
+            <div class="modal-input-group" style="margin-bottom:0;">
+              <label class="modal-input-label" for="admin-material-category">Category</label>
+              <select id="admin-material-category" class="modal-input" style="width:100%;">
+                <option value="management">Management of Care</option>
+                <option value="safety">Safety and Infection Control</option>
+                <option value="health">Health Promotion and Maintenance</option>
+                <option value="psychosocial">Psychosocial Integrity</option>
+                <option value="basic">Basic Care and Comfort</option>
+                <option value="pharma">Pharmacological Therapies</option>
+                <option value="reduction">Reduction of Risk Potential</option>
+                <option value="physio">Physiological Adaptation</option>
+              </select>
+            </div>
+          </div>
+          
+          <button class="profile-btn" onclick="adminPublishMaterial()" style="width:100%; border:none; padding:10px; font-weight:700; background:var(--navy); color:#fff;">Publish Study Material</button>
         </div>
       </div>
     </div>
   </section>
 
 </main>
+
+<!-- ── Full Screen Resource Viewer Modal (Embed Mode) ── -->
+<div class="modal-bg" id="res-viewer-bg" onclick="closeResourceViewer()"></div>
+<div class="study-modal" id="res-viewer-modal" role="dialog" aria-modal="true" style="max-width: 90%; width: 1000px; height: 85vh; display: flex; flex-direction: column;">
+  <div class="study-modal-header" style="padding: 16px 24px; background: var(--surface); border-bottom: 1px solid var(--border);">
+    <h3 id="res-viewer-title" style="font-family: var(--font-head); font-weight: 800; color: var(--text); font-size: 1.1rem; margin: 0;">Embedded Study Resource</h3>
+    <button onclick="closeResourceViewer()" class="modal-close-btn" style="border: none; background: none; font-size: 1.2rem; cursor: pointer; color: var(--text-3);">✕</button>
+  </div>
+  <div style="flex: 1; background: #000; position: relative;">
+    <iframe id="res-viewer-iframe" src="" style="width: 100%; height: 100%; border: none;" allow="autoplay"></iframe>
+  </div>
+</div>
 
 <div class="toast-zone" id="toast-zone"></div>
 
@@ -1072,7 +1117,7 @@ function openStudy(key) {
     body.innerHTML = d.chapters.map((c,i) => {
       const isAvailable = c.link && c.link !== '#';
       const actionHtml = isAvailable 
-        ? `<a class="chapter-btn" href="${c.link}" target="_blank" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">View Document ↗</a>`
+        ? `<button class="chapter-btn" onclick="closeModal(); openResourceViewer('${c.name}', '${c.link}')" style="display:inline-flex; align-items:center; justify-content:center;">View Chapter</button>`
         : `<button class="chapter-btn" onclick="toast('Study material uploading soon!','info')">View →</button>`;
       return `
         <div class="chapter-row" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
@@ -1766,10 +1811,10 @@ function playLecture(key) {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px; height:20px;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
             <div>
               <div style="font-size:0.84rem; font-weight:700; color:var(--text);">${lecture.slides.title}</div>
-              <div style="font-size:0.72rem; color:var(--text-3); font-weight:500;">Google Drive Resource File</div>
+              <div style="font-size:0.72rem; color:var(--text-3); font-weight:500;">Google Drive Slides & Material</div>
             </div>
           </div>
-          <a href="${lecture.slides.link}" target="_blank" class="btn btn-outline" style="padding:6px 12px; font-size:0.75rem; border-radius:var(--r-sm); text-decoration:none; display:inline-flex; align-items:center; gap:4px;">Open ↗</a>
+          <button onclick="openResourceViewer('${lecture.slides.title}', '${lecture.slides.link}')" class="btn btn-outline" style="padding:6px 12px; font-size:0.75rem; border-radius:var(--r-sm); font-weight:600; display:inline-flex; align-items:center; gap:4px;">Open Study Slides</button>
         </div>
       `;
     } else {
@@ -1881,7 +1926,67 @@ function renderAdminActiveList() {
   }).reverse().join('');
 }
 
-// ── My Account Screen Logic ──
+function openResourceViewer(title, link) {
+  const modalBg = document.getElementById('res-viewer-bg');
+  const modal = document.getElementById('res-viewer-modal');
+  const iframe = document.getElementById('res-viewer-iframe');
+  const titleEl = document.getElementById('res-viewer-title');
+  
+  if (modalBg && modal && iframe && titleEl) {
+    titleEl.textContent = title;
+    // Format link to preview mode if google drive
+    iframe.src = formatDriveLink(link);
+    modalBg.classList.add('open');
+    modal.classList.add('open');
+    toast(`Opening ${title} inside student viewer`, 'success');
+  }
+}
+
+function closeResourceViewer() {
+  const modalBg = document.getElementById('res-viewer-bg');
+  const modal = document.getElementById('res-viewer-modal');
+  const iframe = document.getElementById('res-viewer-iframe');
+  
+  if (modalBg && modal && iframe) {
+    modalBg.classList.remove('open');
+    modal.classList.remove('open');
+    iframe.src = '';
+  }
+}
+
+function adminPublishMaterial() {
+  const title = document.getElementById('admin-material-title')?.value.trim();
+  const link = document.getElementById('admin-material-link')?.value.trim();
+  const category = document.getElementById('admin-material-category')?.value;
+
+  if (!title || !link) {
+    toast('Please enter both a resource name and a Google Drive link!', 'error');
+    return;
+  }
+
+  if (!STUDY_DATA[category]) {
+    STUDY_DATA[category] = { title: category, chapters: [] };
+  }
+
+  // Add to STUDY_DATA chapters structure
+  STUDY_DATA[category].chapters.push({
+    name: title,
+    link: link
+  });
+
+  // Calculate dynamic chapter counts on study material screen cards
+  const cardCountEl = document.querySelector(`.study-card[onclick="openStudy('${category}')"] .study-count`);
+  if (cardCountEl) {
+    const chaptersCount = STUDY_DATA[category].chapters.length;
+    cardCountEl.textContent = `${chaptersCount} chapter${chaptersCount !== 1 ? 's' : ''}`;
+  }
+
+  // Reset inputs
+  document.getElementById('admin-material-title').value = '';
+  document.getElementById('admin-material-link').value = '';
+
+  toast('Study material published to resources!', 'success');
+}
 function initAccountScreen() {
   const user = Auth.getUser();
   if (!user) return;
