@@ -92,35 +92,37 @@
     <!-- About Us -->
     <div class="content-card">
       <div class="card-eyebrow">ABOUT US</div>
-      <h2 class="card-heading">
+      <h2 class="card-heading" id="intro-about-heading">
         Empowering Migrants with <span class="amber-italic">Clarity, Honesty &amp; Trust</span>
       </h2>
-      <p class="card-body">
-        The <strong>Global Council for Migration Awareness and Social Welfare (GCMA)</strong> is a dedicated organisation committed to safeguarding the rights, dignity, and well-being of migrants worldwide. We stand at the frontlines of migration advocacy — educating communities, exposing fraudulent practices, and championing ethical migration processes.
-      </p>
-      <p class="card-body">
-        GCMA believes that every individual's journey — whether crossing borders for work, education, or a better life — deserves to be guided by accurate information, transparent procedures, and unwavering integrity.
-      </p>
+      <div id="intro-about-body-container">
+        <p class="card-body" id="intro-about-body-1">
+          The <strong>Global Council for Migration Awareness and Social Welfare (GCMA)</strong> is a dedicated organisation committed to safeguarding the rights, dignity, and well-being of migrants worldwide. We stand at the frontlines of migration advocacy — educating communities, exposing fraudulent practices, and championing ethical migration processes.
+        </p>
+        <p class="card-body" id="intro-about-body-2">
+          GCMA believes that every individual's journey — whether crossing borders for work, education, or a better life — deserves to be guided by accurate information, transparent procedures, and unwavering integrity.
+        </p>
+      </div>
     </div>
 
     <!-- Instructor -->
     <div class="content-card instructor-card">
       <div class="instructor-inner">
         <div class="instructor-photo-wrap">
-          <div class="instructor-photo">JJ</div>
+          <div class="instructor-photo" id="instructor-photo-badge" style="background-image: none; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 1.4rem;">JJ</div>
         </div>
         <div class="instructor-info">
           <div class="instructor-name-row">
-            <h3 class="instructor-name">Juhy P Jose</h3>
-            <span class="instructor-cred"> — <em>RN, ENC</em></span>
+            <h3 class="instructor-name" id="instructor-name-text">Juhy P Jose</h3>
+            <span class="instructor-cred" id="instructor-cred-text"> — <em>RN, ENC</em></span>
           </div>
-          <div class="instructor-role">NURSING MIGRATION WELFARE SPECIALIST • GCMA</div>
-          <div class="instructor-badges">
+          <div class="instructor-role" id="instructor-role-text">NURSING MIGRATION WELFARE SPECIALIST • GCMA</div>
+          <div class="instructor-badges" id="instructor-badges-row">
             <span class="inst-badge">REGISTERED NURSE</span>
             <span class="inst-badge">EMERGENCY NURSE CERTIFIED</span>
             <span class="inst-badge">MIGRATION WELFARE SPECIALIST</span>
           </div>
-          <p class="instructor-bio">
+          <p class="instructor-bio" id="instructor-bio-text">
             Hello! I'm <strong>Juhy P Jose</strong> — a <strong>Registered Nurse</strong> and <strong>Emergency Nurse</strong> with certified expertise in NCLEX-RN preparation. With hands-on clinical experience and a deep passion for nursing education, I guide internationally educated nurses through every step of their licensure journey — with clarity, confidence, and zero compromise on ethics.
           </p>
         </div>
@@ -317,9 +319,9 @@
       <div class="diamond-sep-inner"></div>
     </div>
 
-    <div class="accordion-list">
+    <div class="accordion-list" id="syllabus-accordion-container">
 
-      <div class="acc-item">
+      <div class="acc-item" data-acc-id="1">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">1</span><div><div class="acc-title">Management of Care</div><div class="acc-count">5 topics</div></div></div>
           <span class="acc-chevron">
@@ -335,7 +337,7 @@
         </ul></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-acc-id="2">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">2</span><div><div class="acc-title">Safety and Infection Control</div><div class="acc-count">4 topics</div></div></div>
           <span class="acc-chevron">
@@ -350,7 +352,7 @@
         </ul></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-acc-id="3">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">3</span><div><div class="acc-title">Health Promotion and Maintenance</div><div class="acc-count">3 topics</div></div></div>
           <span class="acc-chevron">
@@ -364,7 +366,7 @@
         </ul></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-acc-id="4">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">4</span><div><div class="acc-title">Psychosocial Integrity</div><div class="acc-count">3 topics</div></div></div>
           <span class="acc-chevron">
@@ -378,7 +380,7 @@
         </ul></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-acc-id="5">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">5</span><div><div class="acc-title">Basic Care and Comfort</div><div class="acc-count">3 topics</div></div></div>
           <span class="acc-chevron">
@@ -392,7 +394,7 @@
         </ul></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-acc-id="6">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">6</span><div><div class="acc-title">Pharmacological and Parenteral Therapies</div><div class="acc-count">4 topics</div></div></div>
           <span class="acc-chevron">
@@ -407,7 +409,7 @@
         </ul></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-acc-id="7">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">7</span><div><div class="acc-title">Reduction of Risk Potential</div><div class="acc-count">4 topics</div></div></div>
           <span class="acc-chevron">
@@ -422,7 +424,7 @@
         </ul></div>
       </div>
 
-      <div class="acc-item">
+      <div class="acc-item" data-acc-id="8">
         <button class="acc-header" onclick="toggleAcc(this)">
           <div class="acc-left"><span class="acc-num">8</span><div><div class="acc-title">Physiological Adaptation</div><div class="acc-count">3 topics</div></div></div>
           <span class="acc-chevron">
@@ -942,6 +944,64 @@
           </div>
 
           <button class="start-btn" onclick="adminPublishClass()" style="margin-top: 10px; width: 100%; border: none;">Publish Class & Materials</button>
+        </div>
+
+        <!-- Dynamic Website Content Manager -->
+        <h3 style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-top: 32px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/></svg>
+          Edit Introduction details
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div class="modal-input-group" style="margin-bottom:0;">
+            <label class="modal-input-label" for="edit-intro-title">About Us Headline</label>
+            <input type="text" id="edit-intro-title" class="modal-input" value="Empowering Migrants with Clarity, Honesty & Trust">
+          </div>
+          <div class="modal-input-group" style="margin-bottom:0;">
+            <label class="modal-input-label" for="edit-intro-body">About Us Content</label>
+            <textarea id="edit-intro-body" class="modal-input" style="min-height: 80px; resize: vertical;">The Global Council for Migration Awareness and Social Welfare (GCMA) is a dedicated organisation committed to safeguarding the rights, dignity, and well-being of migrants worldwide. We stand at the frontlines of migration advocacy — educating communities, exposing fraudulent practices, and championing ethical migration processes.</textarea>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px;">
+            <div class="modal-input-group" style="margin-bottom:0;">
+              <label class="modal-input-label" for="edit-inst-name">Instructor Name</label>
+              <input type="text" id="edit-inst-name" class="modal-input" value="Juhy P Jose">
+            </div>
+            <div class="modal-input-group" style="margin-bottom:0;">
+              <label class="modal-input-label" for="edit-inst-photo">Instructor Photo Link</label>
+              <input type="text" id="edit-inst-photo" class="modal-input" placeholder="e.g., https://link/photo.jpg">
+            </div>
+          </div>
+          <div class="modal-input-group" style="margin-bottom:0;">
+            <label class="modal-input-label" for="edit-inst-bio">Instructor Bio</label>
+            <textarea id="edit-inst-bio" class="modal-input" style="min-height: 80px; resize: vertical;">Hello! I'm Juhy P Jose — a Registered Nurse and Emergency Nurse with certified expertise in NCLEX-RN preparation. With hands-on clinical experience and a deep passion for nursing education, I guide internationally educated nurses through every step of their licensure journey — with clarity, confidence, and zero compromise on ethics.</textarea>
+          </div>
+          <button class="profile-btn" onclick="adminSaveIntro()" style="width: 100%; border:none; padding:10px; font-weight:700; background:var(--navy); color:#fff;">Save Introduction Details</button>
+        </div>
+
+        <!-- Syllabus Editor Panel -->
+        <h3 style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-top: 32px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;"><path d="M4 19.5V15a2.5 2.5 0 0 1 2.5-2.5H14"/><path d="M20 19.5V5a2.5 2.5 0 0 0-2.5-2.5H14"/></svg>
+          Add Topic to Syllabus
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div class="modal-input-group" style="margin-bottom:0;">
+            <label class="modal-input-label" for="edit-syll-category">Syllabus Client Need Category</label>
+            <select id="edit-syll-category" class="modal-input" style="width:100%;">
+              <option value="1">1. Management of Care</option>
+              <option value="2">2. Safety and Infection Control</option>
+              <option value="3">3. Health Promotion and Maintenance</option>
+              <option value="4">4. Psychosocial Integrity</option>
+              <option value="5">5. Basic Care and Comfort</option>
+              <option value="6">6. Pharmacological and Parenteral Therapies</option>
+              <option value="7">7. Reduction of Risk Potential</option>
+              <option value="8">8. Physiological Adaptation</option>
+            </select>
+          </div>
+          <div class="modal-input-group" style="margin-bottom:0;">
+            <label class="modal-input-label" for="edit-syll-topic">New Topic Name</label>
+            <input type="text" id="edit-syll-topic" class="modal-input" placeholder="e.g., Prenatal Nutrition & Gestational Diagnostics">
+          </div>
+          <button class="profile-btn" onclick="adminAddSyllabusTopic()" style="width: 100%; border:none; padding:10px; font-weight:700; background:var(--navy); color:#fff;">Add Topic to Syllabus</button>
         </div>
       </div>
 
@@ -1986,6 +2046,84 @@ function adminPublishMaterial() {
   document.getElementById('admin-material-link').value = '';
 
   toast('Study material published to resources!', 'success');
+}
+
+function adminSaveIntro() {
+  const headline = document.getElementById('edit-intro-title')?.value.trim();
+  const bodyText = document.getElementById('edit-intro-body')?.value.trim();
+  const instName = document.getElementById('edit-inst-name')?.value.trim();
+  const instPhotoUrl = document.getElementById('edit-inst-photo')?.value.trim();
+  const instBio = document.getElementById('edit-inst-bio')?.value.trim();
+
+  // Dynamically update about us section
+  const aboutHeading = document.getElementById('intro-about-heading');
+  if (aboutHeading && headline) {
+    aboutHeading.textContent = headline;
+  }
+  
+  const aboutBody = document.getElementById('intro-about-body-1');
+  if (aboutBody && bodyText) {
+    aboutBody.textContent = bodyText;
+  }
+
+  // Dynamically update instructor card
+  const instNameText = document.getElementById('instructor-name-text');
+  if (instNameText && instName) {
+    instNameText.textContent = instName;
+    // Set initials in profile fallback avatar
+    const initials = instName.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+    const photoBadge = document.getElementById('instructor-photo-badge');
+    if (photoBadge) {
+      photoBadge.textContent = initials;
+    }
+  }
+
+  const instBioText = document.getElementById('instructor-bio-text');
+  if (instBioText && instBio) {
+    instBioText.textContent = instBio;
+  }
+
+  // Update photo if link is provided
+  if (instPhotoUrl) {
+    const photoBadge = document.getElementById('instructor-photo-badge');
+    if (photoBadge) {
+      photoBadge.style.backgroundImage = `url('${instPhotoUrl}')`;
+      photoBadge.textContent = ''; // clear initials
+    }
+  }
+
+  toast('Introduction details updated successfully!', 'success');
+}
+
+function adminAddSyllabusTopic() {
+  const catId = document.getElementById('edit-syll-category')?.value;
+  const topicName = document.getElementById('edit-syll-topic')?.value.trim();
+
+  if (!topicName) {
+    toast('Please enter a topic name to add!', 'error');
+    return;
+  }
+
+  const accItem = document.querySelector(`.acc-item[data-acc-id="${catId}"]`);
+  if (accItem) {
+    // Append to list
+    const topicList = accItem.querySelector('.topic-list');
+    if (topicList) {
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="topic-dot"></span>${topicName}`;
+      topicList.appendChild(li);
+
+      // Increment count indicator
+      const countEl = accItem.querySelector('.acc-count');
+      if (countEl) {
+        const topicsCount = topicList.querySelectorAll('li').length;
+        countEl.textContent = `${topicsCount} topic${topicsCount !== 1 ? 's' : ''}`;
+      }
+
+      toast('New topic added to syllabus category!', 'success');
+      document.getElementById('edit-syll-topic').value = '';
+    }
+  }
 }
 function initAccountScreen() {
   const user = Auth.getUser();
