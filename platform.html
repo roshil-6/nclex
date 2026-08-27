@@ -52,6 +52,9 @@
     <button class="nav-tab" id="tab-account" onclick="navigate('account')">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> My Account
     </button>
+    <button class="nav-tab" id="tab-admin" onclick="navigate('admin')" style="border-color: rgba(217, 119, 6, 0.25); color: var(--amber);">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Admin Panel
+    </button>
   </nav>
 
   <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
@@ -869,6 +872,97 @@
     </div>
   </div>
 
+  <!-- ══════════════════════════════════════
+       ADMIN SCREEN
+  ══════════════════════════════════════ -->
+  <section class="screen" id="screen-admin">
+    <div class="page-header">
+      <div class="page-eyebrow">ADMIN CONTROL PORTAL</div>
+      <h1 class="page-title">Resource Management</h1>
+      <p class="page-sub">Easily publish new on-demand video classes, lecture slides, and digital handouts for students.</p>
+    </div>
+    <div class="diamond-sep">
+      <div class="diamond-sep-inner"></div>
+    </div>
+
+    <div class="classes-layout">
+      <!-- Add New Class Form -->
+      <div class="content-card" style="padding: 32px 36px;">
+        <h3 style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          Publish New Video Class
+        </h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="modal-input-group" style="margin-bottom: 0;">
+            <label class="modal-input-label" for="admin-class-title">Lecture Title</label>
+            <input type="text" id="admin-class-title" class="modal-input" placeholder="e.g., Maternity Part 4 & Pediatric Care">
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="modal-input-group" style="margin-bottom: 0;">
+              <label class="modal-input-label" for="admin-class-category">NCLEX Category</label>
+              <select id="admin-class-category" class="modal-input" style="width: 100%;">
+                <option value="Management of Care">Management of Care</option>
+                <option value="Safety & Infection Control">Safety & Infection Control</option>
+                <option value="Health Promotion">Health Promotion</option>
+                <option value="Basic Care & Fundamentals">Basic Care & Fundamentals</option>
+                <option value="Reduction of Risk Potential">Reduction of Risk Potential</option>
+                <option value="Physiological Adaptation">Physiological Adaptation</option>
+              </select>
+            </div>
+            <div class="modal-input-group" style="margin-bottom: 0;">
+              <label class="modal-input-label" for="admin-class-duration">Duration</label>
+              <input type="text" id="admin-class-duration" class="modal-input" placeholder="e.g., 1h 15m">
+            </div>
+          </div>
+          
+          <div class="modal-input-group" style="margin-bottom: 0;">
+            <label class="modal-input-label" for="admin-class-drive">Google Drive Video Link (Will auto-embed for students)</label>
+            <input type="text" id="admin-class-drive" class="modal-input" placeholder="https://drive.google.com/file/d/.../view">
+          </div>
+          
+          <div class="modal-input-group" style="margin-bottom: 0;">
+            <label class="modal-input-label" for="admin-class-desc">Lecture Description</label>
+            <textarea id="admin-class-desc" class="modal-input" style="min-height: 90px; resize: vertical;" placeholder="Provide brief summary of clinical concepts covered..."></textarea>
+          </div>
+
+          <div style="border-top: 1px dashed var(--border); padding-top: 16px; margin-top: 4px;">
+            <span style="font-size: 0.75rem; color: var(--text-3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 12px;">Optional: Attach Handout / Slides</span>
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px;">
+              <div class="modal-input-group" style="margin-bottom: 0;">
+                <label class="modal-input-label" for="admin-slide-title">Slide Title</label>
+                <input type="text" id="admin-slide-title" class="modal-input" placeholder="e.g., Obstetric Handout">
+              </div>
+              <div class="modal-input-group" style="margin-bottom: 0;">
+                <label class="modal-input-label" for="admin-slide-link">Drive Document Link</label>
+                <input type="text" id="admin-slide-link" class="modal-input" placeholder="https://drive.google.com/file/d/.../view">
+              </div>
+            </div>
+          </div>
+
+          <button class="start-btn" onclick="adminPublishClass()" style="margin-top: 10px; width: 100%; border: none;">Publish Class & Materials</button>
+        </div>
+      </div>
+
+      <!-- Quick Status panel / Active items -->
+      <div class="content-card" style="padding: 32px 36px; height: 100%;">
+        <h3 style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+          <span>Active Resources Library</span>
+          <span style="font-size: 0.72rem; color: var(--text-3); font-weight: 600; background: var(--slate-2); padding: 2px 8px; border-radius: 99px;" id="admin-total-count">18 Classes</span>
+        </h3>
+        
+        <p style="font-size: 0.82rem; color: var(--text-2); line-height: 1.6; margin-bottom: 16px;">
+          Below are the published materials in the classroom. Any items added will immediately embed and update in the student playlist.
+        </p>
+
+        <div id="admin-active-list" style="display: flex; flex-direction: column; gap: 10px; max-height: 420px; overflow-y: auto; padding-right: 4px;">
+          <!-- Dynamically populated classes log -->
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div class="toast-zone" id="toast-zone"></div>
@@ -896,7 +990,7 @@
 function set(id, val) { const e=document.getElementById(id); if(e) e.textContent=val; }
 
 // ── Navigation & Routing ──
-const TABS = ['introduction','classes','syllabus','study','qbank','exam','account'];
+const TABS = ['introduction','classes','syllabus','study','qbank','exam','account','admin'];
 function navigate(id) {
   if (!TABS.includes(id)) id = 'introduction';
   TABS.forEach(t => {
@@ -922,6 +1016,8 @@ function navigate(id) {
     initClassesScreen();
   } else if (id === 'account') {
     initAccountScreen();
+  } else if (id === 'admin') {
+    initAdminScreen();
   }
 }
 
@@ -1686,6 +1782,103 @@ function playLecture(key) {
   }
 
   toast(`Now loading: ${lecture.title}`, 'success');
+}
+
+// ── Admin Panel Logic ──
+function initAdminScreen() {
+  renderAdminActiveList();
+}
+
+function formatDriveLink(url) {
+  if (!url) return '';
+  // Check if link matches a google drive file sharing URL
+  // e.g. https://drive.google.com/file/d/1Dz9EM-gE2RsdpwdxSlvuWgQnreE44ndV/view?usp=drivesdk
+  const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (match && match[1]) {
+    return `https://drive.google.com/file/d/${match[1]}/preview`;
+  }
+  return url;
+}
+
+function adminPublishClass() {
+  const title = document.getElementById('admin-class-title')?.value.trim();
+  const category = document.getElementById('admin-class-category')?.value;
+  const duration = document.getElementById('admin-class-duration')?.value.trim() || '1h 00m';
+  const rawDriveLink = document.getElementById('admin-class-drive')?.value.trim();
+  const desc = document.getElementById('admin-class-desc')?.value.trim() || 'No description provided.';
+  
+  const slideTitle = document.getElementById('admin-slide-title')?.value.trim();
+  const rawSlideLink = document.getElementById('admin-slide-link')?.value.trim();
+
+  if (!title || !rawDriveLink) {
+    toast('Please enter a lecture title and a Google Drive video link!', 'error');
+    return;
+  }
+
+  // Format the video link to preview embed format automatically
+  const embedUrl = formatDriveLink(rawDriveLink);
+  const key = 'custom-' + Date.now();
+
+  // Create new lecture entry
+  LECTURES[key] = {
+    title: title,
+    category: category,
+    duration: duration,
+    desc: desc,
+    embed: embedUrl,
+    locked: false
+  };
+
+  // Optional Slides Attachments placement
+  if (slideTitle && rawSlideLink) {
+    LECTURES[key].slides = {
+      title: slideTitle,
+      link: rawSlideLink
+    };
+  }
+
+  // Reset form inputs
+  document.getElementById('admin-class-title').value = '';
+  document.getElementById('admin-class-duration').value = '';
+  document.getElementById('admin-class-drive').value = '';
+  document.getElementById('admin-class-desc').value = '';
+  document.getElementById('admin-slide-title').value = '';
+  document.getElementById('admin-slide-link').value = '';
+
+  toast('New class published successfully!', 'success');
+  renderAdminActiveList();
+  
+  // Update playlist count and item renderings globally
+  if (typeof renderPlaylist === 'function') {
+    renderPlaylist();
+  }
+}
+
+function renderAdminActiveList() {
+  const container = document.getElementById('admin-active-list');
+  const countBadge = document.getElementById('admin-total-count');
+  if (!container) return;
+
+  const keys = Object.keys(LECTURES);
+  if (countBadge) countBadge.textContent = `${keys.length} Classes`;
+
+  container.innerHTML = keys.map(k => {
+    const lec = LECTURES[k];
+    const hasSlides = lec.slides ? `<span style="font-size:0.7rem; background:rgba(217, 119, 6, 0.1); color:var(--amber); padding:2px 6px; border-radius:4px; font-weight:700;">Has Slides</span>` : '';
+    return `
+      <div style="background:var(--slate); border:1px solid var(--border); border-radius:var(--r-md); padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <div style="text-align:left;">
+          <div style="font-size:0.86rem; font-weight:700; color:var(--text);">${lec.title}</div>
+          <div style="font-size:0.75rem; color:var(--text-3); margin-top:4px;">
+            ${lec.category} &middot; ${lec.duration} &nbsp; ${hasSlides}
+          </div>
+        </div>
+        <div style="display:flex; gap:6px;">
+          <button class="btn btn-outline" style="padding:4px 8px; font-size:0.7rem; border-radius:var(--r-sm);" onclick="playLecture('${k}'); navigate('classes');">Test 🎥</button>
+        </div>
+      </div>
+    `;
+  }).reverse().join('');
 }
 
 // ── My Account Screen Logic ──
