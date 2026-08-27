@@ -66,30 +66,46 @@
           
           <!-- Minimal User & Password Login Visual Form -->
           <div class="hero-visual" style="display:flex; justify-content:center; align-items:center;">
-            <div class="content-card" style="width: 100%; max-width: 400px; padding: 32px; box-shadow: 0 20px 50px rgba(169, 150, 120, 0.15); border: 1px solid var(--border); border-radius: var(--r-2xl); background:#fff;">
-              <div style="text-align: center; margin-bottom: 24px;">
-                <img src="img/gcma_logo.jpg" alt="GCMA Logo" style="width: 60px; height: 60px; object-fit: contain; border-radius: 50%; padding: 4px; border: 2px solid var(--border); background:#fff; margin-bottom: 12px;" />
-                <h3 style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 800; color: var(--text);">Sign In</h3>
-                <p style="font-size: 0.8rem; color: var(--text-3); margin-top: 4px;">Enter credentials to enter your dashboard</p>
+            <div class="content-card" style="width: 100%; max-width: 410px; padding: 40px 36px; box-shadow: 0 25px 60px rgba(26, 28, 30, 0.08); border: 1px solid var(--border); border-radius: var(--r-2xl); background:#fff; position: relative; overflow: hidden;">
+              <!-- Top Glow Bar -->
+              <div style="position: absolute; top:0; left:0; right:0; height: 5px; background: linear-gradient(90deg, var(--navy) 0%, var(--amber) 100%);"></div>
+
+              <div style="text-align: center; margin-bottom: 28px;">
+                <img src="img/gcma_logo.jpg" alt="GCMA Logo" style="width: 64px; height: 64px; object-fit: contain; border-radius: 50%; padding: 4px; border: 2px solid var(--border); background:#fff; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);" />
+                <h3 style="font-family: var(--font-head); font-size: 1.35rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">Welcome to GCMA</h3>
+                <p style="font-size: 0.82rem; color: var(--text-3); margin-top: 4px;">Sign in to your learning dashboard</p>
               </div>
 
-              <!-- Quick Demo Info -->
-              <div style="background: var(--slate-2); padding: 10px 12px; border-radius: var(--r-md); border: 1px solid var(--border); font-size: 0.78rem; color: var(--text-2); margin-bottom: 18px; text-align: center; line-height: 1.4;">
-                <strong>Demo Account:</strong> student@gcma.com / demo1234
+              <!-- Unified Role Switcher Pills -->
+              <div style="display: flex; background: var(--slate-2); padding: 4px; border-radius: 10px; margin-bottom: 22px; border: 1px solid var(--border);">
+                <button type="button" id="role-btn-student" onclick="setLoginRole('student')" style="flex:1; border:none; background: var(--surface); color: var(--text); padding: 8px; font-size: 0.8rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: all 0.2s;" aria-selected="true">
+                  Student Portal
+                </button>
+                <button type="button" id="role-btn-admin" onclick="setLoginRole('admin')" style="flex:1; border:none; background: transparent; color: var(--text-3); padding: 8px; font-size: 0.8rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: all 0.2s;" aria-selected="false">
+                  Admin Portal
+                </button>
               </div>
 
-              <form id="hero-login-form" onsubmit="handleHeroLogin(event)" style="display: flex; flex-direction: column; gap: 14px;">
+              <!-- Quick Demo Info / Dynamic based on role -->
+              <div id="demo-badge-info" style="background: var(--slate-2); padding: 12px; border-radius: var(--r-md); border: 1px solid var(--border); font-size: 0.78rem; color: var(--text-2); margin-bottom: 22px; text-align: center; line-height: 1.5; transition: all var(--t);">
+                <strong>Student Credentials:</strong><br>
+                student@gcma.com / demo1234
+              </div>
+
+              <form id="hero-login-form" onsubmit="handleHeroLogin(event)" style="display: flex; flex-direction: column; gap: 16px;">
                 <div class="modal-input-group" style="margin-bottom: 0;">
-                  <label class="modal-input-label" for="hero-email" style="font-size: 0.74rem;">Email / Username</label>
-                  <input type="email" id="hero-email" class="modal-input" placeholder="student@gcma.com" style="padding: 10px 12px; font-size:0.86rem;" required>
+                  <label class="modal-input-label" for="hero-email" style="font-size: 0.75rem; font-weight: 700; color: var(--text-2);">Email / Username</label>
+                  <input type="email" id="hero-email" class="modal-input" placeholder="student@gcma.com" style="padding: 12px 14px; font-size:0.88rem; border-radius: 10px;" required>
                 </div>
                 
                 <div class="modal-input-group" style="margin-bottom: 0;">
-                  <label class="modal-input-label" for="hero-password" style="font-size: 0.74rem;">Password</label>
-                  <input type="password" id="hero-password" class="modal-input" placeholder="••••••••" style="padding: 10px 12px; font-size:0.86rem;" required>
+                  <label class="modal-input-label" for="hero-password" style="font-size: 0.75rem; font-weight: 700; color: var(--text-2);">Password</label>
+                  <input type="password" id="hero-password" class="modal-input" placeholder="••••••••" style="padding: 12px 14px; font-size:0.88rem; border-radius: 10px;" required>
                 </div>
                 
-                <button type="submit" class="start-btn" style="margin-top: 6px; width: 100%; border: none; font-size: 0.86rem; padding: 11px;">Sign In to Platform</button>
+                <button type="submit" class="start-btn" style="margin-top: 10px; width: 100%; border: none; font-size: 0.88rem; padding: 13px; font-weight: 800; border-radius: 10px; box-shadow: 0 4px 12px rgba(var(--navy-rgb), 0.15);">
+                  Sign In to Dashboard
+                </button>
               </form>
             </div>
           </div>
@@ -444,15 +460,51 @@
     });
 
     // Handle Hero Form Login Action
+    let selectedRole = 'student';
+    function setLoginRole(role) {
+      selectedRole = role;
+      const btnStudent = document.getElementById('role-btn-student');
+      const btnAdmin = document.getElementById('role-btn-admin');
+      const demoInfo = document.getElementById('demo-badge-info');
+      const emailInput = document.getElementById('hero-email');
+
+      if (role === 'student') {
+        btnStudent.style.background = 'var(--surface)';
+        btnStudent.style.color = 'var(--text)';
+        btnStudent.setAttribute('aria-selected', 'true');
+        btnAdmin.style.background = 'transparent';
+        btnAdmin.style.color = 'var(--text-3)';
+        btnAdmin.setAttribute('aria-selected', 'false');
+        
+        demoInfo.innerHTML = '<strong>Student Credentials:</strong><br>student@gcma.com / demo1234';
+        emailInput.placeholder = 'student@gcma.com';
+      } else {
+        btnAdmin.style.background = 'var(--surface)';
+        btnAdmin.style.color = 'var(--text)';
+        btnAdmin.setAttribute('aria-selected', 'true');
+        btnStudent.style.background = 'transparent';
+        btnStudent.style.color = 'var(--text-3)';
+        btnStudent.setAttribute('aria-selected', 'false');
+
+        demoInfo.innerHTML = '<strong>Admin Credentials:</strong><br>admin@gcma.com / admin1234';
+        emailInput.placeholder = 'admin@gcma.com';
+      }
+    }
+
     function handleHeroLogin(e) {
       e.preventDefault();
       const email = document.getElementById('hero-email').value;
       const password = document.getElementById('hero-password').value;
       const result = Auth.login(email, password);
       if (result.ok) {
+        // Double check matched role matches login type for cleaner guidance
+        if (result.user.role !== selectedRole) {
+          alert(`Logged in! Note: You logged in with an ${result.user.role} account.`);
+        }
         window.location.href = 'platform.html#introduction';
       } else {
-        alert(result.error || 'Invalid credentials. Please try student@gcma.com / demo1234');
+        const targetHint = selectedRole === 'student' ? 'student@gcma.com / demo1234' : 'admin@gcma.com / admin1234';
+        alert(result.error || `Invalid credentials. Please use ${targetHint}`);
       }
     }
   </script>
