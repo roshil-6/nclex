@@ -438,12 +438,12 @@
     <div class="study-grid">
       <div class="study-card" onclick="openStudy('management')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Management of Care</div><div class="study-count">2 chapters</div></div></div>
       <div class="study-card" onclick="openStudy('safety')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Safety and Infection Control</div><div class="study-count">1 chapter</div></div></div>
-      <div class="study-card" onclick="openStudy('health')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Health Promotion and Maintenance</div><div class="study-count">0 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('health')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Health Promotion and Maintenance</div><div class="study-count">9 chapters</div></div></div>
       <div class="study-card" onclick="openStudy('psychosocial')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Psychosocial Integrity</div><div class="study-count">1 chapter</div></div></div>
       <div class="study-card" onclick="openStudy('basic')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Basic Care and Comfort</div><div class="study-count">0 chapters</div></div></div>
       <div class="study-card" onclick="openStudy('pharma')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Pharmacological and Parenteral Therapies</div><div class="study-count">1 chapter</div></div></div>
       <div class="study-card" onclick="openStudy('reduction')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Reduction of Risk Potential</div><div class="study-count">0 chapters</div></div></div>
-      <div class="study-card" onclick="openStudy('physio')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Physiological Adaptation</div><div class="study-count">1 chapter</div></div></div>
+      <div class="study-card" onclick="openStudy('physio')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Physiological Adaptation</div><div class="study-count">1 chapter</div></div></div></div>
     </div>
 
     <!-- Modal -->
@@ -932,14 +932,35 @@ function toggleAcc(btn) {
 
 // ── Study Modal ──
 const STUDY_DATA = {
-  management:   { title:'Management of Care', chapters:['Advance Directives & Legal Frameworks','Delegation Principles — RN vs LPN vs UAP'] },
-  safety:       { title:'Safety and Infection Control', chapters:['Standard Precautions & PPE Guide'] },
-  health:       { title:'Health Promotion and Maintenance', chapters:[] },
-  psychosocial: { title:'Psychosocial Integrity', chapters:['Therapeutic Communication Techniques'] },
+  management:   { title:'Management of Care', chapters:[
+    { name: 'Advance Directives & Legal Frameworks', link: '#' },
+    { name: 'Delegation Principles — RN vs LPN vs UAP', link: '#' }
+  ]},
+  safety:       { title:'Safety and Infection Control', chapters:[
+    { name: 'Standard Precautions & PPE Guide', link: '#' }
+  ]},
+  health:       { title:'Health Promotion and Maintenance (Maternity & Obstetrics)', chapters:[
+    { name: 'Maternity 1 Overview Lecture Notes', link: 'https://drive.google.com/file/d/1pTj4Avt_Xhn1CClRyOAauoD5YxeXpo18/view?usp=sharing' },
+    { name: 'Maternity 2 Comprehensive Study Guide', link: 'https://drive.google.com/file/d/1Abo8B1FcilV2FGDxM8Y-8wLgytbZesJw/view?usp=sharing' },
+    { name: 'Maternity Graphical Guides & Handouts', link: 'https://drive.google.com/file/d/1PBjATMi7RRCJ0-IXMFCbpsibqK3fUh-K/view?usp=sharing' },
+    { name: 'Maternity 3 Special Topics & Summaries', link: 'https://drive.google.com/file/d/1BDYMEwrmnF3fjEAleUXYULEPOO1E4nYt/view?usp=sharing' },
+    { name: 'EDD Calculation Methods (Naegele\'s Rule)', link: 'https://drive.google.com/file/d/1riPgEuuDPolbNPn1Eq7j5-S1zJZ3mc5d/view?usp=sharing' },
+    { name: 'High Risk Pregnancy Assessment Protocols', link: 'https://drive.google.com/file/d/1yD3AOqm708m_xcf49u8rK-eUtNfjbsm9/view?usp=sharing' },
+    { name: 'High Risk Maternity Part 2 Notes', link: 'https://drive.google.com/file/d/1w2MEPP3dvZHWYQjG-NoGr73mJeVxZWMS/view?usp=sharing' },
+    { name: 'High Risk Pregnancy Final Review Guide', link: 'https://drive.google.com/file/d/1Rlmqk1fb3HDZgx2gUqhSkeigtEUjBrek/view?usp=sharing' },
+    { name: 'Labor and Birth Phase 1 Study Notes', link: 'https://drive.google.com/file/d/1-d_5tACzIaKIzB_-JV6fK6nzLK8SOBEG/view?usp=sharing' }
+  ]},
+  psychosocial: { title:'Psychosocial Integrity', chapters:[
+    { name: 'Therapeutic Communication Techniques', link: '#' }
+  ]},
   basic:        { title:'Basic Care and Comfort', chapters:[] },
-  pharma:       { title:'Pharmacological and Parenteral Therapies', chapters:['High-Alert Medications & Safe Administration'] },
+  pharma:       { title:'Pharmacological and Parenteral Therapies', chapters:[
+    { name: 'High-Alert Medications & Safe Administration', link: '#' }
+  ]},
   reduction:    { title:'Reduction of Risk Potential', chapters:[] },
-  physio:       { title:'Physiological Adaptation', chapters:['ABG Interpretation & Acid-Base Balance'] },
+  physio:       { title:'Physiological Adaptation', chapters:[
+    { name: 'ABG Interpretation & Acid-Base Balance', link: '#' }
+  ]},
 };
 function openStudy(key) {
   const d = STUDY_DATA[key]; if(!d) return;
@@ -948,12 +969,20 @@ function openStudy(key) {
   if(!d.chapters.length) {
     body.innerHTML = '<p class="empty-state">No chapters uploaded yet — materials coming soon!</p>';
   } else {
-    body.innerHTML = d.chapters.map((c,i) => `
-      <div class="chapter-row">
-        <div class="chapter-num">${i+1}</div>
-        <div class="chapter-name">${c}</div>
-        <button class="chapter-btn" onclick="toast('Study material uploading soon!','info')">View →</button>
-      </div>`).join('');
+    body.innerHTML = d.chapters.map((c,i) => {
+      const isAvailable = c.link && c.link !== '#';
+      const actionHtml = isAvailable 
+        ? `<a class="chapter-btn" href="${c.link}" target="_blank" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">View Document ↗</a>`
+        : `<button class="chapter-btn" onclick="toast('Study material uploading soon!','info')">View →</button>`;
+      return `
+        <div class="chapter-row" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div class="chapter-num" style="width:24px; height:24px; border-radius:50%; background:var(--amber-soft); color:var(--amber); display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700;">${i+1}</div>
+            <div class="chapter-name" style="font-size:0.88rem; font-weight:600; color:var(--text);">${c.name}</div>
+          </div>
+          ${actionHtml}
+        </div>`;
+    }).join('');
   }
   document.getElementById('modal-bg').classList.add('open');
   document.getElementById('study-modal').classList.add('open');
