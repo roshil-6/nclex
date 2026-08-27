@@ -1084,6 +1084,17 @@
 (function() {
   const user = Auth.getUser();
   if (!user) { window.location.href = 'login.html'; return; }
+  
+  // Hide Admin Panel navigation tab if user is a student
+  const adminTabBtn = document.getElementById('tab-admin');
+  if (adminTabBtn) {
+    if (user.role !== 'admin') {
+      adminTabBtn.style.display = 'none';
+    } else {
+      adminTabBtn.style.display = 'inline-flex';
+    }
+  }
+
   // Load user stats into QBank dashboard
   const s = user.stats || {};
   set('qs-answered', s.answered || 0);
@@ -1098,6 +1109,16 @@ function set(id, val) { const e=document.getElementById(id); if(e) e.textContent
 const TABS = ['introduction','classes','syllabus','study','qbank','exam','account','admin'];
 function navigate(id) {
   if (!TABS.includes(id)) id = 'introduction';
+  
+  // Guard admin screen from manual URL changes for students
+  if (id === 'admin') {
+    const user = Auth.getUser();
+    if (!user || user.role !== 'admin') {
+      id = 'introduction';
+      toast('Access denied. Admin credentials required!', 'error');
+    }
+  }
+
   TABS.forEach(t => {
     document.getElementById('screen-'+t)?.classList.remove('active');
     const btn = document.getElementById('tab-'+t);

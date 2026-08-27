@@ -1,17 +1,19 @@
 /* auth.js — localStorage-based auth (no backend) */
 
 const DEMO_USERS = [
-  { id: 'u1', name: 'Demo Student', email: 'student@gcma.com', password: 'demo1234',
+  { id: 'u1', name: 'Demo Student', email: 'student@gcma.com', password: 'demo1234', role: 'student',
     stats: { answered: 47, correct: 36, streak: 5, timeMin: 140 } },
-  { id: 'u2', name: 'Test User',   email: 'test@gcma.com',    password: 'test1234',
+  { id: 'u2', name: 'Test User',   email: 'test@gcma.com',    password: 'test1234', role: 'student',
     stats: { answered: 12, correct: 9,  streak: 2, timeMin: 42  } },
+  { id: 'u3', name: 'GCMA Admin',   email: 'admin@gcma.com',   password: 'admin1234', role: 'admin',
+    stats: { answered: 0,  correct: 0,  streak: 0, timeMin: 0   } }
 ];
 
 const Auth = {
   login(email, password) {
     const user = DEMO_USERS.find(u => u.email === email.trim().toLowerCase() && u.password === password);
     if (!user) return { ok: false, error: 'Invalid email or password.' };
-    const session = { id: user.id, name: user.name, email: user.email, stats: user.stats, loginAt: Date.now() };
+    const session = { id: user.id, name: user.name, email: user.email, role: user.role || 'student', stats: user.stats, loginAt: Date.now() };
     localStorage.setItem('np_session', JSON.stringify(session));
     return { ok: true, user: session };
   },
