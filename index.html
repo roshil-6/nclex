@@ -49,7 +49,7 @@
       <div class="container">
         <div class="hero-inner">
           <div class="hero-content">
-            <span class="hero-eyebrow">Trusted by 1,000+ Nursing Students</span>
+            <span class="hero-eyebrow">Professional Nursing Licensure Preparation</span>
             <h1 id="hero-heading">
               Your Complete<br>
               <span class="text-green">NCLEX-RN</span> &amp;
@@ -76,26 +76,17 @@
                 <p style="font-size: 0.82rem; color: var(--text-3); margin-top: 4px;">Sign in to your learning dashboard</p>
               </div>
 
-              <!-- Unified Role Switcher Pills -->
-              <div style="display: flex; background: var(--slate-2); padding: 4px; border-radius: 10px; margin-bottom: 22px; border: 1px solid var(--border);">
-                <button type="button" id="role-btn-student" onclick="setLoginRole('student')" style="flex:1; border:none; background: var(--surface); color: var(--text); padding: 8px; font-size: 0.8rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: all 0.2s;" aria-selected="true">
-                  Student Portal
-                </button>
-                <button type="button" id="role-btn-admin" onclick="setLoginRole('admin')" style="flex:1; border:none; background: transparent; color: var(--text-3); padding: 8px; font-size: 0.8rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: all 0.2s;" aria-selected="false">
-                  Admin Portal
-                </button>
-              </div>
-
-              <!-- Quick Demo Info / Dynamic based on role -->
-              <div id="demo-badge-info" style="background: var(--slate-2); padding: 12px; border-radius: var(--r-md); border: 1px solid var(--border); font-size: 0.78rem; color: var(--text-2); margin-bottom: 22px; text-align: center; line-height: 1.5; transition: all var(--t);">
-                <strong>Student Credentials:</strong><br>
-                student@gcma.com / demo1234
+              <!-- Quick Demo Info -->
+              <div id="demo-badge-info" style="background: var(--slate-2); padding: 12px; border-radius: var(--r-md); border: 1px solid var(--border); font-size: 0.76rem; color: var(--text-2); margin-bottom: 22px; text-align: left; line-height: 1.5; transition: all var(--t);">
+                <strong>Credentials:</strong><br>
+                • Student: <code>student@gcma.com</code> / <code>demo1234</code><br>
+                • Admin: <code>admin@gcma.com</code> / <code>admin1234</code>
               </div>
 
               <form id="hero-login-form" onsubmit="handleHeroLogin(event)" style="display: flex; flex-direction: column; gap: 16px;">
                 <div class="modal-input-group" style="margin-bottom: 0;">
-                  <label class="modal-input-label" for="hero-email" style="font-size: 0.75rem; font-weight: 700; color: var(--text-2);">Email / Username</label>
-                  <input type="email" id="hero-email" class="modal-input" placeholder="student@gcma.com" style="padding: 12px 14px; font-size:0.88rem; border-radius: 10px;" required>
+                  <label class="modal-input-label" for="hero-email" style="font-size: 0.75rem; font-weight: 700; color: var(--text-2);">Email Address</label>
+                  <input type="email" id="hero-email" class="modal-input" placeholder="student@gcma.com or admin@gcma.com" style="padding: 12px 14px; font-size:0.88rem; border-radius: 10px;" required>
                 </div>
                 
                 <div class="modal-input-group" style="margin-bottom: 0;">
@@ -113,32 +104,7 @@
       </div>
     </section>
 
-    <!-- ══════════ STATS BAND ══════════ -->
-    <section class="stats-band" aria-label="Platform statistics">
-      <div class="container">
-        <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-num">500+</div>
-            <div class="stat-lbl">Practice Questions</div>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-num">8</div>
-            <div class="stat-lbl">Clinical Categories</div>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-num">NGN</div>
-            <div class="stat-lbl">Case Studies Included</div>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-num">1,000+</div>
-            <div class="stat-lbl">Students Enrolled</div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- ══════════ ABOUT ══════════ -->
     <section class="section" id="about" aria-labelledby="about-heading">
@@ -460,51 +426,15 @@
     });
 
     // Handle Hero Form Login Action
-    let selectedRole = 'student';
-    function setLoginRole(role) {
-      selectedRole = role;
-      const btnStudent = document.getElementById('role-btn-student');
-      const btnAdmin = document.getElementById('role-btn-admin');
-      const demoInfo = document.getElementById('demo-badge-info');
-      const emailInput = document.getElementById('hero-email');
-
-      if (role === 'student') {
-        btnStudent.style.background = 'var(--surface)';
-        btnStudent.style.color = 'var(--text)';
-        btnStudent.setAttribute('aria-selected', 'true');
-        btnAdmin.style.background = 'transparent';
-        btnAdmin.style.color = 'var(--text-3)';
-        btnAdmin.setAttribute('aria-selected', 'false');
-        
-        demoInfo.innerHTML = '<strong>Student Credentials:</strong><br>student@gcma.com / demo1234';
-        emailInput.placeholder = 'student@gcma.com';
-      } else {
-        btnAdmin.style.background = 'var(--surface)';
-        btnAdmin.style.color = 'var(--text)';
-        btnAdmin.setAttribute('aria-selected', 'true');
-        btnStudent.style.background = 'transparent';
-        btnStudent.style.color = 'var(--text-3)';
-        btnStudent.setAttribute('aria-selected', 'false');
-
-        demoInfo.innerHTML = '<strong>Admin Credentials:</strong><br>admin@gcma.com / admin1234';
-        emailInput.placeholder = 'admin@gcma.com';
-      }
-    }
-
     function handleHeroLogin(e) {
       e.preventDefault();
       const email = document.getElementById('hero-email').value;
       const password = document.getElementById('hero-password').value;
       const result = Auth.login(email, password);
       if (result.ok) {
-        // Double check matched role matches login type for cleaner guidance
-        if (result.user.role !== selectedRole) {
-          alert(`Logged in! Note: You logged in with an ${result.user.role} account.`);
-        }
         window.location.href = 'platform.html#introduction';
       } else {
-        const targetHint = selectedRole === 'student' ? 'student@gcma.com / demo1234' : 'admin@gcma.com / admin1234';
-        alert(result.error || `Invalid credentials. Please use ${targetHint}`);
+        alert(result.error || 'Invalid credentials. Please use student@gcma.com / demo1234 or admin@gcma.com / admin1234');
       }
     }
   </script>

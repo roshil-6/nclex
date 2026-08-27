@@ -1054,9 +1054,96 @@
         </div>
       </div>
     </div>
+
+    <!-- Student Performance Management Section (Full Width) -->
+    <div class="content-card" style="padding: 36px 40px; margin-top: 32px;">
+      <h3 style="font-family: var(--font-head); font-size: 1.2rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
+        <span>Student Portals & performance tracker</span>
+        <span style="font-size: 0.75rem; color: var(--text-3); font-weight: 600; background: var(--slate-2); padding: 3px 10px; border-radius: 99px;" id="admin-student-count">2 Registered Students</span>
+      </h3>
+      
+      <p style="font-size: 0.84rem; color: var(--text-2); line-height: 1.6; margin-bottom: 24px;">
+        View overall performance stats for each registered student. Click **"Inspect Portal"** to open their personalized dashboard, review QBank metrics, and inspect what they see when accessing classes and study materials.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px;" id="admin-students-list">
+        <!-- Dynamically populated via JS -->
+      </div>
+    </div>
   </section>
 
 </main>
+
+<!-- ── Student Portal Inspector Modal (Admin Eyes) ── -->
+<div class="modal-bg" id="student-inspector-bg" onclick="closeStudentInspector()"></div>
+<div class="study-modal" id="student-inspector-modal" role="dialog" aria-modal="true" style="max-width: 95%; width: 1200px; height: 90vh; display: flex; flex-direction: column;">
+  <div class="study-modal-header" style="padding: 16px 24px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <h3 id="inspect-student-name" style="font-family: var(--font-head); font-weight: 800; color: var(--text); font-size: 1.25rem; margin: 0;">Student Portal View</h3>
+      <p style="font-size: 0.75rem; color: var(--amber); font-weight: 700; margin: 2px 0 0 0; text-transform: uppercase;">Administrator Mode &bull; Read Only Inspection</p>
+    </div>
+    <button onclick="closeStudentInspector()" class="modal-close-btn" style="border: none; background: none; font-size: 1.3rem; cursor: pointer; color: var(--text-3);">✕</button>
+  </div>
+  <div style="flex: 1; overflow-y: auto; background: var(--canvas); padding: 32px;">
+    
+    <!-- Student Header Summary -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 32px;">
+      <div class="content-card" style="padding: 20px; text-align: center; background: #fff; border: 1px solid var(--border);">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; margin-bottom: 6px;">Questions Answered</div>
+        <div id="ins-stat-answered" style="font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--text);">0</div>
+      </div>
+      <div class="content-card" style="padding: 20px; text-align: center; background: #fff; border: 1px solid var(--border);">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; margin-bottom: 6px;">Accuracy Rate</div>
+        <div id="ins-stat-accuracy" style="font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--text);">0%</div>
+      </div>
+      <div class="content-card" style="padding: 20px; text-align: center; background: #fff; border: 1px solid var(--border);">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; margin-bottom: 6px;">Current Streak</div>
+        <div id="ins-stat-streak" style="font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--amber);">0 days</div>
+      </div>
+      <div class="content-card" style="padding: 20px; text-align: center; background: #fff; border: 1px solid var(--border);">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; margin-bottom: 6px;">Study Time</div>
+        <div id="ins-stat-time" style="font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--text);">0 min</div>
+      </div>
+    </div>
+
+    <!-- Student View Tabs Simulator -->
+    <div style="display: flex; gap: 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px;">
+      <button class="nav-tab active" id="ins-tab-overview" onclick="switchInspectorTab('overview')">QBank Analysis</button>
+      <button class="nav-tab" id="ins-tab-classes" onclick="switchInspectorTab('classes')">Classes Watched</button>
+      <button class="nav-tab" id="ins-tab-study" onclick="switchInspectorTab('study')">Study Material Access</button>
+    </div>
+
+    <!-- Dynamic tab content panels -->
+    <div id="ins-panel-overview" class="ins-tab-panel active">
+      <div class="content-card" style="padding: 28px; background: #fff; border: 1px solid var(--border);">
+        <h4 style="font-family: var(--font-head); font-weight: 800; margin-bottom: 16px;">NCLEX Category Accuracy</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;" id="ins-category-progress">
+          <!-- Dynamic progress bars -->
+        </div>
+      </div>
+    </div>
+
+    <div id="ins-panel-classes" class="ins-tab-panel" style="display:none;">
+      <div class="content-card" style="padding: 28px; background: #fff; border: 1px solid var(--border);">
+        <h4 style="font-family: var(--font-head); font-weight: 800; margin-bottom: 16px;">Simulated Student Lectures Checklist</h4>
+        <p style="font-size: 0.8rem; color: var(--text-2); margin-bottom: 20px;">Indicates resources and slides visible inside this student's account.</p>
+        <div id="ins-classes-log" style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- list of classes -->
+        </div>
+      </div>
+    </div>
+
+    <div id="ins-panel-study" class="ins-tab-panel" style="display:none;">
+      <div class="content-card" style="padding: 28px; background: #fff; border: 1px solid var(--border);">
+        <h4 style="font-family: var(--font-head); font-weight: 800; margin-bottom: 16px;">Dynamic Study Chapters Checklist</h4>
+        <div id="ins-study-log" style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- list of materials -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <!-- ── Full Screen Resource Viewer Modal (Embed Mode) ── -->
 <div class="modal-bg" id="res-viewer-bg" onclick="closeResourceViewer()"></div>
@@ -1913,6 +2000,7 @@ function playLecture(key) {
 // ── Admin Panel Logic ──
 function initAdminScreen() {
   renderAdminActiveList();
+  populateStudentTracker();
 }
 
 function formatDriveLink(url) {
@@ -2150,6 +2238,203 @@ function adminAddSyllabusTopic() {
       document.getElementById('edit-syll-topic').value = '';
     }
   }
+}
+// ── Student Portal Inspector Logic (Admin Eyes) ──
+let activeInsStudent = null;
+let activeInsTab = 'overview';
+
+// Mock list of registered students with their stats and activity checklists
+const REGISTERED_STUDENTS = [
+  {
+    name: 'Abhinand Antony',
+    email: 'student@gcma.com',
+    stats: { answered: 47, correct: 36, streak: 5, timeMin: 140 },
+    lecturesChecked: ['maternity-1', 'edd-calc', 'high-risk-1'],
+    chaptersChecked: ['Chapter 1: Antepartum Assessment', 'Chapter 2: Prenatal Screening Diagnostics']
+  },
+  {
+    name: 'Roshil Kumar',
+    email: 'roshil@gcma.com',
+    stats: { answered: 24, correct: 18, streak: 3, timeMin: 68 },
+    lecturesChecked: ['maternity-1', 'maternity-2'],
+    chaptersChecked: ['Chapter 1: Antepartum Assessment']
+  }
+];
+
+function populateStudentTracker() {
+  const container = document.getElementById('admin-students-list');
+  const countEl = document.getElementById('admin-student-count');
+  if (!container) return;
+
+  if (countEl) {
+    countEl.textContent = `${REGISTERED_STUDENTS.length} Registered Student${REGISTERED_STUDENTS.length !== 1 ? 's' : ''}`;
+  }
+
+  container.innerHTML = REGISTERED_STUDENTS.map(s => {
+    const accuracy = s.stats.answered > 0 ? Math.round((s.stats.correct / s.stats.answered) * 100) : 0;
+    return `
+      <div class="content-card" style="padding: 24px; background: var(--bg-alt); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; border-radius: var(--r-xl);">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+            <div style="width:40px; height:40px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-head); font-weight:800; font-size:1rem;">
+              ${s.name.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase()}
+            </div>
+            <div>
+              <div style="font-weight:700; color:var(--text); font-size:0.92rem;">${s.name}</div>
+              <div style="font-size:0.75rem; color:var(--text-3); font-weight:500;">${s.email}</div>
+            </div>
+          </div>
+          
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:12px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:16px;">
+            <div>
+              <div style="font-size:0.68rem; font-weight:700; color:var(--text-3); text-transform:uppercase;">QBank Accuracy</div>
+              <div style="font-size:1.1rem; font-weight:800; color:var(--text);">${accuracy}%</div>
+            </div>
+            <div>
+              <div style="font-size:0.68rem; font-weight:700; color:var(--text-3); text-transform:uppercase;">Study Time</div>
+              <div style="font-size:1.1rem; font-weight:800; color:var(--text);">${s.stats.timeMin} min</div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="btn btn-outline" style="width:100%; font-size:0.8rem; font-weight:700; padding:8px;" onclick="inspectStudent('${s.email}')">Inspect Student Portal</button>
+      </div>
+    `;
+  }).join('');
+}
+
+function inspectStudent(email) {
+  const student = REGISTERED_STUDENTS.find(s => s.email === email);
+  if (!student) return;
+
+  activeInsStudent = student;
+  
+  // Set modal texts
+  set('inspect-student-name', `${student.name}'s Dashboard Portal`);
+  set('ins-stat-answered', student.stats.answered);
+  const accuracy = student.stats.answered > 0 ? Math.round((student.stats.correct / student.stats.answered) * 100) + '%' : '—';
+  set('ins-stat-accuracy', accuracy);
+  set('ins-stat-streak', `${student.stats.streak} days`);
+  set('ins-stat-time', `${student.stats.timeMin} min`);
+
+  // Render NCLEX categories progress bars simulator
+  const progressContainer = document.getElementById('ins-category-progress');
+  if (progressContainer) {
+    const categories = [
+      { name: 'Management of Care', key: 'management', base: 0.72 },
+      { name: 'Safety & Infection Control', key: 'safety', base: 0.80 },
+      { name: 'Health Promotion & Maintenance', key: 'health', base: 0.65 },
+      { name: 'Psychosocial Integrity', key: 'psychosocial', base: 0.70 },
+      { name: 'Basic Care & Comfort', key: 'basic', base: 0.60 },
+      { name: 'Pharmacological & Parenteral', key: 'pharma', base: 0.55 },
+      { name: 'Reduction of Risk Potential', key: 'reduction', base: 0.68 },
+      { name: 'Physiological Adaptation', key: 'physio', base: 0.75 }
+    ];
+    
+    const accuracyDecimal = student.stats.answered > 0 ? (student.stats.correct / student.stats.answered) : 0.70;
+    progressContainer.innerHTML = categories.map(cat => {
+      let pct = Math.round((accuracyDecimal * 0.4 + cat.base * 0.6) * 100);
+      pct = Math.max(0, Math.min(100, pct));
+      return `
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:600; margin-bottom:4px;">
+            <span style="color:var(--text);">${cat.name}</span>
+            <span style="color:var(--text-3); font-weight:700;">${pct}%</span>
+          </div>
+          <div style="height:6px; background:var(--border); border-radius:3px; overflow:hidden;">
+            <div style="height:100%; width:${pct}%; background:linear-gradient(90deg, var(--navy) 0%, var(--amber) 100%); border-radius:3px;"></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Render Classes checklists simulator
+  const classesContainer = document.getElementById('ins-classes-log');
+  if (classesContainer) {
+    classesContainer.innerHTML = Object.keys(LECTURES).map(k => {
+      const lec = LECTURES[k];
+      const isWatched = student.lecturesChecked.includes(k) 
+        ? `<span style="color:var(--success); font-weight:700; font-size:0.75rem; background:var(--success-soft); padding:2px 8px; border-radius:99px;">✓ Active Access / Watched</span>`
+        : `<span style="color:var(--text-3); font-size:0.75rem; background:var(--border); padding:2px 8px; border-radius:99px;">Not Checked</span>`;
+      const hasSlidesBadge = lec.slides 
+        ? `<span style="color:var(--amber); font-weight:700; font-size:0.72rem;">&bull; Slides Ready</span>`
+        : '';
+      return `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border);">
+          <div>
+            <div style="font-size:0.86rem; font-weight:600; color:var(--text);">${lec.title}</div>
+            <div style="font-size:0.72rem; color:var(--text-3); margin-top:2px;">Category: ${lec.category} ${hasSlidesBadge}</div>
+          </div>
+          ${isWatched}
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Render Study chapters checklist simulator
+  const studyContainer = document.getElementById('ins-study-log');
+  if (studyContainer) {
+    let allChapters = [];
+    Object.keys(STUDY_DATA).forEach(cat => {
+      const data = STUDY_DATA[cat];
+      if (data && data.chapters) {
+        data.chapters.forEach(ch => {
+          allChapters.push({ name: ch.name, category: data.title });
+        });
+      }
+    });
+
+    if (allChapters.length === 0) {
+      studyContainer.innerHTML = `<div style="text-align:center; font-size:0.82rem; color:var(--text-3); padding:16px;">No study materials added yet.</div>`;
+    } else {
+      studyContainer.innerHTML = allChapters.map(ch => {
+        const isRead = student.chaptersChecked.includes(ch.name)
+          ? `<span style="color:var(--success); font-weight:700; font-size:0.75rem; background:var(--success-soft); padding:2px 8px; border-radius:99px;">✓ Read / Completed</span>`
+          : `<span style="color:var(--text-3); font-size:0.75rem; background:var(--border); padding:2px 8px; border-radius:99px;">Pending Access</span>`;
+        return `
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border);">
+            <div>
+              <div style="font-size:0.86rem; font-weight:600; color:var(--text);">${ch.name}</div>
+              <div style="font-size:0.72rem; color:var(--text-3); margin-top:2px;">Topic: ${ch.category}</div>
+            </div>
+            ${isRead}
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  // Reset tab to overview
+  switchInspectorTab('overview');
+
+  document.getElementById('student-inspector-bg').classList.add('open');
+  document.getElementById('student-inspector-modal').classList.add('open');
+}
+
+function closeStudentInspector() {
+  document.getElementById('student-inspector-bg').classList.remove('open');
+  document.getElementById('student-inspector-modal').classList.remove('open');
+  activeInsStudent = null;
+}
+
+function switchInspectorTab(tabId) {
+  activeInsTab = tabId;
+  const tabs = ['overview', 'classes', 'study'];
+  tabs.forEach(t => {
+    const btn = document.getElementById(`ins-tab-${t}`);
+    const panel = document.getElementById(`ins-panel-${t}`);
+    if (btn) {
+      if (t === tabId) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    }
+    if (panel) {
+      panel.style.display = t === tabId ? 'block' : 'none';
+    }
+  });
 }
 function initAccountScreen() {
   const user = Auth.getUser();
