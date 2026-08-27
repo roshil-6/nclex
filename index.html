@@ -60,58 +60,37 @@
               Expert-led video classes, 500+ high-fidelity practice questions, NGN case studies, and real-time performance tracking — everything you need to pass your boards.
             </p>
             <div class="hero-actions">
-              <a href="login.html" class="btn btn-primary btn-xl">Start Learning Free →</a>
-              <a href="index.html#features" class="btn btn-ghost btn-lg">See What's Included</a>
-            </div>
-            <div class="hero-social-proof">
-              <div class="proof-avatars" aria-hidden="true">
-                <div class="proof-av" style="background:var(--navy)">R</div>
-                <div class="proof-av" style="background:var(--navy-2)">A</div>
-                <div class="proof-av" style="background:var(--amber)">S</div>
-                <div class="proof-av" style="background:var(--text-2)">N</div>
-              </div>
-              <span class="proof-text">Join 1,000+ students already preparing</span>
+              <a href="#about" class="btn btn-outline btn-lg">Learn More About GCMA</a>
             </div>
           </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="hero-card-stack">
-              <div class="hcard hcard-1">
-                <div class="hcard-icon" style="display:flex;align-items:center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; color: var(--amber);"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                </div>
-                <div>
-                  <div class="hcard-title">Your Score</div>
-                  <div class="hcard-val">84%</div>
-                </div>
-                <span class="badge badge-green">↑ Improving</span>
+          
+          <!-- Minimal User & Password Login Visual Form -->
+          <div class="hero-visual" style="display:flex; justify-content:center; align-items:center;">
+            <div class="content-card" style="width: 100%; max-width: 400px; padding: 32px; box-shadow: 0 20px 50px rgba(169, 150, 120, 0.15); border: 1px solid var(--border); border-radius: var(--r-2xl); background:#fff;">
+              <div style="text-align: center; margin-bottom: 24px;">
+                <img src="img/gcma_logo.jpg" alt="GCMA Logo" style="width: 60px; height: 60px; object-fit: contain; border-radius: 50%; padding: 4px; border: 2px solid var(--border); background:#fff; margin-bottom: 12px;" />
+                <h3 style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 800; color: var(--text);">Sign In</h3>
+                <p style="font-size: 0.8rem; color: var(--text-3); margin-top: 4px;">Enter credentials to enter your dashboard</p>
               </div>
-              <div class="hcard hcard-2">
-                <div class="hcard-icon" style="display:flex;align-items:center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; color: var(--amber);"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                </div>
-                <div>
-                  <div class="hcard-title">Questions Answered</div>
-                  <div class="hcard-val">247</div>
-                </div>
+
+              <!-- Quick Demo Info -->
+              <div style="background: var(--slate-2); padding: 10px 12px; border-radius: var(--r-md); border: 1px solid var(--border); font-size: 0.78rem; color: var(--text-2); margin-bottom: 18px; text-align: center; line-height: 1.4;">
+                <strong>Demo Account:</strong> student@gcma.com / demo1234
               </div>
-              <div class="hcard hcard-3">
-                <div class="hcard-icon" style="display:flex;align-items:center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; color: var(--amber);"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"/><path d="M12 2a6 6 0 0 1 6 6v3.5a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8a6 6 0 0 1 6-6z"/></svg>
+
+              <form id="hero-login-form" onsubmit="handleHeroLogin(event)" style="display: flex; flex-direction: column; gap: 14px;">
+                <div class="modal-input-group" style="margin-bottom: 0;">
+                  <label class="modal-input-label" for="hero-email" style="font-size: 0.74rem;">Email / Username</label>
+                  <input type="email" id="hero-email" class="modal-input" placeholder="student@gcma.com" style="padding: 10px 12px; font-size:0.86rem;" required>
                 </div>
-                <div>
-                  <div class="hcard-title">Current Streak</div>
-                  <div class="hcard-val">7 days</div>
+                
+                <div class="modal-input-group" style="margin-bottom: 0;">
+                  <label class="modal-input-label" for="hero-password" style="font-size: 0.74rem;">Password</label>
+                  <input type="password" id="hero-password" class="modal-input" placeholder="••••••••" style="padding: 10px 12px; font-size:0.86rem;" required>
                 </div>
-              </div>
-              <div class="hcard hcard-main">
-                <div class="hcard-q-label">Practice Question</div>
-                <p class="hcard-q-text">A client's SpO₂ drops to 88%. Which is the nurse's FIRST action?</p>
-                <div class="hcard-options">
-                  <div class="hcard-opt hcard-opt--correct">A. Assess airway and apply O₂ ✓</div>
-                  <div class="hcard-opt">B. Notify the provider</div>
-                  <div class="hcard-opt">C. Obtain ABG values</div>
-                </div>
-              </div>
+                
+                <button type="submit" class="start-btn" style="margin-top: 6px; width: 100%; border: none; font-size: 0.86rem; padding: 11px;">Sign In to Platform</button>
+              </form>
             </div>
           </div>
         </div>
@@ -463,6 +442,19 @@
         if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
+
+    // Handle Hero Form Login Action
+    function handleHeroLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('hero-email').value;
+      const password = document.getElementById('hero-password').value;
+      const result = Auth.login(email, password);
+      if (result.ok) {
+        window.location.href = 'platform.html#introduction';
+      } else {
+        alert(result.error || 'Invalid credentials. Please try student@gcma.com / demo1234');
+      }
+    }
   </script>
 </body>
 </html>
