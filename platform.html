@@ -967,8 +967,8 @@
               <input type="text" id="edit-inst-name" class="modal-input" value="Juhy P Jose">
             </div>
             <div class="modal-input-group" style="margin-bottom:0;">
-              <label class="modal-input-label" for="edit-inst-photo">Instructor Photo Link</label>
-              <input type="text" id="edit-inst-photo" class="modal-input" placeholder="e.g., https://link/photo.jpg">
+              <label class="modal-input-label" for="edit-inst-photo">Instructor Profile Photo</label>
+              <input type="file" id="edit-inst-photo" class="modal-input" accept="image/*" style="padding: 6px 10px;">
             </div>
           </div>
           <div class="modal-input-group" style="margin-bottom:0;">
@@ -2052,7 +2052,6 @@ function adminSaveIntro() {
   const headline = document.getElementById('edit-intro-title')?.value.trim();
   const bodyText = document.getElementById('edit-intro-body')?.value.trim();
   const instName = document.getElementById('edit-inst-name')?.value.trim();
-  const instPhotoUrl = document.getElementById('edit-inst-photo')?.value.trim();
   const instBio = document.getElementById('edit-inst-bio')?.value.trim();
 
   // Dynamically update about us section
@@ -2083,13 +2082,19 @@ function adminSaveIntro() {
     instBioText.textContent = instBio;
   }
 
-  // Update photo if link is provided
-  if (instPhotoUrl) {
-    const photoBadge = document.getElementById('instructor-photo-badge');
-    if (photoBadge) {
-      photoBadge.style.backgroundImage = `url('${instPhotoUrl}')`;
-      photoBadge.textContent = ''; // clear initials
-    }
+  // Update photo if local file is uploaded
+  const photoInput = document.getElementById('edit-inst-photo');
+  if (photoInput && photoInput.files && photoInput.files[0]) {
+    const file = photoInput.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const photoBadge = document.getElementById('instructor-photo-badge');
+      if (photoBadge) {
+        photoBadge.style.backgroundImage = `url('${e.target.result}')`;
+        photoBadge.textContent = ''; // clear initials
+      }
+    };
+    reader.readAsDataURL(file);
   }
 
   toast('Introduction details updated successfully!', 'success');
