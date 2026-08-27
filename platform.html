@@ -216,14 +216,17 @@
           Detailed final review of legal and ethical frameworks in nursing practice, covering Client Rights, Informed Consent, Malpractice, Advance Directives, and ethical principles for NCLEX-RN.
         </p>
 
-        <!-- Interactive Tabs Widget (Notes & Discussion) -->
+        <!-- Interactive Tabs Widget (Notes, Q&A, and Slides) -->
         <div class="content-card classroom-tabs-card" style="padding: 24px;">
-          <div class="classroom-tabs-header" style="display: flex; gap: 16px; border-bottom: 1px solid var(--border); margin-bottom: 16px;">
+          <div class="classroom-tabs-header" style="display: flex; gap: 16px; border-bottom: 1px solid var(--border); margin-bottom: 16px; flex-wrap: wrap;">
             <button class="classroom-tab active" onclick="switchClassTab('notes')" id="cl-tab-notes" style="background: none; border: none; padding: 10px 4px; font-family: var(--font-head); font-weight: 700; font-size: 0.88rem; color: var(--amber); border-bottom: 2px solid var(--amber); cursor: pointer; transition: all 0.2s;">
               Study Notes
             </button>
             <button class="classroom-tab" onclick="switchClassTab('qa')" id="cl-tab-qa" style="background: none; border: none; padding: 10px 4px; font-family: var(--font-head); font-weight: 600; font-size: 0.88rem; color: var(--text-3); border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s;">
               Q&A Discussion
+            </button>
+            <button class="classroom-tab" onclick="switchClassTab('resources')" id="cl-tab-resources" style="background: none; border: none; padding: 10px 4px; font-family: var(--font-head); font-weight: 600; font-size: 0.88rem; color: var(--text-3); border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s;">
+              Slides & Materials
             </button>
           </div>
           
@@ -259,6 +262,17 @@
             <div style="display: flex; gap: 8px;">
               <input type="text" id="qa-input" placeholder="Ask a question about this lecture..." style="flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--r-md); font-family: var(--font-body); font-size: 0.84rem; color: var(--text-2); outline: none; transition: all 0.2s;" />
               <button onclick="postQA()" class="btn btn-primary" style="padding: 10px 18px; font-size: 0.82rem; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; border: none; font-weight: 600;">Post</button>
+            </div>
+          </div>
+          
+          <!-- Slides & Materials Tab Content -->
+          <div class="classroom-tab-content" id="cl-content-resources" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px dashed var(--border); padding-bottom: 8px;">
+              <span style="font-size: 0.75rem; color: var(--text-3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Lecture Attachments (PPTs & PDFs)</span>
+              <span style="font-size: 0.72rem; color: var(--amber); font-weight: 600;">Click to view/download</span>
+            </div>
+            <div id="lecture-resources-container" style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- Dynamically populated slides link -->
             </div>
           </div>
         </div>
@@ -438,7 +452,7 @@
     <div class="study-grid">
       <div class="study-card" onclick="openStudy('management')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Management of Care</div><div class="study-count">2 chapters</div></div></div>
       <div class="study-card" onclick="openStudy('safety')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Safety and Infection Control</div><div class="study-count">1 chapter</div></div></div>
-      <div class="study-card" onclick="openStudy('health')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Health Promotion and Maintenance</div><div class="study-count">9 chapters</div></div></div>
+      <div class="study-card" onclick="openStudy('health')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Health Promotion and Maintenance</div><div class="study-count">0 chapters</div></div></div>
       <div class="study-card" onclick="openStudy('psychosocial')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Psychosocial Integrity</div><div class="study-count">1 chapter</div></div></div>
       <div class="study-card" onclick="openStudy('basic')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Basic Care and Comfort</div><div class="study-count">0 chapters</div></div></div>
       <div class="study-card" onclick="openStudy('pharma')" role="button" tabindex="0"><div class="study-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg></div><div class="study-info"><div class="study-name">Pharmacological and Parenteral Therapies</div><div class="study-count">1 chapter</div></div></div>
@@ -939,17 +953,7 @@ const STUDY_DATA = {
   safety:       { title:'Safety and Infection Control', chapters:[
     { name: 'Standard Precautions & PPE Guide', link: '#' }
   ]},
-  health:       { title:'Health Promotion and Maintenance (Maternity & Obstetrics)', chapters:[
-    { name: 'Maternity 1 Overview Lecture Notes', link: 'https://drive.google.com/file/d/1pTj4Avt_Xhn1CClRyOAauoD5YxeXpo18/view?usp=sharing' },
-    { name: 'Maternity 2 Comprehensive Study Guide', link: 'https://drive.google.com/file/d/1Abo8B1FcilV2FGDxM8Y-8wLgytbZesJw/view?usp=sharing' },
-    { name: 'Maternity Graphical Guides & Handouts', link: 'https://drive.google.com/file/d/1PBjATMi7RRCJ0-IXMFCbpsibqK3fUh-K/view?usp=sharing' },
-    { name: 'Maternity 3 Special Topics & Summaries', link: 'https://drive.google.com/file/d/1BDYMEwrmnF3fjEAleUXYULEPOO1E4nYt/view?usp=sharing' },
-    { name: 'EDD Calculation Methods (Naegele\'s Rule)', link: 'https://drive.google.com/file/d/1riPgEuuDPolbNPn1Eq7j5-S1zJZ3mc5d/view?usp=sharing' },
-    { name: 'High Risk Pregnancy Assessment Protocols', link: 'https://drive.google.com/file/d/1yD3AOqm708m_xcf49u8rK-eUtNfjbsm9/view?usp=sharing' },
-    { name: 'High Risk Maternity Part 2 Notes', link: 'https://drive.google.com/file/d/1w2MEPP3dvZHWYQjG-NoGr73mJeVxZWMS/view?usp=sharing' },
-    { name: 'High Risk Pregnancy Final Review Guide', link: 'https://drive.google.com/file/d/1Rlmqk1fb3HDZgx2gUqhSkeigtEUjBrek/view?usp=sharing' },
-    { name: 'Labor and Birth Phase 1 Study Notes', link: 'https://drive.google.com/file/d/1-d_5tACzIaKIzB_-JV6fK6nzLK8SOBEG/view?usp=sharing' }
-  ]},
+  health:       { title:'Health Promotion and Maintenance', chapters:[] },
   psychosocial: { title:'Psychosocial Integrity', chapters:[
     { name: 'Therapeutic Communication Techniques', link: '#' }
   ]},
@@ -1363,6 +1367,78 @@ const LECTURES = {
     embed: 'https://drive.google.com/file/d/1oXImZp_6dXVot1x3WZ6htQnbsxAdshoF/preview',
     locked: false
   },
+  'maternity-1': {
+    title: 'Maternity Part 1',
+    category: 'Health Promotion',
+    duration: '1h 15m',
+    desc: 'Foundational obstetrics review: physiological changes during pregnancy, prenatal care, fetal development milestones, and critical nursing assessments.',
+    embed: 'https://drive.google.com/file/d/1pTj4Avt_Xhn1CClRyOAauoD5YxeXpo18/preview',
+    locked: false,
+    slides: { title: 'Maternity 1 Lecture Slides', link: 'https://drive.google.com/file/d/1pTj4Avt_Xhn1CClRyOAauoD5YxeXpo18/view?usp=sharing' }
+  },
+  'maternity-2': {
+    title: 'Maternity Part 2 & Graphical Guides',
+    category: 'Health Promotion',
+    duration: '1h 20m',
+    desc: 'Continuation of maternal nursing with detailed graphical guides, visual aids for fetal positioning, pelvis types, and obstetric landmarks.',
+    embed: 'https://drive.google.com/file/d/1Abo8B1FcilV2FGDxM8Y-8wLgytbZesJw/preview',
+    locked: false,
+    slides: { title: 'Maternity 2 & Graphical Handouts', link: 'https://drive.google.com/file/d/1PBjATMi7RRCJ0-IXMFCbpsibqK3fUh-K/view?usp=sharing' }
+  },
+  'maternity-3': {
+    title: 'Maternity Part 3',
+    category: 'Health Promotion',
+    duration: '1h 05m',
+    desc: 'Advanced review of normal labor phases, postpartum physiological recovery, newborn immediate assessments (APGAR), and nursing interventions.',
+    embed: 'https://drive.google.com/file/d/1BDYMEwrmnF3fjEAleUXYULEPOO1E4nYt/preview',
+    locked: false,
+    slides: { title: 'Maternity 3 Lecture Handouts', link: 'https://drive.google.com/file/d/1BDYMEwrmnF3fjEAleUXYULEPOO1E4nYt/view?usp=sharing' }
+  },
+  'edd-calculation': {
+    title: 'EDD Calculation & Naegele\'s Rule',
+    category: 'Health Promotion',
+    duration: '45m',
+    desc: 'Step-by-step masterclass on calculating Estimated Date of Delivery (EDD) using Naegele\'s Rule, GTPAL system parameters, and obstetric calculations.',
+    embed: 'https://drive.google.com/file/d/1riPgEuuDPolbNPn1Eq7j5-S1zJZ3mc5d/preview',
+    locked: false,
+    slides: { title: 'EDD Calculation Guide', link: 'https://drive.google.com/file/d/1riPgEuuDPolbNPn1Eq7j5-S1zJZ3mc5d/view?usp=sharing' }
+  },
+  'high-risk-pregnancy-1': {
+    title: 'High Risk Pregnancy - Part 1',
+    category: 'Health Promotion',
+    duration: '1h 10m',
+    desc: 'Assessment and management of high-risk obstetric conditions: Gestational Hypertension, Preeclampsia, Eclampsia, HELLP syndrome, and Gestational Diabetes.',
+    embed: 'https://drive.google.com/file/d/1yD3AOqm708m_xcf49u8rK-eUtNfjbsm9/preview',
+    locked: false,
+    slides: { title: 'High Risk Pregnancy Protocols', link: 'https://drive.google.com/file/d/1yD3AOqm708m_xcf49u8rK-eUtNfjbsm9/view?usp=sharing' }
+  },
+  'high-risk-pregnancy-2': {
+    title: 'High Risk Pregnancy - Part 2',
+    category: 'Health Promotion',
+    duration: '1h 05m',
+    desc: 'Continuation of high-risk complications: Placenta Previa, Abruptio Placentae, Ectopic Pregnancy, and Hyperemesis Gravidarum care guidelines.',
+    embed: 'https://drive.google.com/file/d/1w2MEPP3dvZHWYQjG-NoGr73mJeVxZWMS/preview',
+    locked: false,
+    slides: { title: 'High Risk Maternity Part 2 Notes', link: 'https://drive.google.com/file/d/1w2MEPP3dvZHWYQjG-NoGr73mJeVxZWMS/view?usp=sharing' }
+  },
+  'high-risk-pregnancy-final': {
+    title: 'High Risk Pregnancy (Final Review)',
+    category: 'Health Promotion',
+    duration: '1h 18m',
+    desc: 'Comprehensive final review and exam-level prioritization scenarios involving multi-system complications in high-risk gestations.',
+    embed: 'https://drive.google.com/file/d/1Rlmqk1fb3HDZgx2gUqhSkeigtEUjBrek/preview',
+    locked: false,
+    slides: { title: 'High Risk Pregnancy Final Slides', link: 'https://drive.google.com/file/d/1Rlmqk1fb3HDZgx2gUqhSkeigtEUjBrek/view?usp=sharing' }
+  },
+  'labor-birth-1': {
+    title: 'Labor & Birth - Part 1',
+    category: 'Health Promotion',
+    duration: '1h 12m',
+    desc: 'Stages and phases of labor, maternal physiological adaptation during parturition, fetal heart rate monitoring patterns (VEAL CHOP), and nursing roles.',
+    embed: 'https://drive.google.com/file/d/1-d_5tACzIaKIzB_-JV6fK6nzLK8SOBEG/preview',
+    locked: false,
+    slides: { title: 'Labor & Birth Part 1 Slides', link: 'https://drive.google.com/file/d/1-d_5tACzIaKIzB_-JV6fK6nzLK8SOBEG/view?usp=sharing' }
+  },
   'fundamentals-final': {
     title: 'Fundamentals of Nursing (Final)',
     category: 'Basic Care & Fundamentals',
@@ -1464,7 +1540,7 @@ function initClassesScreen() {
 }
 
 function switchClassTab(tab) {
-  const tabs = ['notes', 'qa'];
+  const tabs = ['notes', 'qa', 'resources'];
   tabs.forEach(t => {
     const btn = document.getElementById(`cl-tab-${t}`);
     const content = document.getElementById(`cl-content-${t}`);
@@ -1583,6 +1659,31 @@ function playLecture(key) {
     metaContainer.innerHTML = `Instructor: <span>Juhy P Jose, RN, ENC</span> &middot; Category: <span>${lecture.category}</span> &middot; Duration: <span>${lecture.duration}</span>`;
   }
   set('current-lecture-desc', lecture.desc);
+
+  // Populate dynamic slides tab content
+  const resContainer = document.getElementById('lecture-resources-container');
+  if (resContainer) {
+    if (lecture.slides) {
+      resContainer.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-alt); padding:12px 16px; border-radius:var(--r-md); border:1px solid var(--border);">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px; height:20px;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <div>
+              <div style="font-size:0.84rem; font-weight:700; color:var(--text);">${lecture.slides.title}</div>
+              <div style="font-size:0.72rem; color:var(--text-3); font-weight:500;">Google Drive Resource File</div>
+            </div>
+          </div>
+          <a href="${lecture.slides.link}" target="_blank" class="btn btn-outline" style="padding:6px 12px; font-size:0.75rem; border-radius:var(--r-sm); text-decoration:none; display:inline-flex; align-items:center; gap:4px;">Open ↗</a>
+        </div>
+      `;
+    } else {
+      resContainer.innerHTML = `
+        <div style="text-align: center; padding: 20px 0; color: var(--text-3); font-size: 0.82rem;">
+          No slides or documents attached to this lecture.
+        </div>
+      `;
+    }
+  }
 
   toast(`Now loading: ${lecture.title}`, 'success');
 }
