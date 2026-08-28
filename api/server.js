@@ -56,31 +56,14 @@ async function initDb() {
       );
     `);
 
-    // Insert Default Mock Users if empty
+    // Insert Default Admin User if empty
     const { rows } = await pool.query('SELECT count(*) FROM users');
     if (parseInt(rows[0].count) === 0) {
-      console.log("Inserting default seed users...");
+      console.log("Inserting default admin user...");
       await pool.query(`
         INSERT INTO users (id, name, email, password, role, answered, correct, streak, time_min)
         VALUES 
-          ('u1', 'Demo Student', 'student@gcma.com', 'demo1234', 'student', 47, 36, 5, 140),
-          ('u2', 'Test User', 'test@gcma.com', 'test1234', 'student', 12, 9, 2, 42),
-          ('u3', 'GCMA Admin', 'admin@gcma.com', 'admin1234', 'admin', 0, 0, 0, 0)
-        ON CONFLICT DO NOTHING;
-      `);
-      
-      // Seed initial checklist logs
-      await pool.query(`
-        INSERT INTO user_progress (user_email, item_key, item_type)
-        VALUES
-          ('student@gcma.com', 'maternity-1', 'lecture'),
-          ('student@gcma.com', 'edd-calc', 'lecture'),
-          ('student@gcma.com', 'high-risk-1', 'lecture'),
-          ('student@gcma.com', 'Chapter 1: Antepartum Assessment', 'chapter'),
-          ('student@gcma.com', 'Chapter 2: Prenatal Screening Diagnostics', 'chapter'),
-          ('test@gcma.com', 'maternity-1', 'lecture'),
-          ('test@gcma.com', 'maternity-2', 'lecture'),
-          ('test@gcma.com', 'Chapter 1: Antepartum Assessment', 'chapter')
+          ('u3', 'Juhy GCMA', 'juhygcma321', 'juhygcma321', 'admin', 0, 0, 0, 0)
         ON CONFLICT DO NOTHING;
       `);
     }

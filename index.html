@@ -76,17 +76,10 @@
                 <p style="font-size: 0.82rem; color: var(--text-3); margin-top: 4px;">Sign in to your learning dashboard</p>
               </div>
 
-              <!-- Quick Demo Info -->
-              <div id="demo-badge-info" style="background: var(--slate-2); padding: 12px; border-radius: var(--r-md); border: 1px solid var(--border); font-size: 0.76rem; color: var(--text-2); margin-bottom: 22px; text-align: left; line-height: 1.5; transition: all var(--t);">
-                <strong>Credentials:</strong><br>
-                • Student: <code>student@gcma.com</code> / <code>demo1234</code><br>
-                • Admin: <code>admin@gcma.com</code> / <code>admin1234</code>
-              </div>
-
               <form id="hero-login-form" onsubmit="handleHeroLogin(event)" style="display: flex; flex-direction: column; gap: 16px;">
                 <div class="modal-input-group" style="margin-bottom: 0;">
                   <label class="modal-input-label" for="hero-email" style="font-size: 0.75rem; font-weight: 700; color: var(--text-2);">Email Address</label>
-                  <input type="email" id="hero-email" class="modal-input" placeholder="student@gcma.com or admin@gcma.com" style="padding: 12px 14px; font-size:0.88rem; border-radius: 10px;" required>
+                  <input type="email" id="hero-email" class="modal-input" placeholder="Enter your email" style="padding: 12px 14px; font-size:0.88rem; border-radius: 10px;" required>
                 </div>
                 
                 <div class="modal-input-group" style="margin-bottom: 0;">
@@ -434,7 +427,7 @@
       if (result.ok) {
         window.location.href = 'platform.html#introduction';
       } else {
-        alert(result.error || 'Invalid credentials. Please use student@gcma.com / demo1234 or admin@gcma.com / admin1234');
+        alert(result.error || 'Invalid credentials. Please verify your email and password.');
       }
     }
   </script>
