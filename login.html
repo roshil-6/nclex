@@ -78,11 +78,7 @@
           <p>Sign in to continue your NCLEX preparation</p>
         </div>
 
-        <!-- Demo credentials hint -->
-        <div class="demo-hint" role="note">
-          <strong>Demo Account:</strong>
-          student@gcma.com / demo1234
-        </div>
+
 
         <form id="login-form" novalidate aria-label="Sign in form">
           <div class="form-group">
@@ -193,8 +189,8 @@
       loginBtn.disabled = true;
       loginBtn.textContent = 'Signing in…';
 
-      setTimeout(() => {
-        const result = Auth.login(email, pass);
+      (async () => {
+        const result = await Auth.login(email, pass);
         if (result.ok) {
           loginBtn.textContent = 'Redirecting…';
           window.location.href = 'platform.html';
@@ -203,14 +199,14 @@
           loginBtn.disabled = false;
           loginBtn.textContent = 'Sign In to My Account';
         }
-      }, 600);
+      })();
     });
 
     function showRegisterToast() {
       const z = document.getElementById('toast-zone');
       const t = document.createElement('div');
       t.className = 'toast info';
-      t.textContent = 'Registration coming soon! Use the demo account for now.';
+      t.textContent = 'Account registration is coming soon!';
       z.appendChild(t);
       setTimeout(() => t.remove(), 4000);
     }
