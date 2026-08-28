@@ -642,20 +642,53 @@
     <div class="diamond-sep">◆</div>
 
     <div class="exam-layout">
-      <div class="exam-details-card content-card">
-        <h3 class="exam-card-title">Exam Details</h3>
-        <div class="exam-detail-row"><span>Total Questions</span><strong>20</strong></div>
-        <div class="exam-detail-row"><span>Time Limit</span><strong>35:00</strong></div>
-        <div class="exam-detail-row"><span>Passing Score</span><strong>65%</strong></div>
-        <div class="exam-detail-row"><span>Calculator</span><strong class="available">Available</strong></div>
-        <div class="exam-detail-row"><span>Format</span><strong>Mixed (MCQ, SATA, NGN)</strong></div>
-        <button class="start-btn" onclick="startExamMode()">Start Exam</button>
-
-        <div class="calc-toggle-row">
-          <button class="calc-toggle-btn" onclick="toggleCalc()" id="calc-toggle-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:6px"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg> Open Calculator</button>
+      <!-- Left Panel: Spacious Configuration Details -->
+      <div class="exam-details-card content-card" style="padding: 36px; border-radius: var(--r-xl); display: flex; flex-direction: column; gap: 24px;">
+        <div>
+          <h3 style="font-family: var(--font-head); font-size: 1.2rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 8px;">
+            Simulated Board Exam
+          </h3>
+          <p style="font-size: 0.8rem; color: var(--text-3); line-height: 1.5; margin-bottom: 16px;">
+            This practice simulator accurately reproduces the scoring conditions and pacing constraints of the real NCLEX licensing board.
+          </p>
         </div>
-        <div class="calc-panel" id="calc-panel">
-          <div class="calc-display" id="calc-display">0</div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div class="exam-detail-row" style="padding: 12px 0;">
+            <span style="font-weight: 600; color: var(--text-2);">Total Questions</span>
+            <strong style="font-size: 1.05rem;">20 Practice Questions</strong>
+          </div>
+          <div class="exam-detail-row" style="padding: 12px 0;">
+            <span style="font-weight: 600; color: var(--text-2);">Time Limit</span>
+            <strong style="font-size: 1.05rem;">35 Minutes (Adaptive Pacing)</strong>
+          </div>
+          <div class="exam-detail-row" style="padding: 12px 0;">
+            <span style="font-weight: 600; color: var(--text-2);">Passing Standard</span>
+            <strong style="font-size: 1.05rem; color: var(--navy);">65% Minimum Score</strong>
+          </div>
+          <div class="exam-detail-row" style="padding: 12px 0;">
+            <span style="font-weight: 600; color: var(--text-2);">On-screen Tools</span>
+            <strong class="available" style="font-size: 0.95rem; text-transform: uppercase;">Calculator Enabled</strong>
+          </div>
+          <div class="exam-detail-row" style="padding: 12px 0; border-bottom: none;">
+            <span style="font-weight: 600; color: var(--text-2);">Question Format</span>
+            <strong style="font-size: 0.95rem;">MCQ, SATA, and Next-Gen NGN Case Studies</strong>
+          </div>
+        </div>
+
+        <button class="start-btn" onclick="startExamMode()" style="padding: 16px; font-size: 0.95rem; font-weight: 800; border-radius: 12px; margin-top: 8px;">
+          Launch Practice Exam Simulator
+        </button>
+
+        <div class="calc-toggle-row" style="margin-top: 4px;">
+          <button class="calc-toggle-btn" onclick="toggleCalc()" id="calc-toggle-btn" style="padding: 12px; font-weight: 700; border-radius: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:6px"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg> 
+            Show Calculator Panel
+          </button>
+        </div>
+        
+        <div class="calc-panel" id="calc-panel" style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border);">
+          <div class="calc-display" id="calc-display" style="padding: 16px; font-size: 1.6rem;">0</div>
           <div class="calc-grid">
             <button class="calc-btn wide2 op" onclick="calcClear()">C</button>
             <button class="calc-btn op" onclick="calcInput('/')">÷</button>
@@ -678,19 +711,25 @@
         </div>
       </div>
 
-      <div class="exam-right">
-        <div class="content-card recent-attempts-card">
-          <h3 class="exam-card-title">Recent Attempts</h3>
-          <div id="attempts-list"><p class="empty-state">No exam attempts yet. Start your first practice exam above!</p></div>
+      <!-- Right Panel: Spacious Recent Attempts & Guidelines -->
+      <div class="exam-right" style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="content-card recent-attempts-card" style="padding: 36px; border-radius: var(--r-xl);">
+          <h3 style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 18px;">
+            Recent Practice Attempts
+          </h3>
+          <div id="attempts-list"><p class="empty-state">No exam attempts recorded. Complete your first practice test above to see progress logs.</p></div>
         </div>
-        <div class="content-card">
-          <h3 class="exam-card-title">Exam Tips</h3>
-          <ul class="tips-list">
-            <li>Read carefully — look for keywords like "first", "priority", "most important"</li>
-            <li>For SATA, treat each option independently — it's either right or wrong on its own</li>
-            <li>Use the calculator for dosage questions — never calculate under pressure</li>
-            <li>Eliminate obviously wrong options first, then choose from what remains</li>
-            <li>Apply ABC (Airway, Breathing, Circulation) and Maslow's hierarchy for prioritisation</li>
+
+        <div class="content-card" style="padding: 36px; border-radius: var(--r-xl);">
+          <h3 style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 18px;">
+            Critical Exam Guidelines &amp; Strategy
+          </h3>
+          <ul class="tips-list" style="display: flex; flex-direction: column; gap: 14px; line-height: 1.6; font-size: 0.9rem; color: var(--text-2);">
+            <li><strong>Analyze Priority Keywords:</strong> Read stems carefully for indicators like <em>"first action"</em>, <em>"initial nursing intervention"</em>, or <em>"most immediate response"</em>.</li>
+            <li><strong>Treat SATA Items Individually:</strong> For Select All That Apply questions, evaluate each option independently as a true/false statement rather than grouping options.</li>
+            <li><strong>Dosage Calculations:</strong> Use the embedded calculator to double-check drug calculations, conversion variables, and drip rate speeds.</li>
+            <li><strong>Systematic Elimination:</strong> Cross out clearly incorrect choices first to improve probability margins before finalizing your answer.</li>
+            <li><strong>Prioritization Frameworks:</strong> Apply established frameworks like <em>ABC</em> (Airway, Breathing, Circulation), <em>Maslow's Hierarchy of Needs</em>, and nursing assessment steps (Nursing Process) to guide logic.</li>
           </ul>
         </div>
       </div>
