@@ -1189,8 +1189,8 @@
   set('qs-streak',   s.streak || 0);
   set('qs-time',     (s.timeMin||0)+' min');
 
-  // Monitor session token validation check to prevent account sharing
-  if (user.sessionToken) {
+  // Monitor session token validation check to prevent account sharing (exempt administrators)
+  if (user.sessionToken && user.role !== 'admin') {
     setInterval(async () => {
       try {
         const res = await fetch('/api/auth/validate-session', {
