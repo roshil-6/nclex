@@ -11,14 +11,16 @@
   <link rel="stylesheet" href="css/landing.css" />
 </head>
 <body>
+  <!-- Ambient Backdrop Glow Blobs -->
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
 
   <!-- ══════════ TOP NAV ══════════ -->
   <nav class="topnav" role="navigation" aria-label="Main navigation">
     <div class="topnav-inner">
-      <a href="index.html" class="topnav-logo" aria-label="GCMA home">
-        <div class="logo-mark" style="width: 30px; height: 30px; background: var(--amber); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 4px;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" style="width: 14px; height: 14px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-        </div>
+      <a href="index.html" class="topnav-logo" aria-label="GCMA home" style="display: flex; align-items: center; gap: 8px;">
+        <img src="img/gcma_logo.jpg" alt="GCMA Logo" style="width: 32px; height: 32px; object-fit: contain; border-radius: 6px; background: #fff; padding: 2px; border: 1px solid var(--border);" />
         GCMA
       </a>
       <div class="topnav-links" id="nav-links">
@@ -28,7 +30,9 @@
         <a href="platform.html#classes"   class="topnav-link">Classes</a>
         <a href="platform.html#introduction" class="topnav-link">Dashboard</a>
       </div>
-      <div class="topnav-right">
+      <div class="topnav-right" style="display: flex; align-items: center; gap: 8px;">
+        <button id="theme-toggle-btn" onclick="Theme.toggle()" class="btn btn-outline" style="padding: 8px; display: flex; align-items: center; justify-content: center; height: 34px; width: 34px; border-radius: var(--r-md); cursor: pointer; border-color: var(--border-2); background: transparent;" aria-label="Toggle dark mode">
+        </button>
         <a href="login.html" class="btn btn-outline btn-sm" id="nav-login-btn">Sign In</a>
         <a href="login.html" class="btn btn-primary btn-sm" id="nav-cta-btn">Get Started</a>
         <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -45,7 +49,7 @@
       <div class="container">
         <div class="hero-inner">
           <div class="hero-content">
-            <span class="hero-eyebrow">Trusted by 1,000+ Nursing Students</span>
+            <span class="hero-eyebrow">Professional Nursing Licensure Preparation</span>
             <h1 id="hero-heading">
               Your Complete<br>
               <span class="text-green">NCLEX-RN</span> &amp;
@@ -56,90 +60,51 @@
               Expert-led video classes, 500+ high-fidelity practice questions, NGN case studies, and real-time performance tracking — everything you need to pass your boards.
             </p>
             <div class="hero-actions">
-              <a href="login.html" class="btn btn-primary btn-xl">Start Learning Free →</a>
-              <a href="index.html#features" class="btn btn-ghost btn-lg">See What's Included</a>
-            </div>
-            <div class="hero-social-proof">
-              <div class="proof-avatars" aria-hidden="true">
-                <div class="proof-av" style="background:var(--navy)">R</div>
-                <div class="proof-av" style="background:var(--navy-2)">A</div>
-                <div class="proof-av" style="background:var(--amber)">S</div>
-                <div class="proof-av" style="background:var(--text-2)">N</div>
-              </div>
-              <span class="proof-text">Join 1,000+ students already preparing</span>
+              <a href="#about" class="btn btn-outline btn-lg">Learn More About GCMA</a>
             </div>
           </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="hero-card-stack">
-              <div class="hcard hcard-1">
-                <div class="hcard-icon" style="display:flex;align-items:center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; color: var(--amber);"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                </div>
-                <div>
-                  <div class="hcard-title">Your Score</div>
-                  <div class="hcard-val">84%</div>
-                </div>
-                <span class="badge badge-green">↑ Improving</span>
+          
+          <!-- Minimal User & Password Login Visual Form -->
+          <div class="hero-visual" style="display:flex; justify-content:center; align-items:center;">
+            <div class="content-card" style="width: 100%; max-width: 410px; padding: 40px 36px; box-shadow: 0 25px 60px rgba(26, 28, 30, 0.08); border: 1px solid var(--border); border-radius: var(--r-2xl); background:#fff; position: relative; overflow: hidden;">
+              <!-- Top Glow Bar -->
+              <div style="position: absolute; top:0; left:0; right:0; height: 5px; background: linear-gradient(90deg, var(--navy) 0%, var(--amber) 100%);"></div>
+
+              <div style="text-align: center; margin-bottom: 28px;">
+                <img src="img/gcma_logo.jpg" alt="GCMA Logo" style="width: 64px; height: 64px; object-fit: contain; border-radius: 50%; padding: 4px; border: 2px solid var(--border); background:#fff; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);" />
+                <h3 style="font-family: var(--font-head); font-size: 1.35rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em;">Welcome to GCMA</h3>
+                <p style="font-size: 0.82rem; color: var(--text-3); margin-top: 4px;">Sign in to your learning dashboard</p>
               </div>
-              <div class="hcard hcard-2">
-                <div class="hcard-icon" style="display:flex;align-items:center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; color: var(--amber);"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                </div>
-                <div>
-                  <div class="hcard-title">Questions Answered</div>
-                  <div class="hcard-val">247</div>
-                </div>
+
+              <!-- Quick Demo Info -->
+              <div id="demo-badge-info" style="background: var(--slate-2); padding: 12px; border-radius: var(--r-md); border: 1px solid var(--border); font-size: 0.76rem; color: var(--text-2); margin-bottom: 22px; text-align: left; line-height: 1.5; transition: all var(--t);">
+                <strong>Credentials:</strong><br>
+                • Student: <code>student@gcma.com</code> / <code>demo1234</code><br>
+                • Admin: <code>admin@gcma.com</code> / <code>admin1234</code>
               </div>
-              <div class="hcard hcard-3">
-                <div class="hcard-icon" style="display:flex;align-items:center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; color: var(--amber);"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"/><path d="M12 2a6 6 0 0 1 6 6v3.5a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8a6 6 0 0 1 6-6z"/></svg>
+
+              <form id="hero-login-form" onsubmit="handleHeroLogin(event)" style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="modal-input-group" style="margin-bottom: 0;">
+                  <label class="modal-input-label" for="hero-email" style="font-size: 0.75rem; font-weight: 700; color: var(--text-2);">Email Address</label>
+                  <input type="email" id="hero-email" class="modal-input" placeholder="student@gcma.com or admin@gcma.com" style="padding: 12px 14px; font-size:0.88rem; border-radius: 10px;" required>
                 </div>
-                <div>
-                  <div class="hcard-title">Current Streak</div>
-                  <div class="hcard-val">7 days</div>
+                
+                <div class="modal-input-group" style="margin-bottom: 0;">
+                  <label class="modal-input-label" for="hero-password" style="font-size: 0.75rem; font-weight: 700; color: var(--text-2);">Password</label>
+                  <input type="password" id="hero-password" class="modal-input" placeholder="••••••••" style="padding: 12px 14px; font-size:0.88rem; border-radius: 10px;" required>
                 </div>
-              </div>
-              <div class="hcard hcard-main">
-                <div class="hcard-q-label">Practice Question</div>
-                <p class="hcard-q-text">A client's SpO₂ drops to 88%. Which is the nurse's FIRST action?</p>
-                <div class="hcard-options">
-                  <div class="hcard-opt hcard-opt--correct">A. Assess airway and apply O₂ ✓</div>
-                  <div class="hcard-opt">B. Notify the provider</div>
-                  <div class="hcard-opt">C. Obtain ABG values</div>
-                </div>
-              </div>
+                
+                <button type="submit" class="start-btn" style="margin-top: 10px; width: 100%; border: none; font-size: 0.88rem; padding: 13px; font-weight: 800; border-radius: 10px; box-shadow: 0 4px 12px rgba(var(--navy-rgb), 0.15);">
+                  Sign In to Dashboard
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ══════════ STATS BAND ══════════ -->
-    <section class="stats-band" aria-label="Platform statistics">
-      <div class="container">
-        <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-num">500+</div>
-            <div class="stat-lbl">Practice Questions</div>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-num">8</div>
-            <div class="stat-lbl">Clinical Categories</div>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-num">NGN</div>
-            <div class="stat-lbl">Case Studies Included</div>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <div class="stat-num">1,000+</div>
-            <div class="stat-lbl">Students Enrolled</div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- ══════════ ABOUT ══════════ -->
     <section class="section" id="about" aria-labelledby="about-heading">
@@ -394,10 +359,8 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <div class="topnav-logo" style="margin-bottom:12px">
-              <div class="logo-mark" style="width: 28px; height: 28px; background: var(--amber); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" style="width: 14px; height: 14px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-              </div>
+            <div class="topnav-logo" style="margin-bottom:12px; display: flex; align-items: center; gap: 8px;">
+              <img src="img/gcma_logo.jpg" alt="GCMA Logo" style="width: 32px; height: 32px; object-fit: contain; border-radius: 6px; background: #fff; padding: 2px; border: 1px solid var(--border);" />
               GCMA
             </div>
             <p class="text-sm">India's trusted NCLEX preparation platform for nursing students and graduates.</p>
@@ -461,6 +424,19 @@
         if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
+
+    // Handle Hero Form Login Action
+    function handleHeroLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('hero-email').value;
+      const password = document.getElementById('hero-password').value;
+      const result = Auth.login(email, password);
+      if (result.ok) {
+        window.location.href = 'platform.html#introduction';
+      } else {
+        alert(result.error || 'Invalid credentials. Please use student@gcma.com / demo1234 or admin@gcma.com / admin1234');
+      }
+    }
   </script>
 </body>
 </html>
