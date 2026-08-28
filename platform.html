@@ -1188,6 +1188,27 @@
   set('qs-correct',  s.answered > 0 ? Math.round((s.correct/s.answered)*100)+'%' : '—');
   set('qs-streak',   s.streak || 0);
   set('qs-time',     (s.timeMin||0)+' min');
+
+  // Monitor session token validation check to prevent account sharing
+  if (user.sessionToken) {
+    setInterval(async () => {
+      try {
+        const res = await fetch('/api/auth/validate-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: user.email, sessionToken: user.sessionToken })
+        });
+        const data = await res.json();
+        if (data.ok === false) {
+          Auth.logout();
+          alert('You have been logged out because this account was logged into on another device.');
+          window.location.href = 'login.html';
+        }
+      } catch (e) {
+        console.warn("Session check offline.");
+      }
+    }, 10000); // Check every 10 seconds
+  }
 })();
 
 function set(id, val) { const e=document.getElementById(id); if(e) e.textContent=val; }

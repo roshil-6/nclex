@@ -40,7 +40,8 @@ async function initDb() {
         answered INT DEFAULT 0,
         correct INT DEFAULT 0,
         streak INT DEFAULT 0,
-        time_min INT DEFAULT 0
+        time_min INT DEFAULT 0,
+        active_session_token VARCHAR(255)
       );
     `);
 
@@ -103,6 +104,10 @@ app.post('/api/auth/login', async (req, res) => {
     const user = rows[0];
     delete user.password; // Do not return pass hash
 
+    // Generate unique session token to block other devices
+    const sessionToken = 'sess-' + Math.random().toString(36).substring(2) + Date.now().toString(36);
+    await pool.query('UPDATE users SET active_session_token = $1 WHERE email = $2', [sessionToken, cleanEmail]);
+
     // Get checkmarks logs
     const progressRes = await pool.query(
       'SELECT item_key, item_type FROM user_progress WHERE user_email = $1',
@@ -119,6 +124,7 @@ app.post('/api/auth/login', async (req, res) => {
         name: user.name,
         email: user.email,
         role: user.role,
+        sessionToken,
         stats: {
           answered: user.answered,
           correct: user.correct,
@@ -209,6 +215,33 @@ app.post('/api/user/progress', async (req, res) => {
   } catch (err) {
     console.error("Error logging progress:", err);
     return res.status(500).json({ ok: false, error: 'Database write error.' });
+  }
+});
+
+// Verify if local session token matches active database session token
+app.post('/api/auth/validate-session', async (req, res) => {
+  const { email, sessionToken } = req.body;
+  if (!email || !sessionToken) {
+    return res.status(400).json({ ok: false, error: 'Missing parameters.' });
+  }
+
+  if (!pool) return res.json({ ok: true }); // Fallback locally
+
+  try {
+    const { rows } = await pool.query(
+      'SELECT active_session_token FROM users WHERE email = $1',
+      [email.trim().toLowerCase()]
+    );
+
+    if (rows.length === 0) {
+      return res.json({ ok: false, error: 'User not found.' });
+    }
+
+    const matches = rows[0].active_session_token === sessionToken;
+    return res.json({ ok: matches });
+  } catch (err) {
+    console.error("Session verification error:", err);
+    return res.status(500).json({ ok: false, error: 'Database verification failed.' });
   }
 });
 
