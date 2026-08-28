@@ -765,6 +765,7 @@
           </div>
           <div class="profile-actions">
             <button class="profile-btn" onclick="openEditProfileModal()">Edit Name</button>
+            <button class="profile-btn" onclick="openChangePasswordModal()" style="border-color: var(--amber); color: var(--amber);">Change Password</button>
             <button class="profile-btn danger-btn" onclick="openResetProgressModal()">Reset Progress</button>
           </div>
         </div>
@@ -892,6 +893,30 @@
         <input type="text" id="edit-profile-name" class="modal-input" placeholder="Enter your full name">
       </div>
       <button class="start-btn" onclick="saveProfileName()" style="margin-top: 10px;">Save Changes</button>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal-bg" id="password-modal-bg" onclick="closeChangePasswordModal()"></div>
+  <div class="study-modal" id="password-modal" role="dialog" aria-modal="true" style="max-width: 440px;">
+    <div class="study-modal-header">
+      <h3>Change Password</h3>
+      <button onclick="closeChangePasswordModal()" class="modal-close-btn">✕</button>
+    </div>
+    <div class="study-modal-body" style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="modal-input-group" style="margin-bottom: 0;">
+        <label class="modal-input-label" for="edit-current-password">Current Password</label>
+        <input type="password" id="edit-current-password" class="modal-input" placeholder="••••••••">
+      </div>
+      <div class="modal-input-group" style="margin-bottom: 0;">
+        <label class="modal-input-label" for="edit-new-password">New Password</label>
+        <input type="password" id="edit-new-password" class="modal-input" placeholder="Min 6 characters">
+      </div>
+      <div class="modal-input-group" style="margin-bottom: 0;">
+        <label class="modal-input-label" for="edit-confirm-new-password">Confirm New Password</label>
+        <input type="password" id="edit-confirm-new-password" class="modal-input" placeholder="Re-enter new password">
+      </div>
+      <button class="start-btn" onclick="saveNewPassword()" style="margin-top: 10px;">Update Password</button>
     </div>
   </div>
 
@@ -2644,6 +2669,50 @@ function confirmResetProgress() {
     initAccountScreen();
     const textarea = document.getElementById('class-notes-textarea');
     if (textarea) textarea.value = '';
+  }
+function openChangePasswordModal() {
+  document.getElementById('edit-current-password').value = '';
+  document.getElementById('edit-new-password').value = '';
+  document.getElementById('edit-confirm-new-password').value = '';
+  
+  document.getElementById('password-modal-bg').classList.add('open');
+  document.getElementById('password-modal').classList.add('open');
+}
+
+function closeChangePasswordModal() {
+  document.getElementById('password-modal-bg').classList.remove('open');
+  document.getElementById('password-modal').classList.remove('open');
+}
+
+async function saveNewPassword() {
+  const currentPass = document.getElementById('edit-current-password').value;
+  const newPass = document.getElementById('edit-new-password').value;
+  const confirmPass = document.getElementById('edit-confirm-new-password').value;
+
+  if (!currentPass || !newPass || !confirmPass) {
+    toast('All password fields are required.', 'error');
+    return;
+  }
+
+  if (newPass.length < 6) {
+    toast('New password must be at least 6 characters.', 'error');
+    return;
+  }
+
+  if (newPass !== confirmPass) {
+    toast('New passwords do not match.', 'error');
+    return;
+  }
+
+  const user = Auth.getUser();
+  if (!user) return;
+
+  const result = await Auth.changePassword(user.email, currentPass, newPass);
+  if (result.ok) {
+    toast('Password changed successfully!', 'success');
+    closeChangePasswordModal();
+  } else {
+    toast(result.error || 'Failed to change password.', 'error');
   }
 }
 

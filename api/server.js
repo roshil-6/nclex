@@ -64,7 +64,7 @@ async function initDb() {
       await pool.query(`
         INSERT INTO users (id, name, email, password, role, answered, correct, streak, time_min)
         VALUES 
-          ('u3', 'Juhy GCMA', 'juhygcma321', 'juhygcma321', 'admin', 0, 0, 0, 0)
+          ('u3', 'Juhy GCMA', 'juhygcma@2026', 'juhygcma321', 'admin', 0, 0, 0, 0)
         ON CONFLICT DO NOTHING;
       `);
     }
@@ -215,6 +215,37 @@ app.post('/api/user/progress', async (req, res) => {
   } catch (err) {
     console.error("Error logging progress:", err);
     return res.status(500).json({ ok: false, error: 'Database write error.' });
+  }
+});
+
+// Change password route (validates current password first)
+app.post('/api/auth/change-password', async (req, res) => {
+  const { email, currentPassword, newPassword } = req.body;
+  if (!email || !currentPassword || !newPassword) {
+    return res.status(400).json({ ok: false, error: 'Missing parameters.' });
+  }
+
+  if (!pool) {
+    return res.status(503).json({ ok: false, error: 'Database offline.' });
+  }
+
+  const cleanEmail = email.trim().toLowerCase();
+
+  try {
+    const { rows } = await pool.query('SELECT password FROM users WHERE email = $1', [cleanEmail]);
+    if (rows.length === 0) {
+      return res.status(404).json({ ok: false, error: 'User account not found.' });
+    }
+
+    if (rows[0].password !== currentPassword) {
+      return res.status(400).json({ ok: false, error: 'Incorrect current password value.' });
+    }
+
+    await pool.query('UPDATE users SET password = $1 WHERE email = $2', [newPassword, cleanEmail]);
+    return res.json({ ok: true, message: 'Password updated successfully!' });
+  } catch (err) {
+    console.error("Change password route error:", err);
+    return res.status(500).json({ ok: false, error: 'Database update failed.' });
   }
 });
 

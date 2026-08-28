@@ -1,7 +1,7 @@
 /* auth.js — localStorage-based auth (no backend) */
 
 const DEMO_USERS = [
-  { id: 'u3', name: 'Juhy GCMA',   email: 'juhygcma321',   password: 'juhygcma321', role: 'admin',
+  { id: 'u3', name: 'Juhy GCMA',   email: 'juhygcma@2026',   password: 'juhygcma321', role: 'admin',
     stats: { answered: 0,  correct: 0,  streak: 0, timeMin: 0   } }
 ];
 
@@ -59,6 +59,42 @@ const Auth = {
       localUsers.push(newUser);
       localStorage.setItem('gcma_local_users', JSON.stringify(localUsers));
       return { ok: true, message: 'Registration successful!' };
+    }
+  },
+
+  async changePassword(email, currentPassword, newPassword) {
+    try {
+      const response = await fetch('/api/auth/change-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, currentPassword, newPassword })
+      });
+      const data = await response.json();
+      return data;
+    } catch (e) {
+      console.warn("Backend auth offline. Changing password locally.");
+      const cleanEmail = email.trim().toLowerCase();
+      
+      // Check in fallback DEMO_USERS first
+      const demoUser = DEMO_USERS.find(u => u.email === cleanEmail);
+      if (demoUser) {
+        if (demoUser.password !== currentPassword) {
+          return { ok: false, error: 'Incorrect current password.' };
+        }
+        demoUser.password = newPassword;
+        return { ok: true, message: 'Password changed successfully.' };
+      }
+
+      // Check in localUsers
+      const localUsers = JSON.parse(localStorage.getItem('gcma_local_users') || '[]');
+      const user = localUsers.find(u => u.email === cleanEmail);
+      if (!user) return { ok: false, error: 'User account not found.' };
+      if (user.password !== currentPassword) {
+        return { ok: false, error: 'Incorrect current password.' };
+      }
+      user.password = newPassword;
+      localStorage.setItem('gcma_local_users', JSON.stringify(localUsers));
+      return { ok: true, message: 'Password changed successfully.' };
     }
   },
 
