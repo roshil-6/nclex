@@ -10,12 +10,27 @@ const DEMO_USERS = [
 ];
 
 const Auth = {
-  login(email, password) {
-    const user = DEMO_USERS.find(u => u.email === email.trim().toLowerCase() && u.password === password);
-    if (!user) return { ok: false, error: 'Invalid email or password.' };
-    const session = { id: user.id, name: user.name, email: user.email, role: user.role || 'student', stats: user.stats, loginAt: Date.now() };
-    localStorage.setItem('np_session', JSON.stringify(session));
-    return { ok: true, user: session };
+  async login(email, password) {
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await response.json();
+      if (data.ok) {
+        localStorage.setItem('np_session', JSON.stringify(data.user));
+        return { ok: true, user: data.user };
+      }
+      return { ok: false, error: data.error || 'Authentication failed.' };
+    } catch (e) {
+      console.warn("Backend auth offline. Falling back to local offline mock login.");
+      const user = DEMO_USERS.find(u => u.email === email.trim().toLowerCase() && u.password === password);
+      if (!user) return { ok: false, error: 'Invalid email or password.' };
+      const session = { id: user.id, name: user.name, email: user.email, role: user.role || 'student', stats: user.stats, loginAt: Date.now() };
+      localStorage.setItem('np_session', JSON.stringify(session));
+      return { ok: true, user: session };
+    }
   },
 
   logout() {

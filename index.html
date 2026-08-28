@@ -426,11 +426,11 @@
     });
 
     // Handle Hero Form Login Action
-    function handleHeroLogin(e) {
+    async function handleHeroLogin(e) {
       e.preventDefault();
       const email = document.getElementById('hero-email').value;
       const password = document.getElementById('hero-password').value;
-      const result = Auth.login(email, password);
+      const result = await Auth.login(email, password);
       if (result.ok) {
         window.location.href = 'platform.html#introduction';
       } else {

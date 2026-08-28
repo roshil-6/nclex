@@ -2261,16 +2261,29 @@ const REGISTERED_STUDENTS = [
   }
 ];
 
-function populateStudentTracker() {
+let dynamicStudentsList = [...REGISTERED_STUDENTS];
+
+async function populateStudentTracker() {
   const container = document.getElementById('admin-students-list');
   const countEl = document.getElementById('admin-student-count');
   if (!container) return;
 
-  if (countEl) {
-    countEl.textContent = `${REGISTERED_STUDENTS.length} Registered Student${REGISTERED_STUDENTS.length !== 1 ? 's' : ''}`;
+  try {
+    const res = await fetch('/api/admin/students');
+    const data = await res.json();
+    if (data.ok && data.students && data.students.length > 0) {
+      dynamicStudentsList = data.students;
+    }
+  } catch (e) {
+    console.warn("Failed to fetch students from database. Using local mock list.");
+    dynamicStudentsList = [...REGISTERED_STUDENTS];
   }
 
-  container.innerHTML = REGISTERED_STUDENTS.map(s => {
+  if (countEl) {
+    countEl.textContent = `${dynamicStudentsList.length} Registered Student${dynamicStudentsList.length !== 1 ? 's' : ''}`;
+  }
+
+  container.innerHTML = dynamicStudentsList.map(s => {
     const accuracy = s.stats.answered > 0 ? Math.round((s.stats.correct / s.stats.answered) * 100) : 0;
     return `
       <div class="content-card" style="padding: 24px; background: var(--bg-alt); border: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; border-radius: var(--r-xl);">
@@ -2304,7 +2317,7 @@ function populateStudentTracker() {
 }
 
 function inspectStudent(email) {
-  const student = REGISTERED_STUDENTS.find(s => s.email === email);
+  const student = dynamicStudentsList.find(s => s.email === email);
   if (!student) return;
 
   activeInsStudent = student;
