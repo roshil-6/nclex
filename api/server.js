@@ -135,7 +135,40 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
-// Update student performance stats
+// Register new student account
+app.post('/api/auth/register', async (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ ok: false, error: 'Name, email, and password are required.' });
+  }
+
+  const cleanEmail = email.trim().toLowerCase();
+
+  if (!pool) {
+    return res.status(503).json({ ok: false, error: 'Database offline.' });
+  }
+
+  try {
+    // Check if duplicate email
+    const checkRes = await pool.query('SELECT id FROM users WHERE email = $1', [cleanEmail]);
+    if (checkRes.rows.length > 0) {
+      return res.status(400).json({ ok: false, error: 'An account with this email already exists.' });
+    }
+
+    const userId = 'u-' + Date.now();
+    await pool.query(
+      `INSERT INTO users (id, name, email, password, role, answered, correct, streak, time_min)
+       VALUES ($1, $2, $3, $4, 'student', 0, 0, 0, 0)`,
+      [userId, name, cleanEmail, password]
+    );
+
+    return res.json({ ok: true, message: 'Account registered successfully!' });
+  } catch (err) {
+    console.error("Register API error:", err);
+    return res.status(500).json({ ok: false, error: 'Failed to write registration to database.' });
+  }
+});
+
 app.post('/api/user/stats', async (req, res) => {
   const { email, answered, correct, streak, timeMin } = req.body;
   if (!email) return res.status(400).json({ ok: false, error: 'User email is required.' });

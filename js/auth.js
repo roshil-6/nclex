@@ -25,11 +25,44 @@ const Auth = {
       return { ok: false, error: data.error || 'Authentication failed.' };
     } catch (e) {
       console.warn("Backend auth offline. Falling back to local offline mock login.");
-      const user = DEMO_USERS.find(u => u.email === email.trim().toLowerCase() && u.password === password);
+      const localUsers = JSON.parse(localStorage.getItem('gcma_local_users') || '[]');
+      const allUsers = [...DEMO_USERS, ...localUsers];
+      const user = allUsers.find(u => u.email === email.trim().toLowerCase() && u.password === password);
       if (!user) return { ok: false, error: 'Invalid email or password.' };
       const session = { id: user.id, name: user.name, email: user.email, role: user.role || 'student', stats: user.stats, loginAt: Date.now() };
       localStorage.setItem('np_session', JSON.stringify(session));
       return { ok: true, user: session };
+    }
+  },
+
+  async register(name, email, password) {
+    try {
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password })
+      });
+      const data = await response.json();
+      return data;
+    } catch (e) {
+      console.warn("Backend auth offline. Saving user to local storage fallback.");
+      const cleanEmail = email.trim().toLowerCase();
+      const localUsers = JSON.parse(localStorage.getItem('gcma_local_users') || '[]');
+      const allUsers = [...DEMO_USERS, ...localUsers];
+      if (allUsers.some(u => u.email === cleanEmail)) {
+        return { ok: false, error: 'Email already exists.' };
+      }
+      const newUser = {
+        id: 'u-' + Date.now(),
+        name,
+        email: cleanEmail,
+        password,
+        role: 'student',
+        stats: { answered: 0, correct: 0, streak: 0, timeMin: 0 }
+      };
+      localUsers.push(newUser);
+      localStorage.setItem('gcma_local_users', JSON.stringify(localUsers));
+      return { ok: true, message: 'Registration successful!' };
     }
   },
 
