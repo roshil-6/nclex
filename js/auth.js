@@ -1,10 +1,6 @@
 /* auth.js — localStorage-based auth (no backend) */
 
 const DEMO_USERS = [
-  { id: 'u1', name: 'Demo Student', email: 'student@gcma.com', password: 'demo1234', role: 'student',
-    stats: { answered: 47, correct: 36, streak: 5, timeMin: 140 } },
-  { id: 'u2', name: 'Test User',   email: 'test@gcma.com',    password: 'test1234', role: 'student',
-    stats: { answered: 12, correct: 9,  streak: 2, timeMin: 42  } },
   { id: 'u3', name: 'Juhy GCMA',   email: 'juhygcma321',   password: 'juhygcma321', role: 'admin',
     stats: { answered: 0,  correct: 0,  streak: 0, timeMin: 0   } }
 ];
