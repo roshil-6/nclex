@@ -8,26 +8,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 :root {
-  /* Palette - Creamy White Theme */
-  --navy:         #1e293b;
-  --navy-2:       #334155;
-  --navy-3:       #475569;
-  --amber:        #d97706;
-  --amber-2:      #f59e0b;
-  --amber-soft:   #fffbeb;
-  --amber-border: #fde68a;
+  /* Palette - Gold and White Luxury Theme */
+  --navy:         #b48e36; /* Dark Gold Accent */
+  --navy-2:       #d4af37; /* Bright Metallic Gold */
+  --navy-3:       #e5c158; /* Soft Metallic Gold */
+  --amber:        #b48e36; /* Primary Gold */
+  --amber-2:      #d4af37; /* Light Gold */
+  --amber-soft:   #fdfaf2; /* Elegant Soft Gold Tint */
+  --amber-border: #f0dfb2; /* Gold Border Highlight */
   
   /* Creamy Smooth Light Theme Canvas colors */
-  --slate:        #faf8f5; /* Rich Warm Creamy Ivory */
-  --slate-2:      #f5eedf; /* Soft Warm Latte Sand */
-  --slate-3:      #e9dfcc; /* Darker Sand border accent */
-  --surface:      #ffffff; /* Pristine White card backgrounds */
+  --slate:        #fcfcfc; /* Pristine White Canvas */
+  --slate-2:      #f9f7f2; /* Soft Alabaster */
+  --slate-3:      #eadebe; /* Darker Gold Tint */
+  --surface:      #ffffff; /* Pure White Card Canvas */
   
-  --text:         #1a1c1e; /* Deep Charcoal Gray */
-  --text-2:       #43474e; /* Slate Steel Gray */
-  --text-3:       #73777f; /* Muted slate gray */
-  --border:       #e9dfcc; /* Latte/Cream borders */
-  --border-2:     #cbd5e1;
+  --text:         #1c1b18; /* Deep Charcoal Gold */
+  --text-2:       #4c4940; /* Muted Slate Gold */
+  --text-3:       #7e796c; /* Soft Earth Gold */
+  --border:       #ede7d9; /* Gold Ivory Borders */
+  --border-2:     #d6cbab;
+
 
   /* Semantic */
   --green:        #10b981;
