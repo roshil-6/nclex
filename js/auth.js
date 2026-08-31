@@ -1,7 +1,7 @@
 /* auth.js — localStorage-based auth (no backend) */
 
 const DEMO_USERS = [
-  { id: 'u3', name: 'Juhy GCMA',   email: 'juhygcma@2026',   password: 'JUHYGCMA@2026', role: 'admin',
+  { id: 'u3', name: 'Juhy GCMA',   email: 'juhygcma@2026',   password: 'juhygcma2026', role: 'admin',
     stats: { answered: 0,  correct: 0,  streak: 0, timeMin: 0   } }
 ];
 
