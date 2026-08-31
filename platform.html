@@ -1364,14 +1364,26 @@ function openStudy(key) {
   const d = STUDY_DATA[key]; if(!d) return;
   document.getElementById('modal-title').textContent = d.title;
   const body = document.getElementById('modal-body');
+  
+  const currentUser = Auth.getUser();
+  const isAdmin = currentUser && currentUser.role === 'admin';
+
   if(!d.chapters.length) {
     body.innerHTML = '<p class="empty-state">No chapters uploaded yet — materials coming soon!</p>';
   } else {
     body.innerHTML = d.chapters.map((c,i) => {
       const isAvailable = c.link && c.link !== '#';
-      const actionHtml = isAvailable 
+      let actionHtml = isAvailable 
         ? `<button class="chapter-btn" onclick="closeModal(); openResourceViewer('${c.name}', '${c.link}')" style="display:inline-flex; align-items:center; justify-content:center;">View Chapter</button>`
         : `<button class="chapter-btn" onclick="toast('Study material uploading soon!','info')">View →</button>`;
+      
+      if (isAdmin) {
+        actionHtml = `<div style="display:flex; gap:8px;">
+          ${actionHtml}
+          <button class="chapter-btn" onclick="adminDeleteStudyMaterial('${key}', ${i})" style="background:none; border:1px solid var(--red); color:var(--red);">Delete</button>
+        </div>`;
+      }
+
       return `
         <div class="chapter-row" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--border);">
           <div style="display:flex; align-items:center; gap:12px;">
@@ -2172,8 +2184,9 @@ function renderAdminActiveList() {
             ${lec.category} &middot; ${lec.duration} &nbsp; ${hasSlides}
           </div>
         </div>
-        <div style="display:flex; gap:6px;">
+        <div style="display:flex; gap:6px; align-items:center;">
           <button class="btn btn-outline" style="padding:4px 8px; font-size:0.7rem; border-radius:var(--r-sm);" onclick="playLecture('${k}'); navigate('classes');">Test 🎥</button>
+          <button class="btn btn-outline" style="padding:4px 8px; font-size:0.7rem; border-radius:var(--r-sm); border-color:var(--red); color:var(--red); background:none;" onclick="adminDeleteLecture('${k}')">✕ Delete</button>
         </div>
       </div>
     `;
@@ -2240,6 +2253,39 @@ function adminPublishMaterial() {
   document.getElementById('admin-material-link').value = '';
 
   toast('Study material published to resources!', 'success');
+}
+
+function adminDeleteLecture(key) {
+  if (confirm(`Are you sure you want to delete the video class "${LECTURES[key].title}"?`)) {
+    delete LECTURES[key];
+    toast('Lecture deleted successfully!', 'success');
+    renderAdminActiveList();
+    if (typeof renderPlaylist === 'function') {
+      renderPlaylist();
+    }
+  }
+}
+
+function adminDeleteStudyMaterial(categoryKey, index) {
+  const category = STUDY_DATA[categoryKey];
+  if (!category) return;
+  const chapter = category.chapters[index];
+  if (!chapter) return;
+
+  if (confirm(`Are you sure you want to delete the study chapter "${chapter.name}"?`)) {
+    category.chapters.splice(index, 1);
+    toast('Study material deleted successfully!', 'success');
+    
+    // Refresh modal
+    openStudy(categoryKey);
+
+    // Update count card label
+    const cardCountEl = document.querySelector(`.study-card[onclick="openStudy('${categoryKey}')"] .study-count`);
+    if (cardCountEl) {
+      const chaptersCount = category.chapters.length;
+      cardCountEl.textContent = `${chaptersCount} chapter${chaptersCount !== 1 ? 's' : ''}`;
+    }
+  }
 }
 
 function adminSaveIntro() {
