@@ -9,21 +9,21 @@
   --surface-2:   #f8fafc; /* slate */
 
   /* Brand */
-  --navy:        #0a1824;
-  --navy-2:      #0e2130;
-  --navy-3:      #173347;
-  --amber:       #d97706;
-  --amber-2:     #f59e0b;
-  --amber-soft:  #fffbeb;
-  --amber-border:#fde68a;
+  --navy:        #1b4332; /* Deep Forest Green */
+  --navy-2:      #2d6a4f; /* Medium Forest Green */
+  --navy-3:      #40916c; /* Soft Emerald Green */
+  --amber:       #2d6a4f; /* Primary Green Accent */
+  --amber-2:     #52b788; /* Bright Green Accent */
+  --amber-soft:  #f4faf6; /* Soft Green Tint Background */
+  --amber-border:#d8f3dc; /* Green Border Highlight */
 
   /* Legacy aliases for code compatibility */
-  --green:       #0a1824; /* navy */
-  --green-mid:   #0e2130; /* navy-2 */
-  --green-light: #f1f5f9; /* slate-2 */
-  --gold:        #d97706; /* amber */
-  --gold-light:  #fffbeb; /* amber-soft */
-  --gold-border: #fde68a; /* amber-border */
+  --green:       #1b4332; 
+  --green-mid:   #2d6a4f; 
+  --green-light: #f4f8f5; 
+  --gold:        #2d6a4f; 
+  --gold-light:  #f4faf6; 
+  --gold-border: #d8f3dc; 
 
   /* Text */
   --text:        #0f172a; /* Slate 900 */

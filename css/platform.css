@@ -8,26 +8,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 :root {
-  /* Palette - Creamy White Theme */
-  --navy:         #1e293b;
-  --navy-2:       #334155;
-  --navy-3:       #475569;
-  --amber:        #d97706;
-  --amber-2:      #f59e0b;
-  --amber-soft:   #fffbeb;
-  --amber-border: #fde68a;
+  /* Palette - Dark Green and White Theme */
+  --navy:         #1b4332; /* Deep Forest Green */
+  --navy-2:       #2d6a4f; /* Medium Forest Green */
+  --navy-3:       #40916c; /* Soft Emerald Green */
+  --amber:        #2d6a4f; /* Primary Green Accent */
+  --amber-2:      #52b788; /* Bright Green Accent */
+  --amber-soft:   #f4faf6; /* Soft Green Tint Background */
+  --amber-border: #d8f3dc; /* Green Border Highlight */
   
-  /* Creamy Smooth Light Theme Canvas colors */
-  --slate:        #faf8f5; /* Rich Warm Creamy Ivory */
-  --slate-2:      #f5eedf; /* Soft Warm Latte Sand */
-  --slate-3:      #e9dfcc; /* Darker Sand border accent */
-  --surface:      #ffffff; /* Pristine White card backgrounds */
+  /* Canvas colors */
+  --slate:        #fcfcfc; /* Pristine White Canvas */
+  --slate-2:      #f4f8f5; /* Soft Muted Green-White */
+  --slate-3:      #d8f3dc; /* Light Sage Green Border */
+  --surface:      #ffffff; /* Pure White Card Canvas */
   
-  --text:         #1a1c1e; /* Deep Charcoal Gray */
-  --text-2:       #43474e; /* Slate Steel Gray */
-  --text-3:       #73777f; /* Muted slate gray */
-  --border:       #e9dfcc; /* Latte/Cream borders */
-  --border-2:     #cbd5e1;
+  --text:         #1c1c1a; /* Deep Charcoal Green */
+  --text-2:       #404a43; /* Muted Sage Gray */
+  --text-3:       #6a756e; /* Soft Green-Earth Gray */
+  --border:       #e2ebe5; /* Clean Sage Borders */
+  --border-2:     #b7c9be;
 
   /* Semantic */
   --green:        #10b981;
@@ -609,8 +609,8 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 .quiz-submit-btn  { background: var(--navy);  color: #fff; }
 .quiz-submit-btn:hover  { background: var(--navy-2); box-shadow: var(--sh-md); }
-.quiz-next-btn    { background: var(--amber); color: var(--navy); }
-.quiz-next-btn:hover    { background: var(--amber-2); }
+.quiz-next-btn    { background: var(--amber); color: #fff; }
+.quiz-next-btn:hover    { background: var(--amber-2); box-shadow: var(--sh-md); }
 .quiz-finish-btn  { background: var(--navy);  color: #fff; }
 .quiz-finish-btn:hover  { background: var(--navy-2); box-shadow: var(--sh-md); }
 .quiz-btn-row svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
