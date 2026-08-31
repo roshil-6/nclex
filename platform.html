@@ -770,7 +770,7 @@
       </div>
 
       <!-- Performance Dashboard -->
-      <div class="content-card">
+      <div class="content-card" id="acc-performance-dashboard">
         <h3 style="font-family: var(--font-head); font-size: 0.92rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 18px;">
           Performance Dashboard
         </h3>
@@ -1234,14 +1234,21 @@
   const user = Auth.getUser();
   if (!user) { window.location.href = 'login.html'; return; }
   
-  // Hide Admin Panel navigation tab if user is a student
+  // Admin specific UI adjustments
   const adminTabBtn = document.getElementById('tab-admin');
+  const accPerfDashboard = document.getElementById('acc-performance-dashboard');
+  const isAdmin = (user.role && user.role.trim().toLowerCase() === 'admin');
+  
   if (adminTabBtn) {
-    if (user.role !== 'admin') {
+    if (!isAdmin) {
       adminTabBtn.style.display = 'none';
     } else {
-      adminTabBtn.style.display = 'inline-flex';
+      adminTabBtn.style.setProperty('display', 'inline-flex', 'important');
     }
+  }
+  
+  if (accPerfDashboard && isAdmin) {
+    accPerfDashboard.style.setProperty('display', 'none', 'important');
   }
 
   // Load user stats into QBank dashboard
