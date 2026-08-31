@@ -64,8 +64,15 @@ async function initDb() {
       await pool.query(`
         INSERT INTO users (id, name, email, password, role, answered, correct, streak, time_min)
         VALUES 
-          ('u3', 'Juhy GCMA', 'juhygcma@2026', 'juhygcma321', 'admin', 0, 0, 0, 0)
+          ('u3', 'Juhy GCMA', 'juhygcma@2026', 'JUHYGCMA@2026', 'admin', 0, 0, 0, 0)
         ON CONFLICT DO NOTHING;
+      `);
+    } else {
+      // Ensure the admin credentials are updated in case they already exist
+      await pool.query(`
+        UPDATE users 
+        SET email = 'juhygcma@2026', password = 'JUHYGCMA@2026'
+        WHERE role = 'admin' OR id = 'u3';
       `);
     }
 
