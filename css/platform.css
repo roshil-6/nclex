@@ -150,8 +150,8 @@ button { cursor: pointer; font-family: var(--font-body); }
 ═══════════════════════════════════════════ */
 .platform-main {
   margin-top: 64px;
-  padding: 36px 20px 72px;
-  max-width: 960px;
+  padding: 36px 24px 72px;
+  max-width: 1400px;
   margin-left: auto; margin-right: auto;
 }
 
