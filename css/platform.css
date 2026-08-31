@@ -8,27 +8,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 :root {
-  /* Palette - Gold and White Luxury Theme */
-  --navy:         #b48e36; /* Dark Gold Accent */
-  --navy-2:       #d4af37; /* Bright Metallic Gold */
-  --navy-3:       #e5c158; /* Soft Metallic Gold */
-  --amber:        #b48e36; /* Primary Gold */
-  --amber-2:      #d4af37; /* Light Gold */
-  --amber-soft:   #fdfaf2; /* Elegant Soft Gold Tint */
-  --amber-border: #f0dfb2; /* Gold Border Highlight */
+  /* Palette - Dark Green and White Theme */
+  --navy:         #1b4332; /* Deep Forest Green */
+  --navy-2:       #2d6a4f; /* Medium Forest Green */
+  --navy-3:       #40916c; /* Soft Emerald Green */
+  --amber:        #2d6a4f; /* Primary Green Accent */
+  --amber-2:      #52b788; /* Bright Green Accent */
+  --amber-soft:   #f4faf6; /* Soft Green Tint Background */
+  --amber-border: #d8f3dc; /* Green Border Highlight */
   
-  /* Creamy Smooth Light Theme Canvas colors */
+  /* Canvas colors */
   --slate:        #fcfcfc; /* Pristine White Canvas */
-  --slate-2:      #f9f7f2; /* Soft Alabaster */
-  --slate-3:      #eadebe; /* Darker Gold Tint */
+  --slate-2:      #f4f8f5; /* Soft Muted Green-White */
+  --slate-3:      #d8f3dc; /* Light Sage Green Border */
   --surface:      #ffffff; /* Pure White Card Canvas */
   
-  --text:         #1c1b18; /* Deep Charcoal Gold */
-  --text-2:       #4c4940; /* Muted Slate Gold */
-  --text-3:       #7e796c; /* Soft Earth Gold */
-  --border:       #ede7d9; /* Gold Ivory Borders */
-  --border-2:     #d6cbab;
-
+  --text:         #1c1c1a; /* Deep Charcoal Green */
+  --text-2:       #404a43; /* Muted Sage Gray */
+  --text-3:       #6a756e; /* Soft Green-Earth Gray */
+  --border:       #e2ebe5; /* Clean Sage Borders */
+  --border-2:     #b7c9be;
 
   /* Semantic */
   --green:        #10b981;
