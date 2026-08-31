@@ -1415,7 +1415,7 @@ function startQuiz(mode) {
   const diff  = document.getElementById('qf-difficulty')?.value || 'ALL';
 
   qEngine = new QuizEngine();
-  qEngine.setFilters({ examType:'RN', format:fmt, category:cat, difficulty:diff });
+  qEngine.setFilters({ examType:'ALL', format:fmt, category:cat, difficulty:diff });
   const built = qEngine.buildSession(count);
 
   if(built === 0) {

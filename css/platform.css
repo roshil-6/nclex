@@ -610,8 +610,8 @@ button { cursor: pointer; font-family: var(--font-body); }
 }
 .quiz-submit-btn  { background: var(--navy);  color: #fff; }
 .quiz-submit-btn:hover  { background: var(--navy-2); box-shadow: var(--sh-md); }
-.quiz-next-btn    { background: var(--amber); color: var(--navy); }
-.quiz-next-btn:hover    { background: var(--amber-2); }
+.quiz-next-btn    { background: var(--amber); color: #fff; }
+.quiz-next-btn:hover    { background: var(--amber-2); box-shadow: var(--sh-md); }
 .quiz-finish-btn  { background: var(--navy);  color: #fff; }
 .quiz-finish-btn:hover  { background: var(--navy-2); box-shadow: var(--sh-md); }
 .quiz-btn-row svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
