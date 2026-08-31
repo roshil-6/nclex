@@ -69,17 +69,17 @@
         </div>
       </div>
     </div>
-
-    <!-- RIGHT PANEL — Login Form -->
+    
+    <!-- RIGHT PANEL — Login & Signup Card Form -->
     <div class="auth-right">
       <div class="auth-card" role="main">
-        <div class="auth-card-header">
-          <h1>Welcome Back</h1>
-          <p>Sign in to continue your NCLEX preparation</p>
+        <!-- Tab selectors for Login / Signup -->
+        <div style="display:flex; gap:12px; margin-bottom:24px; border-bottom:1px solid var(--border); padding-bottom:8px;">
+          <button type="button" id="tab-login-btn" onclick="toggleAuthTab('login')" style="flex:1; border:none; background:none; font-family:var(--font-head); font-weight:800; font-size:1rem; color:var(--text); padding:8px 0; border-bottom:2px solid var(--amber); cursor:pointer; transition:all 0.2s;">Sign In</button>
+          <button type="button" id="tab-register-btn" onclick="toggleAuthTab('register')" style="flex:1; border:none; background:none; font-family:var(--font-head); font-weight:800; font-size:1rem; color:var(--text-3); padding:8px 0; border-bottom:2px solid transparent; cursor:pointer; transition:all 0.2s;">Get Started</button>
         </div>
 
-
-
+        <!-- LOGIN FORM -->
         <form id="login-form" novalidate aria-label="Sign in form">
           <div class="form-group">
             <label class="form-label" for="email">Email Address</label>
@@ -123,15 +123,59 @@
           </button>
         </form>
 
-        <div class="auth-divider"><span>or</span></div>
+        <!-- REGISTER FORM (Hidden by default) -->
+        <form id="register-form" novalidate aria-label="Sign up form" style="display:none;">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Name</label>
+            <input
+              type="text" id="reg-name" name="name"
+              class="form-input" placeholder="e.g. Jane Doe"
+              required
+            />
+          </div>
 
-        <div class="auth-register-prompt">
-          Don't have an account?
-          <a href="#" onclick="showRegisterToast()">Create a free account</a>
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address</label>
+            <input
+              type="email" id="reg-email" name="email"
+              class="form-input" placeholder="e.g. your@email.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password</label>
+            <input
+              type="password" id="reg-password" name="password"
+              class="form-input" placeholder="Min 6 characters"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-confirm-password">Confirm Password</label>
+            <input
+              type="password" id="reg-confirm-password" name="confirm-password"
+              class="form-input" placeholder="Re-enter password"
+              required
+            />
+          </div>
+
+          <div id="register-error" class="login-error-banner" role="alert" aria-live="polite" style="display:none; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); color:#ef4444;"></div>
+
+          <button type="submit" class="btn btn-primary btn-full btn-lg" id="register-btn" style="margin-top:10px;">
+            Create My Account
+          </button>
+        </form>
+
+        <!-- Strict Usage Instructions Banner -->
+        <div style="background: rgba(217, 119, 6, 0.05); border: 1px dashed rgba(217, 119, 6, 0.3); padding: 14px 16px; border-radius: var(--r-md); margin-top: 24px; text-align: left; font-size: 0.74rem; line-height: 1.5; color: var(--text-2);">
+          <strong style="color: var(--amber); display: block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em;">⚠ Strict Account Policy Notice</strong>
+          To safeguard educational materials and ensure system integrity, credentials created here are restricted to a single owner. Account sharing, concurrent logins, or distributing handouts is strictly monitored. Violation results in permanent account suspension.
         </div>
 
-        <div class="auth-footer-note">
-          By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        <div class="auth-footer-note" style="margin-top: 20px;">
+          By using our platform, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
         </div>
       </div>
     </div>
@@ -144,6 +188,13 @@
   <script>
     // Already logged in → go to platform
     Auth.redirectIfAuthed('platform.html');
+
+    // Check if sign-up tab is requested via query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get('mode');
+    if (mode === 'register') {
+      setTimeout(() => toggleAuthTab('register'), 100);
+    }
 
     const form    = document.getElementById('login-form');
     const emailEl = document.getElementById('email');
@@ -202,14 +253,88 @@
       })();
     });
 
-    function showRegisterToast() {
-      const z = document.getElementById('toast-zone');
-      const t = document.createElement('div');
-      t.className = 'toast info';
-      t.textContent = 'Account registration is coming soon!';
-      z.appendChild(t);
-      setTimeout(() => t.remove(), 4000);
+    function toggleAuthTab(mode) {
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      const tabLoginBtn = document.getElementById('tab-login-btn');
+      const tabRegisterBtn = document.getElementById('tab-register-btn');
+
+      if (mode === 'login') {
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        tabLoginBtn.style.color = 'var(--text)';
+        tabLoginBtn.style.borderBottomColor = 'var(--amber)';
+        tabRegisterBtn.style.color = 'var(--text-3)';
+        tabRegisterBtn.style.borderBottomColor = 'transparent';
+      } else {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+        tabRegisterBtn.style.color = 'var(--text)';
+        tabRegisterBtn.style.borderBottomColor = 'var(--amber)';
+        tabLoginBtn.style.color = 'var(--text-3)';
+        tabLoginBtn.style.borderBottomColor = 'transparent';
+      }
     }
+
+    // Register Form submission
+    const regForm = document.getElementById('register-form');
+    const regName = document.getElementById('reg-name');
+    const regEmail = document.getElementById('reg-email');
+    const regPass = document.getElementById('reg-password');
+    const regConfirmPass = document.getElementById('reg-confirm-password');
+    const regError = document.getElementById('register-error');
+    const regBtn = document.getElementById('register-btn');
+
+    regForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      regError.style.display = 'none';
+      regError.textContent = '';
+
+      const name = regName.value.trim();
+      const email = regEmail.value.trim();
+      const pass = regPass.value;
+      const confirmPass = regConfirmPass.value;
+
+      if (!name || !email || !pass || !confirmPass) {
+        regError.textContent = 'All fields are required.';
+        regError.style.display = 'flex';
+        return;
+      }
+
+      if (pass.length < 6) {
+        regError.textContent = 'Password must be at least 6 characters.';
+        regError.style.display = 'flex';
+        return;
+      }
+
+      if (pass !== confirmPass) {
+        regError.textContent = 'Passwords do not match.';
+        regError.style.display = 'flex';
+        return;
+      }
+
+      regBtn.disabled = true;
+      regBtn.textContent = 'Registering account...';
+
+      const result = await Auth.register(name, email, pass);
+      if (result.ok) {
+        // Automatically log them in after successful registration
+        const loginRes = await Auth.login(email, pass);
+        if (loginRes.ok) {
+          window.location.href = 'platform.html';
+        } else {
+          toggleAuthTab('login');
+          emailEl.value = email;
+          passEl.value = pass;
+          showError('Registration complete! Please sign in using your new credentials.');
+        }
+      } else {
+        regError.textContent = result.error || 'Failed to create account.';
+        regError.style.display = 'flex';
+        regBtn.disabled = false;
+        regBtn.textContent = 'Create My Account';
+      }
+    });
   </script>
 </body>
 </html>

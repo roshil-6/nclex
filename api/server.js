@@ -40,7 +40,8 @@ async function initDb() {
         answered INT DEFAULT 0,
         correct INT DEFAULT 0,
         streak INT DEFAULT 0,
-        time_min INT DEFAULT 0
+        time_min INT DEFAULT 0,
+        active_session_token VARCHAR(255)
       );
     `);
 
@@ -63,7 +64,7 @@ async function initDb() {
       await pool.query(`
         INSERT INTO users (id, name, email, password, role, answered, correct, streak, time_min)
         VALUES 
-          ('u3', 'Juhy GCMA', 'juhygcma321', 'juhygcma321', 'admin', 0, 0, 0, 0)
+          ('u3', 'Juhy GCMA', 'juhygcma@2026', 'juhygcma321', 'admin', 0, 0, 0, 0)
         ON CONFLICT DO NOTHING;
       `);
     }
@@ -103,6 +104,10 @@ app.post('/api/auth/login', async (req, res) => {
     const user = rows[0];
     delete user.password; // Do not return pass hash
 
+    // Generate unique session token to block other devices
+    const sessionToken = 'sess-' + Math.random().toString(36).substring(2) + Date.now().toString(36);
+    await pool.query('UPDATE users SET active_session_token = $1 WHERE email = $2', [sessionToken, cleanEmail]);
+
     // Get checkmarks logs
     const progressRes = await pool.query(
       'SELECT item_key, item_type FROM user_progress WHERE user_email = $1',
@@ -119,6 +124,7 @@ app.post('/api/auth/login', async (req, res) => {
         name: user.name,
         email: user.email,
         role: user.role,
+        sessionToken,
         stats: {
           answered: user.answered,
           correct: user.correct,
@@ -135,7 +141,40 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
-// Update student performance stats
+// Register new student account
+app.post('/api/auth/register', async (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ ok: false, error: 'Name, email, and password are required.' });
+  }
+
+  const cleanEmail = email.trim().toLowerCase();
+
+  if (!pool) {
+    return res.status(503).json({ ok: false, error: 'Database offline.' });
+  }
+
+  try {
+    // Check if duplicate email
+    const checkRes = await pool.query('SELECT id FROM users WHERE email = $1', [cleanEmail]);
+    if (checkRes.rows.length > 0) {
+      return res.status(400).json({ ok: false, error: 'An account with this email already exists.' });
+    }
+
+    const userId = 'u-' + Date.now();
+    await pool.query(
+      `INSERT INTO users (id, name, email, password, role, answered, correct, streak, time_min)
+       VALUES ($1, $2, $3, $4, 'student', 0, 0, 0, 0)`,
+      [userId, name, cleanEmail, password]
+    );
+
+    return res.json({ ok: true, message: 'Account registered successfully!' });
+  } catch (err) {
+    console.error("Register API error:", err);
+    return res.status(500).json({ ok: false, error: 'Failed to write registration to database.' });
+  }
+});
+
 app.post('/api/user/stats', async (req, res) => {
   const { email, answered, correct, streak, timeMin } = req.body;
   if (!email) return res.status(400).json({ ok: false, error: 'User email is required.' });
@@ -176,6 +215,64 @@ app.post('/api/user/progress', async (req, res) => {
   } catch (err) {
     console.error("Error logging progress:", err);
     return res.status(500).json({ ok: false, error: 'Database write error.' });
+  }
+});
+
+// Change password route (validates current password first)
+app.post('/api/auth/change-password', async (req, res) => {
+  const { email, currentPassword, newPassword } = req.body;
+  if (!email || !currentPassword || !newPassword) {
+    return res.status(400).json({ ok: false, error: 'Missing parameters.' });
+  }
+
+  if (!pool) {
+    return res.status(503).json({ ok: false, error: 'Database offline.' });
+  }
+
+  const cleanEmail = email.trim().toLowerCase();
+
+  try {
+    const { rows } = await pool.query('SELECT password FROM users WHERE email = $1', [cleanEmail]);
+    if (rows.length === 0) {
+      return res.status(404).json({ ok: false, error: 'User account not found.' });
+    }
+
+    if (rows[0].password !== currentPassword) {
+      return res.status(400).json({ ok: false, error: 'Incorrect current password value.' });
+    }
+
+    await pool.query('UPDATE users SET password = $1 WHERE email = $2', [newPassword, cleanEmail]);
+    return res.json({ ok: true, message: 'Password updated successfully!' });
+  } catch (err) {
+    console.error("Change password route error:", err);
+    return res.status(500).json({ ok: false, error: 'Database update failed.' });
+  }
+});
+
+// Verify if local session token matches active database session token
+app.post('/api/auth/validate-session', async (req, res) => {
+  const { email, sessionToken } = req.body;
+  if (!email || !sessionToken) {
+    return res.status(400).json({ ok: false, error: 'Missing parameters.' });
+  }
+
+  if (!pool) return res.json({ ok: true }); // Fallback locally
+
+  try {
+    const { rows } = await pool.query(
+      'SELECT active_session_token FROM users WHERE email = $1',
+      [email.trim().toLowerCase()]
+    );
+
+    if (rows.length === 0) {
+      return res.json({ ok: false, error: 'User not found.' });
+    }
+
+    const matches = rows[0].active_session_token === sessionToken;
+    return res.json({ ok: matches });
+  } catch (err) {
+    console.error("Session verification error:", err);
+    return res.status(500).json({ ok: false, error: 'Database verification failed.' });
   }
 });
 
