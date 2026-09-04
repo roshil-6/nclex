@@ -756,7 +756,6 @@
             <div class="profile-details">
               <div class="profile-name-row">
                 <h2 class="profile-name" id="acc-name">Abhinand Antony</h2>
-                <span class="profile-tier-badge">Premium Tier</span>
               </div>
               <div class="profile-email" id="acc-email">student@gcma.com</div>
             </div>
@@ -764,7 +763,6 @@
           <div class="profile-actions">
             <button class="profile-btn" onclick="openEditProfileModal()">Edit Name</button>
             <button class="profile-btn" onclick="openChangePasswordModal()" style="border-color: var(--amber); color: var(--amber);">Change Password</button>
-            <button class="profile-btn danger-btn" onclick="openResetProgressModal()">Reset Progress</button>
           </div>
         </div>
       </div>
@@ -918,23 +916,6 @@
     </div>
   </div>
 
-  <!-- Reset Progress Modal -->
-  <div class="modal-bg" id="reset-modal-bg" onclick="closeResetModal()"></div>
-  <div class="study-modal" id="reset-modal" role="dialog" aria-modal="true" style="max-width: 400px;">
-    <div class="study-modal-header">
-      <h3 style="color: var(--red);">Reset Progress</h3>
-      <button onclick="closeResetModal()" class="modal-close-btn">✕</button>
-    </div>
-    <div class="study-modal-body" style="text-align: center;">
-      <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-2); margin-bottom: 20px;">
-        Are you sure you want to reset all your study statistics and exam attempts? This action is permanent and cannot be undone.
-      </p>
-      <div style="display: flex; gap: 10px; justify-content: center;">
-        <button class="profile-btn danger-btn" onclick="confirmResetProgress()" style="flex: 1; padding: 10px 16px; font-weight: 700;">Yes, Reset Progress</button>
-        <button class="profile-btn" onclick="closeResetModal()" style="flex: 1; padding: 10px 16px;">Cancel</button>
-      </div>
-    </div>
-  </div>
 
   <!-- ══════════════════════════════════════
        ADMIN SCREEN
@@ -958,7 +939,6 @@
             <div class="profile-details">
               <div class="profile-name-row">
                 <h2 class="profile-name" id="admin-name">Juhy GCMA</h2>
-                <span class="profile-tier-badge" style="background: rgba(217,119,6,0.1); color: var(--amber);">Administrator</span>
               </div>
               <div class="profile-email" id="admin-email">juhygcma@2026</div>
             </div>
@@ -2783,38 +2763,6 @@ function saveProfileName() {
     toast('Profile updated successfully!', 'success');
     closeEditModal();
     initAccountScreen();
-  }
-}
-
-function openResetProgressModal() {
-  document.getElementById('reset-modal-bg').classList.add('open');
-  document.getElementById('reset-modal').classList.add('open');
-}
-
-function closeResetModal() {
-  document.getElementById('reset-modal-bg').classList.remove('open');
-  document.getElementById('reset-modal').classList.remove('open');
-}
-
-function confirmResetProgress() {
-  const user = Auth.getUser();
-  if (user) {
-    user.stats = { answered: 0, correct: 0, streak: 0, timeMin: 0 };
-    Auth.saveUser(user);
-    localStorage.removeItem('np_attempts');
-    localStorage.removeItem('gcma_class_notes');
-
-    toast('Your statistics and progress have been reset.', 'success');
-    closeResetModal();
-    
-    set('qs-answered', 0);
-    set('qs-correct', '—');
-    set('qs-streak', 0);
-    set('qs-time', '0 min');
-    
-    initAccountScreen();
-    const textarea = document.getElementById('class-notes-textarea');
-    if (textarea) textarea.value = '';
   }
 }
 
