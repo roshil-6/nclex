@@ -970,6 +970,31 @@
       </div>
     </div>
 
+    <!-- Master Users List (Admin only) -->
+    <div class="account-layout" style="margin-bottom: 32px;">
+      <div class="content-card" style="width: 100%; padding: 24px;">
+        <h3 style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px;">
+          All Registered Users
+        </h3>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;" id="admin-master-users-table">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border); color: var(--text-3); text-transform: uppercase;">
+                <th style="padding: 12px 8px;">Role</th>
+                <th style="padding: 12px 8px;">Name</th>
+                <th style="padding: 12px 8px;">Email</th>
+                <th style="padding: 12px 8px;">Questions Answered</th>
+                <th style="padding: 12px 8px;">Session Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-master-users-tbody">
+              <tr><td colspan="5" style="padding: 20px; text-align: center; color: var(--text-2);">Loading users...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <div class="classes-layout">
       <!-- Add New Class Form -->
       <div class="content-card" style="padding: 32px 36px;">
@@ -2137,6 +2162,7 @@ function playLecture(key) {
 // ── Admin Panel Logic ──
 function initAdminScreen() {
   renderAdminActiveList();
+  populateMasterUsersList();
   populateStudentTracker();
 }
 
@@ -2470,6 +2496,40 @@ async function populateStudentTracker() {
       </div>
     `;
   }).join('');
+}
+
+async function populateMasterUsersList() {
+  const tbody = document.getElementById('admin-master-users-tbody');
+  if (!tbody) return;
+
+  try {
+    const res = await fetch('/api/admin/users');
+    const data = await res.json();
+    
+    if (data.ok && data.users && data.users.length > 0) {
+      tbody.innerHTML = data.users.map(u => {
+        const isOnline = u.active_session_token ? '<span style="color:var(--green); font-weight:700;">Active</span>' : '<span style="color:var(--text-3);">Offline</span>';
+        const roleBadge = u.role === 'admin' 
+          ? '<span style="background:rgba(217,119,6,0.1); color:var(--amber); padding:2px 6px; border-radius:4px; font-weight:700; font-size:0.75rem;">ADMIN</span>'
+          : '<span style="background:var(--slate-2); color:var(--text-2); padding:2px 6px; border-radius:4px; font-weight:700; font-size:0.75rem;">STUDENT</span>';
+          
+        return `
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 12px 8px;">${roleBadge}</td>
+            <td style="padding: 12px 8px; font-weight:600; color:var(--text);">${u.name}</td>
+            <td style="padding: 12px 8px; color:var(--text-2);">${u.email}</td>
+            <td style="padding: 12px 8px; font-weight:600;">${u.role === 'admin' ? '—' : (u.answered || 0)}</td>
+            <td style="padding: 12px 8px;">${isOnline}</td>
+          </tr>
+        `;
+      }).join('');
+    } else {
+      tbody.innerHTML = '<tr><td colspan="5" style="padding: 20px; text-align: center; color: var(--text-2);">No users found.</td></tr>';
+    }
+  } catch (e) {
+    console.warn("Failed to fetch master users list.", e);
+    tbody.innerHTML = '<tr><td colspan="5" style="padding: 20px; text-align: center; color: var(--text-2);">Database connection offline.</td></tr>';
+  }
 }
 
 function inspectStudent(email) {
