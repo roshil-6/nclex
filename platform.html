@@ -949,6 +949,27 @@
       <div class="diamond-sep-inner"></div>
     </div>
 
+    <!-- Admin Profile Overview -->
+    <div class="account-layout" style="margin-bottom: 32px;">
+      <div class="content-card profile-card" style="width: 100%;">
+        <div class="profile-card-inner">
+          <div class="profile-info">
+            <div class="profile-avatar-wrap" id="admin-avatar">JG</div>
+            <div class="profile-details">
+              <div class="profile-name-row">
+                <h2 class="profile-name" id="admin-name">Juhy GCMA</h2>
+                <span class="profile-tier-badge" style="background: rgba(217,119,6,0.1); color: var(--amber);">Administrator</span>
+              </div>
+              <div class="profile-email" id="admin-email">juhygcma@2026</div>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="profile-btn" onclick="openChangePasswordModal()" style="border-color: var(--amber); color: var(--amber);">Change Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="classes-layout">
       <!-- Add New Class Form -->
       <div class="content-card" style="padding: 32px 36px;">
@@ -1249,6 +1270,20 @@
   
   if (accPerfDashboard && isAdmin) {
     accPerfDashboard.style.setProperty('display', 'none', 'important');
+  }
+
+  const accountTabBtn = document.getElementById('tab-account');
+  if (isAdmin) {
+    if (accountTabBtn) accountTabBtn.style.setProperty('display', 'none', 'important');
+    // Populate admin profile card
+    set('admin-name', user.name);
+    set('admin-email', user.email);
+    if (user.name) {
+      const parts = user.name.split(' ');
+      let inits = parts[0].charAt(0).toUpperCase();
+      if (parts.length > 1) inits += parts[parts.length-1].charAt(0).toUpperCase();
+      set('admin-avatar', inits);
+    }
   }
 
   // Load user stats into QBank dashboard
