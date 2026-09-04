@@ -283,6 +283,22 @@ app.post('/api/auth/validate-session', async (req, res) => {
   }
 });
 
+// Fetch all registered users for admin portal
+app.get('/api/admin/users', async (req, res) => {
+  if (!pool) {
+    return res.json({ ok: false, error: 'Database offline.' });
+  }
+  try {
+    const { rows } = await pool.query(
+      'SELECT id, name, email, role, answered, correct, active_session_token FROM users ORDER BY role ASC, name ASC'
+    );
+    return res.json({ ok: true, users: rows });
+  } catch (err) {
+    console.error("Error fetching users:", err);
+    return res.status(500).json({ ok: false, error: 'Failed to fetch users' });
+  }
+});
+
 // Fetch all registered students (Admin portal metric)
 app.get('/api/admin/students', async (req, res) => {
   if (!pool) {

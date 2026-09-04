@@ -756,7 +756,6 @@
             <div class="profile-details">
               <div class="profile-name-row">
                 <h2 class="profile-name" id="acc-name">Abhinand Antony</h2>
-                <span class="profile-tier-badge">Premium Tier</span>
               </div>
               <div class="profile-email" id="acc-email">student@gcma.com</div>
             </div>
@@ -764,13 +763,12 @@
           <div class="profile-actions">
             <button class="profile-btn" onclick="openEditProfileModal()">Edit Name</button>
             <button class="profile-btn" onclick="openChangePasswordModal()" style="border-color: var(--amber); color: var(--amber);">Change Password</button>
-            <button class="profile-btn danger-btn" onclick="openResetProgressModal()">Reset Progress</button>
           </div>
         </div>
       </div>
 
       <!-- Performance Dashboard -->
-      <div class="content-card">
+      <div class="content-card" id="acc-performance-dashboard">
         <h3 style="font-family: var(--font-head); font-size: 0.92rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 18px;">
           Performance Dashboard
         </h3>
@@ -918,23 +916,6 @@
     </div>
   </div>
 
-  <!-- Reset Progress Modal -->
-  <div class="modal-bg" id="reset-modal-bg" onclick="closeResetModal()"></div>
-  <div class="study-modal" id="reset-modal" role="dialog" aria-modal="true" style="max-width: 400px;">
-    <div class="study-modal-header">
-      <h3 style="color: var(--red);">Reset Progress</h3>
-      <button onclick="closeResetModal()" class="modal-close-btn">✕</button>
-    </div>
-    <div class="study-modal-body" style="text-align: center;">
-      <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-2); margin-bottom: 20px;">
-        Are you sure you want to reset all your study statistics and exam attempts? This action is permanent and cannot be undone.
-      </p>
-      <div style="display: flex; gap: 10px; justify-content: center;">
-        <button class="profile-btn danger-btn" onclick="confirmResetProgress()" style="flex: 1; padding: 10px 16px; font-weight: 700;">Yes, Reset Progress</button>
-        <button class="profile-btn" onclick="closeResetModal()" style="flex: 1; padding: 10px 16px;">Cancel</button>
-      </div>
-    </div>
-  </div>
 
   <!-- ══════════════════════════════════════
        ADMIN SCREEN
@@ -947,6 +928,51 @@
     </div>
     <div class="diamond-sep">
       <div class="diamond-sep-inner"></div>
+    </div>
+
+    <!-- Admin Profile Overview -->
+    <div class="account-layout" style="margin-bottom: 32px;">
+      <div class="content-card profile-card" style="width: 100%;">
+        <div class="profile-card-inner">
+          <div class="profile-info">
+            <div class="profile-avatar-wrap" id="admin-avatar">JG</div>
+            <div class="profile-details">
+              <div class="profile-name-row">
+                <h2 class="profile-name" id="admin-name">Juhy GCMA</h2>
+              </div>
+              <div class="profile-email" id="admin-email">juhygcma@2026</div>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="profile-btn" onclick="openChangePasswordModal()" style="border-color: var(--amber); color: var(--amber);">Change Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Master Users List (Admin only) -->
+    <div class="account-layout" style="margin-bottom: 32px;">
+      <div class="content-card" style="width: 100%; padding: 24px;">
+        <h3 style="font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px;">
+          All Registered Users
+        </h3>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;" id="admin-master-users-table">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border); color: var(--text-3); text-transform: uppercase;">
+                <th style="padding: 12px 8px;">Role</th>
+                <th style="padding: 12px 8px;">Name</th>
+                <th style="padding: 12px 8px;">Email</th>
+                <th style="padding: 12px 8px;">Questions Answered</th>
+                <th style="padding: 12px 8px;">Session Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-master-users-tbody">
+              <tr><td colspan="5" style="padding: 20px; text-align: center; color: var(--text-2);">Loading users...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <div class="classes-layout">
@@ -1234,13 +1260,34 @@
   const user = Auth.getUser();
   if (!user) { window.location.href = 'login.html'; return; }
   
-  // Hide Admin Panel navigation tab if user is a student
+  // Admin specific UI adjustments
   const adminTabBtn = document.getElementById('tab-admin');
+  const accPerfDashboard = document.getElementById('acc-performance-dashboard');
+  const isAdmin = (user.role && user.role.trim().toLowerCase() === 'admin');
+  
   if (adminTabBtn) {
-    if (user.role !== 'admin') {
+    if (!isAdmin) {
       adminTabBtn.style.display = 'none';
     } else {
-      adminTabBtn.style.display = 'inline-flex';
+      adminTabBtn.style.setProperty('display', 'inline-flex', 'important');
+    }
+  }
+  
+  if (accPerfDashboard && isAdmin) {
+    accPerfDashboard.style.setProperty('display', 'none', 'important');
+  }
+
+  const accountTabBtn = document.getElementById('tab-account');
+  if (isAdmin) {
+    if (accountTabBtn) accountTabBtn.style.setProperty('display', 'none', 'important');
+    // Populate admin profile card
+    set('admin-name', user.name);
+    set('admin-email', user.email);
+    if (user.name) {
+      const parts = user.name.split(' ');
+      let inits = parts[0].charAt(0).toUpperCase();
+      if (parts.length > 1) inits += parts[parts.length-1].charAt(0).toUpperCase();
+      set('admin-avatar', inits);
     }
   }
 
@@ -2095,6 +2142,7 @@ function playLecture(key) {
 // ── Admin Panel Logic ──
 function initAdminScreen() {
   renderAdminActiveList();
+  populateMasterUsersList();
   populateStudentTracker();
 }
 
@@ -2430,6 +2478,40 @@ async function populateStudentTracker() {
   }).join('');
 }
 
+async function populateMasterUsersList() {
+  const tbody = document.getElementById('admin-master-users-tbody');
+  if (!tbody) return;
+
+  try {
+    const res = await fetch('/api/admin/users');
+    const data = await res.json();
+    
+    if (data.ok && data.users && data.users.length > 0) {
+      tbody.innerHTML = data.users.map(u => {
+        const isOnline = u.active_session_token ? '<span style="color:var(--green); font-weight:700;">Active</span>' : '<span style="color:var(--text-3);">Offline</span>';
+        const roleBadge = u.role === 'admin' 
+          ? '<span style="background:rgba(217,119,6,0.1); color:var(--amber); padding:2px 6px; border-radius:4px; font-weight:700; font-size:0.75rem;">ADMIN</span>'
+          : '<span style="background:var(--slate-2); color:var(--text-2); padding:2px 6px; border-radius:4px; font-weight:700; font-size:0.75rem;">STUDENT</span>';
+          
+        return `
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 12px 8px;">${roleBadge}</td>
+            <td style="padding: 12px 8px; font-weight:600; color:var(--text);">${u.name}</td>
+            <td style="padding: 12px 8px; color:var(--text-2);">${u.email}</td>
+            <td style="padding: 12px 8px; font-weight:600;">${u.role === 'admin' ? '—' : (u.answered || 0)}</td>
+            <td style="padding: 12px 8px;">${isOnline}</td>
+          </tr>
+        `;
+      }).join('');
+    } else {
+      tbody.innerHTML = '<tr><td colspan="5" style="padding: 20px; text-align: center; color: var(--text-2);">No users found.</td></tr>';
+    }
+  } catch (e) {
+    console.warn("Failed to fetch master users list.", e);
+    tbody.innerHTML = '<tr><td colspan="5" style="padding: 20px; text-align: center; color: var(--text-2);">Database connection offline.</td></tr>';
+  }
+}
+
 function inspectStudent(email) {
   const student = dynamicStudentsList.find(s => s.email === email);
   if (!student) return;
@@ -2681,38 +2763,6 @@ function saveProfileName() {
     toast('Profile updated successfully!', 'success');
     closeEditModal();
     initAccountScreen();
-  }
-}
-
-function openResetProgressModal() {
-  document.getElementById('reset-modal-bg').classList.add('open');
-  document.getElementById('reset-modal').classList.add('open');
-}
-
-function closeResetModal() {
-  document.getElementById('reset-modal-bg').classList.remove('open');
-  document.getElementById('reset-modal').classList.remove('open');
-}
-
-function confirmResetProgress() {
-  const user = Auth.getUser();
-  if (user) {
-    user.stats = { answered: 0, correct: 0, streak: 0, timeMin: 0 };
-    Auth.saveUser(user);
-    localStorage.removeItem('np_attempts');
-    localStorage.removeItem('gcma_class_notes');
-
-    toast('Your statistics and progress have been reset.', 'success');
-    closeResetModal();
-    
-    set('qs-answered', 0);
-    set('qs-correct', '—');
-    set('qs-streak', 0);
-    set('qs-time', '0 min');
-    
-    initAccountScreen();
-    const textarea = document.getElementById('class-notes-textarea');
-    if (textarea) textarea.value = '';
   }
 }
 
