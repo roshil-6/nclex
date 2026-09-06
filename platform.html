@@ -1272,7 +1272,7 @@
 // ── Auth guard ──
 (function() {
   const user = Auth.getUser();
-  if (!user) { window.location.href = 'login.html'; return; }
+  if (!user) { window.location.href = 'index.html'; return; }
   
   // Admin specific UI adjustments
   const adminTabBtn = document.getElementById('tab-admin');
@@ -1325,7 +1325,7 @@
         if (data.ok === false) {
           Auth.logout();
           alert('You have been logged out because this account was logged into on another device.');
-          window.location.href = 'login.html';
+          window.location.href = 'index.html';
         }
       } catch (e) {
         console.warn("Session check offline.");
@@ -1754,7 +1754,7 @@ function toggleCalc() {
 }
 
 // ── Logout ──
-function handleLogout() { Auth.logout(); window.location.href = 'login.html'; }
+function handleLogout() { Auth.logout(); window.location.href = 'index.html'; }
 
 // ── Toast ──
 function toast(msg, type='info') {
