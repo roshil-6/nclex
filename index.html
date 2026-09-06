@@ -183,7 +183,7 @@
   <script src="js/auth.js"></script>
   <script>
     // Already logged in → go to platform
-    Auth.redirectIfAuthed('platform.html');
+    Auth.redirectIfAuthed('platform.html#qbank');
 
     // Check if sign-up tab is requested via query parameter
     const urlParams = new URLSearchParams(window.location.search);
@@ -240,7 +240,7 @@
         const result = await Auth.login(email, pass);
         if (result.ok) {
           loginBtn.textContent = 'Redirecting…';
-          window.location.href = 'platform.html';
+          window.location.href = 'platform.html#qbank';
         } else {
           showError(result.error);
           loginBtn.disabled = false;
@@ -317,7 +317,7 @@
         // Automatically log them in after successful registration
         const loginRes = await Auth.login(email, pass);
         if (loginRes.ok) {
-          window.location.href = 'platform.html';
+          window.location.href = 'platform.html#qbank';
         } else {
           toggleAuthTab('login');
           emailEl.value = email;

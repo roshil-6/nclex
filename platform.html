@@ -1385,8 +1385,12 @@ window.addEventListener('hashchange', () => {
 });
 // Trigger navigation setup on load
 setTimeout(() => {
-  const hash = window.location.hash.substring(1);
-  if (TABS.includes(hash)) navigate(hash);
+  let hash = window.location.hash.substring(1);
+  if (!TABS.includes(hash)) {
+    hash = 'qbank';
+    window.location.hash = 'qbank';
+  }
+  navigate(hash);
 }, 20);
 
 // ── Accordion ──

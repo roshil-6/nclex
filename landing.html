@@ -28,7 +28,7 @@
         <a href="index.html#about"    class="topnav-link">About</a>
         <a href="index.html#features" class="topnav-link">Features</a>
         <a href="platform.html#classes"   class="topnav-link">Classes</a>
-        <a href="platform.html#introduction" class="topnav-link">Dashboard</a>
+        <a href="platform.html#qbank" class="topnav-link">Dashboard</a>
       </div>
       <div class="topnav-right" style="display: flex; align-items: center; gap: 8px;">
         <a href="login.html" class="btn btn-outline btn-sm" id="nav-login-btn">Sign In</a>
@@ -364,7 +364,7 @@
           </div>
           <div class="footer-col">
             <h5>Platform</h5>
-            <a href="platform.html#introduction">Dashboard</a>
+            <a href="platform.html#qbank">Dashboard</a>
             <a href="platform.html#classes">Video Classes</a>
             <a href="platform.html#qbank">Practice Quiz</a>
             <a href="review.html">Review Sessions</a>
@@ -400,9 +400,9 @@
     const user = Auth.getUser();
     if (user) {
       document.getElementById('nav-login-btn').textContent = 'Dashboard';
-      document.getElementById('nav-login-btn').href = 'platform.html#introduction';
+      document.getElementById('nav-login-btn').href = 'platform.html#qbank';
       document.getElementById('nav-cta-btn').textContent = user.name.split(' ')[0];
-      document.getElementById('nav-cta-btn').href = 'platform.html#introduction';
+      document.getElementById('nav-cta-btn').href = 'platform.html#qbank';
     }
 
     // Hamburger
@@ -429,7 +429,7 @@
       const password = document.getElementById('hero-password').value;
       const result = await Auth.login(email, password);
       if (result.ok) {
-        window.location.href = 'platform.html#introduction';
+        window.location.href = 'platform.html#qbank';
       } else {
         alert(result.error || 'Invalid credentials. Please verify your email and password.');
       }
