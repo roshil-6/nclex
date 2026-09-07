@@ -2,6 +2,8 @@
 
 const DEMO_USERS = [
   { id: 'u3', name: 'Juhy GCMA',   email: 'juhygcma@2026',   password: 'juhygcma2026', role: 'admin',
+    stats: { answered: 0,  correct: 0,  streak: 0, timeMin: 0   } },
+  { id: 'test', name: 'Test User', email: 'test@example.com', password: 'password123', role: 'student',
     stats: { answered: 0,  correct: 0,  streak: 0, timeMin: 0   } }
 ];
 
@@ -124,12 +126,9 @@ const Auth = {
 // ── Theme Manager ──
 const Theme = {
   init() {
-    const currentTheme = localStorage.getItem('gcma_theme') || 'dark'; // DEFAULT TO DARK!
-    if (currentTheme === 'dark') {
-      document.documentElement.classList.add('dark-theme');
-    } else {
-      document.documentElement.classList.remove('dark-theme');
-    }
+    localStorage.setItem('gcma_theme', 'light'); // Force light theme
+    document.documentElement.classList.remove('dark-theme');
+    
     // Set a listener to ensure theme icons update when DOM is ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.updateIcons());
